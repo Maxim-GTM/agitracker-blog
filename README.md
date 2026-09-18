@@ -54,13 +54,15 @@ Requires Node 22.12 or newer.
 
 ## Deploy (Cloudflare)
 
-Connect this repo in the Cloudflare dashboard (Workers & Pages → Create → Import a repository) with:
+The site deploys to Cloudflare Workers as static files, using `wrangler.jsonc`. In the Cloudflare project settings, use:
 
 - **Build command:** `npm run build`
-- **Build output directory:** `dist`
+- **Deploy command:** `npx wrangler deploy`
 - **Node version:** 22 (picked up from `.nvmrc`)
 
-Every push to `main` then rebuilds and publishes the site. Add `agitracker.io` under the project's custom domains. `public/_headers` sets long-lived caching for hashed assets and a few security headers.
+Every push to `main` then rebuilds and publishes the site. Add `agitracker.io` under the Worker's custom domains. `public/_headers` sets long-lived caching for hashed assets and a few security headers.
+
+Keep `wrangler.jsonc` in the repo. Without it, Wrangler auto-configures the project by adding the `@astrojs/cloudflare` server adapter, which breaks the build: the social-image generator needs `sharp`, which can't run inside Cloudflare's runtime. This site doesn't need a server.
 
 ## Configure
 

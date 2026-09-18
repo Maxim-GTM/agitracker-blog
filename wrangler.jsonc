@@ -1,0 +1,12 @@
+// Deploys the static build in dist/ as Cloudflare Workers static assets.
+// No adapter or server code: Astro prerenders every page at build time.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "agitracker-blog",
+  "compatibility_date": "2026-09-18",
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}
