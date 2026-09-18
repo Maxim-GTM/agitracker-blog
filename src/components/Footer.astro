@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets';
+import wordmark from '../assets/brand/title.png';
+import { NAV, SITE } from '../site.config';
+import { collectTags, getPosts } from '../lib/posts';
+
+const topics = collectTags(await getPosts()).slice(0, 6);
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-brand">
+      <Image src={wordmark} width={220} densities={[1, 2]} alt="agitracker.io" loading="lazy" />
+      <p>{SITE.description}</p>
+    </div>
+    <nav aria-labelledby="footer-site">
+      <h2 id="footer-site">Site</h2>
+      <ul role="list">
+        <li><a href="/">Home</a></li>
+        {NAV.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+        <li><a href="/rss.xml">RSS feed</a></li>
+        <li><a href="/sitemap-index.xml">Sitemap</a></li>
+      </ul>
+    </nav>
+    <nav aria-labelledby="footer-topics">
+      <h2 id="footer-topics">Popular topics</h2>
+      <ul role="list">
+        {topics.map((t) => <li><a href={`/tags/${t.slug}/`}>{t.name}</a></li>)}
+      </ul>
+    </nav>
+    <div class="footer-base">
+      <span>&copy; {year} {SITE.name}</span>
+      <span>Independent analysis. Not investment advice.</span>
+    </div>
+  </div>
+</footer>

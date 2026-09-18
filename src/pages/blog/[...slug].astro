@@ -1,0 +1,400 @@
+---
+import { Image } from 'astro:assets';
+import { render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import TagChip from '../../components/TagChip.astro';
+import Toc from '../../components/Toc.astro';
+import ShareLinks from '../../components/ShareLinks.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getAuthor } from '../../data/authors';
+import { SITE } from '../../site.config';
+import { formatDate, getPosts, ogImageUrl, postUrl, readingTime, relatedPosts, type Post } from '../../lib/posts';
+import { blogPosting, breadcrumbs, faqPage } from '../../lib/schema';
+import '../../styles/prose.css';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post, i) => ({
+    params: { slug: post.id },
+    props: { post, newer: posts[i - 1], older: posts[i + 1], all: posts },
+  }));
+}
+
+interface Props {
+  post: Post;
+  newer?: Post;
+  older?: Post;
+  all: Post[];
+}
+
+const { post, newer, older, all } = Astro.props;
+const { Content, headings } = await render(post);
+const { title, description, pubDate, updatedDate, tags, cover, coverAlt, faq } = post.data;
+const author = getAuthor(post.data.author);
+const authorUrl = `/authors/${post.data.author}/`;
+const url = postUrl(post);
+const { words, minutes } = readingTime(post.body);
+const related = relatedPosts(post, all);
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Articles', url: '/blog/' },
+  { name: title, url },
+];
+
+const schema = [
+  blogPosting({
+    url,
+    title,
+    description,
+    image: ogImageUrl(post),
+    published: pubDate,
+    modified: updatedDate,
+    author,
+    authorUrl,
+    tags,
+    words,
+  }),
+  breadcrumbs(crumbs),
+  ...(faq?.length ? [faqPage(faq)] : []),
+];
+---
+
+<BaseLayout
+  title={post.data.seoTitle ?? title}
+  description={description}
+  image={ogImageUrl(post)}
+  imageAlt={title}
+  type="article"
+  canonical={post.data.canonical}
+  noindex={post.data.noindex || post.data.draft}
+  article={{ published: pubDate, modified: updatedDate, author: author.name, tags }}
+  schema={schema}
+>
+  <article class="post">
+    <header class="post-header wrap">
+      <Breadcrumbs items={crumbs} />
+      {post.data.draft && <p class="draft-flag cut cut--sm fill-rose">Draft: only visible in dev</p>}
+      {
+        tags.length > 0 && (
+          <ul class="post-tags" role="list" aria-label="Topics">
+            {tags.map((t) => (
+              <li>
+                <TagChip tag={t} />
+              </li>
+            ))}
+          </ul>
+        )
+      }
+      <h1>{title}</h1>
+      <p class="post-dek">{description}</p>
+      <div class="post-meta">
+        <p>
+          <span class="meta-k">By</span>
+          <a href={authorUrl} rel="author">{author.name}</a>
+        </p>
+        <p>
+          <span class="meta-k">Published</span>
+          <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+        </p>
+        {
+          updatedDate && (
+            <p>
+              <span class="meta-k">Updated</span>
+              <time datetime={updatedDate.toISOString()}>{formatDate(updatedDate)}</time>
+            </p>
+          )
+        }
+        <p>
+          <span class="meta-k">Reading time</span>
+          {minutes} min
+        </p>
+      </div>
+    </header>
+
+    {
+      cover && (
+        <figure class="post-cover wrap">
+          <Image
+            src={cover}
+            alt={coverAlt ?? ''}
+            widths={[640, 960, 1280, 1600]}
+            sizes="(min-width: 1240px) 1240px, 100vw"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </figure>
+      )
+    }
+
+    <div class="post-layout wrap">
+      <aside class="post-aside">
+        <Toc headings={headings} />
+      </aside>
+      <div class="post-main">
+        <div class="prose">
+          <Content />
+        </div>
+
+        {
+          faq && faq.length > 0 && (
+            <section class="faq" aria-labelledby="faq-title">
+              <h2 id="faq-title">Frequently asked questions</h2>
+              {faq.map(({ q, a }) => (
+                <details class="faq-item">
+                  <summary>{q}</summary>
+                  <p>{a}</p>
+                </details>
+              ))}
+            </section>
+          )
+        }
+
+        <footer class="post-footer">
+          <ShareLinks url={new URL(url, SITE.url).href} title={title} />
+          <AuthorBox author={author} url={authorUrl} />
+          {
+            (newer || older) && (
+              <nav class="pager" aria-label="More articles">
+                {older ? (
+                  <a class="pager-link cut press fill-paper" href={postUrl(older)} rel="prev">
+                    <span class="pager-k">Older</span>
+                    <span class="pager-t">{older.data.title}</span>
+                  </a>
+                ) : (
+                  <span />
+                )}
+                {newer && (
+                  <a class="pager-link pager-next cut press fill-paper" href={postUrl(newer)} rel="next">
+                    <span class="pager-k">Newer</span>
+                    <span class="pager-t">{newer.data.title}</span>
+                  </a>
+                )}
+              </nav>
+            )
+          }
+        </footer>
+      </div>
+    </div>
+  </article>
+
+  {
+    related.length > 0 && (
+      <section class="section wrap" aria-labelledby="related-title">
+        <div class="section-head">
+          <h2 class="section-title" id="related-title">Keep reading</h2>
+          <a class="btn btn--sm cut cut--sm press fill-paper" href="/blog/">
+            All articles
+          </a>
+        </div>
+        <div class="related-grid">
+          {related.map((p) => (
+            <PostCard post={p} />
+          ))}
+        </div>
+      </section>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .post-header {
+    padding-block: clamp(2rem, 4vw, 3rem) clamp(2rem, 4vw, 3rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+  }
+  .post-header h1 {
+    font-size: var(--step-5);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    max-width: 22ch;
+  }
+  .post-dek {
+    font-size: var(--step-1);
+    line-height: 1.45;
+    max-width: 52ch;
+    color: #26231f;
+  }
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    border: var(--bw) solid var(--ink);
+    background: var(--paper);
+    width: fit-content;
+    max-width: 100%;
+    margin-top: 0.5rem;
+  }
+  .post-meta p {
+    padding: 0.55rem 1.1rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+  }
+  .post-meta p + p {
+    border-left: var(--bw) solid var(--ink);
+  }
+  .post-meta a {
+    text-decoration-color: var(--signal-deep);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+  .meta-k {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .draft-flag {
+    width: fit-content;
+    padding: 0.3rem 0.8rem;
+    font-weight: 700;
+  }
+
+  .post-cover {
+    margin-block: 0 clamp(2rem, 4vw, 3rem);
+  }
+  .post-cover img {
+    width: 100%;
+    border: var(--bw) solid var(--ink);
+    box-shadow: 8px 8px 0 var(--ink);
+    aspect-ratio: 2 / 1;
+    object-fit: cover;
+  }
+
+  .post-layout {
+    display: grid;
+    grid-template-columns: minmax(0, var(--measure)) minmax(15rem, 19rem);
+    justify-content: space-between;
+    gap: clamp(2rem, 5vw, 5rem);
+  }
+  .post-aside {
+    order: 2;
+  }
+  .post-aside :global(.toc) {
+    position: sticky;
+    top: 1.5rem;
+  }
+  .post-main {
+    min-width: 0;
+  }
+
+  .faq {
+    margin-top: 3.5rem;
+    max-width: var(--measure);
+    display: grid;
+    gap: 0.9rem;
+  }
+  .faq h2 {
+    font-size: var(--step-3);
+    font-weight: 800;
+    margin-bottom: 0.6rem;
+  }
+  .faq-item {
+    border: var(--bw) solid var(--ink);
+    background: var(--paper);
+  }
+  .faq-item summary {
+    padding: 0.9rem 1.2rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--step-0);
+    cursor: pointer;
+  }
+  .faq-item[open] summary {
+    background: var(--signal);
+    border-bottom: var(--bw) solid var(--ink);
+  }
+  .faq-item p {
+    padding: 1rem 1.2rem 1.2rem;
+  }
+
+  .post-footer {
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: var(--bw) solid var(--ink);
+    display: grid;
+    gap: 2.5rem;
+    max-width: var(--measure);
+  }
+  .pager {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .pager-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1.1rem 1.3rem;
+    text-decoration: none;
+  }
+  .pager-next {
+    text-align: right;
+    grid-column: 2;
+  }
+  .pager-k {
+    font-size: var(--step--1);
+    color: var(--muted);
+    font-weight: 700;
+  }
+  .pager-t {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+    gap: 2rem;
+  }
+
+  @media (max-width: 1080px) {
+    .post-layout {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .post-aside {
+      order: 0;
+      max-width: var(--measure);
+    }
+    .post-aside :global(.toc) {
+      position: static;
+    }
+  }
+  @media (max-width: 640px) {
+    .post-meta {
+      width: 100%;
+    }
+    .post-meta p {
+      flex: 1 1 0;
+    }
+    .post-meta p:first-child {
+      flex-basis: 100%;
+      flex-direction: row;
+      gap: 0.5rem;
+      align-items: baseline;
+      border-bottom: var(--bw) solid var(--ink);
+    }
+    .post-meta p:nth-child(2) {
+      border-left: 0;
+    }
+    .pager {
+      grid-template-columns: 1fr;
+    }
+    .pager-next {
+      grid-column: 1;
+      text-align: left;
+    }
+  }
+</style>

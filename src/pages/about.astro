@@ -1,0 +1,89 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import combined from '../assets/brand/combined.png';
+import { SITE } from '../site.config';
+import { breadcrumbs } from '../lib/schema';
+import '../styles/prose.css';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'About', url: '/about/' },
+];
+const description =
+  'What agitracker.io tracks, how we decide what counts as real progress toward AGI, and how to reach the editors.';
+---
+
+<BaseLayout
+  title="About"
+  description={description}
+  schema={[
+    { '@type': 'AboutPage', url: `${SITE.url}/about/`, name: 'About agitracker.io', description },
+    breadcrumbs(crumbs),
+  ]}
+>
+  <header class="page-hero wrap">
+    <Breadcrumbs items={crumbs} />
+    <h1>About agitracker.io</h1>
+    <p>An independent, plain-language record of how close AI systems are getting to general intelligence.</p>
+  </header>
+
+  <div class="about wrap section">
+    <div class="prose">
+      <h2 id="what-we-track">What we track</h2>
+      <p>
+        Headlines about artificial general intelligence swing between “any day now” and “never”. We keep a steadier
+        record: which capabilities improved, how the improvement was measured, and what it does and doesn’t tell you.
+      </p>
+      <ul>
+        <li><strong>Benchmarks</strong>: what a score means, and when a test has stopped being useful.</li>
+        <li><strong>Model releases</strong>: what changed compared with the previous generation.</li>
+        <li><strong>Compute and cost</strong>: the inputs behind the progress.</li>
+        <li><strong>Forecasts</strong>: what researchers and forecasters expect, and how that has shifted.</li>
+      </ul>
+      <h2 id="how-we-work">How we work</h2>
+      <p>
+        Every claim links to its source. When a number is contested, we say so. When we get something wrong, we fix
+        it and mark the article as updated with the date.
+      </p>
+      <h2 id="follow-along">Follow along</h2>
+      <p>
+        New articles land in the <a href="/rss.xml">RSS feed</a> the moment they are published. Every article is
+        also listed on the <a href="/blog/">archive page</a> and grouped by <a href="/tags/">topic</a>.
+      </p>
+    </div>
+    <div class="about-mark cut fill-paper" aria-hidden="true">
+      <Image src={combined} width={420} densities={[1, 2]} alt="" loading="lazy" />
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .about {
+    display: grid;
+    grid-template-columns: minmax(0, var(--measure)) minmax(0, 22rem);
+    justify-content: space-between;
+    gap: 3rem;
+    align-items: start;
+  }
+  .about .prose > h2:first-child {
+    margin-top: 0;
+  }
+  .about-mark {
+    --c: 28px;
+    --sx: 10px;
+    --sy: 10px;
+    padding: 1.5rem;
+    rotate: -2deg;
+  }
+  @media (max-width: 900px) {
+    .about {
+      grid-template-columns: 1fr;
+    }
+    .about-mark {
+      order: -1;
+      max-width: 16rem;
+    }
+  }
+</style>

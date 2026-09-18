@@ -1,0 +1,119 @@
+/* Long-form article typography. Everything Markdown can produce is styled here. */
+
+.prose {
+  font-size: 1.15rem;
+  line-height: 1.72;
+  max-width: var(--measure);
+  overflow-wrap: break-word;
+}
+.prose > * + * { margin-top: 1.35em; }
+
+.prose h2, .prose h3, .prose h4 { position: relative; scroll-margin-top: 1.5rem; }
+.prose h2 {
+  font-size: var(--step-3);
+  font-weight: 800;
+  margin-top: 1.5em;
+  padding-top: 0.7em;
+  border-top: var(--bw) solid var(--ink);
+}
+.prose h3 { font-size: var(--step-2); font-weight: 700; margin-top: 1.4em; }
+.prose h4 { font-size: var(--step-1); font-weight: 700; margin-top: 1.3em; }
+.prose h2 + *, .prose h3 + *, .prose h4 + * { margin-top: 0.7em; }
+
+.prose .heading-anchor {
+  margin-left: 0.4em;
+  text-decoration: none;
+  color: var(--signal-deep);
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+.prose :is(h2, h3, h4):hover .heading-anchor { opacity: 1; }
+
+.prose a:not(.heading-anchor) {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--signal-deep);
+  text-underline-offset: 3px;
+  font-weight: 700;
+}
+.prose a:not(.heading-anchor):hover { background: var(--signal); text-decoration-color: var(--ink); }
+
+.prose strong { font-weight: 700; }
+.prose mark { background: var(--signal); padding: 0 0.15em; }
+
+.prose ul, .prose ol { padding-left: 1.4em; }
+.prose li + li { margin-top: 0.45em; }
+.prose li::marker { font-family: var(--font-display); font-weight: 800; }
+.prose ul > li::marker { content: '\25A0\00a0\00a0'; color: var(--ink); font-size: 0.8em; }
+.prose li > ul, .prose li > ol { margin-top: 0.45em; }
+.prose input[type='checkbox'] { accent-color: var(--signal-deep); width: 1.05em; height: 1.05em; margin-right: 0.4em; vertical-align: -0.1em; }
+.prose .contains-task-list { list-style: none; padding-left: 0.2em; }
+.prose .contains-task-list li::marker { content: none; }
+
+.prose blockquote {
+  margin-inline: 0;
+  padding: 1.1rem 1.4rem 1.1rem 1.6rem;
+  background: var(--lilac);
+  border: var(--bw) solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+  font-size: 1.2rem;
+  position: relative;
+}
+.prose blockquote > * + * { margin-top: 0.8em; }
+.prose blockquote::before {
+  content: '';
+  position: absolute; left: -3px; top: -3px; bottom: -3px; width: 12px;
+  background: var(--ink);
+}
+
+.prose hr { border: 0; height: 12px; margin-block: 3em; background: repeating-linear-gradient(-45deg, var(--ink) 0 3px, transparent 3px 10px); }
+
+.prose img {
+  border: var(--bw) solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+  background: var(--paper);
+}
+.prose figure { margin-inline: 0; }
+.prose figcaption { margin-top: 0.9rem; font-size: 0.95rem; color: var(--muted); }
+
+/* Inline code */
+.prose :not(pre) > code {
+  font-family: var(--font-code);
+  font-size: 0.86em;
+  background: #fff;
+  border: 2px solid var(--ink);
+  padding: 0.05em 0.35em;
+  white-space: break-spaces;
+}
+
+/* Code blocks (Shiki) */
+.prose pre {
+  font-family: var(--font-code);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  padding: 1.25rem 1.4rem;
+  border: var(--bw) solid var(--ink);
+  box-shadow: 6px 6px 0 var(--signal), 6px 6px 0 var(--bw) var(--ink);
+  overflow-x: auto;
+  background-color: #121212 !important;
+  tab-size: 2;
+}
+.prose pre code { font-family: inherit; }
+
+/* Tables */
+.prose .table-wrap { overflow-x: auto; border: var(--bw) solid var(--ink); box-shadow: 6px 6px 0 var(--ink); background: var(--paper); }
+.prose table { border-collapse: collapse; width: 100%; font-size: 1rem; line-height: 1.45; }
+.prose th, .prose td { padding: 0.65rem 0.9rem; text-align: left; vertical-align: top; border-bottom: 2px solid var(--ink); }
+.prose th + th, .prose td + td { border-left: 2px solid var(--ink); }
+.prose thead th { background: var(--signal); font-family: var(--font-display); font-weight: 800; border-bottom-width: var(--bw); }
+.prose tbody tr:last-child td { border-bottom: 0; }
+.prose tbody tr:nth-child(even) { background: #f3eee2; }
+
+/* Footnotes */
+.prose .footnotes { margin-top: 3em; padding-top: 1em; border-top: var(--bw) solid var(--ink); font-size: 0.95rem; }
+.prose .footnotes h2 { font-size: var(--step-1); border: 0; margin-top: 0; padding-top: 0; }
+.prose sup a { text-decoration: none !important; padding: 0 0.15em; background: var(--sun); border: 1.5px solid var(--ink); font-size: 0.75em; }
+
+/* Details */
+.prose details { border: var(--bw) solid var(--ink); background: var(--paper); padding: 0.8rem 1.1rem; }
+.prose summary { font-family: var(--font-display); font-weight: 700; cursor: pointer; }

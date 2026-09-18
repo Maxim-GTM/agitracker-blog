@@ -1,0 +1,23 @@
+---
+import { tagSwatch, tagUrl } from '../lib/posts';
+
+interface Props {
+  tag: string;
+  /** Render as plain text (e.g. inside another link). */
+  static?: boolean;
+  count?: number;
+}
+const { tag, static: isStatic = false, count } = Astro.props;
+const cls = `chip cut fill-${tagSwatch(tag)}`;
+---
+
+{
+  isStatic ? (
+    <span class={cls}>{tag}</span>
+  ) : (
+    <a class={cls} href={tagUrl(tag)} rel="tag">
+      {tag}
+      {count !== undefined && <span class="chip-count">{count}</span>}
+    </a>
+  )
+}

@@ -1,0 +1,159 @@
+---
+import { Image } from 'astro:assets';
+import TagChip from './TagChip.astro';
+import { formatDate, postUrl, readingTime, tagSwatch, type Post } from '../lib/posts';
+
+interface Props {
+  post: Post;
+  size?: 'lead' | 'default';
+  headingLevel?: 'h2' | 'h3';
+}
+const { post, size = 'default', headingLevel: H = 'h3' } = Astro.props;
+const { title, description, pubDate, tags, cover, coverAlt } = post.data;
+const swatch = tags[0] ? tagSwatch(tags[0]) : 'signal';
+const { minutes } = readingTime(post.body);
+---
+
+<article class:list={['card', 'cut', 'press', `card--${size}`]}>
+  <a class="card-link" href={postUrl(post)}>
+    {
+      cover ? (
+        <Image
+          class="card-cover"
+          src={cover}
+          alt={coverAlt ?? ''}
+          widths={size === 'lead' ? [480, 800, 1100] : [400, 640]}
+          sizes={size === 'lead' ? '(min-width: 960px) 760px, 100vw' : '(min-width: 960px) 420px, 100vw'}
+          loading={size === 'lead' ? 'eager' : 'lazy'}
+        />
+      ) : (
+        <div class:list={['card-band', `fill-${swatch}`]} aria-hidden="true">
+          <span>{tags[0] ?? 'Notes'}</span>
+        </div>
+      )
+    }
+    <div class="card-body">
+      <H class="card-title">{title}</H>
+      <p class="card-desc">{description}</p>
+      <p class="card-meta">
+        <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+        <span>{minutes} min read</span>
+      </p>
+    </div>
+  </a>
+  {
+    tags.length > 0 && (
+      <ul class="card-tags" role="list" aria-label="Topics">
+        {tags.slice(0, 3).map((t) => (
+          <li>
+            <TagChip tag={t} />
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</article>
+
+<style>
+  .card {
+    --c: 18px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .card-link {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    text-decoration: none;
+  }
+  .card-cover {
+    width: calc(100% - 2 * var(--bw));
+    margin: var(--bw) var(--bw) 0;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-bottom: var(--bw) solid var(--ink);
+    clip-path: polygon(15px 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 0 100%, 0 15px);
+  }
+  .card-band {
+    margin: var(--bw) var(--bw) 0;
+    min-height: 7.5rem;
+    background: var(--fill);
+    border-bottom: var(--bw) solid var(--ink);
+    clip-path: polygon(15px 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 0 100%, 0 15px);
+    display: flex;
+    align-items: end;
+    padding: 1rem 1.25rem;
+    background-image: repeating-linear-gradient(-45deg, rgb(0 0 0 / 0.1) 0 2px, transparent 2px 12px);
+  }
+  .card-band span {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: var(--step-2);
+    line-height: 1;
+  }
+  .card-body {
+    padding: 1.25rem 1.4rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    flex: 1;
+  }
+  .card-title {
+    font-size: var(--step-1);
+    font-weight: 700;
+  }
+  .card-link:hover .card-title {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-decoration-color: var(--signal-deep);
+    text-underline-offset: 5px;
+  }
+  .card-desc {
+    color: #2e2a25;
+    font-size: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .card-meta {
+    margin-top: auto;
+    display: flex;
+    gap: 1rem;
+    font-size: var(--step--1);
+    color: var(--muted);
+    font-weight: 700;
+  }
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0 1.4rem 1.4rem;
+  }
+  .card--lead .card-band {
+    min-height: 13rem;
+    flex: 1;
+  }
+  .card--lead .card-cover {
+    flex: 1;
+    min-height: 0;
+  }
+  .card--lead .card-band span {
+    font-size: var(--step-4);
+  }
+  .card--lead .card-title {
+    font-size: var(--step-3);
+    font-weight: 800;
+  }
+  .card--lead .card-desc {
+    font-size: var(--step-0);
+  }
+  .card--lead .card-body {
+    padding: 1.6rem 1.75rem 1rem;
+  }
+  .card--lead .card-tags {
+    padding: 0 1.75rem 1.75rem;
+  }
+</style>

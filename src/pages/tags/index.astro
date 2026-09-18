@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { collectTags, getPosts, tagSwatch, tagUrl } from '../../lib/posts';
+import { breadcrumbs, collectionPage } from '../../lib/schema';
+
+const posts = await getPosts();
+const tags = collectTags(posts);
+const title = 'Topics';
+const description = `Browse agitracker.io by topic: ${tags
+  .slice(0, 6)
+  .map((t) => t.name)
+  .join(', ')} and more.`;
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Topics', url: '/tags/' },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  schema={[collectionPage({ url: '/tags/', name: title, description, items: tags.map((t) => tagUrl(t.name)) }), breadcrumbs(crumbs)]}
+>
+  <header class="page-hero wrap">
+    <Breadcrumbs items={crumbs} />
+    <h1>Topics</h1>
+    <p>Every subject we cover, with the number of articles in each.</p>
+  </header>
+  <section class="section wrap" aria-label="All topics">
+    <ul class="topic-grid" role="list">
+      {
+        tags.map((t) => (
+          <li>
+            <a class:list={['topic-tile', 'cut', 'press', `fill-${tagSwatch(t.name)}`]} href={tagUrl(t.name)}>
+              <span class="topic-name">{t.name}</span>
+              <span class="topic-count">
+                {t.count} article{t.count === 1 ? '' : 's'}
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+    gap: 1.75rem;
+  }
+  .topic-tile {
+    --c: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2.5rem;
+    min-height: 9rem;
+    padding: 1.25rem 1.4rem;
+    text-decoration: none;
+  }
+  .topic-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: var(--step-2);
+    line-height: 1.05;
+  }
+  .topic-count {
+    font-weight: 700;
+  }
+</style>

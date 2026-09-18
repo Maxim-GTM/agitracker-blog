@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Ledger from '../../components/Ledger.astro';
+import { collectTags, getPosts, postUrl, tagSlug, type Post, type TagInfo } from '../../lib/posts';
+import { breadcrumbs, collectionPage } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return collectTags(posts).map((tag) => ({
+    params: { tag: tag.slug },
+    props: { tag, posts: posts.filter((p) => p.data.tags.some((t) => tagSlug(t) === tag.slug)) },
+  }));
+}
+
+interface Props {
+  tag: TagInfo;
+  posts: Post[];
+}
+const { tag, posts } = Astro.props;
+const url = `/tags/${tag.slug}/`;
+const title = `${tag.name}: articles and analysis`;
+const description = `${posts.length} agitracker.io article${posts.length === 1 ? '' : 's'} about ${tag.name}, including “${posts[0]?.data.title}”.`;
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Topics', url: '/tags/' },
+  { name: tag.name, url },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  schema={[collectionPage({ url, name: title, description, items: posts.map(postUrl) }), breadcrumbs(crumbs)]}
+>
+  <header class="page-hero wrap">
+    <Breadcrumbs items={crumbs} />
+    <h1>{tag.name}</h1>
+    <p>
+      {posts.length} article{posts.length === 1 ? '' : 's'} on this topic, newest first.
+    </p>
+  </header>
+  <section class="section wrap" aria-label={`Articles about ${tag.name}`}>
+    <Ledger posts={posts} headingLevel="h2" />
+  </section>
+</BaseLayout>

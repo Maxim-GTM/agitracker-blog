@@ -1,0 +1,217 @@
+/*
+ * agitracker.io design system
+ * ---------------------------
+ * Neobrutalism, cut from the logo: pure black outlines, the logo's cream,
+ * its signal green, hard offset shadows and chamfered (octagon-cut) corners
+ * instead of rounded ones. The chamfer is the signature; everything else stays quiet.
+ */
+
+@property --sx { syntax: '<length>'; inherits: false; initial-value: 6px; }
+@property --sy { syntax: '<length>'; inherits: false; initial-value: 6px; }
+
+:root {
+  /* Brand */
+  --ink: #000000;
+  --paper: #fbf7ef;
+  --ground: #efe8d8;
+  --signal: #02fa73;
+  --signal-deep: #00b852;
+  /* Topic swatches */
+  --sun: #ffd23f;
+  --lilac: #c4b3ff;
+  --sky: #7cc8ff;
+  --rose: #ff9ebb;
+  --muted: #4a463f;
+
+  /* Type */
+  --font-display: 'Oxanium', 'Arial Black', system-ui, sans-serif;
+  --font-body: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-code: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  /* Scale: 1.25 (major third) from an 18px body */
+  --step--1: 0.889rem;
+  --step-0: 1.125rem;
+  --step-1: 1.406rem;
+  --step-2: 1.758rem;
+  --step-3: clamp(1.9rem, 1.4rem + 1.8vw, 2.4rem);
+  --step-4: clamp(2.3rem, 1.5rem + 3vw, 3.4rem);
+  --step-5: clamp(2.7rem, 1.4rem + 5.2vw, 5.4rem);
+
+  /* Structure */
+  --bw: 3px;
+  --cut: 14px;
+  --shadow: 6px;
+  --gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
+  --max: 1240px;
+  --measure: 68ch;
+
+  color-scheme: light;
+}
+
+/* ---------- Reset-ish ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: 1.5rem; }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  background-image: radial-gradient(rgb(0 0 0 / 0.13) 1px, transparent 1.4px);
+  background-size: 22px 22px;
+}
+img, svg, video { display: block; max-width: 100%; height: auto; }
+h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.08; margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+ul[role='list'], ol[role='list'] { list-style: none; margin: 0; padding: 0; }
+
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; box-shadow: 0 0 0 6px var(--signal); }
+::selection { background: var(--signal); color: var(--ink); }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: absolute; left: 1rem; top: -4rem; z-index: 100;
+  background: var(--signal); border: var(--bw) solid var(--ink); padding: 0.5rem 1rem;
+  font-weight: 700; text-decoration: none;
+}
+.skip-link:focus { top: 1rem; }
+
+.wrap { width: min(100% - 2 * var(--gutter), var(--max)); margin-inline: auto; }
+
+/* ---------- The chamfer ----------
+ * .cut draws an octagon-cut panel: ::before is the black outline, ::after the fill,
+ * and a drop-shadow filter throws a hard shadow that follows the cut corners.
+ * Set --fill to recolour, --cut to change the corner size.
+ */
+.cut {
+  --fill: var(--paper);
+  --c: var(--cut);
+  --ci: calc(var(--c) - var(--bw) * 0.586);
+  position: relative;
+  isolation: isolate;
+  filter: drop-shadow(var(--sx) var(--sy) 0 var(--ink));
+}
+.cut::before, .cut::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+.cut::before {
+  inset: 0;
+  background: var(--ink);
+  clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c));
+}
+.cut::after {
+  inset: var(--bw);
+  background: var(--fill);
+  clip-path: polygon(var(--ci) 0, calc(100% - var(--ci)) 0, 100% var(--ci), 100% calc(100% - var(--ci)), calc(100% - var(--ci)) 100%, var(--ci) 100%, 0 calc(100% - var(--ci)), 0 var(--ci));
+}
+.cut--flat { --sx: 0px; --sy: 0px; }
+.cut--sm { --c: 8px; --sx: 3px; --sy: 3px; }
+
+/* Interactive panels press into their shadow. */
+.press { transition: --sx 120ms ease, --sy 120ms ease, transform 120ms ease; }
+.press:hover { transform: translate(-2px, -2px); --sx: 8px; --sy: 8px; }
+.press:active { transform: translate(4px, 4px); --sx: 2px; --sy: 2px; }
+
+.fill-signal { --fill: var(--signal); }
+.fill-sun { --fill: var(--sun); }
+.fill-lilac { --fill: var(--lilac); }
+.fill-sky { --fill: var(--sky); }
+.fill-rose { --fill: var(--rose); }
+.fill-ink { --fill: var(--ink); color: var(--paper); }
+.fill-paper { --fill: var(--paper); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  min-height: 3rem; padding: 0.7rem 1.4rem;
+  font-family: var(--font-display); font-weight: 700; font-size: var(--step-0);
+  text-decoration: none; cursor: pointer; border: 0; background: none;
+}
+.btn--sm { min-height: 2.4rem; padding: 0.4rem 1rem; font-size: var(--step--1); }
+
+/* ---------- Topic chips ---------- */
+.chip {
+  --c: 7px; --sx: 2px; --sy: 2px;
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  padding: 0.2rem 0.7rem 0.25rem;
+  font-family: var(--font-display); font-weight: 600; font-size: 0.875rem; line-height: 1.4;
+  text-decoration: none; white-space: nowrap;
+}
+a.chip:hover { --sx: 0px; --sy: 0px; transform: translate(2px, 2px); }
+.chip-count { font-weight: 800; opacity: 0.65; }
+
+/* ---------- Header ---------- */
+.site-header { border-bottom: var(--bw) solid var(--ink); background: var(--paper); position: relative; z-index: 10; }
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4.75rem; flex-wrap: wrap; padding-block: 0.6rem; }
+.brand { display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+.brand img { height: auto; }
+.brand-icon { width: 52px; }
+.brand-title { width: 172px; }
+.site-nav ul { display: flex; gap: 0.3rem; align-items: center; flex-wrap: wrap; }
+.site-nav a {
+  display: inline-block; padding: 0.45rem 0.85rem;
+  font-family: var(--font-display); font-weight: 700; text-decoration: none;
+  border: var(--bw) solid transparent;
+}
+.site-nav a:hover { border-color: var(--ink); background: var(--signal); }
+.site-nav a[aria-current='page'] { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+.site-nav .nav-rss { display: inline-flex; align-items: center; gap: 0.4rem; }
+
+/* ---------- Footer ---------- */
+.site-footer { margin-top: clamp(4rem, 8vw, 7rem); background: var(--ink); color: var(--paper); border-top: var(--bw) solid var(--ink); }
+.site-footer .wrap { padding-block: 3rem 2rem; display: grid; gap: 2.5rem; grid-template-columns: 1.4fr repeat(2, minmax(0, 1fr)); }
+.site-footer h2 { font-size: var(--step-0); color: var(--signal); margin-bottom: 0.8rem; }
+.site-footer ul { display: grid; gap: 0.35rem; }
+.site-footer a { text-decoration: none; }
+.site-footer a:hover { color: var(--signal); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.footer-brand p { max-width: 36ch; color: #d8d2c4; margin-top: 1rem; }
+.footer-brand img { width: 220px; }
+.footer-base { grid-column: 1 / -1; border-top: 1px solid #3a3a3a; padding-top: 1.25rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; color: #b9b2a3; font-size: var(--step--1); }
+@media (max-width: 760px) {
+  .site-footer .wrap { grid-template-columns: 1fr 1fr; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+
+/* ---------- Page scaffolding ---------- */
+main { display: block; }
+.section { margin-top: clamp(3rem, 6vw, 5rem); }
+.section-head { display: flex; align-items: end; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.section-title { font-size: var(--step-3); font-weight: 800; }
+.section-note { color: var(--muted); }
+
+.page-hero { padding-block: clamp(2.5rem, 5vw, 4rem) 0; }
+.page-hero h1 { font-size: var(--step-5); font-weight: 800; }
+.page-hero p { font-size: var(--step-1); max-width: 46ch; margin-top: 1rem; color: #26231f; }
+
+.breadcrumbs ol { display: flex; flex-wrap: wrap; gap: 0.25rem 0.5rem; font-size: var(--step--1); font-family: var(--font-display); font-weight: 600; }
+.breadcrumbs li:not(:last-child)::after { content: '/'; margin-left: 0.5rem; color: var(--muted); }
+.breadcrumbs a { text-decoration: none; border-bottom: 2px solid var(--signal-deep); }
+.breadcrumbs a:hover { background: var(--signal); }
+.breadcrumbs [aria-current] { color: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+@media (max-width: 640px) {
+  :root { --shadow: 4px; --cut: 11px; }
+  :where(.cut) { --sx: 4px; --sy: 4px; }
+  .brand-icon { width: 40px; }
+  .brand-title { width: 132px; }
+  .site-header .wrap { gap: 0.4rem; }
+  .site-nav { width: 100%; }
+  .site-nav ul { gap: 0.15rem; justify-content: space-between; }
+  .site-nav a { padding: 0.35rem 0.6rem; font-size: 0.98rem; }
+  .site-nav .nav-rss-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+}

@@ -1,0 +1,65 @@
+---
+import type { Author } from '../data/authors';
+
+interface Props {
+  author: Author;
+  url: string;
+}
+const { author, url } = Astro.props;
+const initials = author.name
+  .replace(/^the\s+/i, '')
+  .split(/\s+/)
+  .slice(0, 2)
+  .map((w) => w[0]?.toUpperCase())
+  .join('');
+---
+
+<aside class="author cut fill-paper" aria-label="About the author">
+  <div class="author-mark cut cut--sm fill-sun" aria-hidden="true">{initials}</div>
+  <div>
+    <p class="author-name"><a href={url} rel="author">{author.name}</a></p>
+    <p class="author-role">{author.role}</p>
+    <p class="author-bio">{author.bio}</p>
+  </div>
+</aside>
+
+<style>
+  .author {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    align-items: start;
+  }
+  .author-mark {
+    width: 3.5rem;
+    height: 3.5rem;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.2rem;
+  }
+  .author-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: var(--step-1);
+    line-height: 1.2;
+  }
+  .author-name a {
+    text-decoration: none;
+  }
+  .author-name a:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--signal-deep);
+    text-decoration-thickness: 3px;
+  }
+  .author-role {
+    color: var(--muted);
+    font-weight: 700;
+    font-size: var(--step--1);
+  }
+  .author-bio {
+    margin-top: 0.5rem;
+  }
+</style>

@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Ledger from '../../components/Ledger.astro';
+import { AUTHORS, type Author } from '../../data/authors';
+import { getPosts, type Post } from '../../lib/posts';
+import { breadcrumbs, person } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return Object.entries(AUTHORS).map(([id, author]) => ({
+    params: { id },
+    props: { author, posts: posts.filter((p) => p.data.author === id) },
+  }));
+}
+
+interface Props {
+  author: Author;
+  posts: Post[];
+}
+const { author, posts } = Astro.props;
+const url = Astro.url.pathname;
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: author.name, url },
+];
+---
+
+<BaseLayout
+  title={author.name}
+  description={author.bio}
+  noindex={posts.length === 0}
+  schema={[{ '@type': 'ProfilePage', mainEntity: person(author, url) }, breadcrumbs(crumbs)]}
+>
+  <header class="page-hero wrap">
+    <Breadcrumbs items={crumbs} />
+    <h1>{author.name}</h1>
+    <p>{author.bio}</p>
+    {
+      author.links && author.links.length > 0 && (
+        <ul class="author-links" role="list">
+          {author.links.map((l) => (
+            <li>
+              <a class="btn btn--sm cut cut--sm press fill-paper" href={l.url} rel="me noopener" target="_blank">
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </header>
+  <section class="section wrap" aria-label={`Articles by ${author.name}`}>
+    {posts.length ? <Ledger posts={posts} headingLevel="h2" /> : <p>No articles yet.</p>}
+  </section>
+</BaseLayout>
+
+<style>
+  .author-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+</style>

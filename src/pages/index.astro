@@ -1,0 +1,262 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import Ledger from '../components/Ledger.astro';
+import icon from '../assets/brand/icon.png';
+import { SITE } from '../site.config';
+import { collectTags, formatDate, getPosts, postUrl } from '../lib/posts';
+import { itemList } from '../lib/schema';
+
+const posts = await getPosts();
+const featured = posts.find((p) => p.data.featured) ?? posts[0];
+const rest = posts.filter((p) => p !== featured).slice(0, 2);
+const topics = collectTags(posts);
+const lastUpdated = posts.reduce<Date | undefined>((max, p) => {
+  const d = p.data.updatedDate ?? p.data.pubDate;
+  return !max || d > max ? d : max;
+}, undefined);
+---
+
+<BaseLayout
+  title={SITE.title}
+  description={SITE.description}
+  schema={[itemList('Latest articles', posts.slice(0, 20).map(postUrl))]}
+>
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <h1 id="hero-title">Tracking the road to general intelligence.</h1>
+      <p class="hero-lede">
+        Benchmarks, model releases, compute and forecasts, explained in plain language so you can tell real
+        progress from noise.
+      </p>
+      <div class="hero-actions">
+        {
+          featured && (
+            <a class="btn cut press fill-signal" href={postUrl(featured)}>
+              Read the latest article
+            </a>
+          )
+        }
+        <a class="btn cut press fill-paper" href="#index">See all {posts.length} articles</a>
+      </div>
+      <dl class="hero-stats">
+        <div><dt>Articles</dt><dd>{posts.length}</dd></div>
+        <div><dt>Topics</dt><dd>{topics.length}</dd></div>
+        {
+          lastUpdated && (
+            <div>
+              <dt>Last update</dt>
+              <dd>
+                <time datetime={lastUpdated.toISOString()}>{formatDate(lastUpdated)}</time>
+              </dd>
+            </div>
+          )
+        }
+      </dl>
+    </div>
+    <div class="hero-mark" aria-hidden="true">
+      <div class="hero-panel cut fill-signal">
+        <Image src={icon} width={420} densities={[1, 2]} alt="" loading="eager" fetchpriority="high" />
+      </div>
+    </div>
+  </section>
+
+  <div class="topic-rail" aria-label="Topics we track">
+    <div class="wrap">
+      <ul role="list">
+        {
+          topics.map((t) => (
+            <li>
+              <a href={`/tags/${t.slug}/`}>{t.name}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+
+  {
+    featured && (
+      <section class="section wrap" aria-labelledby="latest-title">
+        <div class="section-head">
+          <h2 class="section-title" id="latest-title">Latest</h2>
+        </div>
+        <div class="latest-grid">
+          <div class="latest-lead">
+            <PostCard post={featured} size="lead" />
+          </div>
+          {rest.map((post) => (
+            <PostCard post={post} />
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  <section class="section wrap" id="index" aria-labelledby="index-title">
+    <div class="section-head">
+      <h2 class="section-title" id="index-title">Every article</h2>
+      <p class="section-note">Newest first. Filter by topic or search.</p>
+    </div>
+    {
+      posts.length ? (
+        <Ledger posts={posts} filterable />
+      ) : (
+        <p class="cut fill-sun empty-state">
+          No articles yet. Add a Markdown file to <code>src/content/blog/</code> and it will show up here.
+        </p>
+      )
+    }
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+    padding-block: clamp(3rem, 7vw, 6rem) clamp(3rem, 6vw, 5rem);
+  }
+  .hero h1 {
+    font-size: var(--step-5);
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+  }
+  .hero-lede {
+    margin-top: 1.5rem;
+    font-size: var(--step-1);
+    line-height: 1.45;
+    max-width: 38ch;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.25rem;
+    margin-top: 2rem;
+  }
+  .hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin: 2.5rem 0 0;
+    border: var(--bw) solid var(--ink);
+    background: var(--paper);
+    width: fit-content;
+  }
+  .hero-stats div {
+    padding: 0.6rem 1.2rem;
+  }
+  .hero-stats div + div {
+    border-left: var(--bw) solid var(--ink);
+  }
+  .hero-stats dt {
+    font-size: var(--step--1);
+    color: var(--muted);
+    font-weight: 700;
+  }
+  .hero-stats dd {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: var(--step-1);
+    line-height: 1.2;
+  }
+
+  .hero-mark {
+    display: grid;
+    place-items: center;
+  }
+  .hero-panel {
+    --c: 36px;
+    --sx: 14px;
+    --sy: 14px;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    rotate: 2.5deg;
+    width: 100%;
+    max-width: 480px;
+    animation: settle 700ms cubic-bezier(0.2, 0.9, 0.3, 1.25) both;
+  }
+  .hero-panel::after {
+    background:
+      repeating-linear-gradient(0deg, rgb(0 0 0 / 0.07) 0 2px, transparent 2px 18px),
+      repeating-linear-gradient(90deg, rgb(0 0 0 / 0.07) 0 2px, transparent 2px 18px),
+      var(--fill);
+  }
+  .hero-panel img {
+    width: 100%;
+  }
+  @keyframes settle {
+    from {
+      rotate: -6deg;
+      translate: 0 24px;
+      opacity: 0;
+      --sx: 0px;
+      --sy: 0px;
+    }
+  }
+
+  .topic-rail {
+    background: var(--ink);
+    color: var(--paper);
+    border-block: var(--bw) solid var(--ink);
+  }
+  .topic-rail ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0;
+    padding-block: 0.7rem;
+  }
+  .topic-rail li + li::before {
+    content: '/';
+    color: var(--signal);
+    margin-inline: 0.9rem;
+    font-weight: 800;
+  }
+  .topic-rail a {
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .topic-rail a:hover {
+    color: var(--signal);
+  }
+
+  .latest-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 2rem;
+  }
+  .latest-lead {
+    grid-row: span 2;
+  }
+
+  .empty-state {
+    padding: 1.5rem;
+  }
+
+  @media (max-width: 900px) {
+    .hero {
+      grid-template-columns: 1fr;
+    }
+    .hero-mark {
+      order: -1;
+      justify-items: start;
+    }
+    .hero-panel {
+      max-width: 220px;
+      --c: 22px;
+      --sx: 8px;
+      --sy: 8px;
+    }
+    .latest-grid {
+      grid-template-columns: 1fr;
+    }
+    .latest-lead {
+      grid-row: auto;
+    }
+  }
+</style>
