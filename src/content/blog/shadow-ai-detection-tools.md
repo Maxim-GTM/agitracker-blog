@@ -2,7 +2,7 @@
 title: Best Shadow AI Detection Tools in 2026
 description: Compare 5 shadow AI detection tools in 2026 by what each can actually see, from endpoint agents to network proxies and identity APIs, and whether it enforces.
 pubDate: 2026-09-22
-tags: [AI Governance, Security]
+tags: [AI Governance, Security, AI Infrastructure]
 author: team
 ---
 
