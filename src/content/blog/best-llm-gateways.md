@@ -1,7 +1,7 @@
 ---
 title: 5 Best LLM Gateways for Enterprises in 2026
 description: Compare 5 LLM gateways for enterprises in 2026 on routing, failover, governance, and deployment, from self-hosted control planes to managed cloud services.
-pubDate: 2026-09-22
+pubDate: 2026-04-05
 tags: [AI Infrastructure, LLM Gateways]
 author: team
 ---

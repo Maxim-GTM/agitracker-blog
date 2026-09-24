@@ -1,7 +1,7 @@
 ---
 title: 10 Enterprise AI Governance Platforms Compared in 2026
 description: Compare 10 AI governance platforms for enterprises in 2026, split into runtime enforcement and GRC tools for inventory, risk, and EU AI Act mapping.
-pubDate: 2026-09-24
+pubDate: 2026-06-28
 tags: [AI Governance, AI Infrastructure, Security]
 author: team
 ---

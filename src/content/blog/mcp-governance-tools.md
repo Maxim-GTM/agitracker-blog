@@ -1,7 +1,7 @@
 ---
 title: 7 Enterprise MCP Governance Tools for Controlling Tool Access in 2026
 description: Compare 7 MCP governance tools for enterprises on per-key tool allowlists, MCP authorization, approval of tool calls, and audit logging of agent actions.
-pubDate: 2026-09-24
+pubDate: 2026-05-15
 tags: [MCP, AI Governance, Security]
 author: team
 ---

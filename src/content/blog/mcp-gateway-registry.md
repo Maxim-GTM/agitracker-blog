@@ -1,7 +1,7 @@
 ---
 title: "MCP Gateway Registry: 7 Gateways for Managing MCP Servers in 2026"
 description: Compare 7 MCP gateway registry options for managing MCP servers in 2026 on server catalogs, connection health, tool filtering, auth brokering, and token cost.
-pubDate: 2026-09-24
+pubDate: 2026-06-18
 tags: [AI Infrastructure, MCP]
 author: team
 ---

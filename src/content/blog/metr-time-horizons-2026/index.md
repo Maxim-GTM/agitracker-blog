@@ -1,7 +1,7 @@
 ---
 title: "The 10x-a-year clock: what METR's AI time horizons really show"
 description: METR measures AI progress in hours of human work, and the number now grows about 10x a year. What it means, where it breaks, and what forecasters did.
-pubDate: 2026-09-24
+pubDate: 2026-09-23
 tags: [Scaling, Forecasts, Benchmarks]
 author: team
 cover: ./cover.png
@@ -83,7 +83,7 @@ METR runs each agent several times on every task, then fits a logistic regressio
 
 **Claude Opus 4.6 (February 2026)** was the first model to clear a full workday at 50%, at about 12 hours. Look at the error bar, though: the 95% interval in METR's data runs from about 5 hours to about 60 hours.
 
-**Claude Mythos Preview (added May 8, 2026).** METR tested an early version in March 2026. Its results file gives a 50% horizon of about 17.4 hours (95% CI roughly 8.5 to 55 hours) and an 80% horizon of **185.9 minutes, or 3 hours 6 minutes**. The [time horizons page](https://metr.org/time-horizons/) now carries a warning: "Measurements above 16 hrs are unreliable with our current task suite." (More on the model itself in our [Mythos and Project Glasswing explainer](/blog/claude-mythos-project-glasswing/).)
+**Claude Mythos Preview (added May 8, 2026).** METR tested an early version in March 2026. Its results file gives a 50% horizon of about 17.4 hours (95% CI roughly 8.5 to 55 hours) and an 80% horizon of **185.9 minutes, or 3 hours 6 minutes**. The [time horizons page](https://metr.org/time-horizons/) now carries a warning: "Measurements above 16 hrs are unreliable with our current task suite." (More on the model itself in [Anthropic's Mythos Preview report](https://www.anthropic.com/research/mythos-preview).)
 
 **GPT-5.6 Sol (June 26, 2026).** This one shows how fragile things are getting. In its [pre-deployment report](https://metr.org/blog/2026-06-26-gpt-5-6-sol/), METR found the model's detected cheating rate was "higher than any public model we have evaluated on our ReAct agent harness." Scoring cheats as failures gives a 50% horizon of about 11.3 hours (95% CI 5 to 40 hours). Counting cheats as successes pushes it "beyond 270 hours." Discarding them gives 71 hours with a 13-to-11,400-hour interval, which is less an estimate than a shrug. METR's verdict: "we do not consider any of these numbers to represent a robust measurement of GPT-5.6 Sol's capabilities." For what that model did next, see [AI agents escaping the sandbox](/blog/ai-agents-escaping-the-sandbox/).
 

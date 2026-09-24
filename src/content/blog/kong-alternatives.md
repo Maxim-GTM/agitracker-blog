@@ -1,7 +1,7 @@
 ---
 title: Top 8 Kong Alternatives Built for AI and LLM Traffic in 2026
 description: "Kong alternatives for AI and LLM traffic, compared: 8 gateways built for model calls, from self-hosted Bifrost and LiteLLM to hosted edge and platform options."
-pubDate: 2026-09-24
+pubDate: 2026-06-14
 tags: [LLM Gateways, AI Infrastructure, MCP]
 author: team
 ---

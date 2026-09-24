@@ -1,7 +1,7 @@
 ---
 title: 9 Open Source LLM Gateways Worth Running in Production in 2026
 description: "Compare 9 open source LLM gateway projects on what production demands: high availability, shared state, metrics and tracing, upgrade cadence, and footprint."
-pubDate: 2026-09-24
+pubDate: 2026-09-14
 tags: [LLM Gateways, Open Source, AI Infrastructure]
 author: team
 ---

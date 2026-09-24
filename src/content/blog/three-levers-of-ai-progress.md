@@ -1,7 +1,7 @@
 ---
 title: "Compute, data, algorithms: the three levers behind AI progress"
 description: AI capability grows when you add compute, add data, or use them more efficiently. Here is how each lever works, how fast it has been moving, and what could slow it down.
-pubDate: 2026-07-10
+pubDate: 2026-04-09
 tags: [Scaling, Compute]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Why AI benchmarks saturate, and what replaces them
 description: Benchmarks that once looked impossible now get solved within a few years of release. Here is why that keeps happening and how the next generation of tests is trying to stay ahead.
-pubDate: 2026-05-02
+pubDate: 2026-04-11
 updatedDate: 2026-08-30
 tags: [Benchmarks, Evaluation]
 ---

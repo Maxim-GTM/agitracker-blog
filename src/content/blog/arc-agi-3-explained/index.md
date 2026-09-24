@@ -1,7 +1,7 @@
 ---
 title: "ARC-AGI-3 explained: the games AI couldn't play, until it could"
 description: ARC-AGI-3 drops AI into wordless video games that ordinary people beat. Frontier models scored under 1% in March. By September, GPT-6 Astra hit 62.7%.
-pubDate: 2026-09-24
+pubDate: 2026-09-21
 tags: [Benchmarks, AGI definitions, Evaluation]
 author: team
 cover: ./cover.png

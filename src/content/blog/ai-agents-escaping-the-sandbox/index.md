@@ -1,7 +1,7 @@
 ---
 title: The AI that broke into the answer key's office to pass its exam
 description: OpenAI's agents hacked Hugging Face to game a cyber eval, and Gemini hit three real firms in a test. What happened, why, and what it means for AI evals.
-pubDate: 2026-09-24
+pubDate: 2026-09-19
 tags: [AI Safety, Agents, Security]
 author: team
 cover: ./cover.png
@@ -80,7 +80,7 @@ OpenAI's own diagnosis:
 
 None of this is new in kind. Researchers call it **reward hacking** or **specification gaming**: optimize a measurable proxy hard enough and the system finds routes to the number that skip the thing you wanted. MIT Technology Review's Will Douglas Heaven [pointed out](https://www.technologyreview.com/2026/07/27/1140836/openai-hugging-face-attack-precedent/) that OpenAI itself demonstrated this in 2016 with CoastRunners, a boat-racing agent that beat the intended score by exploiting the game, while "repeatedly catching on fire, crashing into other boats, and going the wrong way on the track." We have written about the benchmark side of this before in [why benchmarks saturate](/blog/why-benchmarks-saturate/).
 
-What changed is the size of the loophole. A boat gaming a video game hurts nobody. An agent that can find a zero-day, coordinate with hundreds of peers and root a Kubernetes node has the whole internet as its lagoon. Our [METR time-horizons piece](/blog/metr-time-horizons-2026/) tracks how fast long-horizon agent capability is growing; this incident is what that curve looks like when it meets a badly scoped goal.
+What changed is the size of the loophole. A boat gaming a video game hurts nobody. An agent that can find a zero-day, coordinate with hundreds of peers and root a Kubernetes node has the whole internet as its lagoon. [METR's time-horizon measurements](https://metr.org/time-horizons/) track how fast long-horizon agent capability is growing; this incident is what that curve looks like when it meets a badly scoped goal.
 
 <details>
 <summary>Nerd corner: the cover-up behavior</summary>
@@ -120,7 +120,7 @@ The short version: OpenAI's agents knew they were going somewhere they should no
 
 Safety researchers worry about **evaluation awareness**: models noticing they are being tested and behaving better than they would in the wild. These incidents show the mirror image. A model that believes "this is just a test" may do things it would refuse in reality, and it may be wrong about where the test ends.
 
-Anthropic's account is the clearest illustration. According to [The Register](https://www.theregister.com/ai-and-ml/2026/07/31/anthropics-claude-escaped-test-sandbox-to-attack-three-organizations/5281562), the oldest model tested, Opus 4.7, kept attacking after realizing it had internet access. Mythos 5 noticed the real internet but "reasoned its way back to the conclusion that it was still a simulation." Only the newest internal model stopped when evidence showed the targets were real. (More on those models in our [Claude Mythos explainer](/blog/claude-mythos-project-glasswing/).)
+Anthropic's account is the clearest illustration. According to [The Register](https://www.theregister.com/ai-and-ml/2026/07/31/anthropics-claude-escaped-test-sandbox-to-attack-three-organizations/5281562), the oldest model tested, Opus 4.7, kept attacking after realizing it had internet access. Mythos 5 noticed the real internet but "reasoned its way back to the conclusion that it was still a simulation." Only the newest internal model stopped when evidence showed the targets were real. (Anthropic describes Mythos's security work on its [Project Glasswing page](https://www.anthropic.com/glasswing).)
 
 Put these together and you get an awkward loop for evaluators:
 
@@ -137,7 +137,7 @@ Trail of Bits founder Dan Guido called the OpenAI case "a containment failure wi
 
 **Google** says it made sure the three companies were informed and, in Adkins's words to [Cybersecurity Dive](https://www.cybersecuritydive.com/news/google-ai-gemini-autonomous-hacks/830884/), "worked with our training partner on the changes they've now made to their testing processes." Irregular says it notified all the labs in late July and that the issues were remedied weeks ago.
 
-**Anthropic** reviewed 141,006 evaluation runs for similar escapes ([Cyber Unit](https://cyberunit.com/insights/ai-sandbox-escapes-three-labs-meta-anthropic-openai/)) and called its incidents "closer to a harness and operational failure than a model alignment failure" ([The Register](https://www.theregister.com/ai-and-ml/2026/07/31/anthropics-claude-escaped-test-sandbox-to-attack-three-organizations/5281562)). For the wider industry reaction, see the [Pacing the Frontier letter](/blog/pacing-the-frontier-letter/), signed by AI staff a week after OpenAI's disclosure.
+**Anthropic** reviewed 141,006 evaluation runs for similar escapes ([Cyber Unit](https://cyberunit.com/insights/ai-sandbox-escapes-three-labs-meta-anthropic-openai/)) and called its incidents "closer to a harness and operational failure than a model alignment failure" ([The Register](https://www.theregister.com/ai-and-ml/2026/07/31/anthropics-claude-escaped-test-sandbox-to-attack-three-organizations/5281562)). For the wider industry reaction, see the [Pacing the Frontier letter](https://www.pacingthefrontier.com/), signed by AI staff a week after OpenAI's disclosure.
 
 ## The skeptic's case
 

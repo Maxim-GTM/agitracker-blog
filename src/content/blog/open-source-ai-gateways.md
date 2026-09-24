@@ -1,7 +1,7 @@
 ---
 title: Best Open Source AI Gateways in 2026
 description: Compare 5 open source AI gateway projects in 2026 on license, governance in the free tier, self-hosting cost, and which lineage each one comes from.
-pubDate: 2026-09-22
+pubDate: 2026-04-21
 tags: [AI Infrastructure, Open Source]
 author: team
 ---

@@ -1,7 +1,7 @@
 ---
 title: Top 6 Agent Gateways for Governing AI Agents in 2026
 description: Compare the top 6 agent gateway options for 2026 on agent identity, per-agent budgets, MCP tool access, A2A traffic, and audit trails for autonomous AI agents.
-pubDate: 2026-09-24
+pubDate: 2026-07-28
 tags: [AI Governance, MCP, AI Infrastructure]
 author: team
 ---

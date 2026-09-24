@@ -1,7 +1,7 @@
 ---
 title: 8 Best LiteLLM Alternatives for Teams Outgrowing a Python Proxy
 description: Compare 8 LiteLLM alternatives on throughput, operational footprint, governance, and migration effort, with the signals that show a team has outgrown it.
-pubDate: 2026-09-24
+pubDate: 2026-03-28
 tags: [LLM Gateways, AI Infrastructure, Performance]
 author: team
 ---

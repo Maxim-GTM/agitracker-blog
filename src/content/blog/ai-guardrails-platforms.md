@@ -1,7 +1,7 @@
 ---
 title: 8 Best AI Guardrails Platforms for Blocking Unsafe Model Output in 2026
 description: "Compare 8 AI guardrails platforms for blocking unsafe model output: toxicity, PII in responses, hallucination checks, streaming, and block vs redact."
-pubDate: 2026-09-24
+pubDate: 2026-08-29
 tags: [Guardrails, AI Governance, Security]
 author: team
 ---

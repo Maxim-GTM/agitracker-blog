@@ -1,7 +1,7 @@
 ---
 title: Top 10 AI Observability Platforms for Production AI in 2026
 description: Compare 10 AI observability platforms for production AI in 2026 on cost attribution, latency and error metrics, OpenTelemetry support, and deployment.
-pubDate: 2026-09-24
+pubDate: 2026-05-11
 tags: [Observability, AI Infrastructure, LLM Gateways]
 author: team
 ---

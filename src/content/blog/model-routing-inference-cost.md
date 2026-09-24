@@ -1,7 +1,7 @@
 ---
 title: 7 Best Model Routing Tools to Cut Inference Cost in 2026
 description: "Compare 7 model routing tools on inference cost in 2026: weighted routing to cheaper providers, budget-aware fallbacks, response caching, and spend caps."
-pubDate: 2026-09-24
+pubDate: 2026-07-12
 tags: [Model Routing, LLM Gateways, AI Infrastructure]
 author: team
 ---

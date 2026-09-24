@@ -1,7 +1,7 @@
 ---
 title: How to read an AI benchmark without getting fooled
 description: A checklist for reading AI benchmark results, from sample size and contamination to saturation, so you can tell a real capability jump from a rounding error.
-pubDate: 2026-08-28
+pubDate: 2026-04-11
 tags: [Benchmarks, Evaluation, Explainers]
 cover: ./cover.png
 coverAlt: Bar chart in neobrutalist style with the tallest bars pressing against a dashed ceiling line.
