@@ -1,7 +1,7 @@
 ---
 title: Top 5 MCP Gateways in 2026
 description: Compare the top 5 MCP gateways in 2026 on architecture, authentication, tool governance, and deployment model, from unified control planes to cloud-native.
-pubDate: 2026-09-22
+pubDate: 2026-05-02
 tags: [AI Infrastructure, MCP]
 author: team
 ---

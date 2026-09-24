@@ -1,7 +1,7 @@
 ---
 title: Top 6 Shadow AI Tools for Finding Ungoverned AI Usage in 2026
 description: "Compare 6 shadow AI tools on the full remediation workflow: inventorying ungoverned AI usage, ranking it by data risk, and moving users to sanctioned paths."
-pubDate: 2026-09-24
+pubDate: 2026-06-02
 tags: [AI Governance, Security, AI Infrastructure]
 author: team
 ---

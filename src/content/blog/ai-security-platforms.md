@@ -1,7 +1,7 @@
 ---
 title: 9 Enterprise AI Security Platforms for Securing LLM Traffic in 2026
 description: Compare 9 enterprise AI security platforms for LLM traffic on prompt injection, PII and secrets leakage, key management, access control, and audit logs.
-pubDate: 2026-09-24
+pubDate: 2026-05-28
 tags: [Security, AI Governance, LLM Gateways]
 author: team
 ---

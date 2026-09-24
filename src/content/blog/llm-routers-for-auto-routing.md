@@ -1,7 +1,7 @@
 ---
 title: 6 Best LLM Routers for Auto Routing Per Request in 2026
 description: "Compare 6 LLM router tools for auto routing in 2026: rule-based, complexity classifier, and learned routers that choose the right model per request."
-pubDate: 2026-09-24
+pubDate: 2026-06-05
 tags: [Model Routing, LLM Gateways, AI Infrastructure]
 author: team
 ---

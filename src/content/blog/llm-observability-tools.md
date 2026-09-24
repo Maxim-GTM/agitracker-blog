@@ -1,7 +1,7 @@
 ---
 title: Top 10 LLM Observability Tools for Agent Tracing in 2026
 description: Compare 10 LLM observability tools for tracing and debugging multi-step agents in 2026, from gateway-layer tracing of LLM and MCP calls to SDK tracers.
-pubDate: 2026-09-24
+pubDate: 2026-05-23
 tags: [Observability, AI Infrastructure, MCP]
 author: team
 ---

@@ -1,7 +1,7 @@
 ---
 title: What counts as AGI? Five definitions, compared
 description: Artificial general intelligence means different things to different labs and researchers. We compare five influential definitions and what each one asks you to measure.
-pubDate: 2026-09-15
+pubDate: 2026-03-24
 tags: [AGI definitions, Explainers]
 featured: true
 faq:

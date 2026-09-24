@@ -1,7 +1,7 @@
 ---
 title: A field guide to AGI forecasts
 description: Surveys, prediction markets and trend extrapolation all produce AGI dates. Here is how each forecasting method works, what it is good at, and how to read the numbers.
-pubDate: 2025-12-12
+pubDate: 2026-04-01
 tags: [Forecasts, Explainers]
 ---
 
