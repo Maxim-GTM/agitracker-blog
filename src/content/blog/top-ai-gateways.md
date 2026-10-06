@@ -118,7 +118,7 @@ Core policies include `llm-token-limit` for per-consumer token quotas, `llm-emit
 
 ## 6. Google Apigee
 
-Apigee, Google Cloud's API management platform, adds AI-specific policies on top of its proxy model. [Apigee's AI capabilities](https://cloud.google.com/apigee/docs/api-platform/get-started/ai-capabilities) include an LLM token limit policy for quotas, semantic caching policies, and Model Armor policies (SanitizeUserPrompt and SanitizeModelResponse) that screen for prompt injection, jailbreaks, malicious URLs, and sensitive data. MCP proxies are supported through OAuth and JSON-RPC policies.
+Apigee, Google Cloud's API management platform, adds AI-specific policies on top of its proxy model. Apigee's AI capabilities include an LLM token limit policy for quotas, semantic caching policies, and Model Armor policies (SanitizeUserPrompt and SanitizeModelResponse) that screen for prompt injection, jailbreaks, malicious URLs, and sensitive data. MCP proxies are supported through OAuth and JSON-RPC policies.
 
 **Best for:** Google Cloud customers that already run Apigee and want AI traffic governed with the same policy framework and analytics.
 
@@ -134,7 +134,7 @@ Vercel AI Gateway is a managed gateway that gives one endpoint and one API key f
 
 ## 8. OpenRouter
 
-OpenRouter is a hosted model marketplace that provides one API and one billing account for 500+ models from many providers. [OpenRouter](https://openrouter.ai/) routes across providers for price and availability, offers Zero Data Retention routing that restricts requests to providers committed to not retaining data, and charges a platform fee on credit purchases (5.5% on the Standard plan at the time of writing).
+OpenRouter is a hosted model marketplace that provides one API and one billing account for 500+ models from many providers. OpenRouter routes across providers for price and availability, offers Zero Data Retention routing that restricts requests to providers committed to not retaining data, and charges a platform fee on credit purchases (5.5% on the Standard plan at the time of writing).
 
 **Best for:** developers and smaller teams that want the widest model catalog and quick experimentation with a single key.
 
@@ -144,7 +144,7 @@ OpenRouter is a hosted model marketplace that provides one API and one billing a
 
 Agent Router is the open-source AI gateway previously known as Envoy AI Gateway, built on Envoy Gateway and Envoy Proxy for Kubernetes. The project reached 1.0 general availability in June 2026, shipped 1.1 in August 2026 with cross-provider token counting, MCP hostname routing, and optional OpenTelemetry GenAI tracing, and then [joined the Agentic AI Foundation](https://aaif.io/blog/agent-router-joins-aaif) and took its new name in September 2026. The code, Apache 2.0 license, CRDs, and `aigw` CLI did not change.
 
-[Agent Router](https://theagentrouter.ai/) supports token-based rate limiting, multi-provider routing, and an MCP gateway that applies rate limits by server, tool, or key using the same policy engine as LLM traffic.
+Agent Router supports token-based rate limiting, multi-provider routing, and an MCP gateway that applies rate limits by server, tool, or key using the same policy engine as LLM traffic.
 
 **Best for:** platform teams already operating Envoy Gateway on Kubernetes that want AI routing expressed as Kubernetes resources.
 
@@ -152,7 +152,7 @@ Agent Router is the open-source AI gateway previously known as Envoy AI Gateway,
 
 ## 10. Databricks Unity Gateway
 
-Databricks Unity Gateway, previously Mosaic AI Gateway, is the governance layer for models and MCP services inside the Databricks platform. [Databricks Unity Gateway](https://docs.databricks.com/aws/en/ai-gateway/) provides rate limits on model and MCP services, traffic splitting and fallbacks across model destinations, request and response logging to Unity Catalog Delta tables, and service policies that act as guardrails. LLM guardrails cover PII detection and redaction, jailbreak and prompt injection detection, unsafe content, and custom policies.
+Databricks Unity Gateway, previously Mosaic AI Gateway, is the governance layer for models and MCP services inside the Databricks platform. Databricks Unity Gateway provides rate limits on model and MCP services, traffic splitting and fallbacks across model destinations, request and response logging to Unity Catalog Delta tables, and service policies that act as guardrails. LLM guardrails cover PII detection and redaction, jailbreak and prompt injection detection, unsafe content, and custom policies.
 
 **Best for:** data and ML teams whose models, agents, and MCP tools already live in Databricks and are governed through Unity Catalog.
 

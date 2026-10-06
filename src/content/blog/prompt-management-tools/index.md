@@ -75,9 +75,9 @@ Every capability below comes from vendor documentation; details we could not con
 
 ### 2. Langfuse
 
-[Langfuse](https://langfuse.com/docs/prompt-management/overview) is an open-source LLM engineering platform whose prompt management is tightly linked to its tracing. The [repository](https://github.com/langfuse/langfuse) is MIT-licensed outside its enterprise directories, and it can be self-hosted.
+Langfuse is an open-source LLM engineering platform whose prompt management is tightly linked to its tracing. The repository is MIT-licensed outside its enterprise directories, and it can be self-hosted.
 
-- Every prompt gets a version, and [labels](https://langfuse.com/docs/prompt-management/features/prompt-version-control) assign versions to environments, tenants, or experiments. The SDK serves the `production` label by default, and rollback is reassigning that label.
+- Every prompt gets a version, and labels assign versions to environments, tenants, or experiments. The SDK serves the `production` label by default, and rollback is reassigning that label.
 - A diff view shows how a prompt changed over time.
 - Prompts are cached client-side by the SDK, so fetching them is close to a memory read.
 - Linking prompts to traces lets you compare quality, latency, and cost by prompt version.
@@ -89,7 +89,7 @@ Every capability below comes from vendor documentation; details we could not con
 
 ### 3. LangSmith
 
-[LangSmith](https://docs.langchain.com/langsmith/manage-prompts) is LangChain's platform for tracing, evaluation, and prompt management. Prompts are stored like a lightweight Git history.
+LangSmith is LangChain's platform for tracing, evaluation, and prompt management. Prompts are stored like a lightweight Git history.
 
 - Each save creates a commit, and commit tags such as `production` point at a specific commit. Code pulls a tagged version with `client.pull_prompt("joke-generator:production")`.
 - Named environments let you promote any commit to Staging or Production.
@@ -99,16 +99,16 @@ Every capability below comes from vendor documentation; details we could not con
 
 **Best for:** teams building on LangChain or LangGraph that want prompts, traces, and evals in the same place.
 
-**Consideration:** Pricing is per seat on paid plans, and [self-hosted and hybrid deployment](https://www.langchain.com/pricing) are Enterprise options.
+**Consideration:** Pricing is per seat on paid plans, and self-hosted and hybrid deployment are Enterprise options.
 
 ### 4. PromptLayer
 
-[PromptLayer](https://docs.promptlayer.com/features/prompt-registry/overview) is built around a prompt registry that non-engineers can own. Its docs frame the goal as sharing prompts for review "without sending code diffs around."
+PromptLayer is built around a prompt registry that non-engineers can own. Its docs frame the goal as sharing prompts for review "without sending code diffs around."
 
 - Versions carry commit messages, and prompts are organized with folders, tags, and search.
 - Release labels such as `prod` or `staging` decide what the app receives, and important labels can be protected with approval flows.
-- [A/B releases](https://docs.promptlayer.com/why-promptlayer/ab-releases) split traffic between versions by percentage or route user segments (by user ID or plan) to specific versions, which makes gradual rollouts a label setting.
-- [Evaluations](https://docs.promptlayer.com/features/evaluations/overview) include batch runs on golden datasets, backtesting new versions on historical production requests, regression tests, and automatic runs on new versions.
+- A/B releases split traffic between versions by percentage or route user segments (by user ID or plan) to specific versions, which makes gradual rollouts a label setting.
+- Evaluations include batch runs on golden datasets, backtesting new versions on historical production requests, regression tests, and automatic runs on new versions.
 
 **Best for:** teams where product managers or domain experts edit prompts directly and engineers want staged rollouts.
 
@@ -116,11 +116,11 @@ Every capability below comes from vendor documentation; details we could not con
 
 ### 5. Braintrust
 
-[Braintrust](https://www.braintrust.dev/docs/guides/functions/prompts) is an evaluation platform first, and its prompt management reflects that.
+Braintrust is an evaluation platform first, and its prompt management reflects that.
 
 - Every save creates a version ID that can be pinned in code, and `loadPrompt()` accepts an environment so dev, staging, and production can run different versions.
 - Prompts can be invoked server-side with `invoke()`, compiled locally with `build()` without a model call, or called via REST and CLI.
-- The [playground](https://www.braintrust.dev/docs/core/playground) runs multiple prompts or models on a dataset with scorers, and diff mode labels each change as an improvement, regression, tradeoff, or tie. A promising configuration can be saved as an immutable experiment.
+- The playground runs multiple prompts or models on a dataset with scorers, and diff mode labels each change as an improvement, regression, tradeoff, or tie. A promising configuration can be saved as an immutable experiment.
 
 **Best for:** teams whose main question is "did this change make outputs better?", with evals driving every prompt edit.
 
@@ -128,7 +128,7 @@ Every capability below comes from vendor documentation; details we could not con
 
 ### 6. Portkey
 
-[Portkey](https://portkey.ai/docs/product/prompt-engineering-studio) pairs an AI gateway with a Prompt Engineering Studio, so prompts are served through the same layer that routes model traffic.
+Portkey pairs an AI gateway with a Prompt Engineering Studio, so prompts are served through the same layer that routes model traffic.
 
 - The playground compares prompts or models side by side across the 1,600+ models Portkey lists.
 - Versioning separates saving from publishing, with default `production`, `staging`, and `development` labels plus custom labels. A prompt is called with a suffix such as `@staging`, and `@latest` fetches the newest version.
@@ -136,11 +136,11 @@ Every capability below comes from vendor documentation; details we could not con
 
 **Best for:** teams that already want an AI gateway and prefer to manage prompts in the same product.
 
-**Consideration:** The [free Developer tier](https://portkey.ai/pricing) caps the number of prompt templates, and the documentation we reviewed puts less emphasis on dataset evaluation of prompt versions than Maxim, Langfuse, or Braintrust do.
+**Consideration:** The free Developer tier caps the number of prompt templates, and the documentation we reviewed puts less emphasis on dataset evaluation of prompt versions than Maxim, Langfuse, or Braintrust do.
 
 ### What about Humanloop?
 
-Humanloop was a common pick for prompt management until 2025. Its team [joined Anthropic](https://humanloop.com/), and the company announced that its UI and API would stop working on [September 8, 2025](https://news.ycombinator.com/item?id=44592216), so it is no longer an option. We also skipped tools that have moved away from prompt management and open-source projects without a recent release.
+Humanloop was a common pick for prompt management until 2025. Its team joined Anthropic, and the company announced that its UI and API would stop working on [September 8, 2025](https://news.ycombinator.com/item?id=44592216), so it is no longer an option. We also skipped tools that have moved away from prompt management and open-source projects without a recent release.
 
 ## How to Choose a Prompt Management Tool
 

@@ -59,9 +59,9 @@ We read each tool's official docs, repository, or product page and scored it on 
 
 ### 1. Promptfoo
 
-[Promptfoo](https://www.promptfoo.dev/docs/red-team/) is an open-source CLI and library for evaluating prompts and red-teaming LLM applications. It generates adversarial inputs, runs them against your target, and grades the results, with separate "plugins" for what to attack and "strategies" for how to deliver the attack. In March 2026 [OpenAI announced it would acquire Promptfoo](https://openai.com/index/openai-to-acquire-promptfoo/); the GitHub repository says the project is now part of OpenAI and remains MIT licensed.
+Promptfoo is an open-source CLI and library for evaluating prompts and red-teaming LLM applications. It generates adversarial inputs, runs them against your target, and grades the results, with separate "plugins" for what to attack and "strategies" for how to deliver the attack. In March 2026 [OpenAI announced it would acquire Promptfoo](https://openai.com/index/openai-to-acquire-promptfoo/); the GitHub repository says the project is now part of OpenAI and remains MIT licensed.
 
-- **Framework presets:** `owasp:llm` targets the whole [OWASP LLM Top 10](https://www.promptfoo.dev/docs/red-team/owasp-llm-top-10/), or pick single entries such as `owasp:llm:01`; the docs also list NIST AI RMF, MITRE ATLAS, ISO 42001, and EU AI Act mappings.
+- **Framework presets:** `owasp:llm` targets the whole OWASP LLM Top 10, or pick single entries such as `owasp:llm:01`; the docs also list NIST AI RMF, MITRE ATLAS, ISO 42001, and EU AI Act mappings.
 - **Application-layer plugins:** tests for PII leaks, broken object- and function-level authorization (BOLA, BFLA), excessive agency, hijacking, RBAC, and system prompt extraction.
 - **Strategies:** static encodings (Base64, homoglyphs, leetspeak), iterative and tree-based jailbreaks, and multi-turn attacks including Crescendo and GOAT.
 
@@ -86,7 +86,7 @@ Microsoft's managed [AI Red Teaming Agent in Foundry](https://learn.microsoft.co
 
 ### 3. NVIDIA garak
 
-[garak](https://github.com/NVIDIA/garak) is NVIDIA's open-source LLM vulnerability scanner. Its README puts it plainly: "garak checks if an LLM can be made to fail in a way we don't want," and compares it to nmap or Metasploit for language models.
+garak is NVIDIA's open-source LLM vulnerability scanner. Its README puts it plainly: "garak checks if an LLM can be made to fail in a way we don't want," and compares it to nmap or Metasploit for language models.
 
 - **Probes:** prompt injection, jailbreaks (including DAN variants), encoding-based injection, data leakage, toxicity, malware generation, misinformation, and hallucination, combining static, dynamic, and adaptive probes.
 - **Generators:** Hugging Face, OpenAI, AWS Bedrock, NVIDIA NIM, Replicate, Cohere, Groq, and "pretty much anything accessible via REST."
@@ -98,7 +98,7 @@ Microsoft's managed [AI Red Teaming Agent in Foundry](https://learn.microsoft.co
 
 ### 4. DeepTeam
 
-[DeepTeam](https://github.com/confident-ai/deepteam) is Confident AI's open-source red-teaming framework, built on the company's DeepEval evaluation library.
+DeepTeam is Confident AI's open-source red-teaming framework, built on the company's DeepEval evaluation library.
 
 - **Coverage:** 50+ vulnerabilities across data privacy, responsible AI, security, safety, business, and agentic categories, and 20+ attack methods.
 - **Multi-turn:** linear, tree, and Crescendo jailbreaking, sequential jailbreaks, and Bad Likert Judge.
@@ -111,7 +111,7 @@ Microsoft's managed [AI Red Teaming Agent in Foundry](https://learn.microsoft.co
 
 ### 5. Palo Alto Networks Prisma AIRS AI Red Teaming
 
-[Prisma AIRS AI Red Teaming](https://www.paloaltonetworks.com/ai-security/ai-red-teaming) is the testing module of Palo Alto Networks' AI security platform. Palo Alto [completed its acquisition of Protect AI](https://www.paloaltonetworks.com/company/press/2025/palo-alto-networks-completes-acquisition-of-protect-ai) in July 2025 and folded its red teaming, model scanning, and posture management into Prisma AIRS.
+Prisma AIRS AI Red Teaming is the testing module of Palo Alto Networks' AI security platform. Palo Alto completed its acquisition of Protect AI in July 2025 and folded its red teaming, model scanning, and posture management into Prisma AIRS.
 
 - **Attack library:** 50+ techniques mapped to OWASP Top 10 and NIST AI RMF, backed by Unit 42 and the Huntr research community.
 - **Agent-led testing:** an agentic profiler maps the target's tools and configuration, then an attacker agent runs context-aware attacks.
@@ -123,7 +123,7 @@ Microsoft's managed [AI Red Teaming Agent in Foundry](https://learn.microsoft.co
 
 ### 6. Lakera Red
 
-[Lakera Red](https://www.lakera.ai/lakera-red) is Lakera's automated red-teaming product, the pre-deployment companion to its Lakera Guard runtime protection. Check Point [announced it would acquire Lakera](https://www.checkpoint.com/press-releases/check-point-acquires-lakera-to-deliver-end-to-end-ai-security-for-enterprises/) in September 2025, and Lakera's site now describes it as part of Check Point.
+Lakera Red is Lakera's automated red-teaming product, the pre-deployment companion to its Lakera Guard runtime protection. Check Point announced it would acquire Lakera in September 2025, and Lakera's site now describes it as part of Check Point.
 
 - **Risk-based testing:** scopes the system, simulates adversarial interactions, and reports application-specific risks, compliance gaps, and regressions.
 - **Attack intelligence:** Check Point cites 80 million+ adversarial patterns from Gandalf, Lakera's public prompt-injection game.
@@ -135,7 +135,7 @@ Microsoft's managed [AI Red Teaming Agent in Foundry](https://learn.microsoft.co
 
 ### 7. Mindgard
 
-[Mindgard](https://mindgard.ai/) is an AI security platform spun out of more than a decade of research at Lancaster University.
+Mindgard is an AI security platform spun out of more than a decade of research at Lancaster University.
 
 - **Discover and recon:** AI agent evaluation, attack-surface enumeration, agent profiling, and guardrail analysis.
 - **Attack:** automated red teaming and agent security testing from an AI recon and attack library.
@@ -147,7 +147,7 @@ Microsoft's managed [AI Red Teaming Agent in Foundry](https://learn.microsoft.co
 
 ### 8. Giskard
 
-[Giskard](https://www.giskard.ai/) tests conversational agents for both security and quality. Its open-source library (Apache 2.0) runs pytest-style scenarios, and the [docs](https://docs.giskard.ai/) describe a vulnerability scan that "generates hostile inputs and reports the inputs your agent answered when it should have refused."
+Giskard tests conversational agents for both security and quality. Its open-source library (Apache 2.0) runs pytest-style scenarios, and the docs describe a vulnerability scan that "generates hostile inputs and reports the inputs your agent answered when it should have refused."
 
 - **Categories:** prompt injection, data disclosure, sycophancy, hallucination, and inappropriate content.
 - **Giskard Hub:** continuous scanning, custom checks, and scheduled evaluations, with on-premise installation available.
@@ -156,7 +156,7 @@ Microsoft's managed [AI Red Teaming Agent in Foundry](https://learn.microsoft.co
 
 **Consideration:** Giskard's own docs warn that scan results "are not a safety or compliance guarantee," and they do not detail OWASP mapping.
 
-**Also worth a look:** [HiddenLayer](https://www.hiddenlayer.com/) offers AI Attack Simulation alongside supply chain scanning and runtime security, with SIEM and SOAR integrations. [SPLX](https://splx.ai/), now part of Zscaler, cites 5,000+ attack simulations and publishes Agentic Radar, an open-source scanner for agent workflows.
+**Also worth a look:** HiddenLayer offers AI Attack Simulation alongside supply chain scanning and runtime security, with SIEM and SOAR integrations. [SPLX](https://splx.ai/), now part of Zscaler, cites 5,000+ attack simulations and publishes Agentic Radar, an open-source scanner for agent workflows.
 
 ## Mapping Attacks to the OWASP LLM Top 10
 

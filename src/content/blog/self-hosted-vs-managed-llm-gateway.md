@@ -44,9 +44,9 @@ The cost of that convenience is that every prompt and response passes through th
 | Managed gateway | Pricing model | What it means at scale |
 |---|---|---|
 | [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/reference/pricing/) | Core features free on all plans; log volume and some add-ons tied to the Workers plan | Gateway cost stays low, so the decision rests on data path and features |
-| [OpenRouter](https://openrouter.ai/docs/faq) | 5.5% fee on credit purchases; BYOK usage free up to $25,000 a month in list-price inference, then 5% | Cost grows in proportion to model spend |
+| OpenRouter | 5.5% fee on credit purchases; BYOK usage free up to $25,000 a month in list-price inference, then 5% | Cost grows in proportion to model spend |
 
-A broader evaluation of managed and self-hosted gateways side by side, scored on overhead, governance, MCP support, and deployment model, is in this [production-ready comparison of the top LLM gateways](https://maxim-articles.ghost.io/top-5-llm-gateways-in-2026-a-production-ready-comparison/).
+A broader evaluation of managed and self-hosted gateways side by side, scored on overhead, governance, MCP support, and deployment model, is in this [production-ready comparison of the top LLM gateways](https://www.getmaxim.ai/articles/top-5-llm-gateways-in-2026-a-production-ready-comparison/).
 
 ## The Third Option: A Vendor-Supported Gateway in Your VPC
 
@@ -146,7 +146,7 @@ The decision table below maps common situations to the deployment model that usu
 | Air-gapped or no internet egress | Self-hosted with local models | Managed gateways cannot reach the network |
 | Agents and MCP tools need central governance | Self-hosted or in-VPC gateway with MCP support | Tool access policies stay under your control |
 
-Once the deployment model is settled, the next step is choosing the gateway itself. For self-hosted and in-VPC deployments, the [open-source self-hosted LLM gateway comparison](https://www.getmaxim.ai/articles/5-best-open-source-llm-gateways-for-self-hosted-deployments-in-2026/) covers Kubernetes, air-gapped installation, and sizing for each option. For a mixed shortlist that includes managed services, the [top LLM gateways comparison for production](https://maxim-articles.ghost.io/top-5-llm-gateways-in-2026-a-production-ready-comparison/) scores each gateway on overhead, governance depth, and deployment model. The [LLM gateway buyer's guide](https://www.getmaxim.ai/bifrost/resources/buyers-guide) adds a capability matrix for procurement.
+Once the deployment model is settled, the next step is choosing the gateway itself. For self-hosted and in-VPC deployments, the [open-source self-hosted LLM gateway comparison](https://www.getmaxim.ai/articles/5-best-open-source-llm-gateways-for-self-hosted-deployments-in-2026/) covers Kubernetes, air-gapped installation, and sizing for each option. For a mixed shortlist that includes managed services, the [top LLM gateways comparison for production](https://www.getmaxim.ai/articles/top-5-llm-gateways-in-2026-a-production-ready-comparison/) scores each gateway on overhead, governance depth, and deployment model. The [LLM gateway buyer's guide](https://www.getmaxim.ai/bifrost/resources/buyers-guide) adds a capability matrix for procurement.
 
 ## Where Bifrost Fits
 

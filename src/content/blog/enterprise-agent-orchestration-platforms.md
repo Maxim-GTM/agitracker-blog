@@ -47,7 +47,7 @@ The table compares the ten platforms on the governance dimensions that most ofte
 | ServiceNow AI Agents | Application platform | ServiceNow roles | AI Control Tower | External agents via AI Agent Fabric | MCP and A2A |
 | IBM watsonx Orchestrate | Orchestration platform | Enterprise SSO | AgentOps policy and monitoring | External agents | MCP |
 | UiPath Maestro | Process orchestration | UiPath roles | Orchestration-layer policy, audit, HITL | Third-party agents | Coordinates external agents |
-| Databricks Agent Bricks | Data platform | Unity Catalog permissions | Unity Catalog, AI Gateway | Custom agents on Databricks Apps | MCP servers as subagents |
+| [Databricks Agent Bricks](https://www.databricks.com/product/artificial-intelligence/agent-bricks) | Data platform | Unity Catalog permissions | Unity Catalog, AI Gateway | Custom agents on Databricks Apps | MCP servers as subagents |
 | Kore.ai Agent Platform | Agent platform | Enterprise SSO | Agent Management Platform | Cross-framework management | A2A |
 | Workato | Integration platform | Workato Identity, SSO | RBAC, policies, audit trails | Genies plus external MCP clients | Enterprise MCP |
 
@@ -130,7 +130,7 @@ Policy, audit, and human-in-the-loop controls live at the orchestration layer, s
 
 ## 8. Databricks Agent Bricks
 
-[Databricks Agent Bricks](https://www.databricks.com/product/artificial-intelligence/agent-bricks) builds and optimizes agents on enterprise data. Its Supervisor Agent coordinates up to 50 agents and tools, including Genie spaces, agent endpoints, Unity Catalog functions, MCP servers, and custom agents hosted in Databricks Apps.
+Databricks Agent Bricks builds and optimizes agents on enterprise data. Its Supervisor Agent coordinates up to 50 agents and tools, including Genie spaces, agent endpoints, Unity Catalog functions, MCP servers, and custom agents hosted in Databricks Apps.
 
 Unity Catalog governs access, so delegation only reaches data and tools the requesting user is permitted to use. Model serving endpoints sit behind Databricks' own AI Gateway for rate limits and guardrails, and MLflow provides tracing and evaluation.
 

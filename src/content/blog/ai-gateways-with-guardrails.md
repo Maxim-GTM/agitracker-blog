@@ -103,7 +103,7 @@ Governance is a strength. The `llm-token-limit` policy sets token quotas per sub
 
 ## 4. Google Apigee with Model Armor
 
-Apigee adds guardrails through two Model Armor policies: SanitizeUserPrompt screens prompts and SanitizeModelResponse screens model outputs. [Apigee's Model Armor policies](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-user-prompt-policy) detect prompt injection, jailbreak attempts, responsible-AI violations, malicious URLs, and sensitive data using Google Cloud's Model Armor service.
+Apigee adds guardrails through two Model Armor policies: SanitizeUserPrompt screens prompts and SanitizeModelResponse screens model outputs. Apigee's Model Armor policies detect prompt injection, jailbreak attempts, responsible-AI violations, malicious URLs, and sensitive data using Google Cloud's Model Armor service.
 
 Governance builds on Apigee's API products, quotas, and analytics, plus an LLM token limit policy and semantic caching. MCP proxies are supported through OAuth and JSON-RPC policies for more granular enforcement.
 
@@ -133,7 +133,7 @@ Governance includes virtual keys, team and key budgets, and rate limits. Per-key
 
 ## 7. Databricks Unity Gateway
 
-Databricks Unity Gateway, previously Mosaic AI Gateway, applies guardrails through service policies that control how each request and response proceeds based on content and caller. [Databricks LLM guardrails](https://www.databricks.com/blog/how-safeguard-ai-workloads-unity-ai-gateway-guardrails) provide templates for PII detection and redaction, jailbreak and prompt injection detection, unsafe content blocking, and custom guardrails, applied at the input or output phase.
+Databricks Unity Gateway, previously Mosaic AI Gateway, applies guardrails through service policies that control how each request and response proceeds based on content and caller. Databricks LLM guardrails provide templates for PII detection and redaction, jailbreak and prompt injection detection, unsafe content blocking, and custom guardrails, applied at the input or output phase.
 
 Governance comes from Unity Catalog, which treats models, MCP servers, and functions as securables with the same privileges used for data. Rate limits apply to model and MCP services, and request and response payloads log to Delta tables for audit.
 
@@ -143,7 +143,7 @@ Governance comes from Unity Catalog, which treats models, MCP servers, and funct
 
 ## 8. agentgateway (Solo.io)
 
-agentgateway is a Rust-based, Apache 2.0 open-source gateway for LLM, MCP, and A2A traffic, contributed by Solo.io to the Linux Foundation in 2025. [agentgateway guardrails](https://agentgateway.dev/docs/kubernetes/latest/documentation/llm/guardrails/overview/) include regex guards with built-in PII patterns that can mask, reject, or audit, plus OpenAI Moderation, AWS Bedrock Guardrails, Google Model Armor, and custom webhooks that can reject or audit.
+agentgateway is a Rust-based, Apache 2.0 open-source gateway for LLM, MCP, and A2A traffic, contributed by Solo.io to the Linux Foundation in 2025. agentgateway guardrails include regex guards with built-in PII patterns that can mask, reject, or audit, plus OpenAI Moderation, AWS Bedrock Guardrails, Google Model Armor, and custom webhooks that can reject or audit.
 
 Guards run in sequence on requests and responses, and audit mode lets teams measure a guard's hit rate before enforcing it. Solo.io sells a commercial distribution, Solo Enterprise for agentgateway, for teams that want support and additional features.
 
@@ -153,7 +153,7 @@ Guards run in sequence on requests and responses, and audit mode lets teams meas
 
 ## 9. MuleSoft AI Gateway
 
-MuleSoft AI Gateway runs on Omni Gateway (formerly Flex Gateway) and governs LLM, MCP, and A2A traffic through Anypoint's policy model. The [Omni Gateway policy directory](https://docs.mulesoft.com/gateway/latest/policies-included-directory) includes LLM PII Detection for OpenAI and Anthropic traffic, a policy that validates LLM prompts and responses against Amazon Bedrock Guardrails, MCP tool allow and block rules, and PII detectors for MCP and A2A messages.
+MuleSoft AI Gateway runs on Omni Gateway (formerly Flex Gateway) and governs LLM, MCP, and A2A traffic through Anypoint's policy model. The Omni Gateway policy directory includes LLM PII Detection for OpenAI and Anthropic traffic, a policy that validates LLM prompts and responses against Amazon Bedrock Guardrails, MCP tool allow and block rules, and PII detectors for MCP and A2A messages.
 
 **Best for:** enterprises standardized on MuleSoft and Salesforce that want AI traffic governed under the same API management program.
 
@@ -161,7 +161,7 @@ MuleSoft AI Gateway runs on Omni Gateway (formerly Flex Gateway) and governs LLM
 
 ## 10. Tyk AI Studio
 
-Tyk AI Studio is an AI management layer from Tyk that enforces guardrails through programmable filters written in the Tengo scripting language. [Tyk AI Studio filters](https://tyk.io/docs/ai-management/ai-studio/filters) can modify or block requests before they reach an LLM, including prompts, files, and tool responses, and can block LLM responses on both streaming and non-streaming paths. A bundled PII Redaction template removes email addresses, phone numbers, and US Social Security numbers.
+Tyk AI Studio is an AI management layer from Tyk that enforces guardrails through programmable filters written in the Tengo scripting language. Tyk AI Studio filters can modify or block requests before they reach an LLM, including prompts, files, and tool responses, and can block LLM responses on both streaming and non-streaming paths. A bundled PII Redaction template removes email addresses, phone numbers, and US Social Security numbers.
 
 Version 2.1.0, released in May 2026, added Compliance Events in the enterprise edition, which record redactions, rewrites, and guardrail triggers in a dashboard that can be exported for audits.
 

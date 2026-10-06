@@ -21,7 +21,7 @@ An AI agent security incident is any event where an AI agent is the target, the 
 
 The [OWASP Top 10 for Agentic Applications 2026](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/), published in December 2025, catalogs these risks under codes ASI01 to ASI10, including goal hijacking, tool misuse, identity and privilege abuse, and supply chain compromise. The incidents below map onto that list closely.
 
-Scale explains why this category grew so fast. Gravitee's [State of AI Agent Security 2026](https://gravitee.io/blog/state-of-ai-agent-security-2026-report-when-adoption-outpaces-control) report, based on more than 900 respondents, found that 88% of organizations reported confirmed or suspected AI agent security incidents in the last year. Only 14.4% had full security approval for the agents they were running, and 45.6% still used shared API keys for agent-to-agent authentication.
+Scale explains why this category grew so fast. Gravitee's State of AI Agent Security 2026 report, based on more than 900 respondents, found that 88% of organizations reported confirmed or suspected AI agent security incidents in the last year. Only 14.4% had full security approval for the agents they were running, and 45.6% still used shared API keys for agent-to-agent authentication.
 
 ## Six AI Agent Security Incidents from 2026 at a Glance
 
@@ -91,7 +91,7 @@ Across the six cases, four root causes repeat. Model jailbreaks get the headline
 | Untrusted input reaching a privileged agent | Agentforce and Copilot forms, Claude Code project files | Goal hijacking |
 | Unvetted plugins, skills, and tools | ClawHavoc skills, malicious MCP server configs | Agentic supply chain vulnerabilities |
 
-Exposed tool servers are not new. A July 2025 [Trend Micro study](https://www.trendaisecurity.com/en-us/resources-insights/deep-research/mcp-security-network-exposed-servers-are-backdoors-to-your-private-data) found 492 MCP servers on the public internet with no client authentication or encryption, exposing 1,402 tools, most of them with direct read access to data. The 2026 incidents show what happens when agents connect to that kind of infrastructure at scale.
+Exposed tool servers are not new. A July 2025 Trend Micro study found 492 MCP servers on the public internet with no client authentication or encryption, exposing 1,402 tools, most of them with direct read access to data. The 2026 incidents show what happens when agents connect to that kind of infrastructure at scale.
 
 ## Where AI Agent Security Controls Sit
 
