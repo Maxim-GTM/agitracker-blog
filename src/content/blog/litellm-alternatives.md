@@ -87,7 +87,7 @@ Bifrost is the strongest LiteLLM alternative for teams that need self-hosting, l
 
 ### 1. Bifrost
 
-[Bifrost](https://www.getmaxim.ai/bifrost) is an open-source AI gateway written in Go that provides access to 25+ providers and 10,000+ models through one OpenAI-compatible API. It adds 11 microseconds of overhead per request at 5,000 RPS with a 100% success rate in sustained [benchmarks published by the Bifrost team](https://www.getmaxim.ai/bifrost/resources/benchmarks). Bifrost runs as one process configured through a web UI, API, or `config.json`.
+[Bifrost](https://www.getmaxim.ai/bifrost) is an open-source AI gateway written in Go that provides access to 25+ providers and 10,000+ models through one OpenAI-compatible API. It adds 11 microseconds of overhead per request at 5,000 RPS with a 100% success rate in sustained [published benchmarks](https://www.getmaxim.ai/bifrost/resources/benchmarks). Bifrost runs as one process configured through a web UI, API, or `config.json`.
 
 ![LiteLLM SDK, OpenAI SDK, and Anthropic SDK applications send requests to the Bifrost AI gateway, which applies virtual keys, budgets, and fallbacks before routing to OpenAI, Anthropic, or AWS Bedrock](https://articles-images-cdn.t3.tigrisfiles.io/diagrams/litellm-alternatives/litellm-alternatives-bifrost-drop-in.png)
 

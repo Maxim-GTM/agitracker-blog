@@ -63,7 +63,7 @@ For streaming, measure added time to first token rather than total duration, sin
 
 A fair benchmark removes every source of variance except the gateway. Five rules cover most of it.
 
-1. **Use a mock provider with fixed latency.** Real provider latency varies by seconds and costs money. A local mock that returns a fixed response after a fixed delay isolates the gateway. MLflow's [AI gateway benchmarks](https://mlflow.org/docs/latest/genai/governance/ai-gateway/benchmarks/), for example, use a simulated upstream with a fixed 50 ms latency.
+1. **Use a mock provider with fixed latency.** Real provider latency varies by seconds and costs money. A local mock that returns a fixed response after a fixed delay isolates the gateway. MLflow's AI gateway benchmarks, for example, use a simulated upstream with a fixed 50 ms latency.
 2. **Measure a direct baseline.** Send the same load straight to the mock and subtract. Without a baseline, mock and network latency get attributed to the gateway.
 3. **Separate the load generator, gateway, and mock.** On one shared host, the load generator competes with the gateway for CPU, which inflates tail latency. Use separate machines or at least pinned CPU sets.
 4. **Match configurations across gateways.** Disable or enable the same features (request logging, budget tracking, caching) on every gateway under test, and use the same instance size.
@@ -116,7 +116,7 @@ A single steady-state test rarely separates gateways. These scenarios usually do
 | Provider failures | Make the mock return 429s and 5xx errors | Retry and failover cost, and whether errors cascade |
 | Soak | Run at 70% of maximum for an hour or more | Memory growth and periodic latency spikes |
 
-Instance size changes results substantially. Bifrost's own numbers show 59 µs of internal overhead on a t3.medium (2 vCPU, 4 GB) and 11 µs on a t3.xlarge (4 vCPU, 16 GB) at the same 5,000 RPS, with 100% success on both. Benchmark on the instance type you plan to deploy.
+Instance size changes results substantially. Bifrost's published numbers show 59 µs of internal overhead on a t3.medium (2 vCPU, 4 GB) and 11 µs on a t3.xlarge (4 vCPU, 16 GB) at the same 5,000 RPS, with 100% success on both. Benchmark on the instance type you plan to deploy.
 
 ## How to Read LLM Gateway Benchmark Results
 
@@ -134,13 +134,13 @@ When comparing vendors, normalize everything to the same boundary (added latency
 
 Performance is one criterion among several. A gateway that adds 1 ms instead of 0.1 ms is rarely the deciding factor for chat traffic, but a gateway that loses requests or exhausts memory at your peak load rules itself out regardless of features.
 
-Both of the most common shortlists treat overhead as a first-class criterion alongside governance and deployment. This [production-ready comparison of the top LLM gateways](https://maxim-articles.ghost.io/top-5-llm-gateways-in-2026-a-production-ready-comparison/) scores performance overhead next to failover, governance depth, MCP support, and observability. For self-hosted deployments, the guide to [open-source LLM gateways for self-hosted deployments](https://www.getmaxim.ai/articles/5-best-open-source-llm-gateways-for-self-hosted-deployments-in-2026/) compares measured overhead at a given instance size together with external dependencies and air-gapped viability, which are the inputs a benchmark plan should feed.
+Both of the most common shortlists treat overhead as a first-class criterion alongside governance and deployment. This [production-ready comparison of the top LLM gateways](https://www.getmaxim.ai/articles/top-5-llm-gateways-in-2026-a-production-ready-comparison/) scores performance overhead next to failover, governance depth, MCP support, and observability. For self-hosted deployments, the guide to [open-source LLM gateways for self-hosted deployments](https://www.getmaxim.ai/articles/5-best-open-source-llm-gateways-for-self-hosted-deployments-in-2026/) compares measured overhead at a given instance size together with external dependencies and air-gapped viability, which are the inputs a benchmark plan should feed.
 
 A reasonable process is to shortlist on features and deployment model, then benchmark the two or three finalists with the scenarios above. The [LLM gateway buyer's guide](https://www.getmaxim.ai/bifrost/resources/buyers-guide) provides a capability matrix for the shortlisting step.
 
 ## Where Bifrost Fits
 
-[Bifrost](https://www.getmaxim.ai/bifrost) is written in Go and publishes both its results and its tooling: the [Bifrost benchmarks](https://www.getmaxim.ai/bifrost/resources/benchmarks) page summarizes head-to-head results, and the open-source toolkit lets teams reproduce them on their own infrastructure rather than trusting a vendor figure. The [top 5 LLM gateways comparison](https://maxim-articles.ghost.io/top-5-llm-gateways-in-2026-a-production-ready-comparison/) describes it as the lowest-overhead open-source enterprise option in its shortlist. Its own sizing guidance suggests a t3.small below 1,000 RPS, a t3.medium from 1,000 to 3,000 RPS, a t3.large up to 5,000 RPS, and a t3.xlarge or larger beyond that.
+[Bifrost](https://www.getmaxim.ai/bifrost) is written in Go and publishes both its results and its tooling: the [Bifrost benchmarks](https://www.getmaxim.ai/bifrost/resources/benchmarks) page summarizes head-to-head results, and the open-source toolkit lets teams reproduce them on their own infrastructure rather than trusting a vendor figure. The [top 5 LLM gateways comparison](https://www.getmaxim.ai/articles/top-5-llm-gateways-in-2026-a-production-ready-comparison/) describes it as the lowest-overhead open-source enterprise option in its shortlist. Its own sizing guidance suggests a t3.small below 1,000 RPS, a t3.medium from 1,000 to 3,000 RPS, a t3.large up to 5,000 RPS, and a t3.xlarge or larger beyond that.
 
 Beyond performance, Bifrost applies [governance](https://www.getmaxim.ai/bifrost/resources/governance) and security controls (virtual keys, budgets, guardrails, audit logs) centrally, and [Bifrost Edge](https://www.getmaxim.ai/bifrost/edge) extends that same governance and security to AI traffic on employee machines, with [endpoint enforcement](https://docs.getbifrost.ai/edge/security) on each device. Bifrost Edge is currently in alpha. Those controls add work on the request path, which is why benchmarking with them enabled gives the number that matters.
 

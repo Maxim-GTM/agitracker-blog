@@ -81,7 +81,7 @@ Governing that loop requires decisions about which agent may call which tool, wi
 
 In the AI gateway vs API gateway debate, the overlap is real: an API gateway can act as an AI gateway when it is extended with AI-specific plugins or policies, and the major vendors now ship them. Whether that is enough depends on how deep the AI requirements go.
 
-[Kong AI Gateway](https://developer.konghq.com/ai-gateway/) adds plugins such as AI Proxy, AI Proxy Advanced, AI Semantic Cache, AI Rate Limiting Advanced, AI Prompt Guard, and integrations with AWS Bedrock Guardrails, Azure Content Safety, and Google Model Armor, plus MCP support. Google's Apigee offers [LLM token policies](https://docs.cloud.google.com/apigee/docs/api-platform/tutorials/using-ai-token-policies), including PromptTokenLimit for throttling prompt tokens and LLMTokenQuota for enforcing token consumption quotas over time.
+[Kong AI Gateway](https://developer.konghq.com/ai-gateway/) adds plugins such as AI Proxy, AI Proxy Advanced, AI Semantic Cache, AI Rate Limiting Advanced, AI Prompt Guard, and integrations with AWS Bedrock Guardrails, Azure Content Safety, and Google Model Armor, plus MCP support. Google's Apigee offers LLM token policies, including PromptTokenLimit for throttling prompt tokens and LLMTokenQuota for enforcing token consumption quotas over time.
 
 Extending the existing API gateway makes sense when:
 
@@ -96,7 +96,7 @@ A dedicated AI gateway makes more sense when:
 - Gateway overhead matters at high request volumes; Bifrost's published [benchmarks](https://www.getmaxim.ai/bifrost/resources/benchmarks) report 11 microseconds of added latency per request at 5,000 requests per second.
 - Teams want an open-source gateway they can self-host without adopting a full API management platform.
 
-For a side-by-side evaluation of both kinds of products, this [production-ready comparison of LLM gateways](https://maxim-articles.ghost.io/top-5-llm-gateways-in-2026-a-production-ready-comparison/) scores Bifrost, Kong AI Gateway, LiteLLM, Cloudflare AI Gateway, and OpenRouter on overhead, governance depth, MCP support, and deployment model.
+For a side-by-side evaluation of both kinds of products, this [production-ready comparison of LLM gateways](https://www.getmaxim.ai/articles/top-5-llm-gateways-in-2026-a-production-ready-comparison/) scores Bifrost, Kong AI Gateway, LiteLLM, Cloudflare AI Gateway, and OpenRouter on overhead, governance depth, MCP support, and deployment model.
 
 ## Three Ways to Run an AI Gateway and an API Gateway Together
 
@@ -130,7 +130,7 @@ The AI gateway vs API gateway decision is rarely either-or. Most organizations k
 4. **Where must data stay?** Regulated data favors a gateway that runs inside your network.
 5. **Who owns it?** An existing API platform team may prefer plugins; an AI platform team may prefer a dedicated gateway.
 
-Teams that land on a dedicated, self-hosted AI gateway can compare the open-source options, including Bifrost, LiteLLM, Kong AI Gateway, Apache APISIX, and Envoy AI Gateway, in this guide to [open-source LLM gateways for self-hosted deployments](https://www.getmaxim.ai/articles/5-best-open-source-llm-gateways-for-self-hosted-deployments-in-2026/), which covers Kubernetes deployment, air-gapped installation, and sizing. Those weighing an API platform extension against a dedicated gateway can revisit the [LLM gateway comparison](https://maxim-articles.ghost.io/top-5-llm-gateways-in-2026-a-production-ready-comparison/) above, and this site's roundup of [Kong alternatives for AI and LLM traffic](/blog/kong-alternatives/) covers the API-platform side in more depth.
+Teams that land on a dedicated, self-hosted AI gateway can compare the open-source options, including Bifrost, LiteLLM, Kong AI Gateway, Apache APISIX, and Envoy AI Gateway, in this guide to [open-source LLM gateways for self-hosted deployments](https://www.getmaxim.ai/articles/5-best-open-source-llm-gateways-for-self-hosted-deployments-in-2026/), which covers Kubernetes deployment, air-gapped installation, and sizing. Those weighing an API platform extension against a dedicated gateway can revisit the [LLM gateway comparison](https://www.getmaxim.ai/articles/top-5-llm-gateways-in-2026-a-production-ready-comparison/) above, and this site's roundup of [Kong alternatives for AI and LLM traffic](/blog/kong-alternatives/) covers the API-platform side in more depth.
 
 ## Where Bifrost Fits
 

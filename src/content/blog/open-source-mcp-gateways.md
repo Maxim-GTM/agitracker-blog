@@ -32,7 +32,7 @@ The protocol itself changed in 2026. The MCP [`2026-07-28` specification](https:
 
 ## How These Open Source MCP Gateways Were Evaluated
 
-Each project was assessed from its own repository and documentation as read in early October 2026. Stars and release dates were taken from GitHub on October 5, 2026.
+Each project was assessed from its own repository and documentation as read in early October 2026. Release dates were taken from GitHub on October 5, 2026.
 
 | Criterion | What was checked | Why it matters when self-hosting |
 |---|---|---|
@@ -45,20 +45,20 @@ Each project was assessed from its own repository and documentation as read in e
 
 ## Open Source MCP Gateways Compared: License, Language, and Activity
 
-The table below is the quick filter. Star counts measure attention, not quality, but release recency is a reliable signal of whether security fixes will arrive.
+The table below is the quick filter. Release recency is a reliable signal of whether security fixes will arrive.
 
-| Gateway | License | Language | GitHub stars | Latest release |
-|---|---|---|---|---|
-| Bifrost | Apache 2.0 (Enterprise tier separate) | Go | 8.6k | v2.2.5, Oct 2, 2026 |
-| IBM ContextForge | Apache 2.0 | Python | 4.6k | v1.0.11, Sep 28, 2026 |
-| agentgateway | Apache 2.0 | Rust | 5.2k | v1.6.0, Oct 2, 2026 |
-| Docker MCP Gateway | MIT | Go | 1.6k | v0.44.1 tag, Sep 16, 2026 |
-| Pomerium | Apache 2.0 | Go | 5.0k (whole proxy) | v0.33.4, Oct 2, 2026 |
-| Obot | MIT | Go | 1.1k | v0.26.2, Oct 2, 2026 |
-| MCP Gateway & Registry | Apache 2.0 | Python | 1.0k | 1.32.0, Oct 4, 2026 |
-| Unla | MIT | Go, TypeScript UI | 2.2k | v0.10.0, Aug 4, 2026 |
-| Microsoft MCP Gateway | MIT | C# | 0.9k | No tagged releases; commits to main |
-| MetaMCP | MIT | TypeScript | 2.7k | v2.4.22, Dec 19, 2025 |
+| Gateway | License | Language | Latest release |
+|---|---|---|---|
+| Bifrost | Apache 2.0 (Enterprise tier separate) | Go | v2.2.5, Oct 2, 2026 |
+| IBM ContextForge | Apache 2.0 | Python | v1.0.11, Sep 28, 2026 |
+| agentgateway | Apache 2.0 | Rust | v1.6.0, Oct 2, 2026 |
+| Docker MCP Gateway | MIT | Go | v0.44.1 tag, Sep 16, 2026 |
+| Pomerium | Apache 2.0 | Go | v0.33.4, Oct 2, 2026 |
+| Obot | MIT | Go | v0.26.2, Oct 2, 2026 |
+| MCP Gateway & Registry | Apache 2.0 | Python | 1.32.0, Oct 4, 2026 |
+| Unla | MIT | Go, TypeScript UI | v0.10.0, Aug 4, 2026 |
+| Microsoft MCP Gateway | MIT | C# | No tagged releases; commits to main |
+| MetaMCP | MIT | TypeScript | v2.4.22, Dec 19, 2025 |
 
 ## 1. Bifrost
 
@@ -79,7 +79,7 @@ What matters for self-hosters:
 
 ## 2. IBM ContextForge
 
-[IBM ContextForge](https://github.com/IBM/mcp-context-forge) is an Apache 2.0 registry and proxy in Python that federates MCP servers, A2A agents, and REST or gRPC APIs behind one endpoint. Version 1.0 shipped in May 2026, followed by eleven point releases through September.
+IBM ContextForge is an Apache 2.0 registry and proxy in Python that federates MCP servers, A2A agents, and REST or gRPC APIs behind one endpoint. Version 1.0 shipped in May 2026, followed by eleven point releases through September.
 
 ContextForge offers JWT and SSO authentication, RBAC with teams, user-scoped OAuth tokens, 40+ plugins, an admin UI, and OpenTelemetry tracing. It installs from PyPI, Docker, or Helm.
 
@@ -89,7 +89,7 @@ ContextForge offers JWT and SSO authentication, RBAC with teams, user-scoped OAu
 
 ## 3. agentgateway
 
-[agentgateway](https://agentgateway.dev) is an Apache 2.0 Rust proxy hosted by the Linux Foundation that handles MCP, A2A, and LLM traffic. It runs as a standalone binary configured with YAML or through its own Kubernetes controller with Gateway API support.
+agentgateway is an Apache 2.0 Rust proxy hosted by the Linux Foundation that handles MCP, A2A, and LLM traffic. It runs as a standalone binary configured with YAML or through its own Kubernetes controller with Gateway API support.
 
 For MCP it federates tools across stdio, HTTP, SSE, and streamable HTTP, converts OpenAPI specs into tools, and authorizes calls with CEL policies over JWT claims. It needs no database for basic operation, and metrics, logs, and traces export over OpenTelemetry.
 
@@ -109,7 +109,7 @@ Servers are grouped into profiles, pulled from OCI-based catalogs, and given sec
 
 ## 5. Pomerium
 
-[Pomerium](https://www.pomerium.com/docs/capabilities/mcp) is an Apache 2.0 identity-aware proxy in Go that can front internal MCP servers. It authenticates users through the organization's identity provider over OAuth 2.1, then acquires, caches, and refreshes upstream OAuth tokens and injects them into proxied requests, so clients never see upstream credentials.
+Pomerium is an Apache 2.0 identity-aware proxy in Go that can front internal MCP servers. It authenticates users through the organization's identity provider over OAuth 2.1, then acquires, caches, and refreshes upstream OAuth tokens and injects them into proxied requests, so clients never see upstream credentials.
 
 Tool-level rules use the `mcp_tool` criterion in Pomerium Policy Language, and every tool call is logged with method, tool name, and parameters.
 
@@ -119,7 +119,7 @@ Tool-level rules use the `mcp_tool` criterion in Pomerium Policy Language, and e
 
 ## 6. Obot
 
-[Obot](https://github.com/obot-platform/obot) is an MIT-licensed Go platform that combines an MCP gateway, an LLM gateway, and registries for MCP servers and skills. It can host MCP servers itself as Docker containers or Kubernetes workloads.
+Obot is an MIT-licensed Go platform that combines an MCP gateway, an LLM gateway, and registries for MCP servers and skills. It can host MCP servers itself as Docker containers or Kubernetes workloads.
 
 Obot integrates with enterprise identity providers, brokers OAuth credentials, and correlates audit logs across gateways and devices. A Docker setup works for evaluation.
 
@@ -129,7 +129,7 @@ Obot integrates with enterprise identity providers, brokers OAuth credentials, a
 
 ## 7. MCP Gateway & Registry
 
-[MCP Gateway & Registry](https://github.com/agentic-community/mcp-gateway-registry) is an Apache 2.0 community project that splits into an nginx data plane and a FastAPI control plane. It registers MCP servers, A2A agents, and skills, and supports semantic search for runtime tool discovery.
+MCP Gateway & Registry is an Apache 2.0 community project that splits into an nginx data plane and a FastAPI control plane. It registers MCP servers, A2A agents, and skills, and supports semantic search for runtime tool discovery.
 
 Authentication integrates with Keycloak, Entra ID, Okta, Auth0, Cognito, and PingFederate. Per-user egress OAuth keeps third-party tokens off user laptops, and a security scanner gates newly registered servers. Releases arrive frequently; 1.32.0 shipped on October 4, 2026.
 
@@ -139,7 +139,7 @@ Authentication integrates with Keycloak, Entra ID, Okta, Auth0, Cognito, and Pin
 
 ## 8. Unla
 
-[Unla](https://github.com/AmoyLab/Unla) is an MIT-licensed gateway in Go that turns existing REST, gRPC, and WebSocket services into MCP servers through YAML configuration, and also proxies existing MCP servers. Configuration hot-reloads and can live on disk or in SQLite, PostgreSQL, or MySQL.
+Unla is an MIT-licensed gateway in Go that turns existing REST, gRPC, and WebSocket services into MCP servers through YAML configuration, and also proxies existing MCP servers. Configuration hot-reloads and can live on disk or in SQLite, PostgreSQL, or MySQL.
 
 A web UI manages configuration, OAuth pre-authentication protects servers, and Redis Pub/Sub can sync configuration across replicas.
 
@@ -159,7 +159,7 @@ The current version requires MCP `2026-07-28` clients and adapters and routes ea
 
 ## 10. MetaMCP
 
-[MetaMCP](https://github.com/metatool-ai/metamcp) is an MIT-licensed TypeScript aggregator that groups MCP servers into namespaces, applies middleware, and serves each namespace as its own SSE or streamable HTTP endpoint. It supports API keys, MCP OAuth, and OIDC login, and runs as a Docker Compose stack with PostgreSQL.
+MetaMCP is an MIT-licensed TypeScript aggregator that groups MCP servers into namespaces, applies middleware, and serves each namespace as its own SSE or streamable HTTP endpoint. It supports API keys, MCP OAuth, and OIDC login, and runs as a Docker Compose stack with PostgreSQL.
 
 **Best for:** small teams that want to remix a handful of servers into curated endpoints on a single host.
 

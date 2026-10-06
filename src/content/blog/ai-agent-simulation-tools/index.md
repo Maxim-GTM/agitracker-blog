@@ -82,12 +82,12 @@ Key capabilities:
 
 ### 2. LangWatch Scenario
 
-[Scenario](https://github.com/langwatch/scenario) is LangWatch's open-source agent testing framework, released under Apache 2.0 with Python and TypeScript libraries. It treats a simulation as a test: a user simulator agent generates the customer's turns, a judge agent checks criteria at any point in the conversation, and the whole thing runs inside pytest or vitest.
+Scenario is LangWatch's open-source agent testing framework, released under Apache 2.0 with Python and TypeScript libraries. It treats a simulation as a test: a user simulator agent generates the customer's turns, a judge agent checks criteria at any point in the conversation, and the whole thing runs inside pytest or vitest.
 
 Key capabilities:
 
 - **Scripted or autonomous flows.** You can hand the simulator a fixed script, let it improvise, or mix the two within one test.
-- **Framework-agnostic.** The [Scenario docs](https://langwatch.ai/scenario/) list integrations with LangGraph, CrewAI, Pydantic AI, Google ADK, LiteLLM, and others.
+- **Framework-agnostic.** The Scenario docs list integrations with LangGraph, CrewAI, Pydantic AI, Google ADK, LiteLLM, and others.
 - **Voice adapters.** Audio is supported through adapters for ElevenLabs, OpenAI Realtime, and Twilio.
 - **Deterministic reruns.** Caching makes repeated runs reproducible.
 - **Red teaming.** The repository includes adversarial scenarios such as crescendo-style escalation attacks.
@@ -98,7 +98,7 @@ Key capabilities:
 
 ### 3. Hamming
 
-[Hamming](https://hamming.ai/) is a testing, red-teaming, and monitoring platform for voice and chat agents. It generates test scenarios from your agent's prompts, covering happy paths and edge cases.
+Hamming is a testing, red-teaming, and monitoring platform for voice and chat agents. It generates test scenarios from your agent's prompts, covering happy paths and edge cases.
 
 Key capabilities:
 
@@ -109,11 +109,11 @@ Key capabilities:
 
 **Best for:** healthcare, financial services, and other regulated teams running voice agents at volume.
 
-**Consideration:** [pricing](https://hamming.ai/pricing) is sales-led across its startup, agency, and enterprise tiers, so there is no self-serve way to try it on a weekend.
+**Consideration:** pricing is sales-led across its startup, agency, and enterprise tiers, so there is no self-serve way to try it on a weekend.
 
 ### 4. Cekura
 
-[Cekura](https://www.cekura.ai/), [formerly Vocera](https://www.ycombinator.com/launches/M57-cekura-formerly-vocera-testing-monitoring-for-ai-voice-agents) and backed by Y Combinator, is an automated QA and monitoring platform for voice and chat agents.
+Cekura, [formerly Vocera](https://www.ycombinator.com/launches/M57-cekura-formerly-vocera-testing-monitoring-for-ai-voice-agents) and backed by Y Combinator, is an automated QA and monitoring platform for voice and chat agents.
 
 Key capabilities:
 
@@ -123,17 +123,17 @@ Key capabilities:
 - **Checks that matter for voice.** Latency measurement, hallucination detection, and compliance checks such as identity verification and recording notices.
 - **Monitoring.** Production calls are analyzed for sentiment, interruptions, and drop-off.
 
-**Best for:** voice agent teams that want a self-serve start with [usage-based pricing](https://www.cekura.ai/pricing) and no sales call.
+**Best for:** voice agent teams that want a self-serve start with usage-based pricing and no sales call.
 
 **Consideration:** usage-based billing per testing minute rewards careful suite design; broad nightly runs of long calls add up.
 
 ### 5. Coval
 
-[Coval](https://www.coval.ai/) positions itself as a testing, evaluation, and QA loop for voice AI. It runs thousands of simulated conversations before launch, scores production calls, and feeds human reviewer judgment back into metrics.
+Coval positions itself as a testing, evaluation, and QA loop for voice AI. It runs thousands of simulated conversations before launch, scores production calls, and feeds human reviewer judgment back into metrics.
 
 Key capabilities:
 
-- **Many connection types.** The [Coval docs](https://docs.coval.ai/) list inbound and outbound phone, WebSocket, chat, SMS, and voice-to-voice connections.
+- **Many connection types.** The Coval docs list inbound and outbound phone, WebSocket, chat, SMS, and voice-to-voice connections.
 - **Behavior checks.** Identity verification, escalation, hallucination, frustrated callers, and staying on topic.
 - **Automation.** A REST API, CLI, and TypeScript and Python SDKs manage runs and metrics, and runs can be wired into CI/CD.
 
@@ -143,14 +143,14 @@ Key capabilities:
 
 ### 6. Bluejay
 
-[Bluejay](https://getbluejay.ai/) calls itself the testing, monitoring, and improvement layer for conversational agents. Its simulated users are "Digital Humans" that call, message, or email your agent, after which Bluejay grades the conversation.
+Bluejay calls itself the testing, monitoring, and improvement layer for conversational agents. Its simulated users are "Digital Humans" that call, message, or email your agent, after which Bluejay grades the conversation.
 
 Key capabilities:
 
-- **Digital Humans.** [Digital Human configuration](https://docs.getbluejay.ai/key-concepts/digital-humans/overview) covers behavior, voice traits, scripted responses, DTMF, and IVR simulation, and personas can be bulk-uploaded from a CSV.
+- **Digital Humans.** Digital Human configuration covers behavior, voice traits, scripted responses, DTMF, and IVR simulation, and personas can be bulk-uploaded from a CSV.
 - **Scenario Builder.** Scenarios are path graphs, and journeys can chain book, confirm, and cancel under one identity.
 - **Real-world variation.** The site highlights languages, accents, noise, and replay of production calls.
-- **CI gates.** A [GitHub Actions recipe](https://docs.getbluejay.ai/cookbook/github-actions) fails a pipeline on agent performance tests.
+- **CI gates.** A GitHub Actions recipe fails a pipeline on agent performance tests.
 - **Red teaming.** Autonomous adversarial testing maps attacks to OWASP and content-safety categories.
 
 **Best for:** contact-center style deployments where the same customer might call, chat, and email.
@@ -159,7 +159,7 @@ Key capabilities:
 
 ### 7. Snowglobe
 
-[Snowglobe](https://guardrailsai.com/snowglobe), from Guardrails AI, simulates hundreds of chatbot conversations in minutes and returns them judge-labeled, ready for evaluation or fine-tuning.
+Snowglobe, from Guardrails AI, simulates hundreds of chatbot conversations in minutes and returns them judge-labeled, ready for evaluation or fine-tuning.
 
 Key capabilities:
 

@@ -84,35 +84,35 @@ Maxim AI is an end-to-end platform for simulating, evaluating, and observing AI 
 
 ### 2. LangSmith
 
-[LangSmith](https://www.langchain.com/langsmith) is LangChain's platform for tracing, evaluating, and deploying agents. It works with any framework but is the natural default on LangChain or LangGraph.
+LangSmith is LangChain's platform for tracing, evaluating, and deploying agents. It works with any framework but is the natural default on LangChain or LangGraph.
 
 **Key capabilities:**
 
 - Offline and online evaluation with human, code, LLM-as-judge, and pairwise evaluators.
-- [Trajectory evaluations](https://docs.langchain.com/langsmith/trajectory-evals) through the open-source `agentevals` package, with strict, unordered, subset, and superset match modes against a reference trajectory, or an LLM judge when no reference exists.
-- [Annotation queues](https://docs.langchain.com/langsmith/annotation-queues) for single runs, full multi-turn threads, and pairwise A/B comparisons, with rubrics and one-click export to datasets.
+- Trajectory evaluations through the open-source `agentevals` package, with strict, unordered, subset, and superset match modes against a reference trajectory, or an LLM judge when no reference exists.
+- Annotation queues for single runs, full multi-turn threads, and pairwise A/B comparisons, with rubrics and one-click export to datasets.
 
 **Best for:** LangGraph teams that want tracing and evals from the same vendor as their framework.
 
-**Consideration:** Per the [pricing page](https://www.langchain.com/pricing), self-hosting is available only on the Enterprise plan; the Developer and Plus tiers are cloud-only.
+**Consideration:** Per the pricing page, self-hosting is available only on the Enterprise plan; the Developer and Plus tiers are cloud-only.
 
 ### 3. Braintrust
 
-[Braintrust](https://www.braintrust.dev/) is an evals-first platform built around experiments: every prompt, model, or agent change becomes a scored run you can diff against the last.
+Braintrust is an evals-first platform built around experiments: every prompt, model, or agent change becomes a scored run you can diff against the last.
 
 **Key capabilities:**
 
 - An `Eval()` SDK and browser playgrounds for comparing configurations side by side, with scorers built from its open-source autoevals library, LLM-as-judge prompts, or custom code.
-- [Online scoring](https://braintrust.dev/docs/evaluate/score-online) that evaluates production traces asynchronously as they are logged.
+- Online scoring that evaluates production traces asynchronously as they are logged.
 - CI integration to catch regressions before they ship, plus human review with keyboard-driven batch review and a kanban view of review progress.
 
 **Best for:** engineering teams that iterate quickly and want a polished experiment workflow.
 
-**Consideration:** Agent-specific evaluators such as trajectory checks are mostly something you write as custom scorers. On-prem or hybrid deployment is an Enterprise-plan feature per the [pricing page](https://www.braintrust.dev/pricing).
+**Consideration:** Agent-specific evaluators such as trajectory checks are mostly something you write as custom scorers. On-prem or hybrid deployment is an Enterprise-plan feature per the pricing page.
 
 ### 4. Arize Phoenix
 
-[Arize Phoenix](https://arize.com/docs/phoenix) is an open-source observability and evaluation tool built on OpenTelemetry and OpenInference. Arize also sells a managed platform, Arize AX.
+Arize Phoenix is an open-source observability and evaluation tool built on OpenTelemetry and OpenInference. Arize also sells a managed platform, Arize AX.
 
 **Key capabilities:**
 
@@ -122,11 +122,11 @@ Maxim AI is an end-to-end platform for simulating, evaluating, and observing AI 
 
 **Best for:** teams that want to self-host tracing and evals on Docker or Kubernetes and stay framework-agnostic.
 
-**Consideration:** The [Phoenix repository](https://github.com/Arize-ai/phoenix) uses the Elastic License 2.0, which is source-available rather than OSI open source. Simulation and team review workflows are thinner than in commercial platforms.
+**Consideration:** The Phoenix repository uses the Elastic License 2.0, which is source-available rather than OSI open source. Simulation and team review workflows are thinner than in commercial platforms.
 
 ### 5. Langfuse
 
-[Langfuse](https://langfuse.com/docs/evaluation/overview) is an open-source LLM engineering platform whose evaluation features cover most of the loop in Figure 1.
+Langfuse is an open-source LLM engineering platform whose evaluation features cover most of the loop in Figure 1.
 
 **Key capabilities:**
 
@@ -140,25 +140,25 @@ Maxim AI is an end-to-end platform for simulating, evaluating, and observing AI 
 
 ### 6. DeepEval and Confident AI
 
-[DeepEval](https://github.com/confident-ai/deepeval) is an Apache 2.0 Python framework that treats LLM evaluation like unit testing, and Confident AI is the commercial platform from the same team.
+DeepEval is an Apache 2.0 Python framework that treats LLM evaluation like unit testing, and Confident AI is the commercial platform from the same team.
 
 **Key capabilities:**
 
 - Pytest-style test cases that run locally in the test suite you already have, with a Vitest integration for TypeScript.
-- [Agent metrics](https://deepeval.com/docs/getting-started-agents) including Task Completion, Tool Correctness, Argument Correctness, Step Efficiency, Plan Adherence, and Plan Quality, plus G-Eval for custom LLM-as-judge criteria.
+- Agent metrics including Task Completion, Tool Correctness, Argument Correctness, Step Efficiency, Plan Adherence, and Plan Quality, plus G-Eval for custom LLM-as-judge criteria.
 - Tracing that captures an agent's full trajectory so component-level metrics can target a single step.
 
 **Best for:** Python teams that want evals as code in CI first and a dashboard second.
 
-**Consideration:** DeepEval alone has no shared UI for reviewers; human review, production monitoring, and regression reports come from Confident AI, whose [pricing](https://www.confident-ai.com/pricing) reserves on-prem deployment for Enterprise.
+**Consideration:** DeepEval alone has no shared UI for reviewers; human review, production monitoring, and regression reports come from Confident AI, whose pricing reserves on-prem deployment for Enterprise.
 
 ### 7. Galileo
 
-[Galileo](https://galileo.ai/) is an evaluation and observability platform aimed at running evaluators on production traffic at enterprise scale, with guardrails that act on the results.
+Galileo is an evaluation and observability platform aimed at running evaluators on production traffic at enterprise scale, with guardrails that act on the results.
 
 **Key capabilities:**
 
-- Out-of-the-box agentic metrics such as [Action Completion](https://docs.galileo.ai/concepts/metrics/agentic/action-completion), which checks whether an agent accomplished all of a user's goals in a session, and Tool Selection Quality, which checks both tool choice and arguments.
+- Out-of-the-box agentic metrics such as Action Completion, which checks whether an agent accomplished all of a user's goals in a session, and Tool Selection Quality, which checks both tool choice and arguments.
 - Luna models that distill LLM-as-judge evaluators into small, low-latency models, making it cheaper to score all traffic instead of a sample.
 - Guardrail policies that control agent actions and tool access, and deployment as SaaS, in a VPC, or on-premises.
 

@@ -108,7 +108,7 @@ Governance and security also extend past the data center. [Bifrost Edge](https:/
 
 ## 2. IBM ContextForge
 
-[IBM ContextForge](https://ibm.github.io/mcp-context-forge/) is an Apache 2.0 registry and proxy, written in Python, that federates MCP servers, A2A agents, and REST or gRPC APIs into one endpoint. It reached version 1.0 in May 2026 and remains the most federation-oriented option in this list.
+IBM ContextForge is an Apache 2.0 registry and proxy, written in Python, that federates MCP servers, A2A agents, and REST or gRPC APIs into one endpoint. It reached version 1.0 in May 2026 and remains the most federation-oriented option in this list.
 
 ContextForge wraps legacy APIs as virtual MCP servers, including gRPC-to-MCP translation through reflection, across HTTP, WebSocket, SSE, streamable HTTP, and stdio transports. Authentication includes JWT, SSO through providers such as Keycloak and Entra ID, RBAC with teams, and user-scoped OAuth tokens. It ships an admin UI, 40+ plugins, and OpenTelemetry tracing to backends such as Jaeger, Zipkin, and Phoenix.
 
@@ -118,7 +118,7 @@ ContextForge wraps legacy APIs as virtual MCP servers, including gRPC-to-MCP tra
 
 ## 3. agentgateway
 
-[agentgateway](https://agentgateway.dev) is an Apache 2.0 proxy written in Rust and hosted by the Linux Foundation. It handles MCP, A2A, and LLM traffic, and it runs either as a standalone binary configured with YAML or through its built-in Kubernetes controller with Gateway API support. Version 1.6 shipped on October 2, 2026.
+agentgateway is an Apache 2.0 proxy written in Rust and hosted by the Linux Foundation. It handles MCP, A2A, and LLM traffic, and it runs either as a standalone binary configured with YAML or through its built-in Kubernetes controller with Gateway API support. Version 1.6 shipped on October 2, 2026.
 
 For MCP, agentgateway federates tools from multiple servers across stdio, HTTP, SSE, and streamable HTTP, and it can turn OpenAPI specs into MCP tools. Authorization uses a CEL policy engine evaluated against JWT claims, so tools a caller may not use are filtered from list responses. Authentication covers JWT, API keys, and OAuth, and telemetry is exported as OpenTelemetry metrics, logs, and traces.
 
@@ -138,7 +138,7 @@ Running an unvetted MCP server directly on a laptop grants it the developer's fu
 
 ## 5. AWS Bedrock AgentCore Gateway
 
-[AWS Bedrock AgentCore Gateway](https://aws.amazon.com/bedrock/agentcore/) is a fully managed service that converts OpenAPI specs, Smithy models, and Lambda functions into MCP-compatible tools behind one endpoint. It handles inbound authentication of the calling agent and outbound authentication to each tool, including OAuth flows, token refresh, and credential storage.
+AWS Bedrock AgentCore Gateway is a fully managed service that converts OpenAPI specs, Smithy models, and Lambda functions into MCP-compatible tools behind one endpoint. It handles inbound authentication of the calling agent and outbound authentication to each tool, including OAuth flows, token refresh, and credential storage.
 
 AgentCore Gateway now also fronts other agents through passthrough targets (including A2A traffic) and routes inference requests across model providers. Semantic tool selection lets an agent search the catalog and load only relevant tools, which addresses context bloat by a different route than Code Mode. One-click integrations cover Salesforce, Slack, Jira, Asana, and Zendesk.
 
@@ -178,7 +178,7 @@ Portals accept stateless MCP `2026-07-28` clients as well as earlier Streamable 
 
 ## 9. Obot
 
-[Obot](https://obot.ai) is an MIT-licensed Go platform that combines an MCP gateway, an LLM gateway, and registries for MCP servers and agent skills. It can host MCP servers itself as Docker containers or Kubernetes workloads, which sets it apart from gateways that only proxy remote servers.
+Obot is an MIT-licensed Go platform that combines an MCP gateway, an LLM gateway, and registries for MCP servers and agent skills. It can host MCP servers itself as Docker containers or Kubernetes workloads, which sets it apart from gateways that only proxy remote servers.
 
 Identity integrates with enterprise IdPs and role-based permissions, OAuth credentials are brokered inside the gateway, and audit logs correlate activity across gateways, providers, and user devices. Production deployments run on Kubernetes with external PostgreSQL.
 
