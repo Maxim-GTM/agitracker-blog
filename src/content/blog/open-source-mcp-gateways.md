@@ -75,7 +75,7 @@ What matters for self-hosters:
 
 **Best for:** In this assessment, Bifrost is the strongest open source MCP gateway for teams that want enterprise-grade performance and governance without adding a separate tool gateway. It suits regulated environments that require air-gapped, VPC, or on-premises deployment and full control over data and execution.
 
-**Limitations:** multi-node [clustering](https://docs.getbifrost.ai/enterprise/clustering), token exchange, and some access-profile features belong to the enterprise tier, so a fully open-source deployment runs as independent nodes.
+**Deployment note:** the open-source build runs as a single high-performance node, and the enterprise tier adds multi-node [clustering](https://docs.getbifrost.ai/enterprise/clustering), token exchange, and advanced access profiles when a deployment grows across teams.
 
 ## 2. IBM ContextForge
 

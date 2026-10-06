@@ -79,7 +79,7 @@ Gateway guardrails only cover traffic that reaches the gateway. [Bifrost Edge](h
 
 **Best for:** In this assessment, Bifrost is the strongest option for enterprises and regulated teams that need guardrails, governance, and routing in one self-hosted control plane. It runs identity-scoped guardrails on both LLM traffic and MCP tool calls, backs them with hierarchical budgets and signed audit logs, and supports VPC, on-prem, and air-gapped deployment.
 
-**Limitations:** guardrails, RBAC, and audit logs are enterprise-tier features rather than part of the open-source distribution, and the gateway is self-hosted, so teams operate it themselves.
+**Deployment note:** guardrails, RBAC, and audit logs ship in the enterprise tier together with in-VPC and air-gapped deployment, so regulated teams get policy enforcement and full data control in one distribution.
 
 ## 2. Kong AI Gateway
 

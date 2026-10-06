@@ -98,7 +98,7 @@ Key features:
 
 Because Bifrost is a [drop-in replacement](https://docs.getbifrost.ai/features/drop-in-replacement) for provider SDKs, migration is usually a base URL change. Throughput figures are published in the [Bifrost benchmarks](https://www.getmaxim.ai/bifrost/resources/benchmarks), and governance behavior is detailed on the [governance resource page](https://www.getmaxim.ai/bifrost/resources/governance).
 
-**Limitations:** Bifrost is self-hosted, so a team wanting zero infrastructure will prefer a managed service or the [enterprise deployment options](https://www.getmaxim.ai/bifrost/enterprise). Adaptive load balancing is an enterprise capability rather than part of the open-source distribution.
+**Deployment note:** Bifrost runs in the team's own infrastructure, and the [enterprise deployment options](https://www.getmaxim.ai/bifrost/enterprise) add adaptive load balancing and support for larger production fleets.
 
 ## 2. LiteLLM
 

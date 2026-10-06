@@ -104,7 +104,7 @@ Governance and security also extend past the data center. [Bifrost Edge](https:/
 
 **Best for:** In this assessment, Bifrost is the strongest choice for enterprises running mission-critical agent workloads. It governs model calls and tool calls in one low-latency control plane, offers the deepest per-user authentication of any gateway reviewed here, and deploys air-gapped, in a VPC, or on-premises for regulated industries.
 
-**Limitations:** Bifrost is self-hosted by default, so teams must operate it (a managed deployment is available commercially). Token exchange, clustering, and some access-profile features sit in the enterprise tier rather than the open-source build.
+**Deployment note:** Bifrost runs in the team's own environment, and a managed deployment is available commercially. Token exchange, clustering, and advanced access profiles are part of the enterprise tier for organizations scaling MCP access across many teams.
 
 ## 2. IBM ContextForge
 

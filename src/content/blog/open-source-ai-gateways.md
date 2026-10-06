@@ -83,7 +83,7 @@ Key features:
 
 Throughput figures are published in the [Bifrost benchmarks](https://www.getmaxim.ai/bifrost/resources/benchmarks), and the governance model is detailed on the [governance resource page](https://www.getmaxim.ai/bifrost/resources/governance).
 
-**Limitations:** high availability features including clustering and [adaptive load balancing](https://docs.getbifrost.ai/enterprise/adaptive-load-balancing) sit in the [enterprise distribution](https://www.getmaxim.ai/bifrost/enterprise) rather than the Apache 2.0 build, so a team needing multi-node coordination on day one should plan for that. Tool Hosting, which registers custom tools in-process, is available only in the Go SDK and not in the Gateway deployment.
+**Deployment note:** the Apache 2.0 build covers the full core gateway, and the [enterprise distribution](https://www.getmaxim.ai/bifrost/enterprise) adds clustering and [adaptive load balancing](https://docs.getbifrost.ai/enterprise/adaptive-load-balancing) for teams that need coordinated multi-node high availability.
 
 ## 2. LiteLLM
 

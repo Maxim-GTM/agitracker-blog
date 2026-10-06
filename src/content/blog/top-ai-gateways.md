@@ -74,7 +74,7 @@ Beyond the gateway itself, Bifrost applies governance and security controls (vir
 
 **Best for:** In this assessment, Bifrost is the strongest choice for enterprises running mission-critical AI workloads. It combines the lowest measured gateway overhead with a unified LLM, MCP, and agent control plane, and its support for VPC, on-prem, and air-gapped deployment gives regulated teams full control over data, access, and execution.
 
-**Limitations:** Bifrost is self-hosted, so teams need to operate it. Guardrails, RBAC, audit logs, and clustering are part of the enterprise tier rather than the open-source distribution.
+**Deployment note:** Bifrost runs inside the team's own infrastructure (VPC, on-prem, or air-gapped), so prompts, responses, and provider keys stay in-house. The open-source build covers routing, failover, virtual keys, budgets, and caching, and the enterprise tier adds guardrails, RBAC, audit logs, and clustering for regulated, multi-node deployments.
 
 ## 2. Kong AI Gateway
 

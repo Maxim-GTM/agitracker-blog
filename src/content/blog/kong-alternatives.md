@@ -160,7 +160,7 @@ A side-by-side rollout with the [Bifrost AI gateway](https://www.getmaxim.ai/bif
 3. Point one application's SDK base URL at the gateway and compare cost and latency in [built-in observability](https://docs.getbifrost.ai/features/observability/default).
 4. Move MCP servers behind the gateway and scope tools per key before widening the rollout.
 
-A single open source Bifrost instance handles roughly 3,000 to 5,000 RPS; multi-node high availability with real-time state sync is part of the Enterprise tier. The [enterprise deployment resource](https://www.getmaxim.ai/bifrost/resources/enterprise-deployment) covers sizing for larger fleets, and our comparison of [gateways for LLM cost and observability](https://www.getmaxim.ai/articles/top-5-kong-alternatives-for-llm-cost-and-observability-in-2026/) focuses on the metrics to compare during a pilot.
+A single open source Bifrost instance handles roughly 3,000 to 5,000 RPS, and the Enterprise tier adds multi-node high availability with real-time state sync. The [enterprise deployment resource](https://www.getmaxim.ai/bifrost/resources/enterprise-deployment) covers sizing for larger fleets, and our comparison of [gateways for LLM cost and observability](https://www.getmaxim.ai/articles/top-5-kong-alternatives-for-llm-cost-and-observability-in-2026/) focuses on the metrics to compare during a pilot.
 
 ## How to Choose a Kong Alternative
 
