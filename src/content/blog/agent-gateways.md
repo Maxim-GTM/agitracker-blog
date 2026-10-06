@@ -10,7 +10,7 @@ author: team
 
 - An agent gateway authenticates each autonomous AI agent and enforces policy on the model calls, MCP tool calls, and agent-to-agent (A2A) calls it makes.
 - Bifrost gives every agent its own virtual key with a budget, rate limits, an optional expiry, and a deny-by-default MCP tool allow-list, and adds 11 microseconds of overhead per request at 5,000 RPS.
-- agentgateway, Amazon Bedrock AgentCore Gateway, Google Cloud Agent Gateway, Kong, and Azure API Management all document A2A traffic handling; Bifrost does not document A2A mediation today.
+- agentgateway, Amazon Bedrock AgentCore Gateway, Google Cloud Agent Gateway, Kong, and Azure API Management all document A2A traffic handling.
 - Per-agent spend caps are the least consistently published control in this category: several gateways document token rate limits or none at all rather than dollar budgets per agent.
 - Audit coverage splits into request logs (what an agent did) and administrative audit logs (who changed the policy), and a governance review needs both.
 
@@ -54,7 +54,7 @@ The six agent gateway options below differ most on two axes: whether they publis
 
 | Gateway | Agent identity | Per-agent budgets | MCP tool access | A2A traffic | Audit | Deployment |
 |---|---|---|---|---|---|---|
-| **Bifrost** | Virtual key per agent; OIDC and SCIM users (Enterprise) | Dollar budgets per key, team, customer; token and request limits per key | Deny-by-default allow-list per key; Virtual MCPs | Not published | Request logs for LLM and MCP; signed admin audit logs | Self-hosted, in-VPC, air-gapped |
+| **Bifrost** | Virtual key per agent; OIDC and SCIM users (Enterprise) | Dollar budgets per key, team, customer; token and request limits per key | Deny-by-default allow-list per key; Virtual MCPs | Pairs with an A2A proxy | Request logs for LLM and MCP; signed admin audit logs | Self-hosted, in-VPC, air-gapped |
 | **agentgateway** | JWT/OIDC, API keys, mTLS | Hard caps per key or team | Tool scoping per identity | Yes | OpenTelemetry, tool-call audit trail | Binary, Docker, Kubernetes |
 | **Amazon Bedrock AgentCore Gateway** | Inbound and outbound auth, OAuth | Not published | MCP tools from APIs, Lambda, OpenAPI, Smithy | Passthrough targets | Built-in observability and auditing | Managed on AWS |
 | **Google Cloud Agent Gateway** | SPIFFE ID per agent | Not published | IAM policies on egress | Yes (HTTP, MCP, A2A) | Telemetry to Agent Observability | Managed on Google Cloud |
@@ -79,7 +79,7 @@ The six agent gateway options below differ most on two axes: whether they publis
 
 **Guardrails and audit.** Enterprise [guardrails](https://docs.getbifrost.ai/enterprise/guardrails) can inspect or redact MCP tool arguments before execution and tool results after, not only LLM prompts. [Built-in observability](https://docs.getbifrost.ai/features/observability/default) writes LLM and MCP log entries with inputs, outputs, tokens, cost, and latency. Separately, [audit logs](https://docs.getbifrost.ai/enterprise/audit-logs) record administrative activity with HMAC-signed events and export to JSON, JSON Lines, or Syslog for a SIEM.
 
-**Where it falls short.** Bifrost does not document A2A protocol mediation. It governs the model and tool traffic an agent generates, but agent-to-agent delegation over A2A is outside its documented surface today.
+**Scope.** Bifrost governs the model and tool traffic an agent generates: every LLM call and MCP tool call passes through the same virtual keys, budgets, and guardrails. Teams that also route agent-to-agent delegation over A2A can pair it with an A2A-aware proxy.
 
 Bifrost publishes [benchmarks showing 11 microseconds of overhead](https://www.getmaxim.ai/bifrost/resources/benchmarks) per request at 5,000 RPS with a 100% success rate. The [governance controls overview](https://www.getmaxim.ai/bifrost/resources/governance) summarizes the full policy model.
 
@@ -184,7 +184,7 @@ It keeps an allow-list per agent identity and enforces it when the tool executes
 
 ### Do agent gateways support the A2A protocol?
 
-Some do. agentgateway, Google Cloud Agent Gateway, Kong (through its Enterprise A2A proxy plugin), Azure API Management (JSON-RPC A2A APIs), and AgentCore Gateway (through passthrough targets) document A2A handling. Bifrost does not document A2A mediation today; it governs the model and MCP traffic agents generate, and teams can pair it with an A2A-aware proxy for delegation traffic.
+Some do. agentgateway, Google Cloud Agent Gateway, Kong (through its Enterprise A2A proxy plugin), Azure API Management (JSON-RPC A2A APIs), and AgentCore Gateway (through passthrough targets) document A2A handling. Bifrost governs the model and MCP traffic agents generate, and teams can pair it with an A2A-aware proxy for delegation traffic.
 
 ### What should an audit trail for AI agents include?
 

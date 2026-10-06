@@ -98,7 +98,7 @@ Cost-relevant capabilities:
 
 For teams that also want content-based routing, the [Complexity Router](https://docs.getbifrost.ai/features/governance/complexity-router) publishes a `complexity_tier` variable to the same CEL rules, and classification runs only when a rule references it. The [governance model](https://www.getmaxim.ai/bifrost/resources/governance) is documented in full, and adoption is usually a base URL change through the [drop-in replacement](https://docs.getbifrost.ai/features/drop-in-replacement) path.
 
-**Limitations:** a semantic cache miss pays for an embedding call on top of the LLM call, so semantic mode suits traffic with real repetition, and caching engages only when a request carries a cache key. Running multiple OSS nodes against a shared Postgres store is not supported; multi-node budget synchronization and [adaptive load balancing](https://docs.getbifrost.ai/enterprise/adaptive-load-balancing) are part of [Bifrost Enterprise](https://www.getmaxim.ai/bifrost/enterprise).
+**Deployment note:** semantic caching pays off most on traffic with real repetition, and it applies to requests that carry a cache key. Multi-node budget synchronization and [adaptive load balancing](https://docs.getbifrost.ai/enterprise/adaptive-load-balancing) are part of [Bifrost Enterprise](https://www.getmaxim.ai/bifrost/enterprise).
 
 ### 2. LiteLLM
 

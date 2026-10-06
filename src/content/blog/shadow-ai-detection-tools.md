@@ -91,7 +91,7 @@ Key capabilities:
 
 Coverage today includes Claude Desktop, ChatGPT desktop, Cursor, and Codex on the desktop, Claude Code, Codex CLI, and OpenCode as coding agents, and ChatGPT and Claude in the browser, with the current list published on the [supported applications page](https://docs.getbifrost.ai/edge/supported-applications).
 
-**Limitations:** Bifrost Edge is in alpha, so teams register to be onboarded rather than installing it on demand. It is also an agent-based approach, which means fleet deployment is a prerequisite and unmanaged personal devices stay outside its reach. Teams whose exposure is mostly on unmanaged machines should pair it with an identity-based discovery method.
+**Deployment note:** Bifrost Edge is in alpha, and teams register to be onboarded. As an endpoint agent rolled out through MDM, it covers managed company devices, and it pairs well with identity-based discovery for any unmanaged machines.
 
 ## 2. Zscaler
 

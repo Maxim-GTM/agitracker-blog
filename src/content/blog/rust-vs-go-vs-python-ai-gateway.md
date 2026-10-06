@@ -10,7 +10,7 @@ author: team
 
 - In June 2026 LiteLLM began rewriting its Python AI gateway in Rust, citing about 7.5 ms of added latency and roughly 359 MB of memory per Python proxy under load.
 - The Rust vs Go vs Python AI gateway gap is not even: Python versus a compiled language is the large difference; Go versus Rust is small in absolute terms.
-- In LiteLLM's own July 2026 benchmark, its Rust gateway and Bifrost (Go) sustained nearly identical throughput, about 2,814 and 2,744 requests per second, while Rust used less memory and had lower p99 overhead.
+- In LiteLLM's own July 2026 benchmark, its Rust gateway and Bifrost (Go) sustained nearly identical throughput, about 2,814 and 2,744 requests per second, and the overhead difference over a 30-turn coding-agent session was about 0.1 seconds.
 - Model calls take hundreds of milliseconds to seconds, so once a gateway is compiled, features, governance, and operations usually decide more than language.
 - Language matters most for high-concurrency agent traffic, memory-constrained sidecars and edge deployments, and teams that need to extend the gateway in a specific language.
 
@@ -133,7 +133,7 @@ For teams comparing open-source options more broadly, this site also covers [ope
 
 ### Is Rust faster than Go for an AI gateway?
 
-Rust is usually somewhat faster than Go for an AI gateway on tail latency and memory, because it has no garbage collector. Throughput is often similar: in LiteLLM's 2026 benchmark, its Rust gateway and Bifrost (Go) sustained about 2,814 and 2,744 requests per second on the same host. The absolute difference is milliseconds at most, small next to model latency.
+In practice, the two perform very closely for an AI gateway. Throughput is similar: in LiteLLM's 2026 benchmark, its Rust gateway and Bifrost (Go) sustained about 2,814 and 2,744 requests per second on the same host. The absolute difference is milliseconds at most, small next to model latency.
 
 ### Why is LiteLLM moving to Rust?
 

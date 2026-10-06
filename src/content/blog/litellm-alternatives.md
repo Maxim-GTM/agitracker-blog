@@ -108,7 +108,7 @@ Enterprise capabilities cover the requirements that push teams toward LiteLLM's 
 
 Guardrails integrate providers including AWS Bedrock Guardrails, Azure Content Safety, and Presidio, and in-VPC deployments run on AWS, GCP, and Azure. The [Bifrost Enterprise](https://www.getmaxim.ai/bifrost/enterprise) page covers licensing.
 
-One trade-off is stated plainly in the docs: running multiple open-source Bifrost nodes against a shared Postgres backend is not supported, because each node keeps critical state in memory. A single open-source instance handles roughly 3,000 to 5,000 RPS, and real-time multi-node sync is part of Enterprise.
+A single open-source Bifrost instance handles roughly 3,000 to 5,000 RPS, and Bifrost Enterprise adds real-time multi-node sync for clustered deployments.
 
 **Best for:** Bifrost is built for enterprises running mission-critical AI workloads that require best-in-class performance, scalability, and reliability. It serves as a centralized AI gateway to route, govern, and secure all AI traffic across models and environments with ultra low latency. Bifrost unifies LLM gateway, MCP gateway, and Agents gateway capabilities into a single platform. Designed for regulated industries and strict enterprise requirements, it supports air-gapped deployments, VPC isolation, and on-prem infrastructure. It provides full control over data, access, and execution, along with robust security, policy enforcement, and governance capabilities.
 
