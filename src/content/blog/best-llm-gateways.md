@@ -20,7 +20,7 @@ An LLM gateway is a single endpoint that routes requests to multiple model provi
 
 An LLM gateway is a service that sits between applications and model providers, presenting many providers through one API. It holds provider credentials, applies budgets and rate limits per caller, retries and reroutes failed calls, and records what each request cost. Applications call it instead of calling each provider directly.
 
-The problem it solves is combinatorial. Three applications calling three providers means nine integrations, nine places a key can leak, and nine separate retry implementations. One gateway reduces that to one integration per application and one credential store.
+The problem it solves is combinatorial. Three applications calling three providers means nine integrations, nine places a key can leak, and nine separate retry implementations. One gateway reduces that to one integration per application and one credential store. The same logic applies when traffic includes images, speech, and video; the comparison of [AI gateways for multimodal workloads](/blog/multimodal-ai-gateways/) covers which gateways proxy those endpoints.
 
 ![Without a gateway three applications maintain nine direct provider integrations; with a gateway they share one endpoint that fans out to three providers](https://articles-images-cdn.t3.tigrisfiles.io/diagrams/best-llm-gateways/best-llm-gateways-before-after.png)
 
@@ -108,7 +108,7 @@ Its feature set covers most of the gateway surface: load balancing, routing, and
 
 **Best for:** teams whose main constraint is reaching the widest possible set of models quickly, with spend tracking attached.
 
-**Limitations:** being Python-based, its per-request overhead profile differs from a compiled gateway, which matters at sustained high throughput. Teams comparing the two directly can review the [Bifrost alternatives to LiteLLM](https://www.getmaxim.ai/bifrost/alternatives/litellm-alternatives) for a feature-level breakdown rather than relying on marketing claims from either side.
+**Limitations:** being Python-based, its per-request overhead profile differs from a compiled gateway, which matters at sustained high throughput. Teams comparing the two directly can review the [Bifrost alternatives to LiteLLM](https://www.getmaxim.ai/resources/litellm-alternative) for a feature-level breakdown rather than relying on marketing claims from either side.
 
 ## 3. Kong AI Gateway
 

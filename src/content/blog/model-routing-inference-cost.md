@@ -44,7 +44,7 @@ The pattern of [pushing most traffic to the cheapest capable model](https://www.
 
 ## Key Criteria for Evaluating Model Routing Tools on Cost
 
-Evaluate a model routing tool for cost on five things: whether it can weight traffic toward cheaper providers, whether budgets are enforced before the call, whether fallbacks respect those budgets, whether it avoids paid calls through caching, and whether cost is calculated from current pricing data rather than estimated.
+Evaluate a model routing tool for cost on five things: whether it can weight traffic toward cheaper providers, whether budgets are enforced before the call, whether fallbacks respect those budgets, whether it avoids paid calls through caching, and whether cost is calculated from current pricing data rather than estimated. Fallback behavior matters for availability as well as cost; the comparison of [AI gateways for failover across Bedrock, Vertex AI, and Azure OpenAI](/blog/ai-gateways-for-bedrock-vertex-azure-failover/) covers that side.
 
 | Criterion | What to check |
 |---|---|
@@ -108,7 +108,7 @@ On spend, the proxy supports budgets per key, user, and team with a `budget_dura
 
 **Best for:** Python teams that want a lowest-cost routing strategy and per-key spend tracking in one proxy.
 
-**Limitations:** usage-based routing adds latency through Redis operations, per the project's own routing docs, and the Python runtime has a different overhead profile from a compiled gateway. Teams weighing a move can compare [Bifrost as a LiteLLM alternative](https://www.getmaxim.ai/bifrost/alternatives/litellm-alternatives).
+**Limitations:** usage-based routing adds latency through Redis operations, per the project's own routing docs, and the Python runtime has a different overhead profile from a compiled gateway. Teams weighing a move can compare [Bifrost as a LiteLLM alternative](https://www.getmaxim.ai/resources/litellm-alternative).
 
 ### 3. OpenRouter
 

@@ -95,7 +95,7 @@ One caveat on the license column above. The GitHub repository does not resolve t
 
 **Best for:** teams that want fast access to a broad model catalog from a Python-native proxy, with spend tracking attached.
 
-**Limitations:** the Python runtime gives it a different per-request overhead profile from a compiled gateway, which matters under sustained high throughput. Teams weighing the two can review [Bifrost as a LiteLLM alternative](https://www.getmaxim.ai/bifrost/alternatives/litellm-alternatives) for a feature-level comparison.
+**Limitations:** the Python runtime gives it a different per-request overhead profile from a compiled gateway, which matters under sustained high throughput. Teams weighing the two can review [Bifrost as a LiteLLM alternative](https://www.getmaxim.ai/resources/litellm-alternative) for a feature-level comparison.
 
 ## 3. Kong AI Gateway
 
@@ -189,7 +189,7 @@ Bifrost publishes the most specific figures among these projects, adding 11 micr
 
 ### Can an open source AI gateway run air-gapped?
 
-Yes, provided nothing in its request path calls a hosted service. Bifrost supports air-gapped, VPC-isolated, and on-premise deployment in its enterprise distribution. Check whether the features you enable, particularly embedding-based semantic caching and externally hosted guardrails, require an outbound call that an air-gapped network cannot make.
+Yes, provided nothing in its request path calls a hosted service. Bifrost supports air-gapped, VPC-isolated, and on-premise deployment in its enterprise distribution. Check whether the features you enable, particularly embedding-based semantic caching and externally hosted guardrails, require an outbound call that an air-gapped network cannot make. The comparison of [AI gateways for air-gapped and in-VPC LLM deployments](/blog/air-gapped-ai-gateways/) lists the offline dependencies to check before a rollout.
 
 ## Getting Started with Bifrost
 

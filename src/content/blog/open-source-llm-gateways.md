@@ -97,7 +97,7 @@ LiteLLM is a widely used Python LLM proxy, MIT-licensed with a separately licens
 - **Upgrades:** stable releases ship weekly, and only the current stable release is supported.
 - **Commercial split:** Prometheus metrics are in the open source build; audit logs, SCIM, and multi-region admin/worker deployment are enterprise features.
 
-**Best for:** Python teams that want a large provider catalog and accept running Redis and Postgres. Teams comparing migration paths can review [LiteLLM alternatives](https://www.getmaxim.ai/bifrost/alternatives/litellm-alternatives).
+**Best for:** Python teams that want a large provider catalog and accept running Redis and Postgres. Teams comparing migration paths can review [LiteLLM alternatives](https://www.getmaxim.ai/resources/litellm-alternative).
 
 ### 3. MLflow AI Gateway
 

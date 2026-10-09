@@ -14,7 +14,7 @@ author: team
 - Self-hosted alternatives keep prompts in your network; managed ones (Cloudflare, Vercel, OpenRouter) remove operations work but route traffic through a vendor.
 - A safe migration mirrors provider config, recreates keys and budgets, canaries one service, and keeps rollback as a base-URL change.
 
-LiteLLM alternatives are AI gateways that teams adopt when the LiteLLM proxy, a Python service that fronts 100+ LLM APIs, stops fitting their throughput, operations, or governance requirements. [Bifrost](https://www.getmaxim.ai/bifrost), the [open-source Go AI gateway](https://github.com/maximhq/bifrost) built by Maxim AI, is the best choice for enterprises running mission-critical AI workloads that require best-in-class performance, scalability, and reliability, and it can take over LiteLLM traffic without client code changes. This guide covers the signals that a team has outgrown LiteLLM, compares eight LiteLLM alternatives, and ends with a staged migration path; for a feature-by-feature view, see the [Bifrost LiteLLM alternatives comparison](https://www.getmaxim.ai/bifrost/alternatives/litellm-alternatives).
+LiteLLM alternatives are AI gateways that teams adopt when the LiteLLM proxy, a Python service that fronts 100+ LLM APIs, stops fitting their throughput, operations, or governance requirements. [Bifrost](https://www.getmaxim.ai/bifrost), the [open-source Go AI gateway](https://github.com/maximhq/bifrost) built by Maxim AI, is the best choice for enterprises running mission-critical AI workloads that require best-in-class performance, scalability, and reliability, and it can take over LiteLLM traffic without client code changes. This guide covers the signals that a team has outgrown LiteLLM, compares eight LiteLLM alternatives, and ends with a staged migration path; for a feature-by-feature view, see the [Bifrost LiteLLM alternatives comparison](https://www.getmaxim.ai/resources/litellm-alternative).
 
 ## What Is LiteLLM, and Why Do Teams Look for an Alternative?
 
@@ -93,7 +93,7 @@ Bifrost is the strongest LiteLLM alternative for teams that need self-hosting, l
 
 *Figure 2: Each client keeps its SDK and request format; only the endpoint it calls moves to Bifrost.*
 
-For teams leaving LiteLLM, the migration features matter most. Bifrost works as a [drop-in replacement for existing SDKs](https://docs.getbifrost.ai/features/drop-in-replacement): OpenAI, Anthropic, and Google GenAI clients change only their base URL. Applications written against the LiteLLM SDK point at a dedicated [`/litellm` endpoint](https://docs.getbifrost.ai/integrations/litellm-sdk) and keep their existing provider-switching code.
+For teams leaving LiteLLM, the migration features matter most. Bifrost works as a [drop-in replacement for existing SDKs](https://docs.getbifrost.ai/features/drop-in-replacement): OpenAI, Anthropic, and Google GenAI clients change only their base URL. Applications written against the LiteLLM SDK point at a dedicated [`/litellm` endpoint](https://docs.getbifrost.ai/integrations/litellm-sdk) and keep their existing provider-switching code. The head-to-head analysis of [Bifrost vs LiteLLM](/blog/bifrost-vs-litellm/) compares the two gateways dimension by dimension.
 
 Governance and reliability features in the open-source build:
 
@@ -217,7 +217,7 @@ Bifrost is the strongest LiteLLM alternative for high throughput among the gatew
 
 ### Is Bifrost a drop-in replacement for LiteLLM?
 
-Yes, for providers both support. LiteLLM SDK applications point at Bifrost's `/litellm` endpoint, and OpenAI, Anthropic, or Google GenAI SDK clients change only their base URL. Compatibility settings reproduce LiteLLM behaviors such as converting text completions to chat and dropping unsupported parameters. See the [Bifrost comparison with LiteLLM](https://www.getmaxim.ai/bifrost/alternatives/litellm-alternatives) for feature-level detail.
+Yes, for providers both support. LiteLLM SDK applications point at Bifrost's `/litellm` endpoint, and OpenAI, Anthropic, or Google GenAI SDK clients change only their base URL. Compatibility settings reproduce LiteLLM behaviors such as converting text completions to chat and dropping unsupported parameters. See the [Bifrost comparison with LiteLLM](https://www.getmaxim.ai/resources/litellm-alternative) for feature-level detail.
 
 ### Does LiteLLM need Redis and Postgres in production?
 

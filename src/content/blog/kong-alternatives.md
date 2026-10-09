@@ -97,7 +97,7 @@ Three further open source projects replace Kong for LLM traffic on your own infr
 
 LiteLLM Proxy is a Python AI gateway that calls 100+ LLMs through a unified OpenAI-format interface and tracks spend per virtual key and user. The open source build includes virtual keys, budgets, rate limiting, load balancing with failover, caching, guardrails with custom plugins, and an MCP gateway.
 
-The trade-off against Kong is where the enterprise line falls. LiteLLM's enterprise page lists SSO for the admin UI, RBAC, audit logs with retention policies, secret manager integrations, tag-based budgets, and guardrails per key or team as paid features. Teams comparing Kong AI Gateway vs LiteLLM should also weigh the Python runtime against their throughput targets. Our [LiteLLM alternatives comparison](https://www.getmaxim.ai/bifrost/alternatives/litellm-alternatives) covers that trade-off in detail.
+The trade-off against Kong is where the enterprise line falls. LiteLLM's enterprise page lists SSO for the admin UI, RBAC, audit logs with retention policies, secret manager integrations, tag-based budgets, and guardrails per key or team as paid features. Teams comparing Kong AI Gateway vs LiteLLM should also weigh the Python runtime against their throughput targets. Our [LiteLLM alternatives comparison](https://www.getmaxim.ai/resources/litellm-alternative) covers that trade-off in detail.
 
 **Best for:** Python-centric teams that want a broad model catalog and spend tracking from an open source proxy, and can accept that SSO, RBAC, and audit logs are enterprise features.
 
@@ -211,4 +211,4 @@ An API gateway routes and secures REST and gRPC traffic using per-route policies
 
 ## Try Bifrost as Your Kong Alternative
 
-Kong alternatives built for LLM traffic put token budgets, provider failover, caching, and MCP governance at the center of the gateway instead of in a plugin tier. Bifrost does this in an Apache 2.0 Go gateway that runs in your VPC, on-premises, or air-gapped, and that other [Bifrost alternatives comparisons](https://www.getmaxim.ai/bifrost/alternatives) cover against individual gateways. To see how Bifrost can take over LLM and MCP traffic alongside or instead of Kong, [book a demo](https://getmaxim.ai/bifrost/book-a-demo) with the Bifrost team.
+Kong alternatives built for LLM traffic put token budgets, provider failover, caching, and MCP governance at the center of the gateway instead of in a plugin tier. Bifrost does this in an Apache 2.0 Go gateway that runs in your VPC, on-premises, or air-gapped, and that the [Bifrost resource guides](https://www.getmaxim.ai/resources) cover against individual gateways. To see how Bifrost can take over LLM and MCP traffic alongside or instead of Kong, [book a demo](https://getmaxim.ai/bifrost/book-a-demo) with the Bifrost team.
