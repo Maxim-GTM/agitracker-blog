@@ -12,7 +12,7 @@ author: team
 - An MCP gateway centralizes authentication, tool filtering, and audit logging for every Model Context Protocol server an AI agent can reach, so credentials and policy live in one place instead of in every client.
 - Bifrost ranks first because it governs model traffic and MCP tool calls through one control plane, adds 11 microseconds of overhead per request at 5,000 requests per second, and cut input tokens by 92.8% with Code Mode in a 508-tool benchmark.
 - The MCP `2026-07-28` specification removed protocol-level sessions, which changes how gateways scale: sticky routing is no longer required for clients and servers that support the new revision.
-- The other nine gateways split into three groups: open-source MCP gateways (ContextForge, agentgateway, Docker, Obot, Microsoft), API management platforms with MCP features (Kong, Azure API Management), and managed cloud services (AWS AgentCore Gateway, Cloudflare MCP server portals).
+- The other nine gateways split into three groups: open-source MCP gateways (ContextForge, Docker, Obot, Microsoft), API management platforms with MCP features (Kong, Azure API Management, Apigee), and managed cloud services (AWS AgentCore Gateway, Cloudflare MCP server portals).
 - The deciding question is scope: whether one control plane should govern model calls and tool calls together, or only the tools.
 
 An MCP gateway is a control layer that centralizes authentication, tool discovery, and access policy for every Model Context Protocol server an AI agent can reach. As engineering teams connect coding agents and internal applications to dozens of MCP servers, the number of separately held credentials and unreviewed tool calls grows faster than any manual security review can track. This guide, first published in May 2026 and expanded in October 2026 from five entries to ten, compares the top 10 MCP gateways on architecture, authentication, tool governance, token efficiency, and deployment model.
@@ -71,7 +71,7 @@ The ten gateways below are ordered by how much of that surface they cover. Licen
 |---|---|---|---|---|
 | Bifrost | Self-hosted, VPC, air-gapped, on-prem | Model traffic and MCP tools | Apache 2.0 core, Enterprise tier | One control plane for all AI traffic |
 | IBM ContextForge | Self-hosted Docker, PyPI, Kubernetes | MCP, A2A, REST and gRPC federation | Apache 2.0 | Federating many backends into one endpoint |
-| agentgateway | Binary or Kubernetes controller | MCP, A2A, and LLM traffic | Apache 2.0 | Gateway API and Kubernetes platform teams |
+| Google Cloud Apigee | Managed Google Cloud, Apigee hybrid | APIs exposed as MCP tools | Proprietary | Apigee-centric API programs |
 | Docker MCP Gateway | Docker Desktop or Docker Engine | MCP tools with container isolation | MIT | Developer machines running untrusted servers |
 | AWS Bedrock AgentCore Gateway | Fully managed AWS service | Tools, agents, and model routing in AWS | Proprietary | Teams standardized on AWS |
 | Kong AI Gateway | Kong Gateway 3.12+ | API and MCP traffic | Enterprise plugins | Existing Kong users |
@@ -116,15 +116,15 @@ ContextForge wraps legacy APIs as virtual MCP servers, including gRPC-to-MCP tra
 
 **Limitations:** production deployments add PostgreSQL and Redis, and the project governs tool and agent access rather than model spend, so budget enforcement and provider routing still need a separate layer.
 
-## 3. agentgateway
+## 3. Google Cloud Apigee
 
-agentgateway is an Apache 2.0 proxy written in Rust and hosted by the Linux Foundation. It handles MCP, A2A, and LLM traffic, and it runs either as a standalone binary configured with YAML or through its built-in Kubernetes controller with Gateway API support. Version 1.6 shipped on October 2, 2026.
+Google Cloud Apigee is a proprietary API management platform that can expose existing APIs as MCP tools. An MCP proxy uses an OpenAPI specification as its tool list, and Apigee handles the transcoding, so no MCP server has to be written or deployed. The MCP data plane runs on Google-managed infrastructure, or inside the customer's own Kubernetes cluster with Apigee hybrid 1.17.0 and later.
 
-For MCP, agentgateway federates tools from multiple servers across stdio, HTTP, SSE, and streamable HTTP, and it can turn OpenAPI specs into MCP tools. Authorization uses a CEL policy engine evaluated against JWT claims, so tools a caller may not use are filtered from list responses. Authentication covers JWT, API keys, and OAuth, and telemetry is exported as OpenTelemetry metrics, logs, and traces.
+Apigee's MCP endpoints support the `tools/list` and `tools/call` methods over HTTP. Authentication uses OAuth 2.1 and OpenID Connect, and tool access can be restricted by OAuth client identity or bundled into API products with quotas. Apigee's existing policies apply to MCP tools as they do to other APIs, including Model Armor for prompt injection. Deployed MCP proxies are registered in Apigee API hub as a searchable tool catalog, and Apigee Analytics reports usage per tool.
 
-**Best for:** platform teams that standardize on Gateway API and want one Rust data plane for agent, tool, and model traffic.
+**Best for:** organizations already managing APIs in Apigee that want to make them available to agents under the same policies and catalog.
 
-**Limitations:** rate limits are local to each replica unless an external rate-limit service is added, and per-user upstream credential brokering is less developed than in gateways built around identity.
+**Limitations:** an organization is limited to 1,000 MCP tools, only OpenAPI 3.0.x specifications are supported, and the documentation covers tools only, not MCP resources or prompts.
 
 ## 4. Docker MCP Gateway
 
@@ -203,8 +203,8 @@ Choosing between the top MCP gateways comes down to two questions: where the gat
 | Need | Strongest options | Why |
 |---|---|---|
 | One control plane for model and tool traffic | Bifrost | Same virtual keys, budgets, and audit trail cover both |
-| Air-gapped or on-premises | Bifrost, ContextForge, agentgateway | Self-hosted, no cloud dependency |
-| Kubernetes-native operation | agentgateway, Microsoft MCP Gateway | Controllers and CRDs fit GitOps workflows |
+| Air-gapped or on-premises | Bifrost, ContextForge | Self-hosted, no cloud dependency |
+| Kubernetes-native operation | Microsoft MCP Gateway | Controllers and CRDs fit GitOps workflows |
 | Local isolation of untrusted servers | Docker MCP Gateway | Each server runs in its own container |
 | Managed service in an existing cloud | AgentCore Gateway, Azure API Management, Cloudflare | No gateway infrastructure to operate |
 | Existing API management investment | Kong, Azure API Management | MCP added to current consumers and policies |
@@ -225,7 +225,7 @@ An MCP proxy forwards traffic between a client and a server with little added lo
 
 ### Is there an open source MCP gateway?
 
-Yes. Bifrost, IBM ContextForge, and agentgateway are Apache 2.0 licensed, and Docker MCP Gateway, Obot, and Microsoft MCP Gateway are MIT licensed. AWS AgentCore Gateway, Azure API Management, and Cloudflare MCP server portals are proprietary managed services, and Kong's MCP plugins require an enterprise license.
+Yes. Bifrost and IBM ContextForge are Apache 2.0 licensed, and Docker MCP Gateway, Obot, and Microsoft MCP Gateway are MIT licensed. AWS AgentCore Gateway, Azure API Management, Google Cloud Apigee, and Cloudflare MCP server portals are proprietary managed services, and Kong's MCP plugins require an enterprise license.
 
 ### Do I need an MCP gateway if I already run an AI gateway?
 
@@ -247,4 +247,4 @@ Bifrost fits enterprise requirements most completely among the ten, because it g
 
 The top MCP gateways in 2026 differ mainly in how much of the AI stack they govern and where they run. Bifrost is the author's pick because it puts model routing, MCP tool access, per-user authentication, and token cost control under one open-source deployment, with [Bifrost as the MCP gateway](https://www.getmaxim.ai/mcp-gateway) and [Bifrost Edge](https://www.getmaxim.ai/edge) extending the same governance and security policy to MCP servers on employee laptops. The other nine are reasonable choices for narrower needs, from container isolation to managed cloud.
 
-For a broader view of gateway options beyond MCP, see the [production-ready comparison of LLM gateways](https://www.getmaxim.ai/articles/top-5-llm-gateways-in-2026-a-production-ready-comparison/). Teams evaluating an MCP gateway can [request a Bifrost demo](https://getmaxim.ai/bifrost/book-a-demo) or start from the open-source repository on GitHub.
+For a broader view of gateway options beyond MCP, see the [production-ready comparison of LLM gateways](https://www.getmaxim.ai/articles/top-5-llm-gateways-in-2026-a-production-ready-comparison/).

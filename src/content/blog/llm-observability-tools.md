@@ -238,4 +238,4 @@ Yes. Bifrost (Apache 2.0), Langfuse (MIT, except enterprise folders), Opik (Apac
 
 ## Start Tracing Agents at the Gateway with Bifrost
 
-LLM observability tools are only as complete as the traffic they see. Bifrost records every LLM and MCP call in an agent run at the gateway, groups it by session, and exports OpenTelemetry spans to the backend your team already uses, with 11 microseconds of overhead at 5,000 RPS. Explore the [Bifrost resources hub](https://www.getmaxim.ai/bifrost/resources), or [book a demo](https://getmaxim.ai/bifrost/book-a-demo) to see agent tracing and debugging on your own traffic.
+LLM observability tools are only as complete as the traffic they see. Bifrost records every LLM and MCP call in an agent run at the gateway, groups it by session, and exports OpenTelemetry spans to the backend your team already uses, with 11 microseconds of overhead at 5,000 RPS. Explore the [Bifrost resources hub](https://www.getmaxim.ai/bifrost/resources) for agent tracing and debugging guides.

@@ -227,4 +227,4 @@ When budgets are enforced at request time, a provider that exceeds its budget is
 
 Model routing reduces inference cost only when routing, budgets, fallbacks, and caching run in the same request path. Bifrost combines all four, routes to 25+ providers and 10,000+ models, and adds 11 microseconds per request at 5,000 RPS, so cost controls do not become a latency cost.
 
-To see how Bifrost fits your stack, review the [Bifrost documentation](https://docs.getbifrost.ai/overview) or [book a demo](https://getmaxim.ai/bifrost/book-a-demo) with the Bifrost team.
+To see how Bifrost fits your stack, review the [Bifrost documentation](https://docs.getbifrost.ai/overview).

@@ -11,7 +11,7 @@ author: team
 - Kong AI Gateway adds LLM features to Kong Gateway through plugins, and Kong lists AI Proxy Advanced, AI Semantic Cache, and AI Rate Limiting Advanced as part of its AI Gateway Enterprise offering.
 - Purpose-built Kong alternatives treat model routing, token budgets, caching, and provider failover as the core request path rather than as plugins layered on a general HTTP proxy.
 - Bifrost is an Apache 2.0 AI gateway written in Go that adds 11 microseconds of overhead per request at 5,000 RPS and reaches 25+ providers and 10,000+ models through one OpenAI-compatible API.
-- Self-hosted Kong alternatives (Bifrost, LiteLLM, agentgateway, Agent Router) keep prompts on your infrastructure; hosted options (Cloudflare, OpenRouter, Vercel, Databricks) trade that control for zero operations.
+- Self-hosted Kong alternatives (Bifrost, LiteLLM, IBM ContextForge, Agent Router) keep prompts on your infrastructure; hosted options (Cloudflare, OpenRouter, Vercel, Databricks) trade that control for zero operations.
 - Most teams do not rip out Kong: they keep REST traffic on the API gateway and move LLM and MCP traffic to a dedicated AI gateway.
 
 Kong alternatives for AI workloads are gateways that route, govern, and observe LLM and MCP traffic without depending on a general-purpose API gateway and its plugin chain. [Bifrost](https://www.getmaxim.ai/bifrost), the [open-source AI gateway built in Go](https://github.com/maximhq/bifrost) by Maxim AI, is the best choice for enterprises that run mission-critical AI workloads and require best-in-class performance, scalability, and reliability. This guide compares eight Kong alternatives on architecture, governance, deployment model, and published pricing, and explains when keeping Kong for REST traffic still makes sense.
@@ -56,7 +56,7 @@ The eight Kong alternatives below split into self-hosted gateways that keep traf
 |---|---|---|---|---|---|
 | Bifrost | Self-hosted, in-VPC, on-prem | Go, Apache 2.0 | Virtual keys, teams, customers | MCP client and server, tool filtering | Open source; Enterprise tier |
 | LiteLLM | Self-hosted | Python, open source | Virtual keys, users, teams | MCP gateway | Open source; Enterprise tier |
-| agentgateway | Self-hosted, Kubernetes or standalone | Rust, Apache 2.0 | Token budgets and policies | Native MCP and A2A | Open source |
+| IBM ContextForge | Self-hosted, Docker or Kubernetes (Helm) | Python, Apache 2.0 | Teams and RBAC | MCP federation and A2A | Open source |
 | Agent Router | Self-hosted on Envoy Gateway | Go, Apache 2.0 | Token limits per team, app, or model | Tool catalog across MCP servers | Open source |
 | Cloudflare AI Gateway | Hosted at Cloudflare's edge | Hosted service | Not published | Not published | Core features free; 5% fee on unified billing credits |
 | OpenRouter | Hosted | Hosted service | Not published | Not published | 5.5% fee on card credit purchases |
@@ -101,13 +101,13 @@ The trade-off against Kong is where the enterprise line falls. LiteLLM's enterpr
 
 **Best for:** Python-centric teams that want a broad model catalog and spend tracking from an open source proxy, and can accept that SSO, RBAC, and audit logs are enterprise features.
 
-### 3. agentgateway
+### 3. IBM ContextForge
 
-agentgateway is an open source gateway written in Rust that handles service, LLM, and MCP traffic in one data plane. It is Apache 2.0 licensed and hosted by the Linux Foundation within the [Agentic AI Foundation](https://aaif.io/). It supports OpenAI, Anthropic, Bedrock, Gemini, Vertex, and self-hosted models, with token budgets, semantic caching, and prompt redaction.
+IBM ContextForge is an open source registry and proxy from IBM that federates MCP servers, A2A agents, and REST or gRPC APIs behind one endpoint. It is written in Python and licensed Apache 2.0. It also exposes an OpenAI-compatible chat completions API that can be configured for Azure OpenAI, OpenAI, Anthropic, AWS Bedrock, or Ollama, and it reports token usage and cost metrics through OpenTelemetry.
 
-The agentgateway project's distinguishing feature is protocol coverage: it has native support for MCP and the [Agent2Agent (A2A) protocol](https://a2a-protocol.org/), and it runs either on Kubernetes or standalone. It suits platform teams that already think in Kubernetes Gateway API terms and want a single proxy for agent-to-agent and agent-to-tool traffic.
+ContextForge's distinguishing feature is protocol coverage: it routes MCP and [Agent2Agent (A2A) protocol](https://a2a-protocol.org/) traffic and wraps REST and gRPC services as virtual MCP tools. It ships with an admin UI, team-based access with RBAC, rate limiting, and 40+ plugins, and it deploys with Docker, Docker Compose, or Helm on Kubernetes. It suits platform teams that want a single proxy for agent-to-agent and agent-to-tool traffic.
 
-**Best for:** Kubernetes platform teams that need one open source data plane for LLM, MCP, and A2A traffic.
+**Best for:** platform teams that need one open source endpoint for MCP, A2A, and REST traffic.
 
 ### 4. Agent Router (formerly Envoy AI Gateway)
 
@@ -174,7 +174,7 @@ Choose a Kong alternative by answering two questions in order: must prompts stay
 |---|---|
 | Self-hosted gateway with budgets, MCP governance, and in-VPC or air-gapped deployment | Bifrost |
 | Python-native proxy with a broad model list and basic spend tracking | LiteLLM |
-| Kubernetes-native data plane for LLM, MCP, and A2A traffic | agentgateway |
+| One open source endpoint for MCP, A2A, and REST traffic | IBM ContextForge |
 | AI routing inside an existing Envoy estate | Agent Router |
 | Zero-operations caching and analytics on an existing CDN account | Cloudflare AI Gateway |
 | One bill for hundreds of models, no gateway to run | OpenRouter |
@@ -187,7 +187,7 @@ The [governance resource](https://www.getmaxim.ai/bifrost/resources/governance) 
 
 ### Who are Kong's competitors for AI gateway traffic?
 
-Kong's competitors for AI traffic include purpose-built gateways such as [Bifrost, the open-source AI gateway](https://www.getmaxim.ai/bifrost), LiteLLM, agentgateway, and Agent Router (formerly Envoy AI Gateway), plus hosted gateways from Cloudflare, OpenRouter, Vercel, and Databricks. Self-hosted options suit teams with data residency requirements; hosted options suit teams that want no gateway infrastructure.
+Kong's competitors for AI traffic include purpose-built gateways such as [Bifrost, the open-source AI gateway](https://www.getmaxim.ai/bifrost), LiteLLM, IBM ContextForge, and Agent Router (formerly Envoy AI Gateway), plus hosted gateways from Cloudflare, OpenRouter, Vercel, and Databricks. Self-hosted options suit teams with data residency requirements; hosted options suit teams that want no gateway infrastructure.
 
 ### How much does Kong AI Gateway cost per month?
 
@@ -211,4 +211,4 @@ An API gateway routes and secures REST and gRPC traffic using per-route policies
 
 ## Try Bifrost as Your Kong Alternative
 
-Kong alternatives built for LLM traffic put token budgets, provider failover, caching, and MCP governance at the center of the gateway instead of in a plugin tier. Bifrost does this in an Apache 2.0 Go gateway that runs in your VPC, on-premises, or air-gapped, and that the [Bifrost resource guides](https://www.getmaxim.ai/resources) cover against individual gateways. To see how Bifrost can take over LLM and MCP traffic alongside or instead of Kong, [book a demo](https://getmaxim.ai/bifrost/book-a-demo) with the Bifrost team.
+Kong alternatives built for LLM traffic put token budgets, provider failover, caching, and MCP governance at the center of the gateway instead of in a plugin tier. Bifrost does this in an Apache 2.0 Go gateway that runs in your VPC, on-premises, or air-gapped, and that the [Bifrost resource guides](https://www.getmaxim.ai/resources) cover against individual gateways.

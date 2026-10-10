@@ -183,4 +183,4 @@ Yes, and they are the newest blind spot. MCP servers are external tools that AI 
 
 Shadow AI persists when governance depends on users pointing their tools at the right place. Bifrost, the AI gateway, is where virtual keys, budgets, guardrails, and audit logs are defined, and Bifrost Edge carries that policy to every machine so desktop apps, browser AI, coding agents, and MCP servers are governed without per-app setup. Edge is in alpha today, and teams register to be onboarded.
 
-To see how this works across your fleet, review the [Bifrost Edge documentation](https://docs.getbifrost.ai/edge/overview), explore [deployment options for enterprises](https://www.getmaxim.ai/bifrost/enterprise), or [book a demo](https://getmaxim.ai/bifrost/book-a-demo) with the team.
+To see how this works across your fleet, review the [Bifrost Edge documentation](https://docs.getbifrost.ai/edge/overview), or explore [deployment options for enterprises](https://www.getmaxim.ai/bifrost/enterprise).

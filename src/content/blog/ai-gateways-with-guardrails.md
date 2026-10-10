@@ -11,7 +11,7 @@ author: team
 - AI gateway guardrails inspect prompts, responses, and tool calls in the request path, so policy is enforced before data reaches a model or returns to a user, not reviewed after the fact.
 - Bifrost ranks first: its guardrails run on both LLM traffic and MCP tool calls through CEL rules and reusable profiles, with native secrets and PII detection plus 11 external providers, and they sit on the same virtual keys, budgets, and audit logs used for governance.
 - Kong AI Gateway, Azure API Management, and Google Apigee offer strong guardrail policies but inherit the complexity of a full API management platform.
-- Databricks Unity Gateway, MuleSoft AI Gateway, and Tyk AI Studio bring guardrails to teams already invested in those platforms, while LiteLLM and agentgateway serve open-source-first teams.
+- Databricks Unity Gateway, MuleSoft AI Gateway, and Tyk AI Studio bring guardrails to teams already invested in those platforms, while LiteLLM serves open-source-first teams.
 - The useful test for any AI gateway with guardrails is coverage: prompts, responses, streaming output, MCP tool arguments and results, and the identity behind each request.
 
 AI gateway guardrails are policy checks that run inside the gateway's request path, inspecting prompts before they reach a model and responses before they return, and blocking, redacting, or flagging content that violates policy. They differ from standalone guardrail services in one practical way: because every request already passes through the gateway, the guardrail applies to all traffic by default, with the caller's identity, budget, and access rules attached. [Bifrost](https://www.getmaxim.ai), an [open-source AI gateway built in Go](https://github.com/maximhq/bifrost) by Maxim AI, is one of ten AI gateways assessed here on how well they combine in-path guardrails with governance controls.
@@ -52,7 +52,7 @@ The table summarizes where each gateway's guardrails come from and what they cov
 | Cloudflare AI Gateway | Moderation guardrails, DLP | AI Security for Apps (WAF add-on) | No | Spend limits, rate limits, auth tokens |
 | LiteLLM | Content filter | Presidio, Lakera, Bedrock, Azure, Guardrails AI | Partial | Keys, team budgets (per-key guardrails need enterprise) |
 | Databricks Unity Gateway | PII, jailbreak, unsafe content, custom LLM guardrails | Evaluator model endpoints | Service policies on MCP services | Unity Catalog permissions, rate limits |
-| agentgateway | Regex mask and reject | OpenAI Moderation, Bedrock Guardrails, Model Armor, webhooks | MCP and A2A routing | Kubernetes-native policy |
+| F5 AI Gateway | Prompt injection detection, PII redactor | F5 AI Guardrails | Yes (per-tool allow and deny lists) | Budgets, quotas, RBAC, audit trails |
 | MuleSoft AI Gateway | LLM and MCP PII detection, prompt guard | Bedrock Guardrails | Tool allow and block rules | Anypoint API governance |
 | Tyk AI Studio | Scripted filters with PII redaction template | Custom via scripts | Tool responses filterable | Compliance events (enterprise) |
 
@@ -141,15 +141,15 @@ Governance comes from Unity Catalog, which treats models, MCP servers, and funct
 
 **Limitations:** guardrails are oriented to Databricks-served endpoints, so the gateway is not a general-purpose choice for applications running elsewhere.
 
-## 8. agentgateway (Solo.io)
+## 8. F5 AI Gateway (F5)
 
-agentgateway is a Rust-based, Apache 2.0 open-source gateway for LLM, MCP, and A2A traffic, contributed by Solo.io to the Linux Foundation in 2025. agentgateway guardrails include regex guards with built-in PII patterns that can mask, reject, or audit, plus OpenAI Moderation, AWS Bedrock Guardrails, Google Model Armor, and custom webhooks that can reject or audit.
+F5 AI Gateway is a commercial gateway from F5 that unifies a model gateway, an MCP gateway, and F5 AI Guardrails under one policy model and console. F5 AI Gateway guardrails run as processors attached to requests and responses through profiles, including a prompt injection processor that can detect or block attacks and a PII redactor that either replaces detected PII with a placeholder or rejects the request.
 
-Guards run in sequence on requests and responses, and audit mode lets teams measure a guard's hit rate before enforcing it. Solo.io sells a commercial distribution, Solo Enterprise for agentgateway, for teams that want support and additional features.
+Processors run in sequence by default, and a parallel mode lets them add metadata and tags without changing content. Governance covers shared budgets and quotas, RBAC, per-tool allow and deny lists for MCP, full audit trails with SIEM export, and OpenTelemetry output. The gateway is licensed software installed on Kubernetes with Helm.
 
-**Best for:** Kubernetes platform teams that want an open-source, Gateway API-native AI gateway with pluggable guardrails.
+**Best for:** enterprises already running F5 or NGINX for application delivery that want AI traffic governed alongside WAF, bot defense, and DDoS protection.
 
-**Limitations:** governance features such as hierarchical budgets and a governance UI are thinner than in dedicated AI gateways, and it assumes Kubernetes operating experience.
+**Limitations:** it is licensed commercial software pulled from F5's private registry, and self-managed deployments assume Kubernetes operating experience.
 
 ## 9. MuleSoft AI Gateway
 
@@ -211,6 +211,6 @@ At minimum, an AI gateway with guardrails should provide per-consumer keys, budg
 
 ## Choosing an AI Gateway for Guardrails and Governance
 
-The right AI gateway for guardrails depends on where traffic runs and which platform already owns API policy. Azure, Google Cloud, Databricks, and MuleSoft customers can start with the guardrails built into those platforms; Kong and Tyk users can extend existing gateways; open-source-first teams can evaluate LiteLLM or agentgateway, and the review of [open-source LLM gateways for self-hosted deployments](https://www.getmaxim.ai/articles/5-best-open-source-llm-gateways-for-self-hosted-deployments-in-2026/) covers that field in more depth.
+The right AI gateway for guardrails depends on where traffic runs and which platform already owns API policy. Azure, Google Cloud, Databricks, and MuleSoft customers can start with the guardrails built into those platforms; Kong and Tyk users can extend existing gateways; open-source-first teams can evaluate LiteLLM, and the review of [open-source LLM gateways for self-hosted deployments](https://www.getmaxim.ai/articles/5-best-open-source-llm-gateways-for-self-hosted-deployments-in-2026/) covers that field in more depth.
 
-For organizations that need guardrails on both model calls and MCP tool calls, scoped by identity, backed by hierarchical budgets and signed audit logs, and deployable inside their own network, Bifrost is the top pick among the AI gateways assessed here. The [Bifrost guardrails overview](https://www.getmaxim.ai/ai-guardrails) and [governance controls](https://www.getmaxim.ai/ai-governance) describe the full policy model. Teams evaluating AI gateway guardrails can [request a Bifrost demo](https://getmaxim.ai/bifrost/book-a-demo) or review the open-source repository linked above.
+For organizations that need guardrails on both model calls and MCP tool calls, scoped by identity, backed by hierarchical budgets and signed audit logs, and deployable inside their own network, Bifrost is the top pick among the AI gateways assessed here. The [Bifrost guardrails overview](https://www.getmaxim.ai/ai-guardrails) and [governance controls](https://www.getmaxim.ai/ai-governance) describe the full policy model.

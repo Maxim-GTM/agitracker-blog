@@ -214,4 +214,4 @@ AI is used in observability in two directions. AIOps applies machine learning to
 
 ## Get Started with Bifrost
 
-The AI observability platforms in this guide split into two roles: generating accurate telemetry about model traffic, and storing and visualizing it. Bifrost handles the first at the gateway layer, with per-request cost, normalized error types, and native Prometheus and OpenTelemetry export. The [Bifrost docs](https://docs.getbifrost.ai/overview) cover gateway setup and each observability integration. To see gateway-level cost and reliability monitoring on your own traffic, [book a demo](https://getmaxim.ai/bifrost/book-a-demo) with the Bifrost team.
+The AI observability platforms in this guide split into two roles: generating accurate telemetry about model traffic, and storing and visualizing it. Bifrost handles the first at the gateway layer, with per-request cost, normalized error types, and native Prometheus and OpenTelemetry export. The [Bifrost docs](https://docs.getbifrost.ai/overview) cover gateway setup and each observability integration.

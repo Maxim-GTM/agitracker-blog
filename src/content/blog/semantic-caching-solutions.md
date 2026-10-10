@@ -192,4 +192,4 @@ Through the similarity threshold and scoping. A threshold set too low will match
 
 Semantic caching pays off when traffic repeats and the layer running it does not add work of its own. Bifrost runs an exact-match path and a semantic path in the same gateway, checks the cheap one first, writes asynchronously, and keeps cached entries in a vector store you operate. The same deployment applies budgets and rate limits, so the savings and the spend controls are visible together.
 
-To see how it fits your workload, review the [semantic caching documentation](https://docs.getbifrost.ai/features/semantic-caching), explore the [Bifrost AI gateway](https://docs.getbifrost.ai/overview), or [book a demo](https://getmaxim.ai/bifrost/book-a-demo) with the team.
+To see how it fits your workload, review the [semantic caching documentation](https://docs.getbifrost.ai/features/semantic-caching), or explore the [Bifrost AI gateway](https://docs.getbifrost.ai/overview).

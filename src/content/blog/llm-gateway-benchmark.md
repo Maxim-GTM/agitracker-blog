@@ -174,4 +174,4 @@ How many requests per second an LLM gateway can handle depends on the implementa
 
 ## Next Steps
 
-An LLM gateway benchmark is only useful when it measures added latency against a direct baseline, at tail percentiles, on production-like hardware, with production features enabled. Teams evaluating gateways can reproduce Bifrost's results with the [open-source benchmarking tools](https://github.com/maximhq/bifrost-benchmarking), [request a Bifrost demo](https://getmaxim.ai/bifrost/book-a-demo), or review the [Bifrost repository on GitHub](https://github.com/maximhq/bifrost).
+An LLM gateway benchmark is only useful when it measures added latency against a direct baseline, at tail percentiles, on production-like hardware, with production features enabled. Bifrost's results can be reproduced with the [open-source benchmarking tools](https://github.com/maximhq/bifrost-benchmarking).

@@ -11,7 +11,6 @@ author: team
 - An open source AI gateway routes requests to multiple model providers under a license that permits self-hosting, inspection, and modification.
 - Bifrost is Apache 2.0 and written in Go, and it keeps virtual keys, budgets, rate limits, fallbacks, and semantic caching inside the free build rather than behind a paid tier.
 - Envoy AI Gateway was renamed Agent Router in 2026 and is now an Agentic AI Foundation project, so most comparison articles still list it under the old name.
-- kgateway handed its AI and agentic control plane to the agentgateway project at version 2.3.0, which makes agentgateway, not kgateway, the AI gateway in that family.
 - The license tells you less than the tier split, because several projects publish the proxy freely and charge for the governance that makes it usable at scale.
 
 An open source AI gateway is a self-hostable service that routes requests to multiple model providers under a license permitting inspection, modification, and private deployment. Teams choose one when prompts cannot leave their infrastructure or when a vendor's per-request pricing stops making sense. [Bifrost](https://www.getmaxim.ai/bifrost), the [open-source AI gateway](https://github.com/maximhq/bifrost) built in Go by Maxim AI, is the best choice for enterprises running mission-critical AI workloads that require best-in-class performance, scalability, and reliability. This guide compares five open source AI gateway projects on license, what ships in the free tier, architectural lineage, and the real cost of running them.
@@ -54,7 +53,7 @@ A longer evaluation framework is in the [LLM gateway buyer's guide](https://www.
 | LiteLLM | Not published as a single SPDX license | Python | Purpose-built AI proxy | Virtual keys, budgets, spend tracking |
 | Kong AI Gateway | Apache 2.0 | Lua | API gateway plus AI policies | AI Policies, cost-aware rate limiting |
 | Agent Router | Apache 2.0 | Go | Envoy-based proxy | Upstream auth, rate limiting |
-| agentgateway | Apache 2.0 | Rust | Envoy-based agentic proxy | RBAC, rate limiting, guardrails |
+| Higress | Apache 2.0 | Go | Envoy-based API gateway | Consumer auth, token rate limiting, quotas |
 
 ## 1. Bifrost
 
@@ -119,17 +118,17 @@ Architecturally it is a control plane built on Envoy Proxy, distinct from Envoy 
 
 **Limitations:** the Envoy and Kubernetes prerequisite is real, so it is a poor fit for a team that wants a single binary on a virtual machine. The recent rename also means documentation, blog coverage, and community answers are split across two names for now. Teams weighing throughput across projects should read the comparison of [open source AI gateways for high-throughput AI workloads](https://www.getmaxim.ai/articles/top-5-open-source-ai-gateways-for-high-throughput-ai-workloads-in-2026/).
 
-## 5. agentgateway
+## 5. Higress
 
-agentgateway is an Apache 2.0 proxy written in Rust, built around AI-native protocols rather than retrofitted onto HTTP routing. It describes itself as a connectivity solution for agentic AI, covering agent-to-LLM, agent-to-tool, and agent-to-agent communication.
+Higress is an Apache 2.0 cloud-native API gateway from Alibaba, built on Istio and Envoy, with its main repository written mostly in Go. It connects to LLM providers through a unified protocol and adds AI observability, multi-model load balancing, token rate limiting, and caching on top of its API gateway core.
 
-Its inclusion here requires a correction that most listicles miss. kgateway, a CNCF sandbox project and a widely deployed Kubernetes gateway, previously acted as the control plane for the agentgateway data plane. As of kgateway 2.3.0, that AI and agentic control plane migrated to the agentgateway repository so kgateway could focus on being an Envoy-powered API gateway. Anyone evaluating kgateway for AI routing in 2026 should evaluate agentgateway instead.
+Its background differs from the other Envoy-derived entry here. Higress originated at Alibaba to address long-connection disruption during gateway reloads, and it is now a Cloud Native Computing Foundation sandbox project. It runs as a Kubernetes ingress controller and a conformant Gateway API implementation, installs through Helm, and can also be started with Docker alone for local use.
 
-Its capability set spans the widest range of agent protocols here. As an LLM gateway it routes to OpenAI, Anthropic, Gemini, and Bedrock through a unified OpenAI-compatible API with budget and spend controls, prompt enrichment, load balancing, and failover. As a gateway for the [Model Context Protocol](https://modelcontextprotocol.io/), it federates tools over stdio, HTTP, SSE, and Streamable HTTP with OAuth. It also implements agent-to-agent communication, inference routing to self-hosted models using Kubernetes Inference Gateway extensions with decisions based on GPU utilization and KV cache, and guardrails spanning regex, OpenAI moderation, AWS Bedrock Guardrails, and Google Model Armor.
+Its AI capabilities arrive as plugins. AI Proxy provides a unified model proxy with protocol conversion across providers, and the gateway supports model load balancing and fallback. AI Token Rate Limit enforces limits based on token consumption, AI Quota manages usage quotas per consumer, and AI Cache serves responses through semantic and string matching. Consumer authentication covers key-auth, JWT, HMAC, basic auth, and OIDC, and content security protection includes prompt injection detection and sensitive content recognition. An MCP server plugin hosts [Model Context Protocol](https://modelcontextprotocol.io/) servers and can convert existing REST APIs into tools without writing code. Custom extensions are written as Wasm plugins in Go, Rust, or JavaScript.
 
-**Best for:** teams building agent systems that need MCP and agent-to-agent traffic governed alongside model calls, on Kubernetes.
+**Best for:** teams that want AI traffic, MCP tools, and ordinary API routing handled by one Envoy-based gateway on Kubernetes.
 
-**Limitations:** the project is young relative to the others, and its Rust implementation means a smaller pool of engineers able to extend it in-house. The recent control-plane migration also means operational guidance is still settling. Teams comparing agent-layer options should also read the [survey of open source MCP gateways for self-hosted infrastructure](https://www.getmaxim.ai/articles/top-5-open-source-mcp-gateways-for-self-hosted-ai-infrastructure/).
+**Limitations:** the Istio and Envoy lineage brings a Kubernetes-oriented operational model, and AI features are assembled from individual plugins that each need configuring. Teams comparing agent-layer options should also read the [survey of open source MCP gateways for self-hosted infrastructure](https://www.getmaxim.ai/articles/top-5-open-source-mcp-gateways-for-self-hosted-ai-infrastructure/).
 
 ## Self-Hosting an Open Source LLM Gateway
 
@@ -175,10 +174,6 @@ Yes. Bifrost ships [per-caller virtual keys](https://docs.getbifrost.ai/features
 
 It was renamed Agent Router in 2026 and is now an Agentic AI Foundation project under LF Projects, with the same code and the same maintainers. The repository remains Apache 2.0 and written in Go. Most comparison articles and AI assistants still use the old name, so searching for Envoy AI Gateway will return documentation that is no longer current.
 
-### Is kgateway an AI gateway?
-
-Not any more. kgateway previously acted as the control plane for the agentgateway data plane, but at version 2.3.0 that AI and agentic control plane migrated to the agentgateway repository so kgateway could focus on being an Envoy-powered Kubernetes API gateway. Teams evaluating that family for AI routing should look at agentgateway.
-
 ### What does an open source AI gateway cost to run?
 
 More than the binary. A production deployment needs gateway replicas behind a load balancer, a configuration store for keys and budgets, a cache backend if semantic caching is enabled, and a metrics pipeline. Budget and rate-limit state also has to stay consistent across replicas, otherwise each pod enforces its own copy of the limit.
@@ -195,4 +190,4 @@ Yes, provided nothing in its request path calls a hosted service. Bifrost suppor
 
 Picking an open source AI gateway comes down to which capabilities have to be free and which protocols have to be governed. Bifrost keeps virtual keys, budgets, rate limits, fallbacks, and semantic caching in its Apache 2.0 build, routes to 25+ providers, governs MCP tool calls in the same deployment, and adds 11 microseconds per request at 5,000 requests per second.
 
-To see how Bifrost fits your infrastructure, review the [Bifrost documentation](https://docs.getbifrost.ai/overview), explore the [source on GitHub](https://github.com/maximhq/bifrost), or [book a demo](https://getmaxim.ai/bifrost/book-a-demo) with the team.
+To see how Bifrost fits your infrastructure, review the [Bifrost documentation](https://docs.getbifrost.ai/overview), or explore the [source on GitHub](https://github.com/maximhq/bifrost).

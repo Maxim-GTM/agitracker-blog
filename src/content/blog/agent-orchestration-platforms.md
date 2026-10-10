@@ -228,4 +228,4 @@ Production deployments usually benefit from one. Orchestration frameworks contro
 
 For most engineering teams, LangGraph remains the default agent orchestration platform for stateful production workflows, Microsoft Agent Framework is the clear pick on the Microsoft stack, and Google ADK 2.0 is the most complete multi-language option. CrewAI, Mastra, and Strands Agents each lead in a narrower lane, and n8n is the practical choice when agents live inside business automations.
 
-Whichever orchestrator wins the shortlist, the model and tool calls underneath it still need failover, budgets, guardrails, and tracing. Teams planning that layer can [request a Bifrost demo](https://getmaxim.ai/bifrost/book-a-demo) or review the [Bifrost source on GitHub](https://github.com/maximhq/bifrost).
+Whichever orchestrator wins the shortlist, the model and tool calls underneath it still need failover, budgets, guardrails, and tracing.

@@ -235,4 +235,4 @@ Output guardrails add latency whenever they must check text before release. Hold
 
 ## Try Bifrost for Output Guardrails
 
-Output-side AI guardrails decide whether a toxic reply or a leaked phone number reaches your users. Bifrost enforces them at the gateway for every provider, with block, redact, and flag actions and a streaming path that never releases a response a rule can still block. To see output guardrails running on your own traffic, [book a demo](https://getmaxim.ai/bifrost/book-a-demo) with the Bifrost team.
+Output-side AI guardrails decide whether a toxic reply or a leaked phone number reaches your users. Bifrost enforces them at the gateway for every provider, with block, redact, and flag actions and a streaming path that never releases a response a rule can still block.
