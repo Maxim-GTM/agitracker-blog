@@ -11,7 +11,7 @@ author: team
 - A Claude Code gateway is a self-hosted service that Claude Code reaches through `ANTHROPIC_BASE_URL`, holding the provider credential while each developer holds only a gateway credential.
 - Bifrost routes Claude Code through virtual keys with per-developer budgets, CEL routing rules, request logs, and a single governed `/mcp` endpoint, adding 11 microseconds of overhead per request at 5,000 RPS.
 - Anthropic's Claude apps gateway ships inside the `claude` binary with SSO sign-in and per-developer spend limits, but it serves Claude models only and does not govern MCP tool traffic.
-- Kong AI Gateway, agentgateway, and MLflow AI Gateway differ most on where per-developer budgets live and whether developers keep their own Anthropic credentials.
+- Kong AI Gateway, Azure API Management, and MLflow AI Gateway differ most on where per-developer budgets live and whether developers keep their own Anthropic credentials.
 - A gateway must forward the `anthropic-beta` and `anthropic-version` headers and stream responses unbuffered, or Claude Code features break without an obvious error.
 
 Claude Code sends every model request to whatever address `ANTHROPIC_BASE_URL` holds, which makes a Claude Code gateway the single control point for credentials, spend, and audit across an engineering organization. [Bifrost](https://www.getmaxim.ai/bifrost), the [open-source AI gateway built in Go](https://github.com/maximhq/bifrost) by Maxim AI, is the best choice for enterprises running mission-critical AI workloads that require best-in-class performance, scalability, and reliability, and it runs entirely inside your own network. This guide compares five gateways you can self-host for Claude Code on how developers connect, per-developer budgets, model routing, audit, and MCP governance.
@@ -65,15 +65,15 @@ Our breakdown of [governing Claude Code token usage per team](https://www.getmax
 
 The five gateways below all document a Claude Code setup and all run on infrastructure you operate. They differ on budget scope, non-Claude model support, and MCP. Where a vendor page read for this guide did not state a capability, the cell says "Not published." The [Bifrost docs](https://docs.getbifrost.ai/overview) list the full feature set behind the first column.
 
-| Capability | Bifrost | Claude apps gateway | Kong AI Gateway | agentgateway | MLflow AI Gateway |
+| Capability | Bifrost | Claude apps gateway | Kong AI Gateway | Azure API Management | MLflow AI Gateway |
 |---|---|---|---|---|---|
-| Claude Code connection | `ANTHROPIC_BASE_URL` + virtual key | `/login` SSO device flow | `ANTHROPIC_BASE_URL` or `apiKeyHelper` | `ANTHROPIC_BASE_URL` | `ANTHROPIC_BASE_URL` |
-| Developer holds provider key | No | No | No | No (Anthropic backend) | Yes, own Anthropic login |
-| Per-developer budget | Yes, per virtual key with reset periods | Yes, spend limits by user, group, or org | Token rate limits per consumer group | Not published | Global or per workspace |
-| Routing across Anthropic, Bedrock, Google Cloud | Yes, plus 25+ providers | Yes, Claude models only | Yes | Yes, plus OpenAI-compatible backends | Anthropic endpoint documented |
-| Request logging | Built-in request logs, OTLP, Prometheus | OTLP metrics, logs, and traces | Logging plugins | Not published on Claude Code page | MLflow traces |
+| Claude Code connection | `ANTHROPIC_BASE_URL` + virtual key | `/login` SSO device flow | `ANTHROPIC_BASE_URL` or `apiKeyHelper` | Foundry mode with base URL set to API Management | `ANTHROPIC_BASE_URL` |
+| Developer holds provider key | No | No | No | No, subscription key per developer | Yes, own Anthropic login |
+| Per-developer budget | Yes, per virtual key with reset periods | Yes, spend limits by user, group, or org | Token rate limits per consumer group | Token limits and quotas per subscription key | Global or per workspace |
+| Routing across Anthropic, Bedrock, Google Cloud | Yes, plus 25+ providers | Yes, Claude models only | Yes | Yes, Foundry, Bedrock, and Vertex AI backends | Anthropic endpoint documented |
+| Request logging | Built-in request logs, OTLP, Prometheus | OTLP metrics, logs, and traces | Logging plugins | Azure Monitor and Application Insights | MLflow traces |
 | Admin audit trail | Signed audit logs (Enterprise) | Audit events in gateway logs | Not published | Not published | Not published |
-| MCP gateway for Claude Code | Yes, `/mcp` with per-key tool filtering | No; MCP allowlists via managed settings | AI MCP Proxy plugin (Enterprise) | Yes, MCP multiplexing | Not published |
+| MCP gateway for Claude Code | Yes, `/mcp` with per-key tool filtering | No; MCP allowlists via managed settings | AI MCP Proxy plugin (Enterprise) | Yes, MCP server passthrough and governance | Not published |
 
 ## 1. Bifrost
 
@@ -146,20 +146,20 @@ What Kong's documentation shows for Claude Code:
 
 Two constraints matter for self-hosting. Kong's Claude Code tutorials run against a Konnect control plane and are marked incompatible with on-prem deployments, and spend control is expressed as token rate limits per consumer group rather than a dollar budget per developer. Our overview of [how a Claude Code gateway handles cost control](https://www.getmaxim.ai/articles/claude-code-gateway-explained-routing-governance-and-cost-control/) compares the two models.
 
-## 4. agentgateway
+## 4. Azure API Management AI Gateway (Microsoft)
 
-agentgateway is an open-source gateway that handles LLM, MCP, and agent-to-agent traffic in one data plane. Its Claude Code guide focuses on routing Claude Code to non-Anthropic backends such as vLLM or Ollama through an OpenAI-compatible provider, with a direct Anthropic backend and a Claude subscription pass-through mode as alternatives.
+Azure API Management's AI gateway is a set of LLM policies inside Microsoft's API gateway rather than a separate product. It governs language model APIs that follow the OpenAI, Anthropic Messages, or Google Vertex AI schemas, and Microsoft has published a reference setup that puts it between Claude Code and Claude models deployed in Microsoft Foundry.
 
-**Best for:** Platform teams running self-hosted open-weight models who want Claude Code to reach them and want one open-source data plane for LLM and MCP traffic.
+**Best for:** Enterprises already standardized on Azure that run Claude through Microsoft Foundry and want Claude Code traffic governed by the same API Management instance, policies, and Azure Monitor workspace as their other APIs.
 
-Documented behavior for Claude Code:
+What Microsoft's documentation and reference setup show for Claude Code:
 
-- A YAML `config.yaml` with a wildcard `*` model accepts whatever model Claude Code sends; Claude Code connects with `ANTHROPIC_BASE_URL=http://localhost:4000`.
-- Unsupported beta parameters are handled by setting `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1`, which turns those features off.
-- A standalone UI manages models and virtual API keys and can generate Claude Code connection settings.
-- A subscription pass-through route at `/claude` lets developers keep their Claude Teams or Pro login.
+- Anthropic Messages API support is currently limited to API Management v2 tiers; requests stay in native Messages format, including streaming and token counting.
+- Claude Code runs in its Foundry mode with the base URL pointed at API Management, and each developer authenticates with an API Management subscription key instead of a Foundry key.
+- API Management strips client credentials and authenticates to Foundry with its system-assigned managed identity.
+- The `llm-token-limit` policy sets tokens-per-minute limits or token quotas per subscription key or custom counter key, and `llm-emit-token-metric` sends per-consumer token metrics to Application Insights.
 
-Per-developer dollar budgets and admin audit trails are not described on its Claude Code page, so confirm them before rollout. Bifrost also reaches self-hosted backends such as [vLLM](https://docs.getbifrost.ai/providers/supported-providers/vllm) and Ollama, with virtual key budgets applied to that traffic.
+Limits are expressed in tokens rather than dollars, and the Claude Code setup is a Microsoft reference architecture rather than a dedicated product guide, so confirm header forwarding before rollout. The [AI gateway capabilities overview](https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities) lists the available policies, including support for exposing and governing existing MCP servers. Bifrost reaches self-hosted backends such as [vLLM](https://docs.getbifrost.ai/providers/supported-providers/vllm) and Ollama, with virtual key budgets applied to that traffic.
 
 ## 5. MLflow AI Gateway
 
@@ -212,11 +212,11 @@ Set `ANTHROPIC_BASE_URL` to the gateway address and put the gateway credential i
 
 ### Is there a free proxy for Claude Code?
 
-Yes. Bifrost is open source and self-hostable at no license cost through its [gateway setup guide](https://docs.getbifrost.ai/quickstart/gateway/setting-up), and Anthropic's Claude apps gateway ships inside the `claude` binary. agentgateway and MLflow AI Gateway are also open source. You still pay the provider for tokens and operate the gateway, including keeping it current as Claude Code adds headers.
+Yes. Bifrost is open source and self-hostable at no license cost through its [gateway setup guide](https://docs.getbifrost.ai/quickstart/gateway/setting-up), and Anthropic's Claude apps gateway ships inside the `claude` binary. MLflow AI Gateway is also open source. You still pay the provider for tokens and operate the gateway, including keeping it current as Claude Code adds headers.
 
 ### Can Claude Code use models other than Claude through a gateway?
 
-Gateways such as Bifrost and agentgateway can route Claude Code requests to non-Claude models, provided the model supports the tool calling Claude Code uses for file edits and shell commands. Anthropic does not support running Claude Code against non-Claude models through any gateway, so Claude-specific server-side tools such as web search may be unavailable.
+Gateways such as Bifrost can route Claude Code requests to non-Claude models, provided the model supports the tool calling Claude Code uses for file edits and shell commands. Anthropic does not support running Claude Code against non-Claude models through any gateway, so Claude-specific server-side tools such as web search may be unavailable.
 
 ### How do I set per-developer budgets for Claude Code?
 
@@ -230,4 +230,4 @@ Yes. A gateway can expose the Anthropic Messages format and forward to Bedrock, 
 
 A Claude Code gateway earns its place when it keeps provider credentials, per-developer budgets, audit records, and MCP tool access inside infrastructure you control. [The open-source Bifrost gateway](https://www.getmaxim.ai/bifrost) does that for Claude Code with virtual keys, CEL routing rules, request logs, and one governed MCP endpoint, deployed in your VPC or on-premises through [Bifrost Enterprise](https://www.getmaxim.ai/bifrost/enterprise).
 
-Our survey of [open-source Claude Code gateways](https://www.getmaxim.ai/articles/top-5-open-source-claude-code-gateways-in-2026/) and the [enterprise guide to Claude Code on Bifrost](https://www.getmaxim.ai/bifrost/resources/claude-code) cover more detail. To route your team's Claude Code traffic through your own infrastructure, [book a demo](https://getmaxim.ai/bifrost/book-a-demo) with the Bifrost team.
+Our survey of [open-source Claude Code gateways](https://www.getmaxim.ai/articles/top-5-open-source-claude-code-gateways-in-2026/) and the [enterprise guide to Claude Code on Bifrost](https://www.getmaxim.ai/bifrost/resources/claude-code) cover more detail.

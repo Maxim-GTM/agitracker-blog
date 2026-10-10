@@ -75,7 +75,7 @@ Provider coverage for Bifrost is listed on the [supported providers page](https:
 | Bifrost | Self-hosted, in-VPC, on-prem | Go | Apache 2.0 | Virtual keys, budgets, rate limits | 11 µs at 5,000 RPS |
 | Kong AI Gateway | Self-hosted or Konnect | Kong Gateway plugins | Apache 2.0 core | AI rate limiting; semantic cache needs AI Gateway Enterprise | Not published |
 | Agent Router (formerly Envoy AI Gateway) | Laptop, Kubernetes, or hosted | Envoy, Go control plane | Apache 2.0 | Token limits per team, app, or model | Not published |
-| agentgateway | Binary, Docker, Kubernetes | Rust | Apache 2.0 | Token budgets, hard caps per key or team | Not published |
+| Azure API Management AI gateway | Azure-managed, or self-hosted gateway container | Azure API Management | Proprietary | Token rate limits and quotas per subscription or custom key | Not published |
 | Cloudflare AI Gateway | Managed | Cloudflare network | Proprietary | Rate limiting, caching, analytics | Not published |
 | Vercel AI Gateway | Managed | Vercel | Proprietary | Budgets per team, project, key, or member | Not published |
 | OpenRouter | Managed | OpenRouter | Proprietary | Credit-based spend | Not published |
@@ -83,7 +83,7 @@ Provider coverage for Bifrost is listed on the [supported providers page](https:
 
 ## The 8 Best LiteLLM Alternatives in 2026
 
-Bifrost is the strongest LiteLLM alternative for teams that need self-hosting, low overhead, and governance in one gateway. Kong AI Gateway and Agent Router suit teams already running those API gateways, agentgateway suits Kubernetes-native agent traffic, and the managed options suit teams willing to hand operations to a vendor.
+Bifrost is the strongest LiteLLM alternative for teams that need self-hosting, low overhead, and governance in one gateway. Kong AI Gateway, Agent Router, and Azure API Management suit teams already running those API gateways, and the managed options suit teams willing to hand operations to a vendor.
 
 ### 1. Bifrost
 
@@ -126,11 +126,11 @@ Agent Router is the renamed Envoy AI Gateway, now an Agentic AI Foundation proje
 
 **Best for:** Platform teams standardized on Envoy that want AI routing expressed as gateway configuration.
 
-### 4. agentgateway
+### 4. Azure API Management AI gateway
 
-agentgateway is an open-source HTTP and gRPC gateway written in Rust that handles application traffic, LLM traffic, MCP, and agent-to-agent protocols in one data plane. It is Apache 2.0 licensed, hosted by the Linux Foundation, and ships as a binary, Docker image, or Kubernetes deployment, with provider failover, token budgets, hard caps per key or team, and prompt redaction.
+The [AI gateway in Azure API Management](https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities) is a set of Microsoft policies and features for LLM APIs, MCP servers, and A2A agent APIs, built into the existing API Management gateway rather than sold separately. It manages models in Microsoft Foundry or providers such as Amazon Bedrock, with token rate limits and quotas per subscription or custom key, semantic caching, load balancing with circuit breakers, and Azure AI Content Safety checks. It runs managed in Azure, or as a self-hosted gateway container on the Developer and Premium tiers.
 
-**Best for:** Kubernetes-native teams that want one data plane for services, models, and agents.
+**Best for:** Azure-centric teams that want LLM governance in the API Management instance they already run.
 
 ### 5. Cloudflare AI Gateway
 
@@ -225,8 +225,8 @@ LiteLLM uses Postgres for keys, spend, and runtime config, and its production gu
 
 ### Can I self-host a LiteLLM alternative in a private VPC?
 
-Yes. Bifrost, Kong AI Gateway, Agent Router, agentgateway, and MLflow AI Gateway all run on infrastructure you control. Bifrost Enterprise adds supported [private-cloud deployments](https://docs.getbifrost.ai/enterprise/invpc-deployments) on AWS, GCP, and Azure plus air-gapped and on-prem options. Cloudflare AI Gateway, Vercel AI Gateway, and OpenRouter are managed services that route traffic through the vendor.
+Yes. Bifrost, Kong AI Gateway, Agent Router, and MLflow AI Gateway all run on infrastructure you control. Bifrost Enterprise adds supported [private-cloud deployments](https://docs.getbifrost.ai/enterprise/invpc-deployments) on AWS, GCP, and Azure plus air-gapped and on-prem options. Cloudflare AI Gateway, Vercel AI Gateway, and OpenRouter are managed services that route traffic through the vendor.
 
 ## Try Bifrost as Your LiteLLM Alternative
 
-The best LiteLLM alternatives remove the operational weight of a Python proxy without giving up governance or forcing a client rewrite. Bifrost does that with 11 microseconds of overhead at 5,000 RPS, virtual keys and budgets in the open-source build, and a `/litellm` endpoint that keeps existing SDK code working during migration. Browse the [Bifrost resources hub](https://www.getmaxim.ai/bifrost/resources) for sizing and governance guides, or [book a demo](https://getmaxim.ai/bifrost/book-a-demo) with the Bifrost team to plan a migration from LiteLLM.
+The best LiteLLM alternatives remove the operational weight of a Python proxy without giving up governance or forcing a client rewrite. Bifrost does that with 11 microseconds of overhead at 5,000 RPS, virtual keys and budgets in the open-source build, and a `/litellm` endpoint that keeps existing SDK code working during migration. Browse the [Bifrost resources hub](https://www.getmaxim.ai/bifrost/resources) for sizing, governance, and migration guides.

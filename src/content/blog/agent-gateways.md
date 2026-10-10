@@ -10,7 +10,7 @@ author: team
 
 - An agent gateway authenticates each autonomous AI agent and enforces policy on the model calls, MCP tool calls, and agent-to-agent (A2A) calls it makes.
 - Bifrost gives every agent its own virtual key with a budget, rate limits, an optional expiry, and a deny-by-default MCP tool allow-list, and adds 11 microseconds of overhead per request at 5,000 RPS.
-- agentgateway, Amazon Bedrock AgentCore Gateway, Google Cloud Agent Gateway, Kong, and Azure API Management all document A2A traffic handling.
+- IBM ContextForge, Amazon Bedrock AgentCore Gateway, Google Cloud Agent Gateway, Kong, and Azure API Management all document A2A traffic handling.
 - Per-agent spend caps are the least consistently published control in this category: several gateways document token rate limits or none at all rather than dollar budgets per agent.
 - Audit coverage splits into request logs (what an agent did) and administrative audit logs (who changed the policy), and a governance review needs both.
 
@@ -55,7 +55,7 @@ The six agent gateway options below differ most on two axes: whether they publis
 | Gateway | Agent identity | Per-agent budgets | MCP tool access | A2A traffic | Audit | Deployment |
 |---|---|---|---|---|---|---|
 | **Bifrost** | Virtual key per agent; OIDC and SCIM users (Enterprise) | Dollar budgets per key, team, customer; token and request limits per key | Deny-by-default allow-list per key; Virtual MCPs | Pairs with an A2A proxy | Request logs for LLM and MCP; signed admin audit logs | Self-hosted, in-VPC, air-gapped |
-| **agentgateway** | JWT/OIDC, API keys, mTLS | Hard caps per key or team | Tool scoping per identity | Yes | OpenTelemetry, tool-call audit trail | Binary, Docker, Kubernetes |
+| **IBM ContextForge** | JWT, OAuth, SSO | Not published | Virtual servers with RBAC | Yes | OpenTelemetry, log viewer with export | PyPI, Docker, Kubernetes |
 | **Amazon Bedrock AgentCore Gateway** | Inbound and outbound auth, OAuth | Not published | MCP tools from APIs, Lambda, OpenAPI, Smithy | Passthrough targets | Built-in observability and auditing | Managed on AWS |
 | **Google Cloud Agent Gateway** | SPIFFE ID per agent | Not published | IAM policies on egress | Yes (HTTP, MCP, A2A) | Telemetry to Agent Observability | Managed on Google Cloud |
 | **Kong AI Gateway** | Plugin-based auth, MCP OAuth2 | Not published for agents | MCP access controls | A2A proxy plugin (Enterprise, 3.14+) | AI audit logs, metrics | Kong Gateway deployment |
@@ -83,17 +83,17 @@ The six agent gateway options below differ most on two axes: whether they publis
 
 Bifrost publishes [benchmarks showing 11 microseconds of overhead](https://www.getmaxim.ai/bifrost/resources/benchmarks) per request at 5,000 RPS with a 100% success rate. The [governance controls overview](https://www.getmaxim.ai/bifrost/resources/governance) summarizes the full policy model.
 
-## 2. agentgateway
+## 2. IBM ContextForge
 
-agentgateway is an Apache 2.0 proxy built for agent traffic, now part of the Agentic AI Foundation under the Linux Foundation. It handles LLM, MCP, and A2A traffic natively in one proxy. It runs as a binary, in Docker, or on Kubernetes.
+IBM ContextForge is an Apache 2.0 gateway, registry, and proxy from IBM, written in Python. It federates MCP servers, REST APIs, and A2A agents behind one endpoint. It installs from PyPI, runs in Docker or Podman, or deploys on Kubernetes with a Helm chart.
 
-- **Identity:** validates JWTs and OIDC flows, issues per-consumer API keys, and originates mTLS to backends.
-- **Budgets:** documents hard caps per key or team that cut off token consumption and dollar spend once a limit is hit.
-- **Tool access:** authenticates callers into MCP servers and scopes which tools each identity may invoke.
-- **A2A:** routes agent-to-agent invocations between frameworks such as LangChain, CrewAI, and ADK.
-- **Audit:** OpenTelemetry by default, with an audit trail of tool calls.
+- **Identity:** supports Basic and JWT authentication, user-scoped OAuth tokens, and SSO with providers such as Keycloak, GitHub, Google, and Entra ID.
+- **Budgets:** tracks token usage and costs as metrics; per-agent spend caps are not published.
+- **Tool access:** virtual servers bundle selected tools into one endpoint, with RBAC for authorizing the tools in a virtual server.
+- **A2A:** integrates external AI agents, including OpenAI-compatible, Anthropic, and custom agents, through its agent gateway.
+- **Audit:** OpenTelemetry tracing to OTLP backends such as Phoenix and Jaeger, plus a log viewer with search and export.
 
-**Best for:** platform teams on Kubernetes that need A2A mediation today and are comfortable assembling identity and policy from proxy configuration. Our comparison of [MCP gateway control plane patterns for AI agents](https://www.getmaxim.ai/articles/what-is-an-mcp-gateway-control-plane-patterns-for-ai-agents/) covers how proxy-first designs differ from gateway-first ones.
+**Best for:** platform teams on Kubernetes that need A2A mediation today and are comfortable assembling identity and policy from gateway configuration. Our comparison of [MCP gateway control plane patterns for AI agents](https://www.getmaxim.ai/articles/what-is-an-mcp-gateway-control-plane-patterns-for-ai-agents/) covers how proxy-first designs differ from gateway-first ones.
 
 ## 3. Amazon Bedrock AgentCore Gateway
 
@@ -157,7 +157,7 @@ Two failure modes deserve the first controls: an agent that retries a failing ca
 |---|---|---|
 | Agents across several model providers and clouds | Bifrost | One policy and log for model and tool traffic, self-hosted |
 | Regulated data that cannot leave your network | Bifrost | [In-VPC](https://docs.getbifrost.ai/enterprise/invpc-deployments) and air-gapped deployment |
-| A2A delegation is the main traffic today, on Kubernetes | agentgateway | Native A2A routing in an open source proxy |
+| A2A delegation is the main traffic today, on Kubernetes | IBM ContextForge | A2A, MCP, and REST federation in an open source gateway |
 | Agents and tools already built on AWS | AgentCore Gateway | Managed tool conversion from AWS resources |
 | Agents on Google Cloud's agent platform | Google Cloud Agent Gateway | Platform-issued SPIFFE identity |
 | Existing Kong or Azure API estate | Kong or Azure API Management | Agent traffic in the existing API gateway |
@@ -176,7 +176,7 @@ Issue each agent a distinct credential rather than sharing an application key. I
 
 ### Can an agent gateway cap how much an agent spends?
 
-Yes, if the gateway publishes per-identity budgets. Bifrost checks dollar budgets at the provider config, virtual key, team, and customer levels, and blocks the request when any one is exhausted. agentgateway documents hard caps per key or team. Azure API Management documents token quotas rather than dollar budgets, and the AWS and Google gateways do not publish per-agent spend caps on their overview pages.
+Yes, if the gateway publishes per-identity budgets. Bifrost checks dollar budgets at the provider config, virtual key, team, and customer levels, and blocks the request when any one is exhausted. Azure API Management documents token quotas rather than dollar budgets, and the AWS and Google gateways do not publish per-agent spend caps on their overview pages.
 
 ### How does an agent gateway control which MCP tools an agent can use?
 
@@ -184,7 +184,7 @@ It keeps an allow-list per agent identity and enforces it when the tool executes
 
 ### Do agent gateways support the A2A protocol?
 
-Some do. agentgateway, Google Cloud Agent Gateway, Kong (through its Enterprise A2A proxy plugin), Azure API Management (JSON-RPC A2A APIs), and AgentCore Gateway (through passthrough targets) document A2A handling. Bifrost governs the model and MCP traffic agents generate, and teams can pair it with an A2A-aware proxy for delegation traffic.
+Some do. IBM ContextForge, Google Cloud Agent Gateway, Kong (through its Enterprise A2A proxy plugin), Azure API Management (JSON-RPC A2A APIs), and AgentCore Gateway (through passthrough targets) document A2A handling. Bifrost governs the model and MCP traffic agents generate, and teams can pair it with an A2A-aware proxy for delegation traffic.
 
 ### What should an audit trail for AI agents include?
 
@@ -192,4 +192,4 @@ It should include a request log per agent call, with the agent identity, model o
 
 ## Govern Your AI Agents with Bifrost
 
-An agent gateway earns its place when every agent has its own identity, its own budget, and its own tool list, and when every call it makes is logged against that identity. [The open-source Bifrost gateway](https://www.getmaxim.ai/bifrost) delivers that for model and MCP traffic in one open-source gateway, deployable in your VPC or air-gapped with [Bifrost Enterprise](https://www.getmaxim.ai/bifrost/enterprise). To see per-agent virtual keys, budgets, and MCP allow-lists on your own agents, [book a demo](https://getmaxim.ai/bifrost/book-a-demo) with the Bifrost team.
+An agent gateway earns its place when every agent has its own identity, its own budget, and its own tool list, and when every call it makes is logged against that identity. [The open-source Bifrost gateway](https://www.getmaxim.ai/bifrost) delivers that for model and MCP traffic in one open-source gateway, deployable in your VPC or air-gapped with [Bifrost Enterprise](https://www.getmaxim.ai/bifrost/enterprise).

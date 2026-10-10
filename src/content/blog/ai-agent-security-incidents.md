@@ -182,4 +182,4 @@ MCP servers are a security risk when they run without authentication, use a shar
 
 ## Next Steps
 
-The AI agent security incidents of 2026 show that agents inherit every weakness in the systems around them, and amplify it. The most effective response is to treat agents like any other privileged workload: unique identity, least privilege, inspected inputs, and a durable record. Teams evaluating a gateway for these controls can [request a Bifrost demo](https://getmaxim.ai/bifrost/book-a-demo) or review the [Bifrost source code on GitHub](https://github.com/maximhq/bifrost).
+The AI agent security incidents of 2026 show that agents inherit every weakness in the systems around them, and amplify it. The most effective response is to treat agents like any other privileged workload: unique identity, least privilege, inspected inputs, and a durable record.

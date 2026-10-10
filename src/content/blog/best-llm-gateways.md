@@ -192,4 +192,4 @@ Bifrost fits enterprise requirements most completely among the five, because it 
 
 Picking an LLM gateway is mostly a question of which constraint is hardest to move. If that constraint is data residency, governance granularity, or the need to cover agent traffic in the same place as model traffic, a self-hosted control plane is the answer. Bifrost routes to 25+ providers, enforces budgets per virtual key, classifies failures before retrying, and adds 11 microseconds per request at 5,000 requests per second.
 
-To see how Bifrost fits your infrastructure, review the [Bifrost documentation](https://docs.getbifrost.ai/overview), compare deployment options on the [enterprise page](https://www.getmaxim.ai/bifrost/enterprise), or [book a demo](https://getmaxim.ai/bifrost/book-a-demo) with the team.
+To see how Bifrost fits your infrastructure, review the [Bifrost documentation](https://docs.getbifrost.ai/overview), or compare deployment options on the [enterprise page](https://www.getmaxim.ai/bifrost/enterprise).

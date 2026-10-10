@@ -232,4 +232,4 @@ An AI firewall is a filter that inspects LLM prompts and responses for AI-specif
 
 ## Secure LLM Traffic with Bifrost
 
-An AI security platform is only as strong as the traffic it sees and the identity it attaches to each request. Bifrost puts virtual keys, secret management, LLM and MCP guardrails, and signed audit logs on one open-source gateway in your VPC. Explore [Bifrost Enterprise](https://www.getmaxim.ai/bifrost/enterprise) for in-VPC and air-gapped deployments, or [book a demo](https://getmaxim.ai/bifrost/book-a-demo) to see how Bifrost secures LLM traffic across your applications and agents.
+An AI security platform is only as strong as the traffic it sees and the identity it attaches to each request. Bifrost puts virtual keys, secret management, LLM and MCP guardrails, and signed audit logs on one open-source gateway in your VPC. Explore [Bifrost Enterprise](https://www.getmaxim.ai/bifrost/enterprise) for in-VPC and air-gapped deployments.

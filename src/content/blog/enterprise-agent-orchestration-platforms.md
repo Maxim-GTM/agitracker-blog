@@ -225,4 +225,4 @@ Yes, but managed orchestration platforms do not cover them, because coding agent
 
 The best enterprise agent orchestration platform is usually the one closest to where the work and data already live: AgentCore, Foundry, or Gemini Enterprise Agent Platform for engineering-built agents, and Agentforce, ServiceNow, UiPath, or Workato for agents embedded in business systems. Every option governs its own agents well; none governs the whole estate.
 
-That leaves a cross-platform layer for model access, budgets, guardrails, and audit, extending to employee machines. Teams planning that layer can [request a Bifrost demo](https://getmaxim.ai/bifrost/book-a-demo) or review the [Bifrost repository on GitHub](https://github.com/maximhq/bifrost).
+That leaves a cross-platform layer for model access, budgets, guardrails, and audit, extending to employee machines.

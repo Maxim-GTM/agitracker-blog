@@ -184,4 +184,4 @@ A hybrid or in-VPC LLM gateway deployment runs the gateway inside your own cloud
 
 ## Next Steps
 
-The self-hosted vs managed LLM gateway choice is mostly a question of where data may flow and who will run the service, with cost acting as the tiebreaker at scale. Teams evaluating a self-hosted or in-VPC gateway can [request a Bifrost demo](https://getmaxim.ai/bifrost/book-a-demo) or start from the [open-source repository on GitHub](https://github.com/maximhq/bifrost).
+The self-hosted vs managed LLM gateway choice is mostly a question of where data may flow and who will run the service, with cost acting as the tiebreaker at scale.

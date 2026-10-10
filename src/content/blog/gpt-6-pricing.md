@@ -142,4 +142,4 @@ Switch from GPT-5.6 to GPT-6 Sol after testing it on a share of real traffic, co
 
 ## Next Steps
 
-GPT-6 pricing halved the cost of a token, not the cost of a workload. Capturing the cut takes central model routing, gradual migration, tiering simple requests to Luna, and cost tracking per request. Teams that want those controls in one layer can [request a Bifrost demo](https://getmaxim.ai/bifrost/book-a-demo) or start from the [open-source repository on GitHub](https://github.com/maximhq/bifrost).
+GPT-6 pricing halved the cost of a token, not the cost of a workload. Capturing the cut takes central model routing, gradual migration, tiering simple requests to Luna, and cost tracking per request.

@@ -211,4 +211,4 @@ Only if you must self-host or want to avoid license fees. Langfuse, Arize Phoeni
 
 ## Get Started with Maxim AI
 
-Agents fail in the middle of the run, so evaluation has to look there too. Maxim AI brings simulation, trajectory and tool-call evaluators, human annotation, and online evals into one workflow. The [Maxim docs](https://www.getmaxim.ai/docs/online-evals/overview) cover online evals in depth, and you can [book a demo](https://www.getmaxim.ai/book-a-demo) to see agent simulation and evaluation on your own use case.
+Agents fail in the middle of the run, so evaluation has to look there too. Maxim AI brings simulation, trajectory and tool-call evaluators, human annotation, and online evals into one workflow. The [Maxim docs](https://www.getmaxim.ai/docs/online-evals/overview) cover online evals in depth.

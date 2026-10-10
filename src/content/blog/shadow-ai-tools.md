@@ -220,4 +220,4 @@ Coverage varies. Bifrost Edge inventories MCP servers configured in supported ap
 
 Shadow AI tools that stop at discovery leave remediation undone. Bifrost, the AI gateway, is where virtual keys, budgets, guardrails, and logs are defined, and Bifrost Edge carries that policy to every machine so discovered apps and MCP servers can be approved, denied, or governed from one place. Edge is in alpha today, and teams register to be onboarded.
 
-To see the full loop, review the [Bifrost Edge documentation](https://docs.getbifrost.ai/edge/overview), explore the [Bifrost governance controls](https://www.getmaxim.ai/bifrost/resources/governance), or [book a demo](https://getmaxim.ai/bifrost/book-a-demo) with the Bifrost team.
+To see the full loop, review the [Bifrost Edge documentation](https://docs.getbifrost.ai/edge/overview), or explore the [Bifrost governance controls](https://www.getmaxim.ai/bifrost/resources/governance).

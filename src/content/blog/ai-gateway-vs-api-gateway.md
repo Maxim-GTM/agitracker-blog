@@ -166,4 +166,4 @@ An AI gateway adds one network hop plus its processing time, which depends heavi
 
 ## Next Steps
 
-The AI gateway vs API gateway distinction comes down to direction and unit of control: API gateways govern requests into your services, and AI gateways govern tokens, cost, and content on the way out to models and tools. Teams evaluating a dedicated AI gateway can [request a Bifrost demo](https://getmaxim.ai/bifrost/book-a-demo) or start from the [open-source repository on GitHub](https://github.com/maximhq/bifrost).
+The AI gateway vs API gateway distinction comes down to direction and unit of control: API gateways govern requests into your services, and AI gateways govern tokens, cost, and content on the way out to models and tools.

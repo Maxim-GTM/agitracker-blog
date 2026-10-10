@@ -227,4 +227,4 @@ Yes, though coverage varies. Credo AI and ServiceNow list agent registries and a
 
 ## Start With the Runtime Layer
 
-An AI governance platform stack is complete when policy is both documented and enforced. GRC platforms supply the inventory, risk records, and framework mappings; Bifrost supplies the enterprise AI governance controls that apply those decisions to every model call and MCP tool call, with evidence flowing back to the GRC system. Explore the [Bifrost resources hub](https://www.getmaxim.ai/bifrost/resources) for implementation guides, or [book a demo](https://getmaxim.ai/bifrost/book-a-demo) to see Bifrost enforce your AI governance policies on live traffic.
+An AI governance platform stack is complete when policy is both documented and enforced. GRC platforms supply the inventory, risk records, and framework mappings; Bifrost supplies the enterprise AI governance controls that apply those decisions to every model call and MCP tool call, with evidence flowing back to the GRC system. Explore the [Bifrost resources hub](https://www.getmaxim.ai/bifrost/resources) for implementation guides.

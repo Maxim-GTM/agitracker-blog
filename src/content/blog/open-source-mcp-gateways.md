@@ -51,7 +51,7 @@ The table below is the quick filter. Release recency is a reliable signal of whe
 |---|---|---|---|
 | Bifrost | Apache 2.0 (Enterprise tier separate) | Go | v2.2.5, Oct 2, 2026 |
 | IBM ContextForge | Apache 2.0 | Python | v1.0.11, Sep 28, 2026 |
-| agentgateway | Apache 2.0 | Rust | v1.6.0, Oct 2, 2026 |
+| Kuadrant MCP Gateway | Apache 2.0 | Go | v1.0.1, Sep 25, 2026 |
 | Docker MCP Gateway | MIT | Go | v0.44.1 tag, Sep 16, 2026 |
 | Pomerium | Apache 2.0 | Go | v0.33.4, Oct 2, 2026 |
 | Obot | MIT | Go | v0.26.2, Oct 2, 2026 |
@@ -87,15 +87,15 @@ ContextForge offers JWT and SSO authentication, RBAC with teams, user-scoped OAu
 
 **Limitations:** SQLite is for development only; production uses PostgreSQL plus Redis for caching and multi-replica operation, so the footprint is larger than single-binary gateways.
 
-## 3. agentgateway
+## 3. Kuadrant MCP Gateway
 
-agentgateway is an Apache 2.0 Rust proxy hosted by the Linux Foundation that handles MCP, A2A, and LLM traffic. It runs as a standalone binary configured with YAML or through its own Kubernetes controller with Gateway API support.
+Kuadrant MCP Gateway is an Apache 2.0 Envoy-based gateway in Go from the Kuadrant project, and it is the upstream for the MCP gateway that Red Hat ships as a Technology Preview in Red Hat Connectivity Link on OpenShift. It aggregates multiple MCP servers behind one endpoint and runs in controller mode on Kubernetes or in a standalone mode configured with YAML.
 
-For MCP it federates tools across stdio, HTTP, SSE, and streamable HTTP, converts OpenAPI specs into tools, and authorizes calls with CEL policies over JWT claims. It needs no database for basic operation, and metrics, logs, and traces export over OpenTelemetry.
+A broker serves the MCP endpoint, a router plugs into Envoy as an external processor, and a controller discovers servers from Gateway API `HTTPRoute` resources. Tools are prefixed per server to avoid name conflicts, and Kuadrant `AuthPolicy` resources validate tokens, with tool access mapped to identity-provider groups in the Keycloak example. A Redis-backed session store supports horizontal scaling.
 
-**Best for:** Kubernetes platform teams that already use Gateway API and want a low-footprint Rust data plane.
+**Best for:** Kubernetes and OpenShift platform teams that already use Gateway API and Kuadrant policies for authentication and rate limiting.
 
-**Limitations:** rate limits are per replica unless an external rate-limit service is added, and per-user upstream OAuth brokering is limited compared with identity-focused gateways.
+**Limitations:** it depends on a Kubernetes cluster with Gateway API and a provider such as Istio, and the Red Hat build is a Technology Preview that Red Hat does not recommend for production.
 
 ## 4. Docker MCP Gateway
 
@@ -173,7 +173,7 @@ The footprint table answers the question that licenses do not: what else has to 
 |---|---|---|---|
 | Bifrost | Nothing (PostgreSQL optional) | Independent nodes; Enterprise clustering | Yes, per-user OAuth and headers |
 | IBM ContextForge | PostgreSQL, Redis | Redis-backed federation | User-scoped OAuth tokens |
-| agentgateway | Nothing (Kubernetes optional) | Per replica; external rate-limit service | Limited |
+| Kuadrant MCP Gateway | Kubernetes, Gateway API provider such as Istio | Redis-backed session store | Not published |
 | Docker MCP Gateway | Docker runtime | Single host | OAuth via Docker Desktop |
 | Pomerium | Identity provider | PostgreSQL databroker | Yes, upstream OAuth brokering |
 | Obot | Kubernetes, PostgreSQL | PostgreSQL | Yes, credential brokering |
@@ -190,7 +190,7 @@ Choosing an open source MCP gateway starts with scope, then footprint. If model 
 
 - **Choose Bifrost** when one self-hosted control plane should govern MCP tools and model traffic with per-user authentication and token cost control.
 - **Choose ContextForge or MCP Gateway & Registry** when federating many servers, agents, and legacy APIs into a registry is the main job.
-- **Choose agentgateway or Microsoft MCP Gateway** when Kubernetes and Gateway API are the platform standard.
+- **Choose Kuadrant MCP Gateway or Microsoft MCP Gateway** when Kubernetes and Gateway API are the platform standard.
 - **Choose Pomerium** when zero-trust access to internal MCP servers is the requirement and Pomerium is already deployed.
 - **Choose Docker MCP Gateway** for local isolation of untrusted servers on developer machines.
 - **Choose Obot, Unla, or MetaMCP** for hosting servers, wrapping REST APIs, or small single-host setups.
@@ -207,11 +207,11 @@ Yes. Bifrost supports per-user OAuth and per-user headers in its open-source bui
 
 ### Can I self-host an MCP gateway without Kubernetes?
 
-Yes. Bifrost, agentgateway, Pomerium, and Unla run as single binaries or containers, Docker MCP Gateway runs on any Docker host, and ContextForge and MetaMCP run with Docker Compose. Microsoft MCP Gateway and production Obot deployments are built around Kubernetes.
+Yes. Bifrost, Pomerium, and Unla run as single binaries or containers, Docker MCP Gateway runs on any Docker host, and ContextForge and MetaMCP run with Docker Compose. Microsoft MCP Gateway and production Obot deployments are built around Kubernetes.
 
 ### Which open source MCP gateway is fastest?
 
-Bifrost publishes the most specific figure among these projects: 11 microseconds of added overhead per request at 5,000 requests per second in sustained benchmarks. agentgateway, written in Rust, is also designed for low overhead. Most other projects publish no comparable latency benchmark, so teams should load-test candidates with their own tool mix.
+Bifrost publishes the most specific figure among these projects: 11 microseconds of added overhead per request at 5,000 requests per second in sustained benchmarks. Most other projects publish no comparable latency benchmark, so teams should load-test candidates with their own tool mix.
 
 ### Do open source MCP gateways support the MCP 2026-07-28 specification?
 
@@ -225,4 +225,4 @@ Use an open source MCP gateway when tool traffic carries data that must stay in 
 
 Among the ten projects, Bifrost combines the smallest required footprint with the broadest scope: one binary, deny-by-default tool access, per-user authentication, Code Mode for large catalogs, and model routing in the same process. Running [Bifrost as a self-hosted MCP gateway](https://www.getmaxim.ai/mcp-gateway) also leaves room to grow, since [Bifrost Edge](https://www.getmaxim.ai/edge) carries the same governance to MCP servers on employee laptops through [endpoint MCP governance](https://docs.getbifrost.ai/edge/mcp-governance).
 
-For the model-traffic side of the same decision, see [five open source LLM gateways for self-hosted deployments](https://www.getmaxim.ai/articles/5-best-open-source-llm-gateways-for-self-hosted-deployments-in-2026/). Teams evaluating an open source MCP gateway can follow the [gateway setup guide](https://docs.getbifrost.ai/quickstart/gateway/setting-up), [request a Bifrost demo](https://getmaxim.ai/bifrost/book-a-demo), or review the source on GitHub.
+For the model-traffic side of the same decision, see [five open source LLM gateways for self-hosted deployments](https://www.getmaxim.ai/articles/5-best-open-source-llm-gateways-for-self-hosted-deployments-in-2026/). The [gateway setup guide](https://docs.getbifrost.ai/quickstart/gateway/setting-up) covers running Bifrost as a self-hosted MCP gateway.

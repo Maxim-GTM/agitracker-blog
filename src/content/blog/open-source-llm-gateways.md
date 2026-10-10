@@ -12,7 +12,7 @@ author: team
 - Bifrost adds 11 microseconds of overhead per request at 5,000 RPS, exports per-request overhead as a Prometheus histogram, and keeps the database off the request path.
 - Several gateways on this list need Redis once you run more than one replica, because rate limits and budgets are otherwise enforced per instance.
 - Kong's open source tags stop at 3.9.x, and TensorZero was archived in 2026, so version and maintenance status belong on any shortlist checklist.
-- API gateways with AI plugins (Kong, APISIX, Higress) and Kubernetes-native gateways (Agent Router, agentgateway) fit teams that already operate that stack.
+- API gateways with AI plugins (Kong, APISIX, Higress) and Kubernetes-native gateways (Agent Router, Kuadrant) fit teams that already operate that stack.
 
 An open source LLM gateway is a self-hosted service that sits between applications and model providers, exposing many providers through one API while applying routing, failover, limits, and logging. Answering a first request takes minutes; keeping three replicas consistent, observable, and upgradable for a year is the real job. [Bifrost](https://www.getmaxim.ai/bifrost), the [open-source Go gateway on GitHub](https://github.com/maximhq/bifrost) built by Maxim AI, is the best choice for enterprises running mission-critical AI workloads that require best-in-class performance, scalability, and reliability. This guide ranks nine open source LLM gateway projects on how they behave once they carry production traffic.
 
@@ -51,7 +51,7 @@ The [LLM gateway buyer's guide](https://www.getmaxim.ai/bifrost/resources/buyers
 
 ## Open Source LLM Gateways Compared at a Glance
 
-The nine gateways fall into three families: purpose-built gateways (Bifrost, LiteLLM, MLflow AI Gateway, Plano), API gateways with AI plugins (Kong, Apache APISIX, Higress), and Kubernetes-native gateways (Agent Router, agentgateway). The table compares the attributes that decide day-two cost; the [Bifrost gateway](https://www.getmaxim.ai/bifrost) row reflects the open source build plus Enterprise clustering.
+The nine gateways fall into three families: purpose-built gateways (Bifrost, LiteLLM, MLflow AI Gateway, Plano), API gateways with AI plugins (Kong, Apache APISIX, Higress), and Kubernetes-native gateways (Agent Router, Kuadrant). The table compares the attributes that decide day-two cost; the [Bifrost gateway](https://www.getmaxim.ai/bifrost) row reflects the open source build plus Enterprise clustering.
 
 | Gateway | License / language | Deployment | How replicas share state | Metrics and traces |
 |---|---|---|---|---|
@@ -61,7 +61,7 @@ The nine gateways fall into three families: purpose-built gateways (Bifrost, Lit
 | Apache APISIX | Apache 2.0 / Lua | Traditional (etcd), decoupled, standalone | etcd for config; Redis for shared AI rate limits | Prometheus LLM metrics, OpenTelemetry |
 | Higress | Apache 2.0 / Go | Docker all-in-one, Helm | Controller pushes config over xDS; Redis for token limits | Prometheus, Grafana, Loki bundle |
 | Agent Router | Apache 2.0 / Go | Kubernetes with Envoy Gateway, or `aigw run` | CRDs in etcd; Redis for token limits | Prometheus (GenAI conventions), OTel |
-| agentgateway | Apache 2.0 / Rust | Binary with YAML, or Kubernetes controller | Per replica unless an external rate-limit service is added | Prometheus, OTel metrics, logs, traces |
+| Kuadrant | Apache 2.0 / Go and Rust | Kubernetes operator (Helm or OLM) on Istio or Envoy Gateway | Limitador counters in memory per instance; Redis to share them | Prometheus, OpenTelemetry traces |
 | MLflow AI Gateway | Apache 2.0 / Python | Inside MLflow Tracking Server, Helm | SQL backend; Redis for global budgets | MLflow traces, Prometheus, OTLP export |
 | Plano | Apache 2.0 / Rust | Container via `planoai` CLI | Not published | OTel traces and metrics |
 
@@ -142,7 +142,7 @@ Higress is a Go gateway built on Istio and Envoy that extends AI traffic handlin
 
 **Best for:** teams on Istio or Envoy that want AI plugins with a bundled observability stack.
 
-## Kubernetes-Native Gateways: Agent Router and agentgateway
+## Kubernetes-Native Gateways: Agent Router and Kuadrant
 
 Kubernetes-native gateways are LLM gateways configured through CRDs and the Gateway API, with a controller that programs a separate data plane. They inherit Kubernetes primitives for HA and rollout, which suits teams standardized on Gateway API. Teams comparing them with a single-binary option can follow the [Bifrost Kubernetes deployment guide](https://docs.getbifrost.ai/deployment-guides/k8s).
 
@@ -154,13 +154,13 @@ Agent Router is the new name for Envoy AI Gateway, now an Agentic AI Foundation 
 
 **Best for:** Kubernetes platform teams running Envoy Gateway who want LLM routing expressed as Gateway API resources.
 
-### 9. agentgateway
+### 9. Kuadrant
 
-agentgateway is an Apache 2.0 Rust proxy hosted by the Linux Foundation, deployable as a standalone binary with YAML or through its own Kubernetes controller since v1.0 decoupled it from kgateway. Local rate limits are per replica; shared limits need an external service that speaks Envoy's rate-limit protocol. Metrics are on by default on separate control-plane and data-plane ports.
+Kuadrant is an Apache 2.0 CNCF sandbox project and the upstream for Red Hat Connectivity Link. It adds Gateway API policies to Istio or Envoy Gateway, and its TokenRateLimitPolicy limits AI traffic by tokens, reading `usage.total_tokens` from OpenAI-style responses and reporting it to the Limitador rate limiter. Limitador keeps counters in memory per instance by default; Redis lets replicas share them.
 
-- **Performance:** the project's own benchmark reports roughly 35,000 QPS and a peak memory of 29 MB against a mock backend.
+- **Observability:** the operator exposes Prometheus metrics, and OpenTelemetry tracing configured in the Kuadrant CR covers Authorino, Limitador, and the Envoy wasm-shim.
 
-**Best for:** teams that want a small-footprint Rust data plane for LLM and agent traffic in Kubernetes.
+**Best for:** teams on Istio or Envoy Gateway that want token rate limits for LLM traffic expressed as Gateway API policies.
 
 ## What It Costs to Run an Open Source LLM Gateway
 
@@ -180,7 +180,7 @@ The cost of an open source LLM gateway is mostly the dependencies it pulls in an
 | Apache APISIX | etcd, plus Redis for shared AI limits | About every two months in 2026 |
 | Higress | Kubernetes controller, Redis for token limits | Patch releases every 4-7 weeks in 2026 |
 | Agent Router | Kubernetes, Envoy Gateway, Redis | Not published |
-| agentgateway | External rate-limit service for global limits | Not published |
+| Kuadrant | Kubernetes, Istio or Envoy Gateway, Redis for shared limits | Not published |
 
 Telemetry adds cost too. Prometheus's own guidance notes that a single [Pushgateway](https://prometheus.io/docs/practices/pushing/) monitoring many instances becomes a single point of failure and a bottleneck, so scrape clustered gateways per pod where possible. Full prompt capture also multiplies log volume, so object-storage offload matters at scale.
 
@@ -196,7 +196,7 @@ Choose an open source LLM gateway by starting from what your platform team alrea
 
 - **Choose Bifrost** when budgets, virtual keys, failover, and low overhead need to live in one service, with a documented path to clustered, in-VPC, or [enterprise deployment](https://www.getmaxim.ai/bifrost/enterprise).
 - **Choose Kong, APISIX, or Higress** when one of them already fronts your APIs and AI traffic should share its runbooks.
-- **Choose Agent Router or agentgateway** when Gateway API is the platform standard and the team runs Envoy-based infrastructure.
+- **Choose Agent Router or Kuadrant** when Gateway API is the platform standard and the team runs Envoy-based infrastructure.
 - **Choose LiteLLM, MLflow AI Gateway, or Plano** when your stack already runs their dependencies.
 
 For more self-hosting shortlists, see [self-hosted open source LLM gateways for enterprise AI](https://www.getmaxim.ai/articles/best-self-hosted-open-source-llm-gateways-for-enterprise-ai-in-2026/) and [open source LLM gateways for self-hosted deployments](https://www.getmaxim.ai/articles/5-best-open-source-llm-gateways-for-self-hosted-deployments-in-2026/). Our [enterprise LLM gateway comparison](/blog/best-llm-gateways/) covers managed options.
@@ -225,4 +225,4 @@ Yes. Every gateway on this list is self-hosted, so prompts, credentials, and log
 
 ## Getting Started with Bifrost
 
-An open source LLM gateway belongs in production when it keeps limits consistent across replicas, exposes the metrics on-call needs, and upgrades predictably. Bifrost does all three with 11 microseconds of overhead at 5,000 RPS, a [one-command gateway setup](https://docs.getbifrost.ai/quickstart/gateway/setting-up), and a clear path from a single node to a governed, clustered deployment. To see how Bifrost fits your LLM gateway architecture, [book a Bifrost demo](https://getmaxim.ai/bifrost/book-a-demo) with the team.
+An open source LLM gateway belongs in production when it keeps limits consistent across replicas, exposes the metrics on-call needs, and upgrades predictably. Bifrost does all three with 11 microseconds of overhead at 5,000 RPS, a [one-command gateway setup](https://docs.getbifrost.ai/quickstart/gateway/setting-up), and a clear path from a single node to a governed, clustered deployment.

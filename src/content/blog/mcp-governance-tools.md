@@ -11,7 +11,7 @@ author: team
 - MCP governance controls which callers can see and invoke which MCP tools, which credential each call uses upstream, whether a call needs approval, and what gets recorded.
 - Server-level access is not enough: a single MCP server often mixes read tools with destructive ones, so enterprises need per-tool allowlists tied to a key, team, or user.
 - Bifrost scopes MCP tools per virtual key with deny-by-default semantics, supports six upstream auth types, and does not execute any tool call automatically unless that tool is marked for auto-execution.
-- Kong AI Gateway, Pomerium, agentgateway, Cloudflare MCP server portals, and Obot all support tool-level policy; Azure API Management policies currently apply to every tool in an MCP server.
+- Kong AI Gateway, Pomerium, Amazon Bedrock AgentCore Gateway, Cloudflare MCP server portals, and Obot all support tool-level policy; Azure API Management policies currently apply to every tool in an MCP server.
 - The best MCP governance tool is usually the one that sits where your identity and policy already live: an AI gateway, an API gateway, or a Zero Trust proxy.
 
 MCP governance is the set of access, authentication, approval, and audit controls that decides which AI agents and users can call which Model Context Protocol tools. [Bifrost](https://www.getmaxim.ai/bifrost), the [open-source MCP and AI gateway](https://github.com/maximhq/bifrost) built in Go by Maxim AI, is the best choice for enterprises running mission-critical AI workloads that require best-in-class performance, scalability, and reliability, because it applies one policy model to both model traffic and tool calls. This guide compares seven MCP governance tools on the controls that matter for tool access: per-key and per-team allowlists, auth modes, approval of tool calls, and audit of what agents did.
@@ -50,7 +50,7 @@ The seven tools below differ most in where policy is attached: to a virtual key,
 | Kong AI Gateway | Consumer or consumer group | Yes, default and per-tool ACLs | Not published | Not published | Access attempts to an audit sink |
 | Cloudflare MCP server portals | Cloudflare Access identity and conditions | Yes, tool scope per server | Not published | Not published | Requests and tool executions logged |
 | Azure API Management | APIM policy per MCP server | No, policies apply to all tools | Credential manager for outbound OAuth | Not published | Azure Monitor, Application Insights |
-| agentgateway | CEL rules on JWT claims | Yes, filtered from list responses | Not published | Not published | Tool calls and arguments logged |
+| Amazon Bedrock AgentCore Gateway | Cedar policy engine attached to the gateway | Yes, per tool and input parameters | OAuth flows, token refresh, per-tool credential injection | Temporal policies can require a prior approval | Policy decisions logged to CloudWatch |
 | Pomerium | Pomerium Policy Language | Yes, `mcp_tool` criterion | Upstream OAuth acquired and refreshed | Not published | Method, tool name, parameters logged |
 | Obot | Registries mapped to IdP groups | Yes, configured server views | Token brokering inside the gateway | Not published | User, agent, server, arguments, outcome |
 
@@ -130,13 +130,13 @@ Microsoft states that API Management policies "currently apply to all API operat
 
 Monitoring runs through Azure Monitor and Application Insights. API Management supports MCP tools but not MCP resources or prompts. Teams that need per-tool scoping will need to split tools across separate MCP servers, where a [per-key tool allowlist in Bifrost](https://docs.getbifrost.ai/mcp/filtering) handles that within one server.
 
-## 5. agentgateway
+## 5. Amazon Bedrock AgentCore Gateway
 
-agentgateway is an open-source gateway for HTTP, gRPC, LLM, MCP, and agent-to-agent traffic, hosted by the Linux Foundation as part of the Agentic AI Foundation. Its MCP authorization policy evaluates CEL expressions against MCP method calls, which gives platform teams expressive, code-reviewed rules for tool access in Kubernetes or standalone deployments.
+Amazon Bedrock AgentCore Gateway is a fully managed AWS gateway that converts APIs, Lambda functions, and existing MCP servers into MCP-compatible tools behind one endpoint. Paired with Policy in AgentCore, it evaluates every tool call against Cedar policies in a policy engine, which gives AWS-centric platform teams deterministic rules for tool access outside of agent code.
 
-An `mcpAuthorization` rule can combine JWT claims with MCP context, for example allowing only callers with a specific `sub` claim to invoke `add_issue_comment`. A request is allowed if at least one rule evaluates to true, and tools a caller is not allowed to use are removed from list responses, so an unauthorized user sees an empty tool list. agentgateway can also log tool calls and their arguments after each request completes.
+A Cedar policy can combine the caller's identity with tool input parameters: with OAuth, the principal comes from the JWT `sub` claim and carries other claims such as role or scope as tags, and with IAM auth it comes from the caller's IAM identity. The policy engine enforces default-deny and forbid-wins semantics, and tools denied by policy are filtered from `tools/list` responses. Policies can be written directly in Cedar or in natural language, and every enforcement decision is logged through CloudWatch.
 
-Policy lives in CEL and Kubernetes resources, and the MCP authorization docs describe no approval workflow or per-user upstream credential storage. Teams that want an admin UI for [MCP tool access per virtual key](https://www.getmaxim.ai/bifrost/resources/governance) may prefer a gateway with managed governance screens.
+On the credential side, the gateway handles OAuth flows, token refresh, and credential injection for each tool, and temporal policies can require that an approval was granted earlier in the session before an action runs. Teams that want an admin UI for [MCP tool access per virtual key](https://www.getmaxim.ai/bifrost/resources/governance) may prefer a gateway with managed governance screens.
 
 ## 6. Pomerium
 
@@ -204,4 +204,4 @@ A useful MCP audit trail records two things. For each tool call, it should captu
 
 ## Try Bifrost for MCP Governance
 
-Bifrost scopes MCP tools per virtual key with deny-by-default semantics, supports per-user and token-exchange upstream auth, requires explicit execution for tool calls by default, and extends the same policy to employee machines through AI Gateway + Bifrost Edge. For enterprise deployment options, see [Bifrost Enterprise](https://www.getmaxim.ai/bifrost/enterprise), or [book a demo](https://getmaxim.ai/bifrost/book-a-demo) to walk through MCP governance for your agents and tools.
+Bifrost scopes MCP tools per virtual key with deny-by-default semantics, supports per-user and token-exchange upstream auth, requires explicit execution for tool calls by default, and extends the same policy to employee machines through AI Gateway + Bifrost Edge. For enterprise deployment options, see [Bifrost Enterprise](https://www.getmaxim.ai/bifrost/enterprise).

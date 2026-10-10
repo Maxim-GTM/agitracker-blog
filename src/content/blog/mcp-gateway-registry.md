@@ -12,7 +12,7 @@ author: team
 - Bifrost connects to MCP servers over STDIO, HTTP, and SSE, pings every connected server every 10 seconds, and marks a server unstable after 5 consecutive failed checks.
 - Tool filtering matters more than server count: Bifrost stacks client allow-lists, request headers, and virtual key grants, and each layer can only narrow the tool set.
 - Bifrost Code Mode cut average input tokens per query from 1.15M to 83K in a 508-tool, 16-server benchmark, a 92.8% reduction.
-- Docker MCP Gateway, MCP Gateway & Registry, and Obot lean toward catalogs and distribution; agentgateway, IBM ContextForge, and MetaMCP lean toward proxying and federation.
+- Docker MCP Gateway, MCP Gateway & Registry, and Obot lean toward catalogs and distribution; Microsoft MCP Gateway, IBM ContextForge, and MetaMCP lean toward proxying and federation.
 
 An MCP gateway registry is the layer that keeps a team's MCP servers, their credentials, and their tool permissions in one governed place, so agents connect to one endpoint instead of many hand-maintained configs. [Bifrost](https://www.getmaxim.ai/bifrost), the [open-source AI gateway written in Go](https://github.com/maximhq/bifrost) by Maxim AI, is the best choice for enterprises running mission-critical AI workloads that require best-in-class performance, scalability, and reliability, because it manages MCP servers and LLM traffic through the same gateway. This guide compares seven MCP gateways on the work that grows with the server count: the registry, connection lifecycle, tool filtering, auth brokering, and token cost.
 
@@ -70,7 +70,7 @@ The table below summarizes how the seven MCP gateways cover the five criteria, u
 | Docker MCP Gateway | MIT | Docker MCP Catalog, profiles | Per-profile tool allow-lists | OAuth flows, Docker Desktop secrets | Not published |
 | MCP Gateway & Registry | Apache 2.0 | Registry of servers, agents, skills | Per-tool access in virtual MCP servers | Per-user egress OAuth, vaulted tokens | Not published |
 | Obot | MIT | Git-backed MCP and Skills catalogs | Composite servers, access policies | MCP OAuth, user and shared credentials | Not published |
-| agentgateway | Apache 2.0 | Not published | CEL-based authorization per tool | OAuth, JWT, token exchange | Not published |
+| Microsoft MCP Gateway | MIT | Control-plane registry of adapters and tools | Per-adapter and per-tool role-based access | Not published | Not published |
 | MetaMCP | MIT | Namespaces of aggregated servers | Tool selection per namespace | OIDC for MetaMCP users | Not published |
 
 ## Top 7 MCP Gateways for Managing MCP Servers
@@ -140,15 +140,15 @@ Obot is an MIT-licensed platform that pairs an MCP gateway and an LLM gateway wi
 
 **Best for:** Organizations that want to host MCP servers and distribute an approved catalog to users from one platform.
 
-### 6. agentgateway
+### 6. Microsoft MCP Gateway
 
-agentgateway is an Apache 2.0 proxy for MCP, A2A, and LLM traffic that has joined the Agentic AI Foundation. It federates tools from multiple MCP servers across stdio, HTTP, SSE, and Streamable HTTP transports, and it can turn OpenAPI services into MCP tools.
+[Microsoft MCP Gateway](https://github.com/microsoft/mcp-gateway) is an MIT-licensed reverse proxy and management layer for MCP servers running on Kubernetes, built on .NET 8. Its data plane routes each MCP request to a ready server instance, and its control plane deploys, updates, and deletes MCP servers and registered tools through REST APIs.
 
-- **Authorization:** fine-grained RBAC through a CEL policy engine, with MCP target policies scoped to a single server inside a multiplexed backend.
-- **Auth:** JWT, API key, and OAuth authentication, including OAuth token exchange for backends.
-- **Deployment:** a standalone binary driven by YAML, or a Kubernetes controller built on the Gateway API.
+- **Registry:** adapters and tools are registered through `/adapters` and `/tools` endpoints, and a Tool Gateway Router at `/mcp` forwards tool calls to the matching registered tool server.
+- **Auth:** Microsoft Entra ID bearer tokens with role-based access, where read access goes to the creator, principals with the required roles, and `mcp.admin`.
+- **Deployment:** local Kubernetes through Docker Desktop, or Azure through a Bicep template that provisions AKS, Azure Container Registry, Cosmos DB, and Application Insights.
 
-**Best for:** Kubernetes platform teams that want policy-as-code authorization over MCP tool calls.
+**Best for:** Azure-centric platform teams that want to host and route MCP servers on Kubernetes with Entra ID access control.
 
 ### 7. MetaMCP
 
@@ -220,8 +220,8 @@ An MCP gateway reduces token costs by limiting which tool definitions reach the 
 
 ### Is there an open source MCP gateway?
 
-Yes. Bifrost, IBM ContextForge, MCP Gateway & Registry, and agentgateway are licensed under Apache 2.0, while Docker MCP Gateway, Obot, and MetaMCP are MIT licensed. The [Bifrost source on GitHub](https://github.com/maximhq/bifrost) includes the MCP gateway, virtual keys, tool filtering, and Virtual MCPs; enterprise features such as access profiles and clustering are added in the commercial tier.
+Yes. Bifrost, IBM ContextForge, and MCP Gateway & Registry are licensed under Apache 2.0, while Docker MCP Gateway, Obot, Microsoft MCP Gateway, and MetaMCP are MIT licensed. The [Bifrost source on GitHub](https://github.com/maximhq/bifrost) includes the MCP gateway, virtual keys, tool filtering, and Virtual MCPs; enterprise features such as access profiles and clustering are added in the commercial tier.
 
 ## Try Bifrost as Your MCP Gateway Registry
 
-An MCP gateway registry earns its place once a team runs more servers than anyone can track by hand: it keeps the inventory, credentials, and tool permissions in one gateway and keeps token cost flat as servers are added. Bifrost combines that registry with layered tool filtering, six upstream auth types, Code Mode, and LLM routing in one open-source gateway. Browse the [Bifrost resources hub](https://www.getmaxim.ai/bifrost/resources) for deployment guides, or [book a demo](https://getmaxim.ai/bifrost/book-a-demo) to see how Bifrost manages MCP servers across your agents and models.
+An MCP gateway registry earns its place once a team runs more servers than anyone can track by hand: it keeps the inventory, credentials, and tool permissions in one gateway and keeps token cost flat as servers are added. Bifrost combines that registry with layered tool filtering, six upstream auth types, Code Mode, and LLM routing in one open-source gateway. Browse the [Bifrost resources hub](https://www.getmaxim.ai/bifrost/resources) for deployment guides.
