@@ -24,7 +24,7 @@ An agent gateway is a policy enforcement layer that identifies each AI agent and
 
 *Figure 1: Model calls, tool calls, and agent-to-agent calls are three different surfaces, and a gateway governs only the ones it can see.*
 
-As Figure 1 shows, an autonomous agent generates three kinds of outbound traffic. Model calls go to LLM providers. Tool calls go to servers that speak the [Model Context Protocol](https://modelcontextprotocol.io/specification/latest), which is where agents read files, query databases, and take actions with side effects. Agent-to-agent calls follow the [A2A protocol specification](https://a2a-protocol.org/latest/specification/), in which one agent discovers another through an agent card and delegates a task to it.
+As Figure 1 shows, an autonomous agent generates three kinds of outbound traffic. Model calls go to LLM providers. Tool calls go to servers that speak the [Model Context Protocol](https://modelcontextprotocol.io/specification/latest), which is where agents read files, query databases, and take actions with side effects. Agent-to-agent calls follow the [A2A protocol specification](https://a2a-protocol.org/latest/specification/), in which one agent discovers another through an agent card and delegates a task to it. How the two protocols divide the work is covered in the explainer on [A2A vs MCP](/blog/a2a-vs-mcp/).
 
 Most products here started from one surface and grew toward the others, which explains the gaps in the table below. For a deeper treatment of the tool surface specifically, see our guide on [how an MCP gateway centralizes agent tool access](https://www.getmaxim.ai/articles/what-is-an-mcp-gateway-centralizing-agent-tool-access/).
 

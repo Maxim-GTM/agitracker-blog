@@ -18,7 +18,7 @@ Model routing is the practice of sending each LLM request to a provider and mode
 
 ## What Drives LLM Cost in Production
 
-LLM cost in production is driven by three variables: the price per token of the model that serves each request, the number of tokens each request carries, and how many requests reach a paid provider at all. Routing acts on the first and third variables directly, which is why it pays back faster than prompt rewriting.
+LLM cost in production is driven by three variables: the price per token of the model that serves each request, the number of tokens each request carries, and how many requests reach a paid provider at all. Routing acts on the first and third variables directly, which is why it pays back faster than prompt rewriting. A fuller breakdown of [what drives AI inference cost](/blog/ai-inference-cost/), including reasoning tokens, cache pricing and agent loops, is in the companion explainer.
 
 The [Stanford HAI 2025 AI Index](https://hai.stanford.edu/ai-index/2025-ai-index-report) reports that the inference cost of a system performing at the level of GPT-3.5 dropped over 280-fold between November 2022 and October 2024. Bills still rise because usage grows faster than prices fall.
 

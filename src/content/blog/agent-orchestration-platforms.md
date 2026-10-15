@@ -167,7 +167,7 @@ n8n is distributed under the Sustainable Use License, a fair-code license that a
 
 ## The Gateway Layer Under Agent Orchestration
 
-Agent orchestration platforms decide what agents do: which step runs, which agent takes over, when to pause. They do not decide which provider serves a model call, how much an agent may spend, or whether a prompt carrying customer data should leave the network. That is the job of an AI gateway, a single endpoint that every model and tool call from every framework passes through.
+Agent orchestration platforms decide what agents do: which step runs, which agent takes over, when to pause. They do not decide which provider serves a model call, how much an agent may spend, or whether a prompt carrying customer data should leave the network. That is the job of an AI gateway, a single endpoint that every model and tool call from every framework passes through. The design patterns these frameworks implement, and the ways they fail in production, are covered in the explainer on [agentic workflows](/blog/agentic-workflows/).
 
 [Bifrost](https://www.getmaxim.ai) is an open-source AI gateway that sits beneath any of the frameworks above. The capabilities that matter most for multi-agent systems are:
 
