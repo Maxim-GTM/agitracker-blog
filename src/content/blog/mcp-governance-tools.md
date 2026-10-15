@@ -18,7 +18,7 @@ MCP governance is the set of access, authentication, approval, and audit control
 
 ## What Is MCP Governance?
 
-MCP governance is the policy layer between AI agents and MCP servers that authorizes each tool call per caller and per tool. It answers four questions for every call: who is calling, whether that tool is in their scope, whether the call needs a human decision, and what record the call leaves behind for security and compliance teams.
+MCP governance is the policy layer between AI agents and MCP servers that authorizes each tool call per caller and per tool. It answers four questions for every call: who is calling, whether that tool is in their scope, whether the call needs a human decision, and what record the call leaves behind for security and compliance teams. Governance builds on authentication, which the explainer on [MCP authentication](/blog/mcp-authentication/) covers in detail, from OAuth 2.1 tokens to gateway-brokered credentials.
 
 The [MCP tools specification](https://modelcontextprotocol.io/specification/2025-11-25/server/tools) states that there should always be a human in the loop with the ability to deny tool invocations, but the protocol leaves enforcement to the host application. An agent connected to a database MCP server otherwise receives every tool it exposes, including ones that drop tables. The [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/) names excessive functionality, excessive permissions, and excessive autonomy as the root causes of "excessive agency," and ungoverned MCP connections produce all three.
 

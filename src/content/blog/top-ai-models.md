@@ -92,6 +92,8 @@ Gemini 4 Argon is Google's new frontier model and the top model on two leaderboa
 
 **Best for:** Multimodal and video-heavy work, and teams that need factual reliability, once access opens beyond the Fairwind Program.
 
+**Update (October 13):** Argon is now generally available through the paid Gemini API; the [Gemini 4 explainer](/blog/gemini-4/) covers its pricing, long decode and migration changes.
+
 ## 5. GPT-6.1 Sol
 
 GPT-6.1 Sol is the best AI model on cost per task among the frontier group. OpenAI released it at DevDay on September 29, 2026, replacing GPT-6 Sol after one week.
@@ -158,7 +160,7 @@ Kimi K3 is the open-weight model with the highest Epoch score (157.61) and the o
 
 **Best for:** Chat and writing-heavy products that want an open-weight model with high preference scores.
 
-**Also considered:** Meta's Muse Spark 1.3 (AA 48, $1.25 / $4.25, closed weights, available on Oracle Cloud), Z.ai's GLM-5.3 (AA 45, custom-license open weights, $1.40 / $4.40), and DeepSeek V4.1 Flash (MIT, from $0.15 / $0.60 off-peak). Each misses the top ten on either availability or the breadth of its scores.
+**Also considered:** Meta's Muse Spark 1.3 (AA 48, $1.25 / $4.25, closed weights, available on Oracle Cloud), Z.ai's GLM-5.3 (AA 45, custom-license open weights, $1.40 / $4.40), and DeepSeek V4.1 Flash (MIT, from $0.15 / $0.60 off-peak). Each misses the top ten on either availability or the breadth of its scores. A fuller ranking of the [best open source LLMs](/blog/best-open-source-llms/) sorts ten open-weight models by capability, license and hardware.
 
 ## How the Best AI Models Compare by Use Case
 

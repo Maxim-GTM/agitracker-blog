@@ -95,7 +95,7 @@ Exposed tool servers are not new. A July 2025 Trend Micro study found 492 MCP se
 
 ## Where AI Agent Security Controls Sit
 
-Each pattern has a natural control point. Some belong in the application, some on the developer's machine, and some on the path between agents and the models and tools they call.
+Each pattern has a natural control point. Some belong in the application, some on the developer's machine, and some on the path between agents and the models and tools they call. The mechanics behind the injection-driven incidents are covered in the explainer on [prompt injection attacks and how to prevent them](/blog/prompt-injection-attacks/).
 
 | Control | Layer | Incidents it would have limited |
 |---|---|---|
@@ -129,7 +129,7 @@ The [Bifrost governance](https://www.getmaxim.ai/bifrost/resources/governance) m
 
 Several 2026 incidents started on a laptop: a cloned repository, a skill installed from a marketplace, an MCP server added to a coding agent's config. Gateway policy only covers traffic that is configured to use the gateway.
 
-[Bifrost Edge](https://www.getmaxim.ai/bifrost/edge) extends the same governance and security controls to employee machines, routing AI traffic from desktop apps, browser AI, and coding agents through the Bifrost gateway so existing virtual keys, guardrails, and audit logs apply on the device. Its [MCP governance](https://docs.getbifrost.ai/edge/mcp-governance) builds a fleet-wide inventory of the MCP servers configured inside Claude Code, Cursor, Codex, and other apps, and enforces allow or deny decisions on each machine. [Endpoint guardrails](https://docs.getbifrost.ai/edge/security) catch secrets and PII before a prompt leaves the device. Bifrost Edge is currently in alpha.
+[Bifrost Edge](https://www.getmaxim.ai/edge) extends the same governance and security controls to employee machines, routing AI traffic from desktop apps, browser AI, and coding agents through the Bifrost gateway so existing virtual keys, guardrails, and audit logs apply on the device. Its [MCP governance](https://docs.getbifrost.ai/edge/mcp-governance) builds a fleet-wide inventory of the MCP servers configured inside Claude Code, Cursor, Codex, and other apps, and enforces allow or deny decisions on each machine. [Endpoint guardrails](https://docs.getbifrost.ai/edge/security) catch secrets and PII before a prompt leaves the device. Bifrost Edge is currently in early access.
 
 For a broader comparison of tools in this space, see this site's guides to [MCP governance tools](/blog/mcp-governance-tools/) and [enterprise AI security platforms](/blog/ai-security-platforms/).
 
@@ -144,7 +144,7 @@ A gateway is one layer, and several 2026 failures sat outside it. Being clear ab
 
 ## An AI Agent Security Checklist for 2026
 
-The 2026 incidents translate into a short list of controls that most teams can check this quarter.
+The 2026 incidents translate into a short list of controls that most teams can check this quarter. For the products that enforce them, see the ranking of [AI agent security tools](/blog/ai-agent-security-tools/).
 
 1. Give every agent its own revocable, expiring credential; keep provider keys out of laptops and repositories.
 2. Put authentication on every API and MCP endpoint, including internal ones, and remove public API documentation that lists them.

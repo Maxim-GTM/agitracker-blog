@@ -86,7 +86,7 @@ Key capabilities:
 
 **Best for:** ChatGPT Business or Enterprise teams wanting local and cloud agents under one login.
 
-**Consideration:** [plan tiers](https://learn.chatgpt.com/codex/pricing) differ in what they include, and cloud features such as GitHub code review start at Plus. API-key usage is billed at API rates, which makes spend harder to predict without per-user caps.
+**Consideration:** [plan tiers](https://learn.chatgpt.com/codex/pricing) differ in what they include, and cloud features such as GitHub code review start at Plus. API-key usage is billed at API rates, which makes spend harder to predict without per-user caps. For a head-to-head on models, sandboxing and pricing, see the [Claude Code vs Codex comparison](/blog/claude-code-vs-codex/).
 
 ### 3. Cursor
 

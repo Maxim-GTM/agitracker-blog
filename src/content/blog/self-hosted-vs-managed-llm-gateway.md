@@ -46,6 +46,8 @@ The cost of that convenience is that every prompt and response passes through th
 | [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/reference/pricing/) | Core features free on all plans; log volume and some add-ons tied to the Workers plan | Gateway cost stays low, so the decision rests on data path and features |
 | OpenRouter | 5.5% fee on credit purchases; BYOK usage free up to $25,000 a month in list-price inference, then 5% | Cost grows in proportion to model spend |
 
+Teams moving off a hosted marketplace can compare the [top OpenRouter alternatives](/blog/openrouter-alternatives/) on self-hosting, budgets and failover.
+
 A broader evaluation of managed and self-hosted gateways side by side, scored on overhead, governance, MCP support, and deployment model, is in this [production-ready comparison of the top LLM gateways](https://www.getmaxim.ai/articles/top-5-llm-gateways-in-2026-a-production-ready-comparison/).
 
 ## The Third Option: A Vendor-Supported Gateway in Your VPC

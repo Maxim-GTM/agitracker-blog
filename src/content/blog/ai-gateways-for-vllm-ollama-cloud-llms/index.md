@@ -48,7 +48,7 @@ As Figure 1 shows, the gateway is the one component every request passes through
 
 vLLM, SGLang and Ollama all serve open-weight models over OpenAI-compatible HTTP APIs, but they target different deployments. vLLM and SGLang are throughput-oriented GPU servers for multi-user production traffic; Ollama is a local-first runtime suited to workstations, small servers and single-host services. A gateway treats each as a provider with its own base URL.
 
-The vLLM vs Ollama question comes up in almost every hybrid design, and the honest answer is that most teams do not pick one. Developers run Ollama on laptops, production runs vLLM or SGLang on GPU nodes, and the gateway maps the same logical model name to whichever backend fits the environment.
+The [vLLM vs Ollama](/blog/vllm-vs-ollama/) question comes up in almost every hybrid design, and the honest answer is that most teams do not pick one. Developers run Ollama on laptops, production runs vLLM or SGLang on GPU nodes, and the gateway maps the same logical model name to whichever backend fits the environment.
 
 | Inference server | Typical deployment | API surface relevant to a gateway | Built-in routing layer |
 |---|---|---|---|

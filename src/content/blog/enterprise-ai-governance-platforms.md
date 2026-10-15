@@ -61,7 +61,7 @@ We evaluated each AI governance solution on the layer it covers, the depth of it
 | Agent and MCP coverage | Governance of agents, tools, and MCP servers |
 | Deployment | SaaS, on-prem, in-VPC, or self-hosted |
 
-The regulatory context matters for weighting. The [EU AI Act implementation timeline](https://artificialintelligenceact.eu/implementation-timeline/) places Annex III high-risk obligations on December 2, 2027, and teams preparing for them need both documented assessments and operational logs. The [LLM gateway buyer's guide](https://www.getmaxim.ai/bifrost/resources/buyers-guide) covers runtime evaluation criteria in more detail, and the article on [audit trails for LLM traffic](https://www.getmaxim.ai/articles/ai-audit-trail-controls-and-audit-logs-for-llm-traffic/) covers what evidence a runtime layer should produce.
+The regulatory context matters for weighting. The [EU AI Act implementation timeline](https://artificialintelligenceact.eu/implementation-timeline/) places Annex III high-risk obligations on December 2, 2027, and teams preparing for them need both documented assessments and operational logs. The guide to [EU AI Act compliance for engineering teams](/blog/eu-ai-act-compliance/) maps each obligation to an engineering control. The [LLM gateway buyer's guide](https://www.getmaxim.ai/bifrost/resources/buyers-guide) covers runtime evaluation criteria in more detail, and the article on [audit trails for LLM traffic](https://www.getmaxim.ai/articles/ai-audit-trail-controls-and-audit-logs-for-llm-traffic/) covers what evidence a runtime layer should produce.
 
 ## AI Governance Tools Compared at a Glance
 
