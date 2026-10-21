@@ -50,7 +50,7 @@ DeepSeek V4 was released on April 24, 2026 as a preview of V4-Pro and V4-Flash, 
 
 *Figure 1: DeepSeek merged its chat and reasoning lines in V3.1, then spent 2026 shipping V4 in stages rather than in one launch.*
 
-The staged rollout is visible in the change log. The July 31 update upgraded only the V4-Flash API, with DeepSeek noting it "keeps the same model architecture and size" as the preview and "was only re-post-trained." The August 13 release did the same for V4-Pro, added a native OpenAI Responses API, introduced three reasoning-effort levels (low, high, max) and announced the peak and off-peak pricing that took effect on August 16.
+The staged rollout is visible in the change log. The July 31 update upgraded only the V4-Flash API, with DeepSeek noting it "keeps the same model architecture and size" as the preview and "was only re-post-trained." The August 13 release did the same for V4-Pro, added a native [OpenAI Responses API](/blog/openai-responses-api/), introduced three reasoning-effort levels (low, high, max) and announced the peak and off-peak pricing that took effect on August 16.
 
 The other retirement worth knowing about is the old naming. The `deepseek-chat` and `deepseek-reasoner` model names, which had pointed to every model from V3 through V3.2, were switched to V4-Flash in April and [fully retired on July 24, 2026](https://api-docs.deepseek.com/news/news260424/). Any integration still calling those names has been failing since then.
 
@@ -58,7 +58,7 @@ The other retirement worth knowing about is the old naming. The `deepseek-chat` 
 
 The biggest change from V3 and R1 is how cheaply V4 handles very long inputs. V4 replaced V3's attention with a hybrid of compressed and sparse attention, made a one-million-token context the default everywhere, and folded R1-style reasoning into a single model with adjustable effort instead of a separate reasoner.
 
-[DeepSeek-V3](https://api-docs.deepseek.com/news/news1226/) (December 2024) was a 671B-parameter mixture-of-experts model with 37B active parameters. [DeepSeek-R1](https://api-docs.deepseek.com/news/news250120/) (January 2025) added long chain-of-thought reasoning as a separate model. V3.1 in August 2025 merged the two into one "hybrid" model with thinking and non-thinking modes, and [V3.2-Exp](https://api-docs.deepseek.com/news/news250929/) in September 2025 introduced DeepSeek Sparse Attention (DSA) along with a price cut of more than 50%.
+[DeepSeek-V3](https://api-docs.deepseek.com/news/news1226/) (December 2024) was a 671B-parameter mixture-of-experts model with 37B active parameters; agitracker's [DeepSeek V3 explainer](/blog/deepseek-v3/) covers its architecture, licensing and where it still runs. [DeepSeek-R1](https://api-docs.deepseek.com/news/news250120/) (January 2025) added long chain-of-thought reasoning as a separate model. V3.1 in August 2025 merged the two into one "hybrid" model with thinking and non-thinking modes, and [V3.2-Exp](https://api-docs.deepseek.com/news/news250929/) in September 2025 introduced DeepSeek Sparse Attention (DSA) along with a price cut of more than 50%.
 
 V4 builds on that line with four changes listed on the model card:
 
@@ -127,7 +127,7 @@ Token price is also not task price. Reasoning models differ in how many thinking
 
 ## DeepSeek V4 API Access
 
-The DeepSeek V4 API is reached at `https://api.deepseek.com` with OpenAI-format requests or at `https://api.deepseek.com/anthropic` with Anthropic-format requests. Developers keep their existing SDK, change the base URL and API key, and set the model to `deepseek-flash` or `deepseek-v4-pro`.
+The DeepSeek V4 API is reached at `https://api.deepseek.com` with OpenAI-format requests or at `https://api.deepseek.com/anthropic` with Anthropic-format requests. Developers keep their existing SDK, change the base URL and API key, and set the model to `deepseek-flash` or `deepseek-v4-pro`; the full setup, from keys and thinking mode to rate limits and error codes, is in agitracker's [DeepSeek API guide](/blog/deepseek-api/).
 
 DeepSeek's [first-call guide](https://api-docs.deepseek.com/) shows the OpenAI Python SDK pointed at DeepSeek:
 
