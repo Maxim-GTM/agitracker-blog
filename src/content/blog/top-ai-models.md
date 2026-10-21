@@ -54,7 +54,7 @@ Claude Opus 5.5 is the best AI model available in October 2026 by the widest mar
 
 - **Scores:** 58 on the [Artificial Analysis Intelligence Index](https://artificialanalysis.ai/articles/claude-opus-5-5), five points ahead of the next model family, with leading results on six of ten component evaluations. 167.35 on Epoch's ECI (first of 167 models). 65.15% on Vals' Terminal-Bench 4.0 run (first). Anthropic reports 81.8% on OSWorld 2.1 and 67.7% on Humanity's Last Exam with tools.
 - **Price and context:** $4 input and $20 output per million tokens, 20% below Opus 5, with cache reads at $0.20. 1M-token context, 128K max output, text and image input.
-- **Strengths:** Matches Claude Fable 5.1 on most work at 40% of its token price, according to the [Claude Opus 5.5 launch post](https://www.anthropic.com/claude-opus-5-5). Five effort levels, four of which sit on Artificial Analysis's intelligence-versus-cost frontier.
+- **Strengths:** Matches Claude Fable 5.1 on most work at 40% of its token price, according to the [Claude Opus 5.5 launch post](https://www.anthropic.com/claude-opus-5-5). Five effort levels, four of which sit on Artificial Analysis's intelligence-versus-cost frontier; this site's [Claude Opus 5.5 practical guide](/blog/claude-opus-5-5/) covers pricing, effort settings and migration.
 - **Weaknesses:** Heavy reasoning use (about 119K output tokens per Intelligence Index task). Thinking cannot be disabled, and forced tool use now returns an error, which breaks some Opus 5 integrations.
 
 **Best for:** Teams that want one default model for hard reasoning, agentic coding, and long professional documents, and can afford a mid-tier price for top-tier results.

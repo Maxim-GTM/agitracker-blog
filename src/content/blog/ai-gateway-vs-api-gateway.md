@@ -18,9 +18,9 @@ The AI gateway vs API gateway question usually comes up when a team that already
 
 ## What Is an API Gateway?
 
-An API gateway is a reverse proxy that sits in front of your services and manages inbound traffic from clients: it authenticates callers, routes requests by host and path, enforces request-rate limits, transforms headers and payloads, and records metrics. Kong, Apigee, AWS API Gateway, Tyk, and Apache APISIX are common examples.
+An API gateway is a reverse proxy that sits in front of your services and manages inbound traffic from clients: it authenticates callers, routes requests by host and path, enforces request-rate limits, transforms headers and payloads, and records metrics. Kong, Apigee, AWS API Gateway, Tyk, and Apache APISIX are common examples; they took over much of the routing role once played by the [service integration bus](/blog/service-integration-bus/) and other enterprise service buses.
 
-API gateways are designed for short, structured requests. They know who is calling and which endpoint they want, and they treat the request body mostly as opaque data, validating its schema at most. Their cost model assumes each request costs roughly the same to serve.
+API gateways are designed for short, structured requests, the traffic most [API integration](/blog/api-integration/) work is built around. They know who is calling and which endpoint they want, and they treat the request body mostly as opaque data, validating its schema at most. Their cost model assumes each request costs roughly the same to serve.
 
 ## What Is an AI Gateway?
 

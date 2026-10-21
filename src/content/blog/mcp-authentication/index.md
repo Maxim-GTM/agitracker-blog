@@ -201,7 +201,7 @@ Bifrost routes model traffic for 25+ providers and 10,000+ models through one Op
 
 ## MCP Server Security Checklist
 
-MCP server security comes down to a short list of checks that apply whichever pattern a team picks. Each item below traces to a requirement or recommendation in the 2026-07-28 spec or its best-practices document.
+MCP server security comes down to a short list of checks that apply whichever pattern a team picks; the wider threat model and gateway routing architecture are covered in [how to secure and route MCP servers in enterprise environments](/blog/mcp-server-security/). Each item below traces to a requirement or recommendation in the 2026-07-28 spec or its best-practices document.
 
 - **Validate audience on every request.** Reject any token whose audience is not this server's canonical URI, and return `401` for invalid or expired tokens.
 - **Never forward client tokens.** Upstream calls use a token issued by the upstream authorization server, or one obtained through token exchange.

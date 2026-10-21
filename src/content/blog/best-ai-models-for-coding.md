@@ -67,7 +67,7 @@ Claude Sonnet 5.5 is effectively tied with Opus 5.5 on terminal tasks and is the
 
 - **Benchmarks:** 64.14% on Vals' Terminal-Bench 4.0, one point behind Opus 5.5. Anthropic reports 70.6% on its own Terminal-Bench 4.0 run (ahead of Opus 5.5's 66.4% there), 55.5% on CursorBench 4.0, and 46.2% on FrontierCode 1.1, up from 10.3% on Terminal-Bench 4.0 for Sonnet 5.
 - **Price and context:** $2 / $10 per million tokens, 1M context.
-- **In coding agents:** Available in Claude Code and the Claude API as `claude-sonnet-5-5`. Anthropic's [Sonnet 5.5 announcement](https://www.anthropic.com/claude-sonnet-5-5) positions it for "well-scoped everyday tasks" and bug fixing, with Opus 5.5 for work that needs more judgment. Teams that ran Sonnet 5 with thinking off must switch to the new `between_tools` setting.
+- **In coding agents:** Available in Claude Code and the Claude API as `claude-sonnet-5-5`. Anthropic's [Sonnet 5.5 announcement](https://www.anthropic.com/claude-sonnet-5-5) positions it for "well-scoped everyday tasks" and bug fixing, with Opus 5.5 for work that needs more judgment. Teams that ran Sonnet 5 with thinking off must switch to the new `between_tools` setting, one of several changes covered in this site's [Claude Sonnet 5 guide](/blog/claude-sonnet-5/).
 - **Weaknesses:** Artificial Analysis measured about 193K output tokens per task at max effort, the highest it has recorded, which is why its cost per Terminal-Bench task ($16.51) exceeds Opus 5.5's. Lower effort settings recover most of the price advantage.
 
 **Best for:** Daily feature work, bug fixes, and test writing at high volume, with effort tuned down for routine requests.

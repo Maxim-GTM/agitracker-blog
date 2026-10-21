@@ -171,7 +171,7 @@ The design is pass-through. Each developer keeps their own Anthropic credentials
 
 ## Claude Code Cost Control with Per-Developer Budgets
 
-Claude Code cost control works best when every developer has an individual budget checked before the request reaches the model, with team and organization ceilings layered above it. A per-developer key makes spend attributable; a reset period keeps it bounded; a rejection before forwarding prevents the overrun rather than reporting it afterward.
+Claude Code cost control works best when every developer has an individual budget checked before the request reaches the model, with team and organization ceilings layered above it, set beneath Anthropic's own [Claude usage limits](/blog/claude-usage-limits/). A per-developer key makes spend attributable; a reset period keeps it bounded; a rejection before forwarding prevents the overrun rather than reporting it afterward.
 
 ![Claude Code requests pass a developer virtual key budget, a team budget, and rate limits; any exceeded limit rejects the request before it reaches the model](https://articles-images-cdn.t3.tigrisfiles.io/diagrams/claude-code-gateways/claude-code-gateways-budget-check.png)
 
