@@ -6,6 +6,7 @@ import { SITE } from '../../site.config';
 import { breadcrumbs, dataset as datasetSchema, faqPage } from '../../lib/schema';
 import { LICENSE, cellText, datasetUrl, datasets, getDataset, type Dataset } from '../../lib/datasets';
 import { renderChart } from '../../lib/charts';
+import { getCollection } from 'astro:content';
 import '../../styles/prose.css';
 
 export function getStaticPaths() {
@@ -59,11 +60,14 @@ const toc = [
   { id: 'data', label: 'The data' },
   ...(d.sections ?? []).map((s, i) => ({ id: `section-${i + 1}`, label: s.heading })),
   { id: 'methodology', label: 'Methodology' },
+  ...((d.research ?? []).length ? [{ id: 'research', label: 'Research using this data' }] : []),
   { id: 'cite', label: 'Cite and reuse' },
   ...(d.faq.length ? [{ id: 'faq', label: 'FAQ' }] : []),
   { id: 'changes', label: 'Version history' },
 ];
 const changelog = d.changelog ?? [{ date: d.published, note: 'First published.' }];
+const researchPosts = (await getCollection('blog', (p) => !p.data.draft && (d.research ?? []).includes(p.id)))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <BaseLayout
@@ -268,6 +272,20 @@ const changelog = d.changelog ?? [{ date: d.published, note: 'First published.' 
         )
       }
 
+      {
+        researchPosts.length > 0 && (
+          <>
+            <h2 id="research">Research Using This Dataset</h2>
+            <ul>
+              {researchPosts.map((p) => (
+                <li>
+                  <a href={`/blog/${p.id}/`}>{p.data.title}</a>: {p.data.description}
+                </li>
+              ))}
+            </ul>
+          </>
+        )
+      }
       {
         related.length > 0 && (
           <>

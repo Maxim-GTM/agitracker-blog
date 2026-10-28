@@ -56,6 +56,6 @@ When you see a forecast, ask three questions:
 
 1. **Which definition of AGI does it use?** (See [what counts as AGI](/blog/what-counts-as-agi/).)
 2. **Is it a median or a range?** A single year hides how uncertain the forecast is.
-3. **When was it made?** Forecasts have shifted considerably as capabilities have improved, so an old number may no longer reflect what the same people believe.
+3. **When was it made?** Forecasts have shifted considerably as capabilities have improved, so an old number may no longer reflect what the same people believe. Our analysis of 74 dated predictions found that statements made since 2023 put AGI a median of about [four years away](/blog/agi-always-four-years-away/), while the predicted year itself kept moving later.
 
 We keep these questions next to every forecast we report.

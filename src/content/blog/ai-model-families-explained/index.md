@@ -90,6 +90,8 @@ Pure SSMs struggle with tasks that need exact recall of something far back in co
 
 **Good at:** long documents, long agent sessions, high throughput and lower memory per request. **Weak at:** precise recall in pure-SSM form (hence hybrids); less mature tooling than plain transformers.
 
+Across all model families, published context windows have stalled at about 1 million tokens since 2024, as this site's [analysis of 159 model launches](/blog/ai-release-race-159-launches/) shows.
+
 ## 5. Mixture-of-experts: a big brain, lightly used
 
 **What it predicts.** The next token. The difference is which weights get used.
