@@ -136,7 +136,7 @@ A fourth case sits between categories. In Shahid v. Esaam, the Georgia Court of 
 
 **Who produced the document.** Lawyer filings: 27. Court documents: 3 (New Jersey, Mississippi, Oklahoma). Self-represented litigant: 1 (Harber v. HMRC). Expert declaration: 1 (Kohls v. Ellison). Shahid v. Esaam is counted as a lawyer case because the penalty fell on counsel.
 
-The analysis script prints every number in this article from the dataset rows; it applies only the filters and codings above, so anyone with the CSV and a spreadsheet can reproduce them.
+Every number in this article is computed from the dataset rows using only the filters and codings above, so anyone with the CSV and a spreadsheet can reproduce them.
 
 ## Limitations
 
