@@ -1,0 +1,1190 @@
+{
+  "slug": "ai-hallucination-examples",
+  "name": "AI Hallucination Examples",
+  "title": "AI Hallucination Examples: Documented Cases, 2022-2026",
+  "h1": "AI hallucination examples: 65 documented cases with real consequences",
+  "description": "AI hallucination examples: 65 documented cases, from fake court citations to chatbot refunds, each sourced, plus published hallucination rates by model.",
+  "summary": "65 sourced cases where AI systems produced false information with real consequences, from court sanctions to refunds and retractions, plus benchmark hallucination rates.",
+  "published": "2026-10-29",
+  "updated": "2026-10-29",
+  "keywords": [
+    "ai hallucination examples",
+    "ai hallucinations",
+    "ai incidents database",
+    "ai incidents",
+    "ai failures",
+    "ai hallucination rate",
+    "chatgpt fake cases",
+    "ai fake citations court",
+    "mata v avianca",
+    "air canada chatbot",
+    "llm hallucination rate by model",
+    "vectara hallucination leaderboard"
+  ],
+  "intro": [
+    "Documented AI hallucination examples range from ChatGPT-invented court cases in [Mata v. Avianca](https://law.justia.com/cases/federal/district-courts/new-york/nysdce/1:2022cv01461/575368/54/), which cost two lawyers and their firm a US$5,000 sanction in June 2023, to Air Canada's chatbot inventing a refund policy (the airline was [ordered to pay CA$812.02](https://decisions.civilresolutionbc.ca/crt/crtd/en/525448/1/document.do) in February 2024) and Deloitte [refunding part of a A$440,000 Australian government contract](https://www.theregister.com/2025/10/06/deloitte_ai_report_australia/) in October 2025. This dataset lists 65 such cases from November 2022 to September 2026, each tied to a court record or to reputable reporting with specifics.",
+    "Courts dominate the record: 32 of the 65 cases (49%) are legal filings or rulings with fabricated citations, and a [February 2026 Fifth Circuit order](https://www.ca5.uscourts.gov/opinions/pub/25/25-20086-CV0.pdf) said the problem \"shows no sign of abating.\" The rest span search engines, news publishers, governments and consultancies, health tools, academic publishing and customer-service bots.",
+    "Every row records what the AI got wrong, the documented consequence (a fine, refund, retraction, correction, apology or removal), the domain, the AI system when it was publicly named, and the kind of evidence behind it. A separate section reports published hallucination rates by model, exactly as Vectara and OpenAI published them."
+  ],
+  "keyFindings": [
+    {
+      "text": "In Mata v. Avianca, a federal judge in Manhattan fined two lawyers and their firm US$5,000 on June 22, 2023 for filing judicial opinions with fake quotes and citations created by ChatGPT, the first widely reported AI-citation sanction.",
+      "source": {
+        "title": "Mata v. Avianca, Opinion and Order on Sanctions (S.D.N.Y.)",
+        "url": "https://law.justia.com/cases/federal/district-courts/new-york/nysdce/1:2022cv01461/575368/54/"
+      }
+    },
+    {
+      "text": "As of February 18, 2026, the U.S. Court of Appeals for the Fifth Circuit noted that researcher Damien Charlotin had identified 239 cases of AI hallucination by lawyers in U.S. courts, excluding self-represented litigants and judges.",
+      "source": {
+        "title": "Fletcher v. Experian, No. 25-20086 (5th Cir. 2026)",
+        "url": "https://www.ca5.uscourts.gov/opinions/pub/25/25-20086-CV0.pdf"
+      }
+    },
+    {
+      "text": "A federal magistrate judge in Oregon ordered two lawyers to pay a combined US$110,000 in fines and fees over filings full of fake cases in December 2025, the largest AI-hallucination penalty in that court, according to the ABA Journal.",
+      "source": {
+        "title": "ABA Journal",
+        "url": "https://www.abajournal.com/news/article/oregon-federal-judge-hands-down-110000-penalty-for-ai-errors"
+      }
+    },
+    {
+      "text": "British Columbia's Civil Resolution Tribunal held Air Canada liable for its chatbot's invented bereavement-refund policy on February 14, 2024 and ordered it to pay the customer CA$812.02.",
+      "source": {
+        "title": "Moffatt v. Air Canada, 2024 BCCRT 149",
+        "url": "https://decisions.civilresolutionbc.ca/crt/crtd/en/525448/1/document.do"
+      }
+    },
+    {
+      "text": "Alphabet lost about US$100 billion in market value, a 7.7% share drop, after a February 2023 Bard promotion wrongly said the James Webb Space Telescope took the first image of a planet outside the solar system.",
+      "source": {
+        "title": "Global News",
+        "url": "https://globalnews.ca/news/9473928/bard-google-ai-chatbot-wrong-answer-shares-plummet/amp"
+      }
+    },
+    {
+      "text": "Deloitte agreed in October 2025 to refund the final installment of a A$440,000 Australian government contract after its report was found to cite nonexistent sources and a fabricated court quote; the revised report disclosed use of GPT-4o.",
+      "source": {
+        "title": "The Register",
+        "url": "https://www.theregister.com/2025/10/06/deloitte_ai_report_australia/"
+      }
+    },
+    {
+      "text": "On Vectara's hallucination leaderboard updated October 22, 2026, summarization hallucination rates across 111 models ranged from 1.8% to 24.2%, as scored by Vectara's HHEM-2.3 evaluator.",
+      "source": {
+        "title": "Vectara Hallucination Leaderboard",
+        "url": "https://github.com/vectara/hallucination-leaderboard"
+      }
+    },
+    {
+      "text": "OpenAI's April 2025 system card reported that o3 hallucinated on 33% of PersonQA questions and o4-mini on 48%, compared with 16% for the older o1 model (vendor-reported).",
+      "source": {
+        "title": "OpenAI o3 and o4-mini System Card",
+        "url": "https://cdn.openai.com/pdf/2221c875-02dc-4789-800b-e7758f3722c1/o3-and-o4-mini-system-card.pdf"
+      }
+    },
+    {
+      "text": "OpenAI's GPT-5 system card (August 2025) reported a SimpleQA hallucination rate of 0.40 for gpt-5-thinking without web access, versus 0.46 for o3 and 0.52 for GPT-4o (vendor-reported).",
+      "source": {
+        "title": "GPT-5 System Card",
+        "url": "https://cdn.openai.com/gpt-5-system-card.pdf"
+      }
+    },
+    {
+      "text": "GPTZero reported in January 2026 that it found more than 100 hallucinated citations in papers accepted to the NeurIPS 2025 AI conference, after checking 4,841 accepted papers.",
+      "source": {
+        "title": "GPTZero",
+        "url": "https://gptzero.me/news/neurips/"
+      }
+    }
+  ],
+  "tableTitle": "Documented AI hallucination cases with real consequences",
+  "columns": [
+    {
+      "key": "date",
+      "label": "Date",
+      "type": "date",
+      "note": "Date of the ruling, disclosure or first report"
+    },
+    {
+      "key": "organization",
+      "label": "Organization, product or case",
+      "type": "text"
+    },
+    {
+      "key": "error",
+      "label": "What the AI got wrong",
+      "type": "text"
+    },
+    {
+      "key": "consequence",
+      "label": "Consequence",
+      "type": "text"
+    },
+    {
+      "key": "domain",
+      "label": "Domain",
+      "type": "text"
+    },
+    {
+      "key": "ai_system",
+      "label": "AI system",
+      "type": "text",
+      "note": "As publicly named; otherwise noted"
+    },
+    {
+      "key": "evidence",
+      "label": "Evidence type",
+      "type": "text",
+      "note": "Court record, company statement, research report or news report"
+    }
+  ],
+  "rows": [
+    {
+      "date": "2022-11",
+      "organization": "Meta, Galactica science model (public demo)",
+      "error": "Generated authoritative-sounding scientific text that included incorrect statements and citations to papers that do not exist.",
+      "consequence": "Meta took the public demo offline about three days after launch.",
+      "domain": "academic",
+      "ai_system": "Galactica",
+      "evidence": "News report",
+      "source": {
+        "title": "Why Meta's latest large language model survived only three days online (MIT Technology Review)",
+        "url": "https://www.technologyreview.com/2022/11/18/1063487/meta-large-language-model-ai-only-survived-three-days-gpt-3-science/"
+      }
+    },
+    {
+      "date": "2023-01",
+      "organization": "CNET, CNET Money explainers",
+      "error": "AI-written personal finance explainers contained factual errors, including in basic interest calculations.",
+      "consequence": "CNET issued corrections on 41 of the 77 AI-written articles after an internal review.",
+      "domain": "news/publishing",
+      "ai_system": "In-house AI tool (not named)",
+      "evidence": "News report",
+      "source": {
+        "title": "CNET had to correct most of its AI-written articles (Engadget)",
+        "url": "https://www.engadget.com/cnet-corrected-41-of-its-77-ai-written-articles-201519489.html"
+      }
+    },
+    {
+      "date": "2023-02-08",
+      "organization": "Google, Bard launch promotion",
+      "error": "A promotional demo answer said the James Webb Space Telescope took the first pictures of a planet outside the solar system; the first such image predates JWST.",
+      "consequence": "Alphabet shares fell 7.7% the next trading day, about US$100 billion in market value, as reported by Global News citing Bloomberg.",
+      "domain": "search",
+      "ai_system": "Bard",
+      "evidence": "News report",
+      "source": {
+        "title": "Google's Bard AI chatbot gives wrong answer, shares plummet (Global News)",
+        "url": "https://globalnews.ca/news/9473928/bard-google-ai-chatbot-wrong-answer-shares-plummet/amp"
+      }
+    },
+    {
+      "date": "2023-02-14",
+      "organization": "Microsoft, Bing Chat launch demo",
+      "error": "In its launch demo, Bing's chatbot misstated figures from Gap's earnings report and made up details about products and bars.",
+      "consequence": "Microsoft said it was analyzing the findings and that the preview could make mistakes.",
+      "domain": "search",
+      "ai_system": "Bing Chat",
+      "evidence": "News report",
+      "source": {
+        "title": "Microsoft's Bing AI demo called out for several errors (CNN via ABC17)",
+        "url": "https://abc17news.com/money/cnn-social-media-technology/2023/02/14/microsofts-bing-ai-demo-called-out-for-several-errors/"
+      }
+    },
+    {
+      "date": "2023-03-21",
+      "organization": "OpenAI, ChatGPT (Hepburn Shire mayor, Australia)",
+      "error": "Described a whistleblower in a banknote bribery scandal as a perpetrator who had been jailed.",
+      "consequence": "His lawyers sent OpenAI a concerns notice, the first step toward a defamation suit under Australian law.",
+      "domain": "other",
+      "ai_system": "ChatGPT",
+      "evidence": "News report",
+      "source": {
+        "title": "Reserve Bank whistleblower alleges ChatGPT defamation (iTnews)",
+        "url": "https://www.itnews.com.au/news/reserve-bank-whistleblower-alleges-chatgpt-defamation-592954"
+      }
+    },
+    {
+      "date": "2023-04-06",
+      "organization": "OpenAI, ChatGPT (U.S. law professor)",
+      "error": "Named a real law professor in an invented sexual harassment allegation and cited a Washington Post article that does not exist.",
+      "consequence": "No legal action reported; the case became a widely cited example of AI defamation risk.",
+      "domain": "other",
+      "ai_system": "ChatGPT",
+      "evidence": "News report",
+      "source": {
+        "title": "ChatGPT falsely accuses a law prof of sexual harassment; is a libel suit possible? (ABA Journal)",
+        "url": "https://www.abajournal.com/news/article/chatgpt-falsely-accuses-a-law-prof-of-sexual-harassment-is-a-libel-suit-possible"
+      }
+    },
+    {
+      "date": "2023-05",
+      "organization": "Texas A&M University-Commerce, animal science course",
+      "error": "An instructor asked ChatGPT whether it had written students' essays; it claimed authorship of work students said they wrote themselves.",
+      "consequence": "Grades were withheld and some diplomas put on hold pending review; the university said no student failed or was barred from graduating.",
+      "domain": "academic",
+      "ai_system": "ChatGPT",
+      "evidence": "News report",
+      "source": {
+        "title": "A Texas A&M professor falsely accused his class of using ChatGPT (Washington Post via ADN)",
+        "url": "https://www.adn.com/nation-world/2023/05/18/a-professor-falsely-accused-his-class-of-using-chatgpt-their-diplomas-are-in-jeopardy/"
+      }
+    },
+    {
+      "date": "2023-06-22",
+      "organization": "Mata v. Avianca, Inc. (S.D.N.Y.)",
+      "error": "A brief cited judicial opinions, with quotes and citations, that ChatGPT had fabricated.",
+      "consequence": "Court fined two lawyers and their firm US$5,000 and required letters to the judges falsely named as authors.",
+      "domain": "legal",
+      "ai_system": "ChatGPT",
+      "evidence": "Court record",
+      "source": {
+        "title": "Mata v. Avianca, Opinion and Order on Sanctions, Doc. 54",
+        "url": "https://law.justia.com/cases/federal/district-courts/new-york/nysdce/1:2022cv01461/575368/54/"
+      }
+    },
+    {
+      "date": "2023-08-17",
+      "organization": "Microsoft, MSN travel guide (Ottawa)",
+      "error": "An AI-generated travel article listed the Ottawa Food Bank as a tourist attraction and suggested visiting on an empty stomach.",
+      "consequence": "Microsoft removed the article.",
+      "domain": "news/publishing",
+      "ai_system": "Not named",
+      "evidence": "News report",
+      "source": {
+        "title": "Microsoft removes article recommending 15 things to do in Ottawa, including visit the Ottawa Food Bank (CTV News)",
+        "url": "https://ottawa.ctvnews.ca/microsoft-removes-article-recommending-15-things-to-do-in-ottawa-including-visit-the-ottawa-food-bank-1.6524918"
+      }
+    },
+    {
+      "date": "2023-11-22",
+      "organization": "People v. Crabill (Colorado Presiding Disciplinary Judge)",
+      "error": "A motion cited case law found through ChatGPT that was incorrect or fictitious; the lawyer did not correct it before the hearing.",
+      "consequence": "Lawyer suspended for one year and one day, with 90 days served and the rest stayed on probation.",
+      "domain": "legal",
+      "ai_system": "ChatGPT",
+      "evidence": "News report",
+      "source": {
+        "title": "Disciplinary judge approves lawyer's suspension for using ChatGPT for fake cases (Colorado Politics)",
+        "url": "https://www.coloradopolitics.com/2023/12/02/disciplinary-judge-approves-lawyers-suspension-for-using-chatgpt-for-fake-cases/"
+      }
+    },
+    {
+      "date": "2023-12",
+      "organization": "Harber v. HMRC (UK First-tier Tax Tribunal)",
+      "error": "A self-represented taxpayer relied on nine tribunal decisions that did not exist, which the tribunal found were likely produced by an AI system.",
+      "consequence": "Appeal dismissed; the tribunal accepted she did not know the cases were fake.",
+      "domain": "legal",
+      "ai_system": "AI system like ChatGPT (not confirmed)",
+      "evidence": "News report",
+      "source": {
+        "title": "Litigant unwittingly put fake cases generated by AI before tribunal (Legal Futures)",
+        "url": "https://www.legalfutures.co.uk/latest-news/litigant-unwittingly-put-fake-cases-generated-by-ai-before-tribunal"
+      }
+    },
+    {
+      "date": "2023-12-29",
+      "organization": "United States v. Cohen (S.D.N.Y.)",
+      "error": "A motion for early end to supervised release cited three court decisions that did not exist; the client had found them with Google Bard.",
+      "consequence": "Judge ordered the lawyers to explain; the client said in a declaration he did not know Bard could invent cases.",
+      "domain": "legal",
+      "ai_system": "Google Bard",
+      "evidence": "News report",
+      "source": {
+        "title": "Ex-Trump lawyer Michael Cohen, using Google Bard, sent bogus cases to his attorney (AP via KTVU)",
+        "url": "https://ktvu.com/news/michael-cohen-google-bard-sent-bogus-cases-attorney"
+      }
+    },
+    {
+      "date": "2024-01-30",
+      "organization": "Park v. Kim (2d Cir.)",
+      "error": "A reply brief cited a nonexistent state appellate decision that the lawyer had obtained from ChatGPT.",
+      "consequence": "Lawyer referred to the court's Grievance Panel and ordered to give the client a copy of the decision.",
+      "domain": "legal",
+      "ai_system": "ChatGPT",
+      "evidence": "Court record",
+      "source": {
+        "title": "Park v. Kim, No. 22-2057 (2d Cir. 2024)",
+        "url": "https://www.govinfo.gov/content/pkg/USCOURTS-ca2-22-02057/pdf/USCOURTS-ca2-22-02057-0.pdf"
+      }
+    },
+    {
+      "date": "2024-02",
+      "organization": "Zhang v. Chen (B.C. Supreme Court)",
+      "error": "A family-law application cited two cases that ChatGPT had invented.",
+      "consequence": "Lawyer ordered to pay costs for opposing counsel's time spent discovering the cases were fake; special costs refused.",
+      "domain": "legal",
+      "ai_system": "ChatGPT",
+      "evidence": "News report",
+      "source": {
+        "title": "B.C. lawyer reprimanded for citing fake cases invented by ChatGPT (CBC News)",
+        "url": "https://www.cbc.ca/news/canada/british-columbia/lawyer-chatgpt-fake-precedent-1.7126393"
+      }
+    },
+    {
+      "date": "2024-02-14",
+      "organization": "Air Canada, website chatbot (Moffatt v. Air Canada)",
+      "error": "Told a customer he could apply for a bereavement fare refund after travel, contrary to the airline's own policy page.",
+      "consequence": "Tribunal rejected Air Canada's defense and ordered it to pay CA$812.02 (CA$650.88 damages plus interest and fees).",
+      "domain": "customer service",
+      "ai_system": "Air Canada website chatbot",
+      "evidence": "Court record",
+      "source": {
+        "title": "Moffatt v. Air Canada, 2024 BCCRT 149",
+        "url": "https://decisions.civilresolutionbc.ca/crt/crtd/en/525448/1/document.do"
+      }
+    },
+    {
+      "date": "2024-03-29",
+      "organization": "New York City, MyCity business chatbot",
+      "error": "Testing by The Markup and THE CITY found the chatbot told businesses they could take workers' tips and that landlords could discriminate by source of income, both contrary to law.",
+      "consequence": "Bot stayed online with disclaimers; in January 2026 the new mayor announced it would be shut down, calling it functionally unusable.",
+      "domain": "customer service",
+      "ai_system": "MyCity chatbot (Microsoft Azure AI)",
+      "evidence": "News report",
+      "source": {
+        "title": "Mamdani to kill the NYC AI chatbot we caught telling businesses to break the law (The Markup)",
+        "url": "https://themarkup.org/artificial-intelligence/2026/01/30/mamdani-to-kill-the-nyc-ai-chatbot-we-caught-telling-businesses-to-break-the-law"
+      }
+    },
+    {
+      "date": "2024-05-30",
+      "organization": "Google, AI Overviews in Search",
+      "error": "AI Overviews suggested adding glue to pizza sauce and eating rocks, drawing on joke forum posts and satire.",
+      "consequence": "Google said it made more than a dozen technical changes, including limiting user-generated content in some answers.",
+      "domain": "search",
+      "ai_system": "AI Overviews (Gemini)",
+      "evidence": "Company statement",
+      "source": {
+        "title": "AI Overviews: About last week (Google)",
+        "url": "https://blog.google/products/search/ai-overviews-update-may-2024/"
+      }
+    },
+    {
+      "date": "2024-07-30",
+      "organization": "Meta, Meta AI assistant",
+      "error": "In a small number of answers, Meta AI said the July 2024 assassination attempt on Donald Trump did not happen.",
+      "consequence": "Meta attributed the answers to hallucinations and updated the responses.",
+      "domain": "search",
+      "ai_system": "Meta AI",
+      "evidence": "News report",
+      "source": {
+        "title": "Meta explains why its AI claimed Trump's assassination attempt didn't happen (Engadget)",
+        "url": "https://www.engadget.com/meta-explains-why-its-ai-claimed-trumps-assassination-attempt-didnt-happen-120002196.html"
+      }
+    },
+    {
+      "date": "2024-08-02",
+      "organization": "Cody Enterprise (Wyoming newspaper)",
+      "error": "A reporter's stories included AI-generated quotes attributed to real people, including the state governor, who said they never said them.",
+      "consequence": "Reporter resigned; the paper found seven affected stories, apologized and removed the quotes.",
+      "domain": "news/publishing",
+      "ai_system": "Generative AI (not named)",
+      "evidence": "News report",
+      "source": {
+        "title": "Wyoming reporter caught using artificial intelligence to create fake quotes and stories (AP via NBC News)",
+        "url": "https://www.nbcnews.com/news/us-news/wyoming-reporter-caught-using-artificial-intelligence-create-fake-quot-rcna166518"
+      }
+    },
+    {
+      "date": "2024-10-26",
+      "organization": "OpenAI Whisper in medical transcription (incl. Nabla)",
+      "error": "Researchers found the speech-to-text model inserting sentences no one said into transcripts, including in tools used by clinicians.",
+      "consequence": "AP reported the Whisper-based tool was used by over 30,000 clinicians and 40 health systems; OpenAI said it studies how to reduce hallucinations, and Nabla said it was mitigating the problem.",
+      "domain": "health",
+      "ai_system": "Whisper",
+      "evidence": "News report",
+      "source": {
+        "title": "OpenAI's transcription tool hallucinates more than any other, experts say (AP via Fortune)",
+        "url": "https://fortune.com/2024/10/26/openai-transcription-tool-whisper-hallucination-rate-ai-tools-hospitals-patients-doctors/"
+      }
+    },
+    {
+      "date": "2024-10-28",
+      "organization": "Alaska Department of Education",
+      "error": "A draft state board resolution on student cellphone use cited academic studies that do not appear to exist after the commissioner used generative AI.",
+      "consequence": "Department sent corrected citations; reporting found residual errors in the corrected version.",
+      "domain": "government",
+      "ai_system": "Generative AI (not named)",
+      "evidence": "News report",
+      "source": {
+        "title": "False citations show Alaska education official relied on generative AI (Alaska Beacon via Alaska Public Media)",
+        "url": "https://alaskapublic.org/news/2024-10-28/false-citations-show-alaska-education-official-relied-on-generative-ai-raising-broader-questions"
+      }
+    },
+    {
+      "date": "2024-11-25",
+      "organization": "Gauthier v. Goodyear Tire & Rubber Co. (E.D. Tex.)",
+      "error": "A response to a summary-judgment motion cited two cases that do not exist and multiple quotations that do not appear in the cited authorities.",
+      "consequence": "US$2,000 penalty and a required continuing legal education course on generative AI.",
+      "domain": "legal",
+      "ai_system": "Claude",
+      "evidence": "Court record",
+      "source": {
+        "title": "Gauthier v. Goodyear Tire & Rubber Co., Memorandum and Order, Doc. 48 (E.D. Tex. Nov. 25, 2024)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.txed.223848/gov.uscourts.txed.223848.48.0.pdf"
+      }
+    },
+    {
+      "date": "2024-12",
+      "organization": "Apple Intelligence, news notification summaries",
+      "error": "A summary of a BBC News alert falsely said the suspect in the UnitedHealthcare CEO killing had shot himself; other summaries also misstated news.",
+      "consequence": "BBC complained; in January 2025 Apple paused notification summaries for news and entertainment apps.",
+      "domain": "news/publishing",
+      "ai_system": "Apple Intelligence",
+      "evidence": "News report",
+      "source": {
+        "title": "Apple suspends error-strewn AI generated news alerts (BBC News)",
+        "url": "https://www.bbc.com/news/articles/cge93de21n0o"
+      }
+    },
+    {
+      "date": "2025-01-10",
+      "organization": "Kohls v. Ellison (D. Minn.)",
+      "error": "An expert declaration on AI and deepfakes, submitted in defense of a state law, contained citations to nonexistent sources generated by GPT-4o.",
+      "consequence": "Court excluded the declaration and denied leave to file an amended one.",
+      "domain": "legal",
+      "ai_system": "GPT-4o",
+      "evidence": "Court record",
+      "source": {
+        "title": "Kohls v. Ellison, Order on Motion to Exclude Expert Testimony, Doc. 46",
+        "url": "https://law.justia.com/cases/federal/district-courts/minnesota/mndce/0:2024cv03754/220348/46/"
+      }
+    },
+    {
+      "date": "2025-02-24",
+      "organization": "Wadsworth v. Walmart Inc. (D. Wyo.)",
+      "error": "Motions in limine cited nine cases, eight of which did not exist, after case law was added using the firm's in-house AI platform.",
+      "consequence": "Drafting lawyer fined US$3,000 and pro hac vice admission revoked; two co-signing lawyers fined US$1,000 each.",
+      "domain": "legal",
+      "ai_system": "MX2.law (in-house platform)",
+      "evidence": "Court record",
+      "source": {
+        "title": "Wadsworth v. Walmart Inc., Order on Sanctions, Doc. 181 (D. Wyo. 2025)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.wyd.64014/gov.uscourts.wyd.64014.181.0.pdf"
+      }
+    },
+    {
+      "date": "2025-03-20",
+      "organization": "OpenAI, ChatGPT (Norwegian user)",
+      "error": "When asked about a private individual, ChatGPT said he had murdered two of his children and been jailed for 21 years, mixed with real personal details.",
+      "consequence": "Privacy group noyb filed a GDPR complaint with Norway's data protection authority.",
+      "domain": "other",
+      "ai_system": "ChatGPT",
+      "evidence": "Primary record",
+      "source": {
+        "title": "AI hallucinations: ChatGPT created a fake child murderer (noyb)",
+        "url": "https://noyb.eu/en/ai-hallucinations-chatgpt-created-fake-child-murderer"
+      }
+    },
+    {
+      "date": "2025-04-17",
+      "organization": "Cursor (Anysphere), AI support agent \"Sam\"",
+      "error": "An AI support bot told a user that logouts were due to a one-device-per-subscription policy that did not exist.",
+      "consequence": "Users posted cancellations; co-founder apologized, the user was refunded, and AI support replies were to be labeled.",
+      "domain": "customer service",
+      "ai_system": "AI support agent (model not named)",
+      "evidence": "News report",
+      "source": {
+        "title": "Company apologizes after AI support agent invents policy that causes user uproar (Ars Technica)",
+        "url": "https://arstechnica.com/ai/2025/04/cursor-ai-support-bot-invents-fake-policy-and-triggers-user-uproar/"
+      }
+    },
+    {
+      "date": "2025-05",
+      "organization": "Concord Music v. Anthropic (N.D. Cal.)",
+      "error": "A citation in an expert declaration filed for Anthropic had an inaccurate title and authors after counsel asked Claude to format it.",
+      "consequence": "Anthropic's counsel filed a declaration acknowledging the error as an honest citation mistake.",
+      "domain": "legal",
+      "ai_system": "Claude",
+      "evidence": "Court record",
+      "source": {
+        "title": "Declaration re citation error, Concord Music Group v. Anthropic, Doc. 371",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.cand.431519/gov.uscourts.cand.431519.371.0.pdf"
+      }
+    },
+    {
+      "date": "2025-05-06",
+      "organization": "Lacey v. State Farm General Insurance Co. (C.D. Cal.)",
+      "error": "A supplemental brief had about nine of 27 citations wrong in some way, including at least two authorities that do not exist.",
+      "consequence": "Special master sanctioned the plaintiff's two law firms and ordered them to pay US$31,100.",
+      "domain": "legal",
+      "ai_system": "Various AI tools (per order)",
+      "evidence": "News report",
+      "source": {
+        "title": "Judge admits nearly being persuaded by AI hallucinations in court filing (Ars Technica)",
+        "url": "https://arstechnica.com/tech-policy/2025/05/judge-initially-fooled-by-fake-ai-citations-nearly-put-them-in-a-ruling/"
+      }
+    },
+    {
+      "date": "2025-05-18",
+      "organization": "Chicago Sun-Times, syndicated summer insert",
+      "error": "A summer reading list in a licensed insert recommended books that do not exist, attributed to real authors.",
+      "consequence": "Sun-Times said the content was not created or approved by its newsroom and called the errors unacceptable.",
+      "domain": "news/publishing",
+      "ai_system": "Generative AI (not named)",
+      "evidence": "News report",
+      "source": {
+        "title": "Chicago Sun-Times publishes made-up books and fake experts in AI debacle (The Verge)",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/670510/chicago-sun-times-ai-generated-reading-list"
+      }
+    },
+    {
+      "date": "2025-05-22",
+      "organization": "Garner v. Kadince (Utah Court of Appeals)",
+      "error": "A petition cited at least one case, \"Royer v. Nelson\", that does not exist and appeared to come from ChatGPT.",
+      "consequence": "Lawyer ordered to pay opposing fees, refund his client and donate US$1,000 to a legal aid group.",
+      "domain": "legal",
+      "ai_system": "ChatGPT",
+      "evidence": "News report",
+      "source": {
+        "title": "Utah attorneys sanctioned by appeals court for using AI to write legal brief (Deseret News)",
+        "url": "https://www.deseret.com/utah/2025/06/05/utah-attorneys-sanctioned-by-appeals-court-for-using-ai-to-write-legal-brief/"
+      }
+    },
+    {
+      "date": "2025-05-29",
+      "organization": "White House MAHA Commission report",
+      "error": "The report on childhood chronic disease cited studies that do not exist; NBC News verified four nonexistent papers.",
+      "consequence": "Report revised; at least 18 citations changed or replaced, with officials calling them formatting errors.",
+      "domain": "government",
+      "ai_system": "Not disclosed (AI use not confirmed by officials)",
+      "evidence": "News report",
+      "source": {
+        "title": "Trump admin corrects RFK Jr.'s MAHA report after citation errors (NBC News)",
+        "url": "https://www.nbcnews.com/health/health-news/trump-admin-corrects-rfk-jrs-maha-report-citation-errors-rcna209913"
+      }
+    },
+    {
+      "date": "2025-06-06",
+      "organization": "Ayinde v. Haringey and Al-Haroun v. Qatar National Bank (High Court of England and Wales)",
+      "error": "In a housing claim, grounds cited five cases that do not exist; in a separate bank case, filings relied on numerous fictitious or misquoted authorities.",
+      "consequence": "Divisional Court referred lawyers to their regulators and declined to start contempt proceedings; earlier, the barrister and law centre in the housing claim were each ordered to pay £2,000 in wasted costs.",
+      "domain": "legal",
+      "ai_system": "AI tools (per the litigant in the bank case; not established in the housing claim)",
+      "evidence": "Court record",
+      "source": {
+        "title": "Ayinde v. London Borough of Haringey and Al-Haroun v. Qatar National Bank, approved judgment",
+        "url": "https://www.judiciary.uk/wp-content/uploads/2025/06/Ayinde-v-London-Borough-of-Haringey-and-Al-Haroun-v-Qatar-National-Bank.pdf"
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "organization": "Shahid v. Esaam (Georgia Court of Appeals)",
+      "error": "A trial court divorce order relied on case law that does not exist.",
+      "consequence": "Appellate court vacated the order and imposed the maximum US$2,500 penalty on counsel for a frivolous fee request.",
+      "domain": "legal",
+      "ai_system": "Generative AI (suspected)",
+      "evidence": "Court record",
+      "source": {
+        "title": "Shahid v. Esaam, Georgia Court of Appeals order (June 30, 2025)",
+        "url": "https://cdn.arstechnica.net/wp-content/uploads/2025/07/Shahid-v-Esaam-Vacating-Order-6-30-25.pdf"
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "organization": "U.S. District Court for the District of New Jersey (judge's opinion)",
+      "error": "An opinion denying a motion to dismiss misstated case outcomes and included fake quotes; a law school intern had used ChatGPT.",
+      "consequence": "Opinion withdrawn; judge disclosed the AI use in an October 2025 letter to the Senate Judiciary chair.",
+      "domain": "legal",
+      "ai_system": "ChatGPT",
+      "evidence": "News report",
+      "source": {
+        "title": "2 federal judges reveal AI use by staff members led to error-riddled opinions (ABA Journal)",
+        "url": "https://www.abajournal.com/news/article/2-federal-judges-reveal-ai-use-by-staff-members-led-to-error-riddled-opinions"
+      }
+    },
+    {
+      "date": "2025-07",
+      "organization": "Replit, AI coding agent",
+      "error": "During a code freeze, the agent deleted a live database and generated fake data and results that hid the problem.",
+      "consequence": "CEO apologized publicly and announced safeguards, including separating development and production databases.",
+      "domain": "other",
+      "ai_system": "Replit Agent",
+      "evidence": "News report",
+      "source": {
+        "title": "Replit's CEO apologizes after its AI agent wiped a company's code base in a test run and lied about it (Business Insider)",
+        "url": "https://www.businessinsider.com/replit-ceo-apologizes-ai-coding-tool-delete-company-database-2025-7"
+      }
+    },
+    {
+      "date": "2025-07-07",
+      "organization": "Coomer v. Lindell (D. Colo.)",
+      "error": "A defense opposition brief contained nearly thirty defective citations, including references to cases that do not exist.",
+      "consequence": "Two defense lawyers fined US$3,000 each (one jointly with his firm).",
+      "domain": "legal",
+      "ai_system": "Generative AI (per order)",
+      "evidence": "Court record",
+      "source": {
+        "title": "Coomer v. Lindell, Order on Sanctions, Doc. 383",
+        "url": "https://www.govinfo.gov/content/pkg/USCOURTS-cod-1_22-cv-01129/pdf/USCOURTS-cod-1_22-cv-01129-10.pdf"
+      }
+    },
+    {
+      "date": "2025-07-20",
+      "organization": "U.S. District Court for the Southern District of Mississippi (judge's order)",
+      "error": "A temporary restraining order referred to nonexistent allegations, parties and declarations; a law clerk had used Perplexity.",
+      "consequence": "Order replaced; judge disclosed the AI use in October 2025 and added second-review rules in chambers.",
+      "domain": "legal",
+      "ai_system": "Perplexity",
+      "evidence": "News report",
+      "source": {
+        "title": "2 federal judges reveal AI use by staff members led to error-riddled opinions (ABA Journal)",
+        "url": "https://www.abajournal.com/news/article/2-federal-judges-reveal-ai-use-by-staff-members-led-to-error-riddled-opinions"
+      }
+    },
+    {
+      "date": "2025-07-23",
+      "organization": "Johnson v. Dunn (N.D. Ala.)",
+      "error": "Two motions cited case citations that ChatGPT had fabricated.",
+      "consequence": "Three lawyers publicly reprimanded, disqualified from the case and referred to the state bar.",
+      "domain": "legal",
+      "ai_system": "ChatGPT",
+      "evidence": "Court record",
+      "source": {
+        "title": "Johnson v. Dunn, Sanctions Order, Doc. 204",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.alnd.179677/gov.uscourts.alnd.179677.204.0.pdf"
+      }
+    },
+    {
+      "date": "2025-07-23",
+      "organization": "U.S. FDA, Elsa internal assistant",
+      "error": "Three FDA employees told CNN the agency's generative AI tool had invented nonexistent studies or misrepresented research.",
+      "consequence": "FDA commissioner acknowledged it could hallucinate; HHS said the reporting was mischaracterized.",
+      "domain": "government",
+      "ai_system": "Elsa",
+      "evidence": "News report",
+      "source": {
+        "title": "FDA employees say the agency's Elsa generative AI hallucinates entire studies (Engadget)",
+        "url": "https://www.engadget.com/ai/fda-employees-say-the-agencys-elsa-generative-ai-hallucinates-entire-studies-203547157.html"
+      }
+    },
+    {
+      "date": "2025-08",
+      "organization": "Google, Med-Gemini research paper and blog",
+      "error": "A model output shown in Google's Med-Gemini paper and blog described an \"old left basilar ganglia infarct\", naming a part of the brain that does not exist.",
+      "consequence": "Google corrected its blog post after a neurologist flagged it and described the error as a typo.",
+      "domain": "health",
+      "ai_system": "Med-Gemini",
+      "evidence": "News report",
+      "source": {
+        "title": "Google's healthcare AI made up a body part (The Verge)",
+        "url": "https://www.theverge.com/health/718049/google-med-gemini-basilar-ganglia-paper-typo-hallucination"
+      }
+    },
+    {
+      "date": "2025-08",
+      "organization": "Springer Nature, Mastering Machine Learning (book)",
+      "error": "A machine learning textbook cited works that could not be found; the publisher could not verify 25 of its 46 references.",
+      "consequence": "Book retracted.",
+      "domain": "academic",
+      "ai_system": "Not disclosed",
+      "evidence": "News report",
+      "source": {
+        "title": "Springer Nature retracts book with fake citations (Retraction Watch)",
+        "url": "https://retractionwatch.com/2025/08/04/springer-nature-retracts-book-fake-citations-help-us-find-more/"
+      }
+    },
+    {
+      "date": "2025-08",
+      "organization": "Wired, Business Insider and other outlets",
+      "error": "Freelance articles under the byline \"Margaux Blanchard\" quoted people who do not appear to exist; publishers concluded the copy was likely AI-generated.",
+      "consequence": "Articles removed by several publications, with editor's notes.",
+      "domain": "news/publishing",
+      "ai_system": "Generative AI (suspected)",
+      "evidence": "News report",
+      "source": {
+        "title": "Wired and Business Insider remove AI-written freelance articles (Press Gazette)",
+        "url": "https://pressgazette.co.uk/publishers/digital-journalism/wired-and-business-insider-remove-ai-written-freelance-articles/"
+      }
+    },
+    {
+      "date": "2025-08-05",
+      "organization": "ChatGPT-related bromide poisoning (case report)",
+      "error": "A 60-year-old man replaced table salt with sodium bromide after consulting ChatGPT about removing chloride from his diet.",
+      "consequence": "Hospitalized about three weeks with bromism; physicians published a case report warning about decontextualized AI advice.",
+      "domain": "health",
+      "ai_system": "ChatGPT",
+      "evidence": "News report",
+      "source": {
+        "title": "Man who asked ChatGPT about cutting salt from his diet was hospitalized (NBC News)",
+        "url": "https://www.nbcnews.com/tech/tech-news/man-asked-chatgpt-cutting-salt-diet-was-hospitalized-hallucinations-rcna225055"
+      }
+    },
+    {
+      "date": "2025-08-08",
+      "organization": "Meta, Meta AI (U.S. activist)",
+      "error": "Meta AI falsely said a conservative activist took part in the January 6 Capitol riot.",
+      "consequence": "Lawsuit settled; the activist became an adviser to Meta on political bias and hallucinations.",
+      "domain": "other",
+      "ai_system": "Meta AI",
+      "evidence": "News report",
+      "source": {
+        "title": "Right-wing activist Robby Starbuck joins Meta as an AI advisor focused on bias (AP via ABC17)",
+        "url": "https://abc17news.com/news/2025/08/14/right-wing-activist-robby-starbuck-joins-meta-as-an-ai-advisor-focused-on-bias/"
+      }
+    },
+    {
+      "date": "2025-08-13",
+      "organization": "Murder trial of a teenager (Supreme Court of Victoria, Australia)",
+      "error": "Defense submissions included invented quotes from a state parliament speech and citations to nonexistent Supreme Court cases.",
+      "consequence": "Senior defense counsel apologized; the ruling was delayed by about 24 hours.",
+      "domain": "legal",
+      "ai_system": "Generative AI (not named)",
+      "evidence": "News report",
+      "source": {
+        "title": "Senior lawyer apologises after filing AI-generated submissions in Victorian murder case (ABC News Australia)",
+        "url": "https://www.abc.net.au/news/2025-08-15/victoria-lawyer-apologises-after-ai-generated-submissions/105661208"
+      }
+    },
+    {
+      "date": "2025-09-12",
+      "organization": "Noland v. Land of the Free, L.P. (California Court of Appeal)",
+      "error": "Appellate briefs contained quotations that do not appear in the cited cases, and a few cited cases did not exist.",
+      "consequence": "US$10,000 sanction on counsel; the court directed that a copy of the opinion be served on the State Bar.",
+      "domain": "legal",
+      "ai_system": "ChatGPT, Claude, Gemini and Grok (per the court)",
+      "evidence": "Court record",
+      "source": {
+        "title": "Noland v. Land of the Free, L.P., B331918 (Cal. Ct. App. Sept. 12, 2025)",
+        "url": "https://courts.ca.gov/opinion/published-extended-post/2025-09-12/b331918"
+      }
+    },
+    {
+      "date": "2025-09-23",
+      "organization": "Professional soccer lawsuit (D. Puerto Rico)",
+      "error": "Plaintiffs' filings contained numerous erroneous and nonexistent citations that opponents attributed to AI.",
+      "consequence": "Court ordered two plaintiffs' lawyers to pay more than US$24,400 in opposing counsel's fees.",
+      "domain": "legal",
+      "ai_system": "Generative AI (alleged by opponents)",
+      "evidence": "News report",
+      "source": {
+        "title": "Lawyers accused of AI misuse in FIFA case fined $24,400 (Reuters)",
+        "url": "https://www.reuters.com/legal/litigation/lawyers-accused-ai-misuse-fifa-case-fined-24400-2025-09-24/"
+      }
+    },
+    {
+      "date": "2025-10",
+      "organization": "Jackson Hospital & Clinic bankruptcy (Bankr. M.D. Ala.)",
+      "error": "Filings for a creditor contained fabricated citations; the lawyer had initially denied using generative AI.",
+      "consequence": "Firm repaid more than US$55,000 in fees and adopted cite-checking rules; court declined to sanction the firm, reprimanded the lawyer.",
+      "domain": "legal",
+      "ai_system": "Generative AI (not named)",
+      "evidence": "News report",
+      "source": {
+        "title": "BigLaw firm won't be sanctioned for hallucinated cases after paying attorney fees (ABA Journal)",
+        "url": "https://www.abajournal.com/news/article/biglaw-firmi-wont-be-sanctioned-for-hallucinated-cases-after-paying-attorney-fees"
+      }
+    },
+    {
+      "date": "2025-10-06",
+      "organization": "Deloitte Australia, report for the Department of Employment and Workplace Relations",
+      "error": "A A$440,000 review of the welfare compliance system cited nonexistent reports and included a fabricated quote from a court judgment.",
+      "consequence": "Deloitte agreed to refund the final contract installment and republished a corrected report disclosing GPT-4o use.",
+      "domain": "government",
+      "ai_system": "Azure OpenAI GPT-4o",
+      "evidence": "News report",
+      "source": {
+        "title": "Deloitte refunds Aussie gov after AI fabrications slip into $440K welfare report (The Register)",
+        "url": "https://www.theregister.com/2025/10/06/deloitte_ai_report_australia/"
+      }
+    },
+    {
+      "date": "2025-11",
+      "organization": "Google, Gemma model in AI Studio",
+      "error": "Asked whether a U.S. senator had been accused of rape, the model invented an allegation and supplied links that did not support it.",
+      "consequence": "Google removed Gemma from AI Studio for non-developer use; it remained available via API.",
+      "domain": "other",
+      "ai_system": "Gemma",
+      "evidence": "News report",
+      "source": {
+        "title": "Google shutters developer-only Gemma AI model after a U.S. Senator's encounter with an offensive hallucination (TechRadar)",
+        "url": "https://www.techradar.com/ai-platforms-assistants/google-shutters-developer-only-gemma-ai-model-after-a-u-s-senators-encounter-with-an-offensive-hallucination"
+      }
+    },
+    {
+      "date": "2025-11",
+      "organization": "Deloitte Canada, Newfoundland and Labrador health workforce plan",
+      "error": "A 526-page health human resources plan cited at least four research papers that do not exist.",
+      "consequence": "Deloitte corrected citations; a provincial accounting regulator opened an investigation and the province changed procurement rules.",
+      "domain": "government",
+      "ai_system": "Not disclosed (Deloitte said AI was used selectively for citations)",
+      "evidence": "News report",
+      "source": {
+        "title": "Accounting watchdog to investigate Deloitte over fake citations in $1.6M healthcare report (The Independent)",
+        "url": "https://theindependent.ca/news/lji/accounting-watchdog-to-investigate-deloitte-over-fake-citations-in-1-6-million-healthcare-report/"
+      }
+    },
+    {
+      "date": "2025-12-12",
+      "organization": "Couvrette v. Wisnovsky (D. Or.)",
+      "error": "Filings in a family winery dispute contained numerous fake cases and fabricated citations.",
+      "consequence": "Two lawyers ordered to pay a combined US$110,000 in fines and attorney fees, the largest such penalty in Oregon federal court.",
+      "domain": "legal",
+      "ai_system": "Generative AI (not named)",
+      "evidence": "News report",
+      "source": {
+        "title": "Federal judge hands down $110K penalty against 2 lawyers for AI errors in court documents (ABA Journal)",
+        "url": "https://www.abajournal.com/news/article/oregon-federal-judge-hands-down-110000-penalty-for-ai-errors"
+      }
+    },
+    {
+      "date": "2026-01",
+      "organization": "NeurIPS 2025 accepted papers",
+      "error": "An analysis of 4,841 accepted papers found more than 100 hallucinated citations that slipped through peer review.",
+      "consequence": "Published audit by an AI-detection company; papers were already published at the conference.",
+      "domain": "academic",
+      "ai_system": "Various (not identified)",
+      "evidence": "Research report",
+      "source": {
+        "title": "GPTZero finds 100 new hallucinations in NeurIPS 2025 accepted papers (GPTZero)",
+        "url": "https://gptzero.me/news/neurips/"
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "organization": "Google, AI Overviews (health queries)",
+      "error": "AI Overviews gave unadjusted reference ranges for liver blood tests that experts said could lead people with liver disease to think they were healthy.",
+      "consequence": "Google removed AI Overviews for some of the flagged medical queries.",
+      "domain": "health",
+      "ai_system": "AI Overviews (Gemini)",
+      "evidence": "News report",
+      "source": {
+        "title": "Google removes some of its AI summaries after users' health put at risk (The Guardian)",
+        "url": "https://www.theguardian.com/technology/2026/jan/11/google-ai-overviews-health-guardian-investigation"
+      }
+    },
+    {
+      "date": "2026-01-12",
+      "organization": "West Midlands Police (UK)",
+      "error": "An intelligence report used to justify banning visiting football fans cited a match against West Ham that never took place, produced by Copilot.",
+      "consequence": "Chief constable apologized and later stepped down; the force suspended Copilot use.",
+      "domain": "government",
+      "ai_system": "Microsoft Copilot",
+      "evidence": "News report",
+      "source": {
+        "title": "West Midlands Police pause use of AI following Maccabi match 'hallucination' (Jewish Chronicle)",
+        "url": "https://www.thejc.com/news/uk/west-midlands-police-pauses-use-of-ai-following-maccabi-match-hallucination-c839vdki"
+      }
+    },
+    {
+      "date": "2026-02-18",
+      "organization": "Fletcher v. Experian Information Solutions (5th Cir.)",
+      "error": "An appellate brief contained 21 fabricated or misrepresented quotations and assertions.",
+      "consequence": "Lawyer ordered to pay a US$2,500 sanction.",
+      "domain": "legal",
+      "ai_system": "Generative AI (court found likely)",
+      "evidence": "Court record",
+      "source": {
+        "title": "Fletcher v. Experian, No. 25-20086 (5th Cir. Feb. 18, 2026)",
+        "url": "https://www.ca5.uscourts.gov/opinions/pub/25/25-20086-CV0.pdf"
+      }
+    },
+    {
+      "date": "2026-03-13",
+      "organization": "Whiting v. City of Athens (6th Cir.)",
+      "error": "Briefs in three consolidated appeals contained fake case citations and misrepresentations of the law.",
+      "consequence": "Two lawyers each ordered to pay US$15,000 (US$30,000 total) in punitive sanctions.",
+      "domain": "legal",
+      "ai_system": "Generative AI (court found hallmarks)",
+      "evidence": "Court record",
+      "source": {
+        "title": "Whiting v. City of Athens, No. 24-5918 (6th Cir. Mar. 13, 2026)",
+        "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/26a0080p-06.pdf"
+      }
+    },
+    {
+      "date": "2026-04-24",
+      "organization": "Alabama Supreme Court appeal",
+      "error": "A lawyer's filings cited dozens of cases and quotations that do not exist or were misrepresented.",
+      "consequence": "Appeal dismissed as frivolous in a divided decision and the lawyer sanctioned.",
+      "domain": "legal",
+      "ai_system": "Generative AI (not named)",
+      "evidence": "News report",
+      "source": {
+        "title": "Top Alabama court tosses appeal over lawyer's AI filings (Reuters)",
+        "url": "https://www.reuters.com/legal/government/top-alabama-court-tosses-appeal-over-lawyers-ai-filings-2026-04-27/"
+      }
+    },
+    {
+      "date": "2026-06-03",
+      "organization": "9th Circuit appeal (first 9th Circuit ruling on AI errors)",
+      "error": "Briefs contained nonexistent cases the court found were AI-generated; lawyers called them typographical errors.",
+      "consequence": "Court sanctioned and reprimanded two lawyers and urged prompt disclosure of AI errors.",
+      "domain": "legal",
+      "ai_system": "Generative AI (not named)",
+      "evidence": "News report",
+      "source": {
+        "title": "US appeals court sanctions lawyers over AI 'hallucinations,' lack of candor (Reuters)",
+        "url": "https://www.reuters.com/legal/litigation/us-appeals-court-sanctions-lawyers-over-ai-hallucinations-lack-candor-2026-06-03/"
+      }
+    },
+    {
+      "date": "2026-06-08",
+      "organization": "Contract dispute (N.D. Miss.)",
+      "error": "Filings by both the plaintiff's and the defendant's lawyers contained fabricated legal citations from unverified AI research.",
+      "consequence": "Judge disqualified the attorneys on both sides.",
+      "domain": "legal",
+      "ai_system": "Generative AI (not named)",
+      "evidence": "News report",
+      "source": {
+        "title": "Judge rules both sides in lawsuit misused AI, disqualifies lawyers (Reuters)",
+        "url": "https://www.reuters.com/legal/litigation/judge-rules-both-sides-lawsuit-misused-ai-disqualifies-lawyers-2026-06-09/"
+      }
+    },
+    {
+      "date": "2026-07-31",
+      "organization": "Connecticut Supreme Court",
+      "error": "Documents contained erroneous and unverified citations produced with generative AI.",
+      "consequence": "Lawyer sanctioned in the court's first ruling on AI hallucination sanctions.",
+      "domain": "legal",
+      "ai_system": "Generative AI (not named)",
+      "evidence": "News report",
+      "source": {
+        "title": "Top Connecticut court warns lawyers on AI risks after fake citations (Reuters)",
+        "url": "https://www.reuters.com/legal/litigation/top-connecticut-court-warns-lawyers-ai-risks-after-fake-citations-2026-08-03/"
+      }
+    },
+    {
+      "date": "2026-08-17",
+      "organization": "District Court of Stephens County, Oklahoma (judge's order)",
+      "error": "A judge's order contained two citations to cases that do not exist, after the judge used ChatGPT for research.",
+      "consequence": "Judge acknowledged the AI use to a state investigator; a prosecutor disclosed it to the state.",
+      "domain": "legal",
+      "ai_system": "ChatGPT",
+      "evidence": "News report",
+      "source": {
+        "title": "Oklahoma judge used AI in ruling that contained false citations, prosecutor says (Reuters)",
+        "url": "https://www.reuters.com/legal/litigation/oklahoma-judge-used-ai-in-ruling-that-contained-false-citations-prosecutor-says-2026-09-09/"
+      }
+    },
+    {
+      "date": "2026-09",
+      "organization": "Insurance lawsuit (Los Angeles Superior Court)",
+      "error": "Filings by a lawyer for State Farm cited nonexistent cases traced to an AI program.",
+      "consequence": "Lawyer fined US$999.99.",
+      "domain": "legal",
+      "ai_system": "AI program (not named)",
+      "evidence": "News report",
+      "source": {
+        "title": "Lawyer for State Farm fined over AI hallucination in Los Angeles lawsuit (Reuters)",
+        "url": "https://www.reuters.com/legal/litigation/lawyer-state-farm-fined-over-ai-hallucination-los-angeles-lawsuit-2026-09-14/"
+      }
+    },
+    {
+      "date": "2026-09-09",
+      "organization": "Murder appeal (New Mexico Supreme Court)",
+      "error": "An appeal brief included AI-fabricated witnesses and invented police testimony.",
+      "consequence": "Lawyer fined US$5,000 and held in contempt.",
+      "domain": "legal",
+      "ai_system": "ChatGPT",
+      "evidence": "News report",
+      "source": {
+        "title": "Lawyer fined $5K over AI-hallucinated witnesses in a murder case (The Verge)",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/994207/chatgpt-new-mexico-lawyer-fined-murder-appeal"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "heading": "What is an AI hallucination?",
+      "body": "An AI hallucination is an output from a generative AI system that is fluent and confident but false or unsupported: a court case that does not exist, a quote no one said, a policy a company never had, or a statistic with no source. The term covers both invented facts (fabrication) and real facts misattributed or distorted, such as a genuine study cited for a finding it does not contain.\n\nHallucinations differ from ordinary software bugs because the output looks correct. In most cases in this dataset the false content was caught by someone outside the system: opposing counsel who could not find a cited case, a reader who knew a book did not exist, or a neurologist who knew the \"basilar ganglia\" is not part of the brain."
+    },
+    {
+      "heading": "Why AI models hallucinate",
+      "body": "Large language models generate text by predicting likely next words from patterns in training data. They do not look facts up unless connected to a search or retrieval system, so a plausible-sounding citation can be produced as easily as a real one.\n\nIn a September 2025 paper, [Why Language Models Hallucinate](https://arxiv.org/abs/2509.04664), OpenAI researchers argued that hallucinations arise as ordinary statistical errors during pretraining and persist because most evaluations grade models like students on a multiple-choice exam, rewarding a guess over an admission of uncertainty. Their proposed fix is to change scoring so that confident errors are penalized more than abstentions.\n\nThe cases here show three practical triggers: questions about specific people or legal authorities where training data is thin (defamation and fake-citation cases), answers stitched from low-quality sources (Google's glue-on-pizza answer drew on a joke forum post), and summarization that compresses or merges facts (Apple's news-alert summaries)."
+    },
+    {
+      "heading": "Patterns across the cases",
+      "body": "Counts below are computed from the 65 rows in this dataset. They describe what has been documented and reported, not how often AI systems hallucinate overall.\n\n| Domain | Cases | Share |\n|---|---:|---:|\n| legal | 32 | 49% |\n| news/publishing | 6 | 9% |\n| government | 6 | 9% |\n| search | 4 | 6% |\n| health | 4 | 6% |\n| academic | 4 | 6% |\n| customer service | 3 | 5% |\n| other | 6 | 9% |\n| **Total** | **65** | 100% |\n\n- **Fake legal citations are the largest category.** 32 cases involve court filings or rulings; 9 of them are from 2026, and 3 involve orders drafted in judges' own chambers.\n- **ChatGPT is the most frequently named system**, appearing in 16 rows. In many rows the specific tool was never disclosed.\n- **Consequences escalated over time.** Early legal sanctions were a few thousand dollars (US$5,000 in Mata v. Avianca, 2023); by 2025 and 2026 courts imposed US$30,000 to US$110,000 penalties, disqualified lawyers and dismissed appeals.\n- **Organizations are held to what their AI says.** Air Canada's argument that its chatbot was responsible for its own words was rejected, Deloitte refunded fees, and Cursor refunded a user over a policy its support bot invented.\n- **Most errors were found by outsiders**, such as opposing counsel, journalists, academics or affected people, rather than by the deploying organization's own checks."
+    },
+    {
+      "heading": "Hallucination rates by model",
+      "body": "Published hallucination rates measure different things and cannot be compared across benchmarks. Figures below are reported exactly as published.\n\n**Vectara Hallucination Leaderboard (HHEM-2.3), read on the leaderboard page last updated October 22, 2026.** Vectara asks each model to summarize a set of documents and uses its own evaluation model to score how often the summary introduces content not supported by the source. Selected rows from 111 models listed ([source](https://github.com/vectara/hallucination-leaderboard)):\n\n| Model (as listed by Vectara) | Hallucination rate | Factual consistency rate |\n|---|---:|---:|\n| antgroup/finix_s1_32b (lowest on the board) | 1.8% | 98.2% |\n| google/gemini-2.5-flash-lite | 3.3% | 96.7% |\n| openai/gpt-4.1-2025-04-14 | 5.6% | 94.4% |\n| openai/gpt-6-sol | 6.5% | 93.5% |\n| google/gemini-2.5-pro | 7.0% | 93.0% |\n| meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8 | 8.2% | 91.8% |\n| deepseek-ai/DeepSeek-V4-Pro | 8.6% | 91.4% |\n| openai/gpt-5.5 | 9.3% | 90.7% |\n| anthropic/claude-opus-5-5 | 9.9% | 90.1% |\n| google/gemini-3.1-pro-preview | 10.4% | 89.6% |\n| anthropic/claude-sonnet-4-6 | 10.6% | 89.4% |\n| moonshotai/kimi-k2.6 | 10.8% | 89.2% |\n| deepseek-ai/DeepSeek-R1 | 11.3% | 88.7% |\n| xai-org/grok-4-1-fast-reasoning | 19.2% | 80.8% |\n| openai/o3-pro | 23.3% | 76.7% |\n| mistralai/ministral-3-3b-2512 (highest on the board) | 24.2% | 75.8% |\n\n**OpenAI system cards (vendor-reported).** SimpleQA is a set of short fact-seeking questions; PersonQA asks questions about public facts on people. OpenAI reports a hallucination rate and an accuracy for each. These are OpenAI's own measurements, published in its [o3 and o4-mini system card](https://cdn.openai.com/pdf/2221c875-02dc-4789-800b-e7758f3722c1/o3-and-o4-mini-system-card.pdf), [GPT-4.5 system card](https://cdn.openai.com/gpt-4-5-system-card-2272025.pdf) and [GPT-5 system card](https://cdn.openai.com/gpt-5-system-card.pdf).\n\n| Model | Eval | Hallucination rate | Accuracy | Source |\n|---|---|---:|---:|---|\n| OpenAI o1 | PersonQA | 0.16 | 0.47 | o3 and o4-mini system card (Apr 16, 2025) |\n| OpenAI o3 | PersonQA | 0.33 | 0.59 | o3 and o4-mini system card (Apr 16, 2025) |\n| OpenAI o4-mini | PersonQA | 0.48 | 0.36 | o3 and o4-mini system card (Apr 16, 2025) |\n| OpenAI o1 | SimpleQA | 0.44 | 0.47 | o3 and o4-mini system card (Apr 16, 2025) |\n| OpenAI o3 | SimpleQA | 0.51 | 0.49 | o3 and o4-mini system card (Apr 16, 2025) |\n| OpenAI o4-mini | SimpleQA | 0.79 | 0.20 | o3 and o4-mini system card (Apr 16, 2025) |\n| GPT-4o | PersonQA | 0.30 | 0.50 | GPT-4.5 system card (Feb 27, 2025) |\n| GPT-4.5 | PersonQA | 0.19 | 0.78 | GPT-4.5 system card (Feb 27, 2025) |\n| gpt-5-thinking | SimpleQA (no web) | 0.40 | 0.55 | GPT-5 system card (Aug 2025) |\n| OpenAI o3 | SimpleQA (no web) | 0.46 | 0.54 | GPT-5 system card (Aug 2025) |\n| gpt-5-main | SimpleQA (no web) | 0.47 | 0.46 | GPT-5 system card (Aug 2025) |\n| GPT-4o | SimpleQA (no web) | 0.52 | 0.44 | GPT-5 system card (Aug 2025) |\n| gpt-5-thinking-mini | SimpleQA (no web) | 0.26 | 0.22 | GPT-5 system card (Aug 2025) |\n| OpenAI o4-mini | SimpleQA (no web) | 0.75 | 0.24 | GPT-5 system card (Aug 2025) |\n\nOpenAI's o3 card noted that o3 makes more claims overall, producing more accurate and more inaccurate claims, and that more research is needed on why. The GPT-5 card also reported that gpt-5-thinking had a hallucination rate 65% smaller than o3, measured as the share of factual claims with errors on prompts representative of ChatGPT production traffic."
+    }
+  ],
+  "methodology": [
+    "Inclusion: a case is listed only when an AI system produced false or fabricated information that led to a documented consequence (a sanction, refund, retraction, correction, apology, removal, disqualification, complaint or lawsuit), and when it is confirmed by a primary record (court order, tribunal decision, company statement, research report) or by at least one reputable news outlet reporting specifics. Every row was checked against the source it cites in October 2026.",
+    "Dates are the date of the ruling, disclosure or first public report, at the precision the source allows (day, month or year). For judges' orders, the date is the order or the disclosure as reported.",
+    "Legal cases are identified by case name and court rather than by the names of individual lawyers. Defamation-type cases describe what the AI output said, not any allegation about the person, and state the outcome as recorded (for example, the Georgia court ruled for OpenAI in the Walters case, which is not listed because no consequence beyond the lawsuit followed).",
+    "The AI system column uses the name given by the court or reporting. Where a court found AI use likely but no tool was named, or where officials did not confirm AI use (as in the MAHA report), the column says so.",
+    "Domain is one of legal, customer service, search, news/publishing, government, health, academic or other. Counts by domain are computed from the rows in this table and reflect what has been publicly documented, which is skewed toward court filings because judges publish written orders.",
+    "Benchmark figures are copied as published. The Vectara figures were read from its public leaderboard repository, last updated October 22, 2026. OpenAI figures come from its own system cards and are labeled vendor-reported. No rates were recalculated or averaged.",
+    "Exclusions: incidents where a chatbot was manipulated into an offer or insult (prompt injection or jailbreaks) rather than producing false information, and widely shared AI errors without a documented consequence, were left out. Some cases were left out because no reputable source with specifics could be fetched, including reported school-closure report errors in Tromsø, Norway."
+  ],
+  "faq": [
+    {
+      "q": "What are some real examples of AI hallucinations?",
+      "a": "Well-documented examples include lawyers in Mata v. Avianca filing ChatGPT-invented cases (US$5,000 sanction, 2023), Air Canada's chatbot inventing a refund policy (CA$812.02 ordered, 2024), Google's AI Overviews suggesting glue on pizza (2024), the Chicago Sun-Times printing a reading list of nonexistent books (2025), and Deloitte refunding part of an Australian government contract over a report with fabricated citations (2025)."
+    },
+    {
+      "q": "What is the most famous AI hallucination case?",
+      "a": "Mata v. Avianca is the most cited. In 2023, lawyers in a personal-injury suit against the airline filed a brief citing court decisions that ChatGPT had invented, then stood by them after the court questioned their existence. Judge P. Kevin Castel fined the lawyers and their firm US$5,000 on June 22, 2023, and courts still cite the case when sanctioning similar conduct."
+    },
+    {
+      "q": "How often do AI models hallucinate?",
+      "a": "It depends on the model and the task. On Vectara's summarization leaderboard (October 22, 2026), rates ranged from 1.8% to 24.2% across 111 models. On harder fact-recall tests the rates are much higher: OpenAI reported its o3 model hallucinated on 33% of PersonQA questions and its o4-mini on 48% (April 2025, vendor-reported). Benchmarks measure different things, so figures are not directly comparable."
+    },
+    {
+      "q": "Is there a database of AI incidents?",
+      "a": "Yes. The AI Incident Database, run by the Responsible AI Collaborative, catalogs AI harms of all kinds, and lawyer-researcher Damien Charlotin maintains a database of court decisions involving AI hallucinations, which had 239 U.S. lawyer cases as of February 2026 according to a Fifth Circuit order. This page is narrower: 65 hallucination cases with verified consequences, each linked to a court record or reputable report."
+    },
+    {
+      "q": "Can a company be held liable for what its chatbot says?",
+      "a": "In at least one ruling, yes. In Moffatt v. Air Canada (February 2024), British Columbia's Civil Resolution Tribunal rejected Air Canada's argument that its chatbot was a separate entity responsible for its own actions, found the airline liable for negligent misrepresentation, and ordered it to pay CA$812.02. Defamation suits over chatbot output have had mixed results, and a Georgia court [ruled for OpenAI in Walters v. OpenAI](https://www.clearygottlieb.com/news-and-insights/publication-listing/georgia-court-dismisses-defamation-lawsuit-against-openai-over-chatgpt-output) in May 2025."
+    },
+    {
+      "q": "What happens to lawyers who cite fake AI cases?",
+      "a": "Penalties range from warnings to large fines and disqualification. Courts have imposed fines from under US$1,000 to a combined US$110,000, ordered fee payments to opponents, removed lawyers from cases, referred them to bar regulators, dismissed appeals as frivolous and, in Colorado, suspended a lawyer. Courts increasingly say verifying every citation is a non-delegable duty."
+    },
+    {
+      "q": "Why does ChatGPT make up fake citations?",
+      "a": "Language models generate text that fits learned patterns, so a citation with a plausible case name, court and year can be produced without any real source behind it. OpenAI researchers argued in September 2025 that training and evaluation reward guessing over saying \"I don't know.\" Connecting a model to search or a verified legal database reduces, but does not remove, the risk."
+    }
+  ],
+  "temporalCoverage": "2022/2026",
+  "related": [
+    "ai-system-prompts",
+    "ai-model-release-timeline"
+  ],
+  "stats": [
+    {
+      "value": "65",
+      "label": "documented cases with real consequences, 2022 to 2026"
+    },
+    {
+      "value": "32",
+      "label": "legal cases, the largest group (fabricated citations)"
+    },
+    {
+      "value": "US$5,000",
+      "label": "sanction in Mata v. Avianca, the first widely reported case (2023)"
+    },
+    {
+      "value": "1.8% to 24.2%",
+      "label": "summary hallucination rates across 111 models (Vectara, Oct 2026)"
+    }
+  ],
+  "charts": [
+    {
+      "id": "cases-by-domain",
+      "type": "hbar",
+      "title": "Documented AI hallucination cases by domain",
+      "subtitle": "Count of cases in this dataset",
+      "x": "domain",
+      "aggregate": "count",
+      "decimals": 0,
+      "yLabel": "Cases",
+      "caption": "Legal cases make up about half of the documented cases, largely because courts publish written orders when they sanction fabricated citations.",
+      "alt": "Horizontal bar chart of 65 documented hallucination cases by domain, led by legal with 32, then news and publishing, government and other with 6 each."
+    },
+    {
+      "id": "cases-by-year",
+      "type": "column",
+      "title": "Documented AI hallucination cases by year",
+      "subtitle": "Count of cases in this dataset, legal vs all other domains",
+      "x": "date",
+      "xIsDate": true,
+      "aggregate": "count",
+      "series": "domain",
+      "seriesMap": {
+        "legal": "Legal"
+      },
+      "seriesOrder": [
+        "Legal",
+        "Other"
+      ],
+      "decimals": 0,
+      "yLabel": "Cases",
+      "caption": "Documented cases jumped from 11 in 2024 to 30 in 2025, when legal sanctions became the largest group; 2026 covers January to October.",
+      "alt": "Stacked column chart of documented hallucination cases per year from 2022 to 2026, split into legal and other domains."
+    },
+    {
+      "id": "vectara-rates",
+      "type": "hbar",
+      "title": "Summary hallucination rate, selected models",
+      "subtitle": "Vectara Hallucination Leaderboard (HHEM-2.3), last updated October 22, 2026",
+      "x": "label",
+      "unit": "%",
+      "decimals": 1,
+      "sort": "asc",
+      "yLabel": "Hallucination rate in document summaries",
+      "source": "Vectara Hallucination Leaderboard, github.com/vectara/hallucination-leaderboard",
+      "data": [
+        {
+          "label": "antgroup/finix_s1_32b",
+          "value": 1.8
+        },
+        {
+          "label": "gemini-2.5-flash-lite",
+          "value": 3.3
+        },
+        {
+          "label": "gpt-4.1",
+          "value": 5.6
+        },
+        {
+          "label": "gpt-6-sol",
+          "value": 6.5
+        },
+        {
+          "label": "gemini-2.5-pro",
+          "value": 7.0
+        },
+        {
+          "label": "Llama-4-Maverick",
+          "value": 8.2
+        },
+        {
+          "label": "DeepSeek-V4-Pro",
+          "value": 8.6
+        },
+        {
+          "label": "gpt-5.5",
+          "value": 9.3
+        },
+        {
+          "label": "claude-opus-5-5",
+          "value": 9.9
+        },
+        {
+          "label": "gemini-3.1-pro-preview",
+          "value": 10.4
+        },
+        {
+          "label": "claude-sonnet-4-6",
+          "value": 10.6
+        },
+        {
+          "label": "kimi-k2.6",
+          "value": 10.8
+        },
+        {
+          "label": "DeepSeek-R1",
+          "value": 11.3
+        },
+        {
+          "label": "grok-4-1-fast-reasoning",
+          "value": 19.2
+        },
+        {
+          "label": "o3-pro",
+          "value": 23.3
+        },
+        {
+          "label": "ministral-3-3b",
+          "value": 24.2
+        }
+      ],
+      "caption": "On Vectara's summarization test, rates for the selected models range from 1.8% to 24.2%; this measures summaries of supplied documents, not open-ended answers.",
+      "alt": "Horizontal bar chart of Vectara summary hallucination rates for 16 selected models, from 1.8% for finix_s1_32b to 24.2% for ministral-3-3b, with claude-opus-5-5 at 9.9% and gpt-5.5 at 9.3%."
+    }
+  ],
+  "changelog": [
+    {
+      "date": "2026-10-29",
+      "note": "First published with 65 records, each linked to its source."
+    }
+  ]
+}

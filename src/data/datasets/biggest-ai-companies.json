@@ -1,0 +1,1105 @@
+{
+  "slug": "biggest-ai-companies",
+  "name": "Biggest AI companies",
+  "title": "Biggest AI Companies by Valuation (October 2026)",
+  "h1": "Biggest AI companies: most valuable private AI companies by latest valuation",
+  "description": "The biggest AI companies ranked: 45 private AI firms by latest funding valuation, each dated and sourced, plus the largest public AI companies by market cap.",
+  "summary": "The 45 most valuable private AI companies by latest round, each dated and sourced, plus the top public AI companies by market cap.",
+  "published": "2026-10-29",
+  "updated": "2026-10-29",
+  "keywords": [
+    "biggest ai companies",
+    "largest ai companies",
+    "ai companies",
+    "ai unicorns",
+    "top ai startups",
+    "ai company valuations",
+    "most valuable ai companies",
+    "openai valuation",
+    "anthropic valuation",
+    "private ai companies"
+  ],
+  "intro": [
+    "The most valuable private AI company is Anthropic, at a $965 billion post-money valuation after its $65 billion Series H on May 28, 2026, [according to Anthropic](https://www.anthropic.com/news/series-h). OpenAI is second at $852 billion from its $122 billion round in March 2026, though [CNBC reported](https://www.cnbc.com/2026/10/22/openai-funding-round-uae-investors.html) on October 22, 2026 that it was close to a new round at a $1.25 trillion pre-money valuation. Databricks ($190 billion), Anduril ($61 billion) and DeepSeek (about $52 billion) complete the top five.",
+    "This table ranks 45 privately held AI companies by the valuation set in their latest priced funding round. Each row records what kind of number it is (priced round, tender offer, strategic investment, merger or reported talks), the round and date, and the source. Companies that were acquired or went public are excluded from the private ranking: xAI and Cursor are now part of SpaceX, which listed on Nasdaq in June 2026.",
+    "A separate table below lists the largest public AI-centric companies by market cap as of October 28, 2026, led by Nvidia at $5.24 trillion. Private valuations and public market caps are different measures, so the two lists are kept apart."
+  ],
+  "keyFindings": [
+    {
+      "text": "Anthropic raised $65 billion in a Series H at a $965 billion post-money valuation on May 28, 2026, making it the most valuable private AI company.",
+      "source": {
+        "title": "Anthropic: Series H",
+        "url": "https://www.anthropic.com/news/series-h"
+      }
+    },
+    {
+      "text": "OpenAI closed a $122 billion funding round at an $852 billion post-money valuation on March 31, 2026, anchored by Amazon, Nvidia and SoftBank.",
+      "source": {
+        "title": "The Next Web: OpenAI's $122B round",
+        "url": "https://thenextweb.com/news/openai-122-billion-round-852-billion-valuation-retail-investors"
+      }
+    },
+    {
+      "text": "OpenAI was close to finalizing a round of up to $30 billion at a $1.25 trillion pre-money valuation, led by UAE investors and Coatue, CNBC reported on October 22, 2026.",
+      "source": {
+        "title": "CNBC: OpenAI nears round at $1.25T valuation",
+        "url": "https://www.cnbc.com/2026/10/22/openai-funding-round-uae-investors.html"
+      }
+    },
+    {
+      "text": "Databricks closed a $5 billion round at a $190 billion valuation on August 13, 2026, six months after a round that valued it at $134 billion.",
+      "source": {
+        "title": "CNBC: Databricks wraps $5B round",
+        "url": "https://www.cnbc.com/2026/08/13/databricks-funding-round-190-billion-valuation.html"
+      }
+    },
+    {
+      "text": "DeepSeek's first external funding round raised about 50 billion yuan ($7.4 billion) at a post-money valuation above 350 billion yuan ($52 billion), Caixin reported in July 2026.",
+      "source": {
+        "title": "Caixin Global: DeepSeek reaches $52 billion valuation",
+        "url": "https://www.caixinglobal.com/2026-07-17/deepseek-reaches-52-billion-valuation-in-round-backed-by-tencent-catl-102465358.html"
+      }
+    },
+    {
+      "text": "Mistral AI raised EUR 3 billion at a post-money valuation above EUR 21 billion (about $24.4 billion) in September 2026, which it called the largest equity round by a European tech company.",
+      "source": {
+        "title": "TechCrunch: Mistral raises EUR 3B",
+        "url": "https://techcrunch.com/2026/09/08/mistral-raises-e3b-as-sovereign-ai-becomes-big-business/"
+      }
+    },
+    {
+      "text": "SpaceX acquired xAI in a share exchange announced in February 2026 that valued the combined company at $1.25 trillion, the largest merger on record, CNBC reported.",
+      "source": {
+        "title": "CNBC: xAI, SpaceX merger valued at $1.25 trillion",
+        "url": "https://www.cnbc.com/2026/02/03/musk-xai-spacex-biggest-merger-ever.html"
+      }
+    },
+    {
+      "text": "SpaceX closed its $60 billion acquisition of AI coding company Cursor in August 2026, removing one of the largest AI startups from the private market.",
+      "source": {
+        "title": "TechCrunch: SpaceX closes Cursor acquisition",
+        "url": "https://techcrunch.com/2026/08/15/spacex-officially-closes-its-cursor-acquisition/"
+      }
+    },
+    {
+      "text": "AI chipmaker Etched raised $700 million at a $21 billion valuation in August 2026, about a month after a Series C at $10.3 billion.",
+      "source": {
+        "title": "TechCrunch: Etched's valuation doubles to $21B",
+        "url": "https://techcrunch.com/2026/08/18/etcheds-valuation-doubles-to-21b-in-a-month/"
+      }
+    },
+    {
+      "text": "Nvidia had a market capitalization of $5.24 trillion on October 28, 2026, the largest of any public company.",
+      "source": {
+        "title": "Stock Analysis: NVDA market cap",
+        "url": "https://stockanalysis.com/stocks/nvda/market-cap/"
+      }
+    }
+  ],
+  "tableTitle": "Most valuable private AI companies, ranked by latest valuation",
+  "columns": [
+    {
+      "key": "rank",
+      "label": "Rank",
+      "type": "number"
+    },
+    {
+      "key": "company",
+      "label": "Company"
+    },
+    {
+      "key": "category",
+      "label": "Category"
+    },
+    {
+      "key": "country",
+      "label": "HQ country"
+    },
+    {
+      "key": "founded",
+      "label": "Founded",
+      "type": "number"
+    },
+    {
+      "key": "valuation",
+      "label": "Valuation ($B)",
+      "type": "number",
+      "note": "USD billions, latest reported valuation"
+    },
+    {
+      "key": "basis",
+      "label": "Valuation basis",
+      "note": "Priced round, tender, strategic investment, merger, or reported talks"
+    },
+    {
+      "key": "round",
+      "label": "Round"
+    },
+    {
+      "key": "date",
+      "label": "Date",
+      "type": "date",
+      "note": "Announcement or report date"
+    },
+    {
+      "key": "investors",
+      "label": "Lead investors"
+    },
+    {
+      "key": "note",
+      "label": "Note"
+    }
+  ],
+  "rows": [
+    {
+      "rank": 1,
+      "company": "Anthropic",
+      "category": "AI lab",
+      "country": "United States",
+      "founded": 2021,
+      "valuation": 965,
+      "basis": "Priced round, post-money",
+      "round": "Series H, $65B",
+      "date": "2026-05-28",
+      "investors": "Altimeter, Dragoneer, Greenoaks, Sequoia",
+      "note": null,
+      "source": {
+        "title": "Anthropic: Series H announcement",
+        "url": "https://www.anthropic.com/news/series-h"
+      }
+    },
+    {
+      "rank": 2,
+      "company": "OpenAI",
+      "category": "AI lab",
+      "country": "United States",
+      "founded": 2015,
+      "valuation": 852,
+      "basis": "Priced round, post-money",
+      "round": "$122B round",
+      "date": "2026-03-31",
+      "investors": "SoftBank, a16z, D. E. Shaw Ventures",
+      "note": "CNBC reported on Oct 22, 2026 that OpenAI was near a round of up to $30B at a $1.25T pre-money valuation (not closed)",
+      "source": {
+        "title": "The Next Web: OpenAI's $122B round at $852B",
+        "url": "https://thenextweb.com/news/openai-122-billion-round-852-billion-valuation-retail-investors"
+      }
+    },
+    {
+      "rank": 3,
+      "company": "Databricks",
+      "category": "Data and AI platform",
+      "country": "United States",
+      "founded": 2013,
+      "valuation": 190,
+      "basis": "Priced round",
+      "round": "$5B round",
+      "date": "2026-08-13",
+      "investors": "Coatue",
+      "note": null,
+      "source": {
+        "title": "CNBC: Databricks wraps $5B round at $190B",
+        "url": "https://www.cnbc.com/2026/08/13/databricks-funding-round-190-billion-valuation.html"
+      }
+    },
+    {
+      "rank": 4,
+      "company": "Anduril",
+      "category": "Defense technology and AI",
+      "country": "United States",
+      "founded": 2017,
+      "valuation": 61,
+      "basis": "Priced round",
+      "round": "Series H, $5B",
+      "date": "2026-05",
+      "investors": "Thrive Capital, a16z",
+      "note": "Employee tender opened Oct 13, 2026 at about $90B, which Anduril confirmed to CNBC",
+      "source": {
+        "title": "The Next Web: Anduril employee tender at $90bn",
+        "url": "https://thenextweb.com/news/anduril-employee-tender-offer-90bn-valuation"
+      }
+    },
+    {
+      "rank": 5,
+      "company": "DeepSeek",
+      "category": "AI lab",
+      "country": "China",
+      "founded": 2023,
+      "valuation": 52,
+      "basis": "Priced round, post-money (more than CNY 350B)",
+      "round": "First external round, about CNY 50B ($7.4B)",
+      "date": "2026-07",
+      "investors": "Tencent, CATL, NetEase, JD.com; founder Liang Wenfeng",
+      "note": "Terms surfaced in a July 17, 2026 regulatory disclosure by Anhui Korrun",
+      "source": {
+        "title": "Caixin Global: DeepSeek reaches $52 billion valuation",
+        "url": "https://www.caixinglobal.com/2026-07-17/deepseek-reaches-52-billion-valuation-in-round-backed-by-tencent-catl-102465358.html"
+      }
+    },
+    {
+      "rank": 6,
+      "company": "Moonshot AI",
+      "category": "AI lab",
+      "country": "China",
+      "founded": 2023,
+      "valuation": 50,
+      "basis": "Priced round (reported by Bloomberg)",
+      "round": "Final private round before IPO",
+      "date": "2026-10-06",
+      "investors": "China's National AI Industry Investment Fund (named backer)",
+      "note": "Not confirmed by the company; Hong Kong IPO filed confidentially",
+      "source": {
+        "title": "Silicon Republic (citing Bloomberg): Moonshot closes round at $50bn",
+        "url": "https://siliconrepublic.com/start-ups/bloomberg-moonshot-closes-round-at-50bn-valuation-before-2027-ipo"
+      }
+    },
+    {
+      "rank": 7,
+      "company": "Discovery Loop",
+      "category": "AI research lab",
+      "country": "United States",
+      "founded": 2026,
+      "valuation": 50,
+      "basis": "Reported talks (no priced valuation disclosed)",
+      "round": "Seeking new funding",
+      "date": "2026-09-11",
+      "investors": "Initial round co-led by Radical Ventures and Khosla Ventures",
+      "note": "Business Insider earlier reported talks at about $10B; no closed round disclosed",
+      "source": {
+        "title": "Reuters via WHBL: Discovery Loop seeks around $50 billion valuation",
+        "url": "https://whbl.com/2026/09/11/ai-startup-discovery-loop-seeks-around-50-billion-valuation-business-insider-reports/"
+      }
+    },
+    {
+      "rank": 8,
+      "company": "Cognition",
+      "category": "AI coding agents",
+      "country": "United States",
+      "founded": 2023,
+      "valuation": 48,
+      "basis": "Priced round",
+      "round": "$2B round",
+      "date": "2026-09-08",
+      "investors": "a16z, Accel, Founders Fund, General Catalyst, Avenir",
+      "note": null,
+      "source": {
+        "title": "TechCrunch: Cognition hits $48B valuation",
+        "url": "https://techcrunch.com/2026/09/08/cognition-hits-48b-valuation-signaling-investors-believe-ai-coding-is-far-from-a-winner-take-all-market/"
+      }
+    },
+    {
+      "rank": 9,
+      "company": "Prometheus",
+      "category": "AI for engineering and manufacturing",
+      "country": "United States",
+      "founded": null,
+      "valuation": 41,
+      "basis": "Priced round (roughly $41B)",
+      "round": "Series B, $12B",
+      "date": "2026-06-11",
+      "investors": "JPMorgan, BlackRock, Goldman Sachs, DST Global, Arch Venture Partners (per Axios)",
+      "note": "Co-led by Jeff Bezos and Vik Bajaj",
+      "source": {
+        "title": "GeekWire: Prometheus raises $12B at $41B valuation",
+        "url": "https://www.geekwire.com/2026/bezos-ai-startup-prometheus-raises-12b-at-41b-valuation/"
+      }
+    },
+    {
+      "rank": 10,
+      "company": "Figure",
+      "category": "Humanoid robotics",
+      "country": "United States",
+      "founded": 2022,
+      "valuation": 39,
+      "basis": "Priced round, post-money",
+      "round": "Series C, more than $1B",
+      "date": "2025-09-16",
+      "investors": null,
+      "note": null,
+      "source": {
+        "title": "Figure: Series C at $39B post-money",
+        "url": "https://www.figure.ai/news/series-c"
+      }
+    },
+    {
+      "rank": 11,
+      "company": "Safe Superintelligence (SSI)",
+      "category": "AI lab",
+      "country": "United States",
+      "founded": 2024,
+      "valuation": 32,
+      "basis": "Priced round (reported by the FT)",
+      "round": "About $2B round",
+      "date": "2025-04",
+      "investors": "Greenoaks",
+      "note": "Nvidia made a strategic investment in July 2026; no valuation was disclosed",
+      "source": {
+        "title": "TechCrunch: SSI reportedly valued at $32B",
+        "url": "https://techcrunch.com/2025/04/12/openai-co-founder-ilya-sutskevers-safe-superintelligence-reportedly-valued-at-32b"
+      }
+    },
+    {
+      "rank": 12,
+      "company": "Crusoe",
+      "category": "AI data centers and cloud",
+      "country": "United States",
+      "founded": 2018,
+      "valuation": 30.9,
+      "basis": "Priced round, post-money",
+      "round": "Series F, $3.9B (initial close)",
+      "date": "2026-09-17",
+      "investors": "Atreides, Mubadala Capital, Valor Equity Partners",
+      "note": null,
+      "source": {
+        "title": "GlobeNewswire via Markets Insider: Crusoe raises $3.9B Series F",
+        "url": "https://markets.businessinsider.com/news/stocks/crusoe-raises-3-9-billion-series-f-for-its-vertically-integrated-ai-infrastructure-platform-1036554667"
+      }
+    },
+    {
+      "rank": 13,
+      "company": "VAST Data",
+      "category": "AI data infrastructure",
+      "country": "United States",
+      "founded": 2016,
+      "valuation": 30,
+      "basis": "Priced round",
+      "round": "Series F",
+      "date": "2026-04-22",
+      "investors": "Drive Capital, Access Industries",
+      "note": null,
+      "source": {
+        "title": "VAST Data: Series F at $30 billion valuation",
+        "url": "https://www.vastdata.com/press-releases/vast-series-f-financing-at-30-billion-valuation"
+      }
+    },
+    {
+      "rank": 14,
+      "company": "Scale AI",
+      "category": "AI training data",
+      "country": "United States",
+      "founded": 2016,
+      "valuation": 29,
+      "basis": "Strategic investment",
+      "round": "Meta investment (reported $14.3B for 49%)",
+      "date": "2025-06-13",
+      "investors": "Meta",
+      "note": null,
+      "source": {
+        "title": "TechCrunch: Scale AI confirms Meta investment",
+        "url": "https://techcrunch.com/2025/06/13/scale-ai-confirms-significant-investment-from-meta-says-ceo-alexandr-wang-is-leaving/"
+      }
+    },
+    {
+      "rank": 15,
+      "company": "Reflection AI",
+      "category": "AI lab (open models)",
+      "country": "United States",
+      "founded": 2024,
+      "valuation": 25,
+      "basis": "Reported round, confirmed by CEO",
+      "round": "Raise first reported by WSJ in March 2026",
+      "date": "2026-04-23",
+      "investors": "Nvidia (existing backer)",
+      "note": null,
+      "source": {
+        "title": "Reuters via TradingView: Reflection AI CEO confirms raising at $25 billion",
+        "url": "https://www.tradingview.com/news/reuters.com,2026:newsml_FWN4160Z3:0-nvidia-backed-reflection-ai-s-ceo-confirms-reports-of-raising-money-at-25-billion-valuation-cnbc-interview/"
+      }
+    },
+    {
+      "rank": 16,
+      "company": "Mistral AI",
+      "category": "AI lab",
+      "country": "France",
+      "founded": 2023,
+      "valuation": 24.39,
+      "basis": "Priced round, post-money (more than EUR 21B)",
+      "round": "Series D, EUR 3B",
+      "date": "2026-09-08",
+      "investors": "Samsung Electronics",
+      "note": "Mistral calls it the largest equity round by a European tech company",
+      "source": {
+        "title": "TechCrunch: Mistral raises EUR 3B",
+        "url": "https://techcrunch.com/2026/09/08/mistral-raises-e3b-as-sovereign-ai-becomes-big-business/"
+      }
+    },
+    {
+      "rank": 17,
+      "company": "ElevenLabs",
+      "category": "Voice AI",
+      "country": "United States",
+      "founded": 2022,
+      "valuation": 22,
+      "basis": "Tender offer",
+      "round": "$300M employee tender",
+      "date": "2026-09-30",
+      "investors": "Wellington, T. Rowe Price",
+      "note": null,
+      "source": {
+        "title": "ElevenLabs: $22bn valuation after employee tender",
+        "url": "https://elevenlabs.io/blog/tender-22bn"
+      }
+    },
+    {
+      "rank": 18,
+      "company": "Etched",
+      "category": "AI chips",
+      "country": "United States",
+      "founded": 2022,
+      "valuation": 21,
+      "basis": "Priced round",
+      "round": "$700M round",
+      "date": "2026-08-18",
+      "investors": "Jane Street",
+      "note": "Valued at $10.3B in July 2026",
+      "source": {
+        "title": "TechCrunch: Etched's valuation doubles to $21B",
+        "url": "https://techcrunch.com/2026/08/18/etcheds-valuation-doubles-to-21b-in-a-month/"
+      }
+    },
+    {
+      "rank": 19,
+      "company": "Cohere",
+      "category": "Enterprise AI models",
+      "country": "Canada",
+      "founded": 2019,
+      "valuation": 20,
+      "basis": "Merger valuation (reported)",
+      "round": "Combination with Aleph Alpha",
+      "date": "2026-09-16",
+      "investors": "Schwarz Group (EUR 500M investment)",
+      "note": "Last priced round before the merger valued Cohere at about $7B (Sept 2025)",
+      "source": {
+        "title": "Reuters: Cohere, Aleph Alpha combine",
+        "url": "https://www.reuters.com/legal/transactional/cohere-aleph-alpha-combine-target-enterprise-ai-market-2026-09-16/"
+      }
+    },
+    {
+      "rank": 20,
+      "company": "Perplexity",
+      "category": "AI search",
+      "country": "United States",
+      "founded": 2022,
+      "valuation": 20,
+      "basis": "Priced round (reported by The Information)",
+      "round": "$200M round",
+      "date": "2025-09-10",
+      "investors": null,
+      "note": null,
+      "source": {
+        "title": "TechCrunch: Perplexity reportedly raised $200M at $20B",
+        "url": "https://techcrunch.com/2025/09/10/perplexity-reportedly-raised-200m-at-20b-valuation/"
+      }
+    },
+    {
+      "rank": 21,
+      "company": "Helsing",
+      "category": "Defense AI",
+      "country": "Germany",
+      "founded": 2021,
+      "valuation": 18,
+      "basis": "Priced round",
+      "round": "Series E, $1.8B",
+      "date": "2026-07-13",
+      "investors": "Dragoneer, Lightspeed, Goldman Sachs Alternatives and others",
+      "note": null,
+      "source": {
+        "title": "Helsing: raises US$1.8bn in Series E",
+        "url": "https://helsing.ai/newsroom/helsing-raises-1-8bn-in-series-e"
+      }
+    },
+    {
+      "rank": 22,
+      "company": "Fireworks AI",
+      "category": "AI inference",
+      "country": "United States",
+      "founded": 2022,
+      "valuation": 17.5,
+      "basis": "Priced round",
+      "round": "Series D, $1.5B",
+      "date": "2026-07-15",
+      "investors": "Atreides, Index Ventures, TCV",
+      "note": "Business Insider reported on Oct 20, 2026 early talks at $30B to $40B",
+      "source": {
+        "title": "Fireworks AI: Series D announcement",
+        "url": "https://fireworks.ai/blog/series-d-announcement"
+      }
+    },
+    {
+      "rank": 23,
+      "company": "Sierra",
+      "category": "AI customer-service agents",
+      "country": "United States",
+      "founded": 2023,
+      "valuation": 15.8,
+      "basis": "Priced round, post-money",
+      "round": "Series E, $950M",
+      "date": "2026-05-04",
+      "investors": "Tiger Global, GV",
+      "note": null,
+      "source": {
+        "title": "CNBC: Sierra raises nearly $1B",
+        "url": "https://www.cnbc.com/2026/05/04/bret-taylor-sierra-fundraise-openai.html"
+      }
+    },
+    {
+      "rank": 24,
+      "company": "Harvey",
+      "category": "Legal AI",
+      "country": "United States",
+      "founded": 2022,
+      "valuation": 15.5,
+      "basis": "Priced round",
+      "round": "$550M round",
+      "date": "2026-09-09",
+      "investors": "Diffusion, Lightspeed",
+      "note": null,
+      "source": {
+        "title": "Harvey: raises $550M at $15.5B",
+        "url": "https://www.harvey.ai/blog/harvey-raises-dollar550m-at-a-dollar155b-valuation-to-help-legal-teams-own-their-intelligence"
+      }
+    },
+    {
+      "rank": 25,
+      "company": "OpenEvidence",
+      "category": "Medical AI",
+      "country": "United States",
+      "founded": null,
+      "valuation": 15,
+      "basis": "Priced round (confirmed by CEO)",
+      "round": "$250M round",
+      "date": "2026-09-30",
+      "investors": null,
+      "note": "Valued at $12B in January 2026",
+      "source": {
+        "title": "Forbes: OpenEvidence confirms $250M at $15B",
+        "url": "https://www.forbes.com/sites/saibala/2026/09/30/openevidence-confirms-it-has-raised-an-additional-250-million-at-a-15-billion-valuation/"
+      }
+    },
+    {
+      "rank": 26,
+      "company": "Applied Intuition",
+      "category": "Vehicle and defense AI software",
+      "country": "United States",
+      "founded": 2017,
+      "valuation": 15,
+      "basis": "Priced round and tender",
+      "round": "Series F, $600M",
+      "date": "2025-06-17",
+      "investors": "BlackRock, Kleiner Perkins",
+      "note": "The Information reported in Oct 2026 that it was fielding offers at $30B",
+      "source": {
+        "title": "Applied Intuition: Series F at $15B",
+        "url": "https://www.appliedintuition.com/press-releases/series-f"
+      }
+    },
+    {
+      "rank": 27,
+      "company": "Nscale",
+      "category": "AI data centers and cloud",
+      "country": "United Kingdom",
+      "founded": 2024,
+      "valuation": 14.6,
+      "basis": "Priced round",
+      "round": "Series C, $2B",
+      "date": "2026-03-09",
+      "investors": "Aker ASA, 8090 Industries",
+      "note": null,
+      "source": {
+        "title": "Nscale: $2 billion Series C",
+        "url": "https://www.nscale.com/press-releases/nscale-series-c"
+      }
+    },
+    {
+      "rank": 28,
+      "company": "Skild AI",
+      "category": "Robot foundation models",
+      "country": "United States",
+      "founded": 2023,
+      "valuation": 14,
+      "basis": "Priced round (reported by Bloomberg, more than $14B)",
+      "round": "Series C, $1.4B",
+      "date": "2026-01-14",
+      "investors": "SoftBank",
+      "note": null,
+      "source": {
+        "title": "TechCrunch: Skild AI hits $14B valuation",
+        "url": "https://techcrunch.com/2026/01/14/robotic-software-maker-skild-ai-hits-14b-valuation/"
+      }
+    },
+    {
+      "rank": 29,
+      "company": "Lovable",
+      "category": "AI app builder",
+      "country": "Sweden",
+      "founded": 2023,
+      "valuation": 13.3,
+      "basis": "Priced round",
+      "round": "$400M round",
+      "date": "2026-08-12",
+      "investors": "Menlo Ventures, Scaleup Europe Fund",
+      "note": null,
+      "source": {
+        "title": "Business Insider: Lovable doubles valuation to $13.3B",
+        "url": "https://www.businessinsider.com/lovable-funding-valuation-doubles-13-3-billion-vibe-coding-2026-8"
+      }
+    },
+    {
+      "rank": 30,
+      "company": "Baseten",
+      "category": "AI inference",
+      "country": "United States",
+      "founded": 2019,
+      "valuation": 13,
+      "basis": "Priced round",
+      "round": "Series F, $1.5B",
+      "date": "2026-06-22",
+      "investors": "Altimeter, Conviction, Spark Capital",
+      "note": null,
+      "source": {
+        "title": "Baseten: Series F announcement",
+        "url": "https://baseten.co/blog/announcing-our-series-f/"
+      }
+    },
+    {
+      "rank": 31,
+      "company": "Shield AI",
+      "category": "Defense AI",
+      "country": "United States",
+      "founded": 2015,
+      "valuation": 12.7,
+      "basis": "Priced round, post-money",
+      "round": "Series G, $1.5B",
+      "date": "2026-03-26",
+      "investors": null,
+      "note": "The Information reported in Sept 2026 talks at $20B or more",
+      "source": {
+        "title": "Shield AI: raise $2B at $12.7B valuation",
+        "url": "https://shield.ai/shield-ai-to-acquire-software-simulation-company-aechelon-and-raise-2b-at-12-7b-valuation/"
+      }
+    },
+    {
+      "rank": 32,
+      "company": "Thinking Machines Lab",
+      "category": "AI lab",
+      "country": "United States",
+      "founded": 2025,
+      "valuation": 12,
+      "basis": "Priced round",
+      "round": "Seed, about $2B",
+      "date": "2025-07-15",
+      "investors": "a16z",
+      "note": "The Information reported in Sept 2026 talks at about $40B; no close reported",
+      "source": {
+        "title": "Reuters via Yahoo Finance: Thinking Machines valued at $12 billion",
+        "url": "https://finance.yahoo.com/news/mira-muratis-ai-startup-thinking-170344492.html"
+      }
+    },
+    {
+      "rank": 33,
+      "company": "Poolside",
+      "category": "AI coding models",
+      "country": "France",
+      "founded": 2023,
+      "valuation": 12,
+      "basis": "Strategic investment, pre-money (reported)",
+      "round": "Nvidia $1B investment",
+      "date": "2026-08-20",
+      "investors": "Nvidia",
+      "note": "Paired with a $6B Nvidia licensing deal",
+      "source": {
+        "title": "Newcomer: Poolside strikes $6B Nvidia deal, raises $1B at $12B",
+        "url": "https://www.newcomer.co/p/sources-poolside-strikes-6-billion"
+      }
+    },
+    {
+      "rank": 34,
+      "company": "Physical Intelligence",
+      "category": "Robot foundation models",
+      "country": "United States",
+      "founded": 2024,
+      "valuation": 11.5,
+      "basis": "Priced round (reported by Bloomberg)",
+      "round": "2026 round",
+      "date": "2026",
+      "investors": null,
+      "note": "Bloomberg reported on Oct 27, 2026 talks at about $20B",
+      "source": {
+        "title": "The Next Web: Physical Intelligence in talks at $20bn",
+        "url": "https://thenextweb.com/news/physical-intelligence-20bn-valuation-talks-bloomberg"
+      }
+    },
+    {
+      "rank": 35,
+      "company": "SambaNova",
+      "category": "AI chips",
+      "country": "United States",
+      "founded": 2017,
+      "valuation": 11,
+      "basis": "Priced round (first close)",
+      "round": "Series F, $1B first close",
+      "date": "2026-07-08",
+      "investors": "General Atlantic",
+      "note": null,
+      "source": {
+        "title": "SambaNova: first close of $1B at $11B",
+        "url": "https://sambanova.ai/press/sambanova-completes-first-close-of-1b-financing-at-11b-valuation"
+      }
+    },
+    {
+      "rank": 36,
+      "company": "Mercor",
+      "category": "AI training data",
+      "country": "United States",
+      "founded": 2023,
+      "valuation": 10,
+      "basis": "Priced round",
+      "round": "Series C, $350M",
+      "date": "2025-10-27",
+      "investors": "Felicis",
+      "note": "Reported in July 2026 to be in talks at $20B",
+      "source": {
+        "title": "TechCrunch: Mercor valued at $10B",
+        "url": "https://techcrunch.com/2025/10/27/mercor-quintuples-valuation-to-10b-with-350m-series-c/"
+      }
+    },
+    {
+      "rank": 37,
+      "company": "Replit",
+      "category": "AI coding",
+      "country": "United States",
+      "founded": 2016,
+      "valuation": 9,
+      "basis": "Priced round",
+      "round": "Series D, $400M",
+      "date": "2026-03-11",
+      "investors": "Georgian",
+      "note": null,
+      "source": {
+        "title": "TechCrunch: Replit snags $9B valuation",
+        "url": "https://techcrunch.com/2026/03/11/replit-snags-9b-valuation-6-months-after-hitting-3b/"
+      }
+    },
+    {
+      "rank": 38,
+      "company": "Wayve",
+      "category": "Autonomous driving AI",
+      "country": "United Kingdom",
+      "founded": 2017,
+      "valuation": 8.6,
+      "basis": "Priced round",
+      "round": "Series D, $1.2B",
+      "date": "2026-02-24",
+      "investors": "Eclipse, Balderton, SoftBank Vision Fund 2",
+      "note": "Wayve's own release gives $1.5B raised",
+      "source": {
+        "title": "CNBC: Wayve hits $8.6 billion valuation",
+        "url": "https://www.cnbc.com/2026/02/24/wayve-fundraise-nvidia-microsoft.html"
+      }
+    },
+    {
+      "rank": 39,
+      "company": "Together AI",
+      "category": "AI cloud",
+      "country": "United States",
+      "founded": 2022,
+      "valuation": 8.3,
+      "basis": "Priced round, post-money",
+      "round": "Series C, $800M",
+      "date": "2026-07",
+      "investors": "Aramco Ventures",
+      "note": null,
+      "source": {
+        "title": "Business Wire: Together AI raises $800M at $8.3B",
+        "url": "https://www.businesswire.com/news/home/20260701243402/en/Together-AI-Raises-$800-Million-at-$8.3-Billion-Valuation-to-Make-Frontier-AI-Accessible-to-All"
+      }
+    },
+    {
+      "rank": 40,
+      "company": "Glean",
+      "category": "Enterprise AI search",
+      "country": "United States",
+      "founded": 2019,
+      "valuation": 7.2,
+      "basis": "Priced round",
+      "round": "Series F, $150M",
+      "date": "2025-06-10",
+      "investors": "Wellington Management",
+      "note": null,
+      "source": {
+        "title": "TechCrunch: Glean lands a $7.2B valuation",
+        "url": "https://techcrunch.com/2025/06/10/enterprise-ai-startup-glean-lands-a-7-2b-valuation/"
+      }
+    },
+    {
+      "rank": 41,
+      "company": "Neura Robotics",
+      "category": "Cognitive robotics",
+      "country": "Germany",
+      "founded": 2019,
+      "valuation": 7,
+      "basis": "Priced round (approximate, reported by Bloomberg)",
+      "round": "Series C, up to $1.4B",
+      "date": "2026-06-10",
+      "investors": null,
+      "note": null,
+      "source": {
+        "title": "The Next Web: Neura Robotics raises up to $1.4B",
+        "url": "https://thenextweb.com/news/neura-robotics-1-4b-series-c-physical-ai"
+      }
+    },
+    {
+      "rank": 42,
+      "company": "Suno",
+      "category": "AI music",
+      "country": "United States",
+      "founded": 2022,
+      "valuation": 5.4,
+      "basis": "Priced round",
+      "round": "Series D, $400M",
+      "date": "2026-06-03",
+      "investors": null,
+      "note": null,
+      "source": {
+        "title": "TechCrunch: Suno raises another $400M",
+        "url": "https://techcrunch.com/2026/06/03/still-facing-copyright-lawsuits-ai-music-generator-suno-raises-another-400m/"
+      }
+    },
+    {
+      "rank": 43,
+      "company": "Runway",
+      "category": "AI video",
+      "country": "United States",
+      "founded": 2018,
+      "valuation": 5.3,
+      "basis": "Priced round (per a source to TechCrunch)",
+      "round": "Series E, $315M",
+      "date": "2026-02-10",
+      "investors": null,
+      "note": null,
+      "source": {
+        "title": "TechCrunch: Runway raises $315M at $5.3B",
+        "url": "https://techcrunch.com/2026/02/10/ai-video-startup-runway-raises-315m-at-5-3b-valuation-eyes-more-capable-world-models/"
+      }
+    },
+    {
+      "rank": 44,
+      "company": "Factory",
+      "category": "AI coding agents",
+      "country": "United States",
+      "founded": 2023,
+      "valuation": 5,
+      "basis": "Priced round",
+      "round": "$200M round",
+      "date": "2026-09-15",
+      "investors": "Blackstone, Khosla Ventures, Sequoia, Insight Partners (participants)",
+      "note": null,
+      "source": {
+        "title": "Factory: raises $200M at $5B",
+        "url": "https://factory.com/news/5-billion-valuation"
+      }
+    },
+    {
+      "rank": 45,
+      "company": "Unconventional AI",
+      "category": "AI chips",
+      "country": "United States",
+      "founded": 2025,
+      "valuation": 4.5,
+      "basis": "Priced round",
+      "round": "Seed, $475M",
+      "date": "2025-12-09",
+      "investors": "a16z, Lightspeed",
+      "note": null,
+      "source": {
+        "title": "DCD: Unconventional AI raises $475m seed",
+        "url": "https://www.datacenterdynamics.com/en/news/neuromorphic-compute-startup-unconventional-ai-raises-475m-in-seed-funding/"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Largest public AI companies by market cap",
+      "body": "Market cap **as of October 28, 2026** (intraday), as shown on each company's [Stock Analysis](https://stockanalysis.com/) market-cap page, which was read on that date. Share prices move every trading day, so treat these as a snapshot. Apple ($5.03T on the same date) is left out because AI is not its core business.\n\n| Rank | Company | Ticker | AI focus | Market cap (USD) | Source |\n|---|---|---|---|---|---|\n| 1 | Nvidia | NVDA | AI chips | $5.24T | [Stock Analysis: NVDA market cap](https://stockanalysis.com/stocks/nvda/market-cap/) |\n| 2 | Alphabet | GOOGL | Gemini models, TPUs, cloud | $3.97T | [Stock Analysis: GOOGL market cap](https://stockanalysis.com/stocks/googl/market-cap/) |\n| 3 | Microsoft | MSFT | Azure AI, OpenAI partner | $3.92T | [Stock Analysis: MSFT market cap](https://stockanalysis.com/stocks/msft/market-cap/) |\n| 4 | Amazon | AMZN | AWS AI, Anthropic investor | $2.73T | [Stock Analysis: AMZN market cap](https://stockanalysis.com/stocks/amzn/market-cap/) |\n| 5 | SpaceX | SPCX | Owns xAI and Cursor | $1.97T | [Stock Analysis: SPCX market cap](https://stockanalysis.com/stocks/spcx/market-cap/) |\n| 6 | TSMC | TSM | AI chip foundry | $1.95T | [Stock Analysis: TSM market cap](https://stockanalysis.com/stocks/tsm/market-cap/) |\n| 7 | Broadcom | AVGO | Custom AI chips, networking | $1.67T | [Stock Analysis: AVGO market cap](https://stockanalysis.com/stocks/avgo/market-cap/) |\n| 8 | Meta Platforms | META | Llama models, AI research | $1.56T | [Stock Analysis: META market cap](https://stockanalysis.com/stocks/meta/market-cap/) |\n| 9 | AMD | AMD | AI GPUs | $937.84B | [Stock Analysis: AMD market cap](https://stockanalysis.com/stocks/amd/market-cap/) |\n| 10 | Palantir | PLTR | AI software platforms | $467.03B | [Stock Analysis: PLTR market cap](https://stockanalysis.com/stocks/pltr/market-cap/) |\n| 11 | Oracle | ORCL | AI cloud infrastructure | $439.58B | [Stock Analysis: ORCL market cap](https://stockanalysis.com/stocks/orcl/market-cap/) |\n| 12 | Arm Holdings | ARM | Chip architecture | $251.92B | [Stock Analysis: ARM market cap](https://stockanalysis.com/stocks/arm/market-cap/) |\n| 13 | CoreWeave | CRWV | GPU cloud | $34.9B | [Stock Analysis: CRWV market cap](https://stockanalysis.com/stocks/crwv/market-cap/) |\n| 14 | Cerebras Systems | CBRS | AI chips | $26.2B | [Stock Analysis: CBRS market cap](https://stockanalysis.com/stocks/cbrs/market-cap/) |\n"
+    },
+    {
+      "heading": "Acquired, public or excluded companies",
+      "body": "- **xAI** is a wholly owned SpaceX subsidiary after a share exchange in February 2026 ([CNBC](https://www.cnbc.com/2026/02/03/musk-xai-spacex-biggest-merger-ever.html)); it appears through SpaceX in the public table.\n- **Cursor (Anysphere)** became part of SpaceX when a $60 billion acquisition closed in August 2026 ([TechCrunch](https://techcrunch.com/2026/08/15/spacex-officially-closes-its-cursor-acquisition/)).\n- **Hugging Face** agreed in September 2026 to be acquired by Nvidia for nearly $13 billion ([Reuters](https://www.reuters.com/business/nvidia-buy-hugging-face-nearly-13-billion-big-bet-open-ai-models-2026-09-03/)), so it is left out of the private ranking.\n- **Cerebras** and **CoreWeave** are listed companies and appear in the public table.\n- Large private companies whose main business is not AI (for example ByteDance) and units of public companies (for example Alphabet's Waymo) are excluded by design."
+    },
+    {
+      "heading": "How AI company valuations are reported",
+      "body": "- **Post-money valuation** is the company's value right after a round closes, including the new cash. Most startup announcements use it, and it is the default here.\n- **Pre-money valuation** excludes the new money. Several 2026 reports (OpenAI's October talks, Reflection AI, Poolside) were stated pre-money, so they are labeled.\n- **Tender offers and secondaries** let employees and early holders sell existing shares to new investors. No new money goes to the company, and the price can sit above or below the last priced round (ElevenLabs at $22 billion; Anduril's open tender at about $90 billion).\n- **Strategic investments** come from a partner such as Meta in Scale AI or Nvidia in Poolside. They often come bundled with commercial deals, so the headline valuation can mean less than in a normal venture round.\n- **Reported talks** are figures from people familiar with a deal before it closes. Terms often change, so this table uses talks only when no priced round exists (Discovery Loop) and otherwise mentions them in the Note column."
+    },
+    {
+      "heading": "Why AI valuations move",
+      "body": "Private AI valuations change in jumps, not daily. A company keeps its last priced valuation until it raises again, so a figure from 2025 can sit next to one from last week. Large step-ups in 2026 followed revenue growth (Fireworks AI said it passed $1 billion in annualized revenue when it raised at $17.5 billion in July), access to compute, and competition among investors for a small number of labs. Strategic investors such as Nvidia, Amazon and Samsung often invest alongside supply or licensing agreements, which can lift headline numbers. Valuations can also stay flat for long stretches: Scale AI, Perplexity and Thinking Machines Lab are still listed at figures set in 2025, even though later talks or deals were reported for some of them. Because each company is valued only when it transacts, the ranking can shift sharply when a single round closes."
+    }
+  ],
+  "methodology": [
+    "Scope: privately held companies whose main product is AI models, AI infrastructure (chips, data centers, inference), or AI applications, including defense and robotics companies built around AI. Wholly owned subsidiaries, acquired companies and listed companies are excluded from the private ranking.",
+    "Valuation rule: each company is ranked by its latest priced valuation (a funding round, tender offer, strategic investment or merger), with the basis stated. Reported talks are used only when no priced valuation exists, and are labeled. Later talks above the last priced figure are listed in the Note column, not used for ranking.",
+    "Every figure was checked on the cited source between October 28 and 29, 2026: the company's own announcement where one exists, otherwise Reuters, Bloomberg (via outlets that cite it), CNBC, TechCrunch, Caixin and similar outlets. Figures in other currencies use the USD conversion stated by the source; no numbers were estimated or computed for this table.",
+    "Where sources disagree, the table follows the source cited and notes the gap: Wayve's round is $1.2B per CNBC and $1.5B per Wayve; OpenAI's October 2026 talks were reported at $1.4T pre-money earlier in the month and $1.25T on October 22.",
+    "Founded years and headquarters reflect company descriptions; a dash means the founding year was not clearly published. Public market caps are intraday values read from Stock Analysis on October 28, 2026."
+  ],
+  "faq": [
+    {
+      "q": "What is the biggest AI company in the world?",
+      "a": "By market value, Nvidia is the biggest AI company, with a market cap of $5.24 trillion on October 28, 2026, per Stock Analysis. Among private AI companies, Anthropic is the largest at a $965 billion post-money valuation from its May 2026 Series H, ahead of OpenAI at $852 billion from March 2026."
+    },
+    {
+      "q": "Is OpenAI or Anthropic worth more?",
+      "a": "On priced rounds, Anthropic is worth more: $965 billion (May 2026) against OpenAI's $852 billion (March 2026). That could flip soon. CNBC reported on October 22, 2026 that OpenAI was close to raising up to $30 billion at a $1.25 trillion pre-money valuation. Until that round closes, the $852 billion figure is OpenAI's latest priced valuation."
+    },
+    {
+      "q": "What is xAI worth now?",
+      "a": "xAI no longer has its own valuation. SpaceX acquired it in a share exchange in February 2026; CNBC reported that bank documents valued xAI at between $219 billion and $294 billion in the deal. SpaceX listed on Nasdaq in June 2026 and had a market cap of about $1.97 trillion on October 28, 2026."
+    },
+    {
+      "q": "What are the largest AI startups outside the United States?",
+      "a": "Outside the US, the largest private AI companies in this table are DeepSeek (about $52 billion, China), Moonshot AI ($50 billion reported, China), Mistral AI (about $24.4 billion, France), Cohere ($20 billion after its Aleph Alpha merger, Canada) and Helsing ($18 billion, Germany). Lovable, Nscale and Wayve are the largest from Sweden and the UK."
+    },
+    {
+      "q": "How many AI unicorns are there?",
+      "a": "Counts depend on the source and on how a company is defined as AI, and they change weekly. Every company in this table is worth at least $4.5 billion, well past the $1 billion unicorn threshold. The table covers the 45 most valuable private AI companies with a verifiable, dated valuation, not every AI unicorn."
+    },
+    {
+      "q": "How are private AI company valuations calculated?",
+      "a": "A private valuation is set when investors buy shares at a price per share; multiplying that price by all shares gives the valuation. Post-money includes the new cash, pre-money does not. Tender offers price existing shares that employees sell. Because there is no daily trading, a private valuation stays fixed until the next transaction, unlike a public company's market cap."
+    },
+    {
+      "q": "Which AI companies have gone public?",
+      "a": "Listed AI-centric companies include SpaceX (which owns xAI and Cursor and listed on Nasdaq in June 2026), CoreWeave and Cerebras Systems. Moonshot AI has filed confidentially for a Hong Kong IPO, CNBC described OpenAI's October 2026 round as a bridge ahead of a potential IPO, and Lambda is reported to be planning a 2027 IPO."
+    }
+  ],
+  "temporalCoverage": "2025/2026",
+  "related": [
+    "ai-model-release-timeline",
+    "agi-timeline-predictions"
+  ],
+  "stats": [
+    {
+      "value": "$965B",
+      "label": "Anthropic, most valuable private AI company (May 2026)"
+    },
+    {
+      "value": "$852B",
+      "label": "OpenAI's last priced round (Mar 2026)"
+    },
+    {
+      "value": "45",
+      "label": "private AI companies ranked, each with a dated source"
+    },
+    {
+      "value": "$5.24T",
+      "label": "Nvidia market cap, largest public AI company (Oct 28, 2026)"
+    }
+  ],
+  "charts": [
+    {
+      "id": "top-private-valuations",
+      "type": "hbar",
+      "title": "Most valuable private AI companies",
+      "subtitle": "Latest post-money valuation, US$ billions",
+      "x": "company",
+      "y": "valuation",
+      "limit": 20,
+      "prefix": "$",
+      "unit": "B",
+      "yLabel": "Valuation, US$ billions",
+      "caption": "Two labs, Anthropic and OpenAI, are each worth more than the next 18 private AI companies combined.",
+      "alt": "Horizontal bar chart of the 20 most valuable private AI companies, led by Anthropic at $965 billion and OpenAI at $852 billion, followed by Databricks at $190 billion."
+    },
+    {
+      "id": "valuation-by-country",
+      "type": "hbar",
+      "title": "Combined private AI valuation by country",
+      "subtitle": "Sum of latest valuations of the 45 companies ranked, US$ billions",
+      "x": "country",
+      "y": "valuation",
+      "aggregate": "sum",
+      "prefix": "$",
+      "unit": "B",
+      "yLabel": "Combined valuation, US$ billions",
+      "caption": "35 of the 45 companies are headquartered in the United States, and together they hold about 92% of the combined valuation.",
+      "alt": "Horizontal bar chart of combined private AI company valuation by headquarters country, dominated by the United States, followed by China and France."
+    },
+    {
+      "id": "public-market-caps",
+      "type": "hbar",
+      "title": "Largest public AI companies by market cap",
+      "subtitle": "US$ billions, intraday market cap on October 28, 2026",
+      "x": "label",
+      "prefix": "$",
+      "unit": "B",
+      "yLabel": "Market cap, US$ billions",
+      "source": "Stock Analysis market-cap pages, read October 28, 2026",
+      "data": [
+        {
+          "label": "Nvidia",
+          "value": 5240
+        },
+        {
+          "label": "Alphabet",
+          "value": 3970
+        },
+        {
+          "label": "Microsoft",
+          "value": 3920
+        },
+        {
+          "label": "Amazon",
+          "value": 2730
+        },
+        {
+          "label": "SpaceX",
+          "value": 1970
+        },
+        {
+          "label": "TSMC",
+          "value": 1950
+        },
+        {
+          "label": "Broadcom",
+          "value": 1670
+        },
+        {
+          "label": "Meta Platforms",
+          "value": 1560
+        },
+        {
+          "label": "AMD",
+          "value": 937.84
+        },
+        {
+          "label": "Palantir",
+          "value": 467.03
+        },
+        {
+          "label": "Oracle",
+          "value": 439.58
+        },
+        {
+          "label": "Arm Holdings",
+          "value": 251.92
+        },
+        {
+          "label": "CoreWeave",
+          "value": 34.9
+        },
+        {
+          "label": "Cerebras Systems",
+          "value": 26.2
+        }
+      ],
+      "caption": "Nvidia's $5.24 trillion is about 1.3 times Alphabet's, and four public AI companies are valued above $2.5 trillion.",
+      "alt": "Horizontal bar chart of 14 public AI companies by market cap on October 28, 2026, from Nvidia at $5.24 trillion and Alphabet at $3.97 trillion down to Cerebras at $26.2 billion."
+    }
+  ],
+  "changelog": [
+    {
+      "date": "2026-10-29",
+      "note": "First published with 45 records, each linked to its source."
+    }
+  ]
+}

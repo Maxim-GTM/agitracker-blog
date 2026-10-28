@@ -1,0 +1,580 @@
+{
+  "slug": "ai-water-and-energy-use",
+  "name": "AI Water and Energy Use",
+  "title": "How Much Water Does AI Use? Per-Prompt Data (2026)",
+  "h1": "How much water does AI use? Water, energy and carbon per prompt",
+  "description": "How much water does AI use? Sourced per-prompt water, energy and carbon figures for Gemini, ChatGPT, Mistral and others, plus big tech data center water totals.",
+  "summary": "Every published per-prompt water, energy and carbon figure for AI chatbots, with what each one counts, plus Google, Microsoft, Meta and Amazon data center water use.",
+  "published": "2026-10-29",
+  "updated": "2026-10-29",
+  "keywords": [
+    "how much water does ai use",
+    "ai water usage",
+    "data center water usage",
+    "how much water does chatgpt use",
+    "ai water consumption",
+    "chatgpt water usage",
+    "how much energy does ai use",
+    "data center energy consumption",
+    "gemini water per prompt",
+    "ai energy per query",
+    "ai carbon footprint per prompt"
+  ],
+  "intro": [
+    "A typical text prompt to Google's Gemini uses about 0.26 mL of water (roughly five drops) and 0.24 Wh of energy, according to [Google's August 2025 disclosure](https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference). OpenAI CEO Sam Altman put the average ChatGPT query at about 0.34 Wh and 0.000085 gallons of water (about 0.32 mL, or one fifteenth of a teaspoon) in a [June 2025 blog post](https://blog.samaltman.com/the-gentle-singularity), and Mistral's [July 2025 lifecycle analysis](https://mistral.ai/news/our-contribution-to-a-global-environmental-standard-for-ai) put one 400-token Le Chat response at 45 mL of water and 1.14 gCO2e.",
+    "The figures differ by more than 100 times because they count different things. Google's 0.26 mL covers only the water evaporated to cool its data centers. The widely repeated \"500 mL bottle\" figure from UC Riverside researchers ([Li et al.](https://arxiv.org/abs/2304.03271)) is for 10 to 50 GPT-3 responses and adds the water used by power plants to generate the electricity, which is most of the total. Mistral's figure is a full lifecycle assessment. None of these numbers should be compared without reading what each one covers.",
+    "The table below lists every per-prompt figure that a company, peer-reviewed paper, preprint or major outlet has published, one row per figure, with the scope of each. Below it are the annual data center water totals that Google, Microsoft, Meta and Amazon report in their own environmental reports, an explanation of withdrawal versus consumption and on-site versus off-site water, and a check of the viral claims."
+  ],
+  "keyFindings": [
+    {
+      "text": "Google reported in August 2025 that the median Gemini Apps text prompt (measured in May 2025) used 0.24 Wh of energy, emitted 0.03 gCO2e and consumed 0.26 mL of data center cooling water.",
+      "source": {
+        "title": "Google Cloud blog: Measuring the environmental impact of AI inference (2025-08-21)",
+        "url": "https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference"
+      }
+    },
+    {
+      "text": "Google said the energy and total carbon footprint of the median Gemini Apps text prompt fell 33 times and 44 times respectively between May 2024 and May 2025.",
+      "source": {
+        "title": "Google Cloud blog: Measuring the environmental impact of AI inference (2025-08-21)",
+        "url": "https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference"
+      }
+    },
+    {
+      "text": "OpenAI CEO Sam Altman wrote on June 10, 2025 that the average ChatGPT query uses about 0.34 Wh of electricity and 0.000085 gallons of water, without publishing a methodology.",
+      "source": {
+        "title": "Sam Altman: The Gentle Singularity (2025-06-10)",
+        "url": "https://blog.samaltman.com/the-gentle-singularity"
+      }
+    },
+    {
+      "text": "Mistral's July 2025 lifecycle analysis, done with Carbone 4 and the French agency ADEME, found that one 400-token Le Chat response has a marginal impact of 1.14 gCO2e and 45 mL of water.",
+      "source": {
+        "title": "Mistral AI: Our contribution to a global environmental standard for AI (2025-07-22)",
+        "url": "https://mistral.ai/news/our-contribution-to-a-global-environmental-standard-for-ai"
+      }
+    },
+    {
+      "text": "A peer-reviewed Microsoft study in Joule (April 2026) estimated that frontier-scale models use a median 0.31 Wh per typical query and 3.91 Wh per long reasoning query, and that many public estimates overstate energy use by 4 to 20 times.",
+      "source": {
+        "title": "Oviedo et al., Energy use of AI inference, efficiency pathways, and test-time scaling, Joule (2026)",
+        "url": "https://www.cell.com/joule/fulltext/S2542-4351(26)00114-5"
+      }
+    },
+    {
+      "text": "The UC Riverside \"500 mL bottle per 10 to 50 responses\" estimate applies to GPT-3 and, at the U.S. average, counts 2.2 mL of on-site cooling water plus 14.7 mL of power plant water per response (16.9 mL total).",
+      "source": {
+        "title": "Li, Yang, Islam and Ren, Making AI Less \"Thirsty\" (arXiv 2304.03271, v5, 2025)",
+        "url": "https://arxiv.org/abs/2304.03271"
+      }
+    },
+    {
+      "text": "Google's data centers withdrew 13,562 million gallons and consumed 10,523 million gallons of water in 2025, and Google's total water consumption rose 34% from 2024 to 2025.",
+      "source": {
+        "title": "Google 2026 Environmental Report (covers 2025)",
+        "url": "https://sustainability.google/files/google-2026-environmental-report.pdf"
+      }
+    },
+    {
+      "text": "Meta's data centers consumed 2,974 megaliters of water on site in 2024, while Meta estimated the water embedded in its purchased electricity at 72,207 megaliters.",
+      "source": {
+        "title": "Meta 2025 Environmental Data Index (covers 2024)",
+        "url": "https://sustainability.atmeta.com/wp-content/uploads/2025/10/Meta_2025-Environmental-Data-Index.pdf"
+      }
+    },
+    {
+      "text": "The International Energy Agency estimated in April 2026 that global data centers used 485 TWh of electricity in 2025 and projects about 950 TWh by 2030, around 3% of global electricity demand.",
+      "source": {
+        "title": "IEA: Key Questions on Energy and AI, executive summary (2026)",
+        "url": "https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary"
+      }
+    }
+  ],
+  "tableTitle": "Water, energy and carbon per AI prompt, by published figure",
+  "columns": [
+    {
+      "key": "subject",
+      "label": "Model or product"
+    },
+    {
+      "key": "organization",
+      "label": "Model developer"
+    },
+    {
+      "key": "publisher",
+      "label": "Published by"
+    },
+    {
+      "key": "water_ml",
+      "label": "Water per prompt (mL)",
+      "type": "number",
+      "note": "Dash means not published"
+    },
+    {
+      "key": "energy_wh",
+      "label": "Energy per prompt (Wh)",
+      "type": "number"
+    },
+    {
+      "key": "carbon_g",
+      "label": "Carbon (gCO2e)",
+      "type": "number"
+    },
+    {
+      "key": "water_scope",
+      "label": "What the water figure covers"
+    },
+    {
+      "key": "prompt_type",
+      "label": "Prompt measured"
+    },
+    {
+      "key": "figure_type",
+      "label": "Figure type"
+    },
+    {
+      "key": "date",
+      "label": "Published",
+      "type": "date"
+    }
+  ],
+  "rows": [
+    {
+      "subject": "Gemini Apps (comprehensive method)",
+      "organization": "Google",
+      "publisher": "Google",
+      "water_ml": 0.26,
+      "energy_wh": 0.24,
+      "carbon_g": 0.03,
+      "water_scope": "On-site data center cooling water consumed only (fleet WUE of 1.15 L/kWh); excludes water used to generate electricity. Carbon is market-based.",
+      "prompt_type": "Median Gemini Apps text prompt, May 2025; includes idle capacity, host CPU/RAM and data center overhead",
+      "figure_type": "Company disclosure (with technical paper, not third-party verified)",
+      "date": "2025-08-21",
+      "source": {
+        "title": "Google Cloud blog: Measuring the environmental impact of AI inference",
+        "url": "https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference"
+      }
+    },
+    {
+      "subject": "Gemini Apps (accelerator-only method)",
+      "organization": "Google",
+      "publisher": "Google",
+      "water_ml": 0.12,
+      "energy_wh": 0.1,
+      "carbon_g": 0.02,
+      "water_scope": "On-site cooling water only, counting active TPU/GPU energy alone; Google calls this narrower method an underestimate",
+      "prompt_type": "Median Gemini Apps text prompt, May 2025",
+      "figure_type": "Company disclosure",
+      "date": "2025-08-21",
+      "source": {
+        "title": "Google: Measuring the energy, emissions, and water impact of Gemini prompts (arXiv 2508.15734)",
+        "url": "https://arxiv.org/abs/2508.15734"
+      }
+    },
+    {
+      "subject": "ChatGPT",
+      "organization": "OpenAI",
+      "publisher": "Sam Altman (OpenAI CEO)",
+      "water_ml": 0.32,
+      "energy_wh": 0.34,
+      "carbon_g": null,
+      "water_scope": "Not stated. Published as 0.000085 gallons (about 1/15 teaspoon), shown here converted to mL",
+      "prompt_type": "\"Average query\"; model and boundary not defined",
+      "figure_type": "Company disclosure (CEO blog post, no methodology)",
+      "date": "2025-06-10",
+      "source": {
+        "title": "Sam Altman: The Gentle Singularity",
+        "url": "https://blog.samaltman.com/the-gentle-singularity"
+      }
+    },
+    {
+      "subject": "Le Chat (Mistral Large 2)",
+      "organization": "Mistral AI",
+      "publisher": "Mistral AI, with Carbone 4 and ADEME",
+      "water_ml": 45,
+      "energy_wh": null,
+      "carbon_g": 1.14,
+      "water_scope": "Lifecycle assessment (water consumption potential), marginal impact of inference; excludes users' devices",
+      "prompt_type": "One 400-token response",
+      "figure_type": "Company disclosure (lifecycle analysis peer-reviewed by Resilio and Hubblo)",
+      "date": "2025-07-22",
+      "source": {
+        "title": "Mistral AI: Our contribution to a global environmental standard for AI",
+        "url": "https://mistral.ai/news/our-contribution-to-a-global-environmental-standard-for-ai"
+      }
+    },
+    {
+      "subject": "Frontier-scale LLMs (>200B parameters) on H100",
+      "organization": "Various (open models modeled by Microsoft)",
+      "publisher": "Microsoft researchers (Oviedo et al.)",
+      "water_ml": null,
+      "energy_wh": 0.31,
+      "carbon_g": null,
+      "water_scope": "No point value. Microsoft's summary estimates 0.0 to 0.067 mL of cooling water per typical query",
+      "prompt_type": "Typical query (500 input, about 300 output tokens), median; interquartile range 0.16 to 0.60 Wh",
+      "figure_type": "Peer-reviewed estimate (Joule)",
+      "date": "2026-04-22",
+      "source": {
+        "title": "Oviedo et al., Energy use of AI inference, efficiency pathways, and test-time scaling, Joule",
+        "url": "https://www.cell.com/joule/fulltext/S2542-4351(26)00114-5"
+      }
+    },
+    {
+      "subject": "Frontier-scale LLMs, long reasoning query",
+      "organization": "Various (open models modeled by Microsoft)",
+      "publisher": "Microsoft researchers (Oviedo et al.)",
+      "water_ml": null,
+      "energy_wh": 3.91,
+      "carbon_g": null,
+      "water_scope": "Not estimated",
+      "prompt_type": "Test-time scaling query (about 5,000 output tokens), median; interquartile range 2.15 to 7.05 Wh",
+      "figure_type": "Peer-reviewed estimate (Joule)",
+      "date": "2026-04-22",
+      "source": {
+        "title": "Oviedo et al., Energy use of AI inference, efficiency pathways, and test-time scaling, Joule",
+        "url": "https://www.cell.com/joule/fulltext/S2542-4351(26)00114-5"
+      }
+    },
+    {
+      "subject": "GPT-3 (on-site water only)",
+      "organization": "OpenAI",
+      "publisher": "Li, Yang, Islam, Ren (UC Riverside, UT Arlington)",
+      "water_ml": 2.2,
+      "energy_wh": 4,
+      "carbon_g": null,
+      "water_scope": "On-site cooling water consumed (scope 1), U.S. average Microsoft data center",
+      "prompt_type": "Medium-length request (up to about 800 words in, 150 to 300 words out), assumed 4 Wh per request",
+      "figure_type": "Peer-reviewed estimate (Communications of the ACM, 2025; first posted 2023)",
+      "date": "2025-03-26",
+      "source": {
+        "title": "Li et al., Making AI Less \"Thirsty\" (arXiv 2304.03271), Table 1",
+        "url": "https://arxiv.org/abs/2304.03271"
+      }
+    },
+    {
+      "subject": "GPT-3 (on-site plus power plant water)",
+      "organization": "OpenAI",
+      "publisher": "Li, Yang, Islam, Ren (UC Riverside, UT Arlington)",
+      "water_ml": 16.904,
+      "energy_wh": 4,
+      "carbon_g": null,
+      "water_scope": "On-site cooling (2.2 mL) plus off-site water consumed to generate electricity (14.7 mL), U.S. average; source of the \"500 mL per 10 to 50 responses\" figure",
+      "prompt_type": "Medium-length request, assumed 4 Wh per request",
+      "figure_type": "Peer-reviewed estimate (Communications of the ACM, 2025; first posted 2023)",
+      "date": "2025-03-26",
+      "source": {
+        "title": "Li et al., Making AI Less \"Thirsty\" (arXiv 2304.03271), Table 1",
+        "url": "https://arxiv.org/abs/2304.03271"
+      }
+    },
+    {
+      "subject": "ChatGPT (GPT-4), 100-word email",
+      "organization": "OpenAI",
+      "publisher": "The Washington Post with UC Riverside researchers",
+      "water_ml": 519,
+      "energy_wh": 140,
+      "carbon_g": null,
+      "water_scope": "Not fully stated in the article; varies by data center location, for example 235 mL in Texas and 1,468 mL in Washington state",
+      "prompt_type": "Writing one 100-word email with GPT-4",
+      "figure_type": "Press estimate",
+      "date": "2024-09-18",
+      "source": {
+        "title": "The Washington Post: A bottle of water per email",
+        "url": "https://www.washingtonpost.com/technology/2024/09/18/energy-ai-use-electricity-water-data-centers/"
+      }
+    },
+    {
+      "subject": "ChatGPT request",
+      "organization": "OpenAI",
+      "publisher": "EPRI",
+      "water_ml": null,
+      "energy_wh": 2.9,
+      "carbon_g": null,
+      "water_scope": "Not estimated",
+      "prompt_type": "One ChatGPT request; EPRI cites earlier third-party estimates and compares it with 0.3 Wh for a Google search",
+      "figure_type": "Analyst estimate",
+      "date": "2024-05",
+      "source": {
+        "title": "EPRI: Powering Intelligence (May 2024)",
+        "url": "https://www.epri.com/research/products/000000003002028905"
+      }
+    },
+    {
+      "subject": "GPT-4o (March 2025)",
+      "organization": "OpenAI",
+      "publisher": "Jegham et al. (\"How Hungry is AI?\")",
+      "water_ml": null,
+      "energy_wh": 0.423,
+      "carbon_g": null,
+      "water_scope": "Paper's water figures count on-site cooling plus power plant water consumed; per-model values shown only in charts",
+      "prompt_type": "Short prompt (100 input, 300 output tokens), mean",
+      "figure_type": "Preprint estimate",
+      "date": "2025-11-24",
+      "source": {
+        "title": "Jegham et al., How Hungry is AI? (arXiv 2505.09598, v6), Table 4",
+        "url": "https://arxiv.org/abs/2505.09598"
+      }
+    },
+    {
+      "subject": "GPT-4.1 nano",
+      "organization": "OpenAI",
+      "publisher": "Jegham et al. (\"How Hungry is AI?\")",
+      "water_ml": null,
+      "energy_wh": 0.207,
+      "carbon_g": null,
+      "water_scope": "Paper reports under 4 mL even for long prompts for this and other small models",
+      "prompt_type": "Short prompt (100 input, 300 output tokens), mean",
+      "figure_type": "Preprint estimate",
+      "date": "2025-11-24",
+      "source": {
+        "title": "Jegham et al., How Hungry is AI? (arXiv 2505.09598, v6), Table 4",
+        "url": "https://arxiv.org/abs/2505.09598"
+      }
+    },
+    {
+      "subject": "Claude 3.7 Sonnet",
+      "organization": "Anthropic",
+      "publisher": "Jegham et al. (\"How Hungry is AI?\")",
+      "water_ml": null,
+      "energy_wh": 0.95,
+      "carbon_g": null,
+      "water_scope": "Not given as a number for this model",
+      "prompt_type": "Short prompt (100 input, 300 output tokens), mean",
+      "figure_type": "Preprint estimate",
+      "date": "2025-11-24",
+      "source": {
+        "title": "Jegham et al., How Hungry is AI? (arXiv 2505.09598, v6), Table 4",
+        "url": "https://arxiv.org/abs/2505.09598"
+      }
+    },
+    {
+      "subject": "o3",
+      "organization": "OpenAI",
+      "publisher": "Jegham et al. (\"How Hungry is AI?\")",
+      "water_ml": null,
+      "energy_wh": 12.222,
+      "carbon_g": null,
+      "water_scope": "Not given as a number for this model",
+      "prompt_type": "Long prompt (10,000 input, 1,500 output tokens), mean",
+      "figure_type": "Preprint estimate",
+      "date": "2025-11-24",
+      "source": {
+        "title": "Jegham et al., How Hungry is AI? (arXiv 2505.09598, v6), Table 4",
+        "url": "https://arxiv.org/abs/2505.09598"
+      }
+    },
+    {
+      "subject": "DeepSeek-R1 (DeepSeek's own servers)",
+      "organization": "DeepSeek",
+      "publisher": "Jegham et al. (\"How Hungry is AI?\")",
+      "water_ml": null,
+      "energy_wh": 29.078,
+      "carbon_g": 17,
+      "water_scope": "Paper reports \"over 200 mL\" (on-site plus power plant water consumed) without an exact value",
+      "prompt_type": "Long prompt (10,000 input, 1,500 output tokens), mean",
+      "figure_type": "Preprint estimate",
+      "date": "2025-11-24",
+      "source": {
+        "title": "Jegham et al., How Hungry is AI? (arXiv 2505.09598, v6)",
+        "url": "https://arxiv.org/abs/2505.09598"
+      }
+    },
+    {
+      "subject": "DeepSeek-R1 (hosted on Microsoft Azure)",
+      "organization": "DeepSeek",
+      "publisher": "Jegham et al. (\"How Hungry is AI?\")",
+      "water_ml": 34,
+      "energy_wh": 7.41,
+      "carbon_g": 2.5,
+      "water_scope": "On-site cooling plus power plant water consumed",
+      "prompt_type": "Long prompt (10,000 input, 1,500 output tokens), mean",
+      "figure_type": "Preprint estimate",
+      "date": "2025-11-24",
+      "source": {
+        "title": "Jegham et al., How Hungry is AI? (arXiv 2505.09598, v6)",
+        "url": "https://arxiv.org/abs/2505.09598"
+      }
+    },
+    {
+      "subject": "Llama 3.1 8B",
+      "organization": "Meta",
+      "publisher": "Jegham et al. (\"How Hungry is AI?\")",
+      "water_ml": null,
+      "energy_wh": 0.052,
+      "carbon_g": null,
+      "water_scope": "Paper reports under 4 mL even for long prompts for this and other small models",
+      "prompt_type": "Short prompt (100 input, 300 output tokens), mean",
+      "figure_type": "Preprint estimate",
+      "date": "2025-11-24",
+      "source": {
+        "title": "Jegham et al., How Hungry is AI? (arXiv 2505.09598, v6), Table 4",
+        "url": "https://arxiv.org/abs/2505.09598"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "heading": "How much water do Google, Microsoft, Meta and Amazon data centers use?",
+      "body": "Annual figures from each company's own latest environmental report, in the units each company reports. Withdrawal is all water taken in; consumption is the part not returned (mostly evaporated in cooling). 1 megaliter (ML) is 1 million liters; 1 U.S. gallon is 3.785 liters.\n\n| Company | Report (period covered) | Scope of the water figure | Water withdrawal | Water consumption | Electricity use | Water usage effectiveness (WUE) |\n|---|---|---|---|---|---|---|\n| Google | [2026 Environmental Report](https://sustainability.google/files/google-2026-environmental-report.pdf) (calendar 2025) | Google-owned data centers | 13,562 million gallons | 10,523 million gallons | 42,415,800 MWh (data centers) | Not stated in the data table; the [Gemini paper](https://arxiv.org/abs/2508.15734) cites 1.15 L/kWh (consumption) for 2023 and 2024 |\n| Microsoft | [2026 Environmental Data Fact Sheet](https://aka.ms/SustainabilityFactsheet2026) (fiscal year to June 30, 2025) | Whole company (data centers and offices) | 13,266 ML | 8,170 ML | 37,026,353 MWh (whole company) | 0.27 L/kWh, owned data centers ([2026 report](https://aka.ms/SustainabilityReport2026)) |\n| Meta | [2025 Environmental Data Index](https://sustainability.atmeta.com/wp-content/uploads/2025/10/Meta_2025-Environmental-Data-Index.pdf) (calendar 2024) | Data centers, including leased | 4,145 ML | 2,974 ML | 18,061,781 MWh (data centers) | 0.19 |\n| Amazon (AWS) | [2025 Sustainability Report](https://sustainability.aboutamazon.com/2025-amazon-sustainability-report.pdf) (calendar 2025) | Leased, owned and shared data centers | 9.4 billion liters | Not reported | Not reported for data centers alone | 0.12 L/kWh (withdrawal-based) |\n\nThese totals are not directly comparable. Microsoft reports company-wide water, Google and Meta break out data centers, and Amazon reports only withdrawal. Meta's withdrawal excludes a further 1,019 ML used for data center construction in 2024. Amazon defines WUE on withdrawal, while Google's Gemini figure uses a consumption-based WUE. Meta's most recent full data index found for this page covers 2024."
+    },
+    {
+      "heading": "Withdrawal vs consumption, on-site vs off-site: why AI water numbers disagree",
+      "body": "Most coverage mixes up four different quantities.\n\n- **Withdrawal** is all the water a data center takes from rivers, aquifers or the city supply, whether or not it is returned. Li et al. define it this way in [Making AI Less \"Thirsty\"](https://arxiv.org/abs/2304.03271).\n- **Consumption** is withdrawal minus discharge: water that evaporates or is otherwise not returned to the local source. Google's [Gemini paper](https://arxiv.org/abs/2508.15734) reports consumption and says Google consumes about 80% of the water it withdraws. Google's 2025 data center figures show the gap: 13,562 million gallons withdrawn versus 10,523 million gallons consumed.\n- **On-site (scope 1) water** is the water used at the data center itself, mainly in cooling towers. Google's 0.26 mL per Gemini prompt is on-site consumption only.\n- **Off-site (scope 2) water** is the water consumed at power plants to generate the data center's electricity, mostly through cooling at thermal power stations. It depends on the local grid, not the data center.\n\nOff-site water is usually the larger share. In Li et al.'s U.S. average case for GPT-3, a response used 2.2 mL on site and 14.7 mL off site. Meta reports 2,974 ML of on-site data center consumption in 2024 against an estimated 72,207 ML of water embedded in its purchased electricity, of which it counts 67,132 ML as avoided through contracted renewable energy ([Meta data index](https://sustainability.atmeta.com/wp-content/uploads/2025/10/Meta_2025-Environmental-Data-Index.pdf)).\n\nA per-prompt figure therefore depends on: whether it is withdrawal or consumption, whether off-site water is included, which data center and grid served the prompt, the length of the prompt and response, and whether idle servers and data center overhead are counted. A third scope, water used to manufacture chips and servers, is excluded from most per-prompt figures; Mistral's lifecycle analysis is the main exception."
+    },
+    {
+      "heading": "Common claims checked",
+      "body": "| Claim | What the source actually says |\n|---|---|\n| \"ChatGPT drinks a 500 mL bottle of water per conversation\" | [Li et al.](https://arxiv.org/abs/2304.03271) estimated that GPT-3 consumes a 500 mL bottle for roughly 10 to 50 medium-length responses, depending on where and when it runs. The estimate is for GPT-3, not current models, and most of the water is consumed at power plants, not in the data center. |\n| \"One AI email uses a bottle of water\" | [The Washington Post](https://www.washingtonpost.com/technology/2024/09/18/energy-ai-use-electricity-water-data-centers/) and UC Riverside researchers estimated 519 mL and 0.14 kWh for one 100-word email written with GPT-4 in 2024. The figure varies by data center location, for example 235 mL in Texas and 1,468 mL in Washington state. |\n| \"A Gemini prompt uses five drops of water\" | Correct for what it measures: [Google](https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference) reports 0.26 mL for the median text prompt in May 2025. It counts on-site cooling water only, not power plant water, and longer or multimodal prompts use more. |\n| \"A ChatGPT query uses 1/15 of a teaspoon of water\" | [Sam Altman](https://blog.samaltman.com/the-gentle-singularity) wrote this in June 2025 (0.000085 gallons). OpenAI has not published how it was calculated, which model it covers or whether power plant water is included. |\n| \"A ChatGPT query uses 10 times the energy of a Google search\" | This comes from [EPRI's May 2024 report](https://www.epri.com/research/products/000000003002028905), which compared an estimated 2.9 Wh per ChatGPT request with about 0.3 Wh per Google search, both drawn from earlier estimates. Later measurements, including Altman's 0.34 Wh and [Microsoft's Joule study](https://www.cell.com/joule/fulltext/S2542-4351(26)00114-5) median of 0.31 Wh, are close to the old search figure. |\n| \"ChatGPT uses gallons of water per query\" | Altman called this \"completely untrue, totally insane\" at the India AI Impact Summit in February 2026, as reported by [Fortune](https://fortune.com/2026/02/24/sam-altman-open-ai-electricity-usage-water-usage-data-centers-ceo-tech/). No published estimate in this dataset reaches a gallon (3,785 mL) for a single text prompt. |"
+    },
+    {
+      "heading": "How much energy do data centers use overall?",
+      "body": "Per-prompt figures are small; totals are not. The [IEA's 2026 update](https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary) estimates that data center electricity demand grew 17% in 2025 to 485 TWh, with AI-focused data centers growing 50%, and projects roughly 950 TWh by 2030. The IEA's [2025 Energy and AI report](https://www.iea.org/reports/energy-and-ai/executive-summary) put 2024 use at 415 TWh, about 1.5% of world electricity. In the United States, [Lawrence Berkeley National Laboratory](https://newscenter.lbl.gov/2025/01/15/berkeley-lab-report-evaluates-increase-in-electricity-demand-from-data-centers/) estimated data centers used 176 TWh in 2023, about 4.4% of U.S. electricity, and projected 6.7% to 12% by 2028.\n\nTwo open benchmarks measure model energy directly on GPUs and are useful for comparing open models, though their numbers count GPU energy only and are not directly comparable with the company figures above: Hugging Face's [AI Energy Score](https://huggingface.github.io/AIEnergyScore/) (GPU Wh per 1,000 queries on H100s, rated 1 to 5 stars) and the [ML.ENERGY benchmark](https://arxiv.org/abs/2505.06371) (NeurIPS 2025 Datasets and Benchmarks)."
+    }
+  ],
+  "methodology": [
+    "Each row is one per-prompt figure as published, verified on the cited source on 2026-10-29. Values are copied as published; no figure was estimated, averaged or extrapolated by agitracker.io. The one unit conversion is Sam Altman's 0.000085 gallons, shown as 0.32 mL (1 gallon = 3,785.41 mL), the same conversion Hugging Face's disclosure review uses. Where a source gives a range or a value only in a chart, the table shows a dash and the range is described in the \"covers\" column.",
+    "Figure types: \"company disclosure\" means the company published the number about its own product; \"peer-reviewed estimate\" means a journal article (Li et al. in Communications of the ACM, 2025; Oviedo et al. in Joule, 2026); \"preprint estimate\" means an arXiv paper not yet published in a journal at the time of checking (Jegham et al., How Hungry is AI?, v6); \"press estimate\" and \"analyst estimate\" cover The Washington Post and EPRI.",
+    "Rows for Li et al. use the U.S. average row of Table 1 in arXiv version 5 (March 2025). The paper's request energy of 4 Wh is an assumption the authors make for GPT-3, not a measurement. Rows for Jegham et al. use Table 4 (mean energy) and the text of Section 5.2 for water and carbon; that paper derives energy from public latency and throughput benchmarks plus assumed hardware, and its water figures include both on-site and power plant consumption.",
+    "Company data center totals come from each company's own report and are shown in the units each company uses. Microsoft's water totals are company-wide; Google's and Meta's rows are data centers only; Amazon reports withdrawal but not consumption. Reporting periods differ (Microsoft uses a July to June fiscal year).",
+    "Sources disagree by design. Google's and Microsoft's figures reflect large, optimized production fleets and count on-site water only; academic estimates often use worse-case hardware assumptions or add off-site water. Neither is wrong; they measure different things, and the table keeps them as separate rows rather than reconciling them."
+  ],
+  "faq": [
+    {
+      "q": "How much water does AI use per prompt?",
+      "a": "It depends on what is counted. Google reports 0.26 mL of on-site cooling water for a median Gemini text prompt (May 2025). Sam Altman put an average ChatGPT query at about 0.32 mL. Mistral's lifecycle analysis gives 45 mL per 400-token response, and UC Riverside researchers estimated 10 to 50 mL per GPT-3 response when power plant water is included."
+    },
+    {
+      "q": "How much water does ChatGPT use?",
+      "a": "OpenAI CEO Sam Altman wrote in June 2025 that the average ChatGPT query uses about 0.000085 gallons of water, roughly one fifteenth of a teaspoon (about 0.32 mL), and 0.34 Wh of energy. OpenAI has not published the method behind the figure. Earlier outside estimates were higher, such as 519 mL for a GPT-4 100-word email in a 2024 Washington Post analysis."
+    },
+    {
+      "q": "Does AI really use a bottle of water per conversation?",
+      "a": "Not per single response. The 500 mL figure comes from Li et al., who estimated GPT-3 consumes one 500 mL bottle for roughly 10 to 50 medium-length responses. At the U.S. average that is 16.9 mL per response, of which 14.7 mL is water consumed at power plants generating the electricity and 2.2 mL is cooling water at the data center."
+    },
+    {
+      "q": "How much energy does AI use per query?",
+      "a": "Recent figures for a typical text query cluster around 0.2 to 0.4 Wh: 0.24 Wh for a median Gemini prompt (Google, 2025), 0.34 Wh for an average ChatGPT query (Altman, 2025) and a median 0.31 Wh for frontier-scale models (Microsoft, Joule, 2026). Long reasoning queries use much more, a median 3.91 Wh in the Microsoft study and up to about 29 Wh in one preprint."
+    },
+    {
+      "q": "How much water do data centers use?",
+      "a": "Google's data centers consumed 10,523 million gallons of water in 2025 and withdrew 13,562 million gallons. Meta's data centers consumed 2,974 megaliters in 2024. Microsoft consumed 8,170 megaliters company-wide in fiscal 2025, and Amazon's data centers withdrew 9.4 billion liters in 2025. These figures count on-site water only, not water used to generate the electricity."
+    },
+    {
+      "q": "What is the difference between water withdrawal and water consumption?",
+      "a": "Withdrawal is all the water a facility takes in from rivers, groundwater or a utility. Consumption is the portion not returned, mainly water evaporated in cooling towers. Consumption is lower than withdrawal; Google says it consumes about 80% of what it withdraws. Per-prompt AI figures from Google and Mistral report consumption, so they should not be compared with withdrawal totals."
+    },
+    {
+      "q": "How much electricity do data centers consume?",
+      "a": "The International Energy Agency estimates global data centers used 485 TWh of electricity in 2025, up 17% from 2024, and projects about 950 TWh by 2030, around 3% of world demand. In the United States, Lawrence Berkeley National Laboratory estimated data centers used 176 TWh in 2023, about 4.4% of national electricity."
+    },
+    {
+      "q": "Why do AI water and energy estimates differ so much?",
+      "a": "They measure different things. Some count only GPU energy, others include idle servers and cooling overhead. Some count only on-site cooling water, others add power plant water or full lifecycle impacts. Prompt length, model size, hardware, data center location and the local grid all change the result, which is why estimates for a single prompt span more than 100 times."
+    }
+  ],
+  "temporalCoverage": "2023/2026",
+  "related": [
+    "ai-model-release-timeline",
+    "biggest-ai-companies"
+  ],
+  "stats": [
+    {
+      "value": "0.26 mL",
+      "label": "water per median Gemini text prompt (Google, Aug 2025)"
+    },
+    {
+      "value": "0.34 Wh",
+      "label": "energy per average ChatGPT query (OpenAI CEO, Jun 2025)"
+    },
+    {
+      "value": "45 mL",
+      "label": "water per 400-token Le Chat response, full lifecycle (Mistral)"
+    },
+    {
+      "value": "485 TWh",
+      "label": "global data center electricity use in 2025 (IEA)"
+    }
+  ],
+  "charts": [
+    {
+      "id": "energy-per-prompt",
+      "type": "hbar",
+      "title": "Energy per AI prompt, by published figure",
+      "subtitle": "Watt-hours per prompt or query, log scale. Each bar is one published estimate; GPT-3's 4 Wh appears once.",
+      "x": "subject",
+      "y": "energy_wh",
+      "filter": [
+        {
+          "key": "energy_wh",
+          "notNull": true
+        },
+        {
+          "key": "subject",
+          "notIn": [
+            "GPT-3 (on-site plus power plant water)"
+          ]
+        }
+      ],
+      "log": true,
+      "unit": " Wh",
+      "yLabel": "Watt-hours per prompt (log scale)",
+      "caption": "Published per-prompt energy figures span more than three orders of magnitude, mostly because they measure different prompt lengths and system boundaries.",
+      "alt": "Horizontal bar chart on a log scale of 15 published energy-per-prompt figures, from 0.052 Wh for Llama 3.1 8B to 140 Wh for a Washington Post estimate of a GPT-4 email, with Google's Gemini at 0.24 Wh and ChatGPT at 0.34 Wh."
+    },
+    {
+      "id": "water-per-prompt",
+      "type": "hbar",
+      "title": "Water per AI prompt, by published figure",
+      "subtitle": "Milliliters per prompt or response, log scale. Scope differs by row: see the table.",
+      "x": "subject",
+      "y": "water_ml",
+      "filter": [
+        {
+          "key": "water_ml",
+          "notNull": true
+        }
+      ],
+      "log": true,
+      "unit": " mL",
+      "yLabel": "Milliliters per prompt (log scale)",
+      "caption": "The 0.26 mL and 519 mL figures are both widely quoted, but one counts only on-site cooling water for a median prompt and the other a full GPT-4 email including power-plant water.",
+      "alt": "Horizontal bar chart on a log scale of eight published water-per-prompt figures, from 0.12 mL for Gemini's accelerator-only method to 519 mL for a GPT-4 email estimate, with Mistral's lifecycle figure at 45 mL."
+    },
+    {
+      "id": "company-water",
+      "type": "hbar",
+      "title": "Annual water withdrawal by tech company",
+      "subtitle": "Megaliters (millions of liters), latest company environmental report",
+      "x": "label",
+      "unit": " ML",
+      "decimals": 0,
+      "yLabel": "Megaliters withdrawn per year",
+      "data": [
+        {
+          "label": "Google data centers (2025)",
+          "value": 51337.8
+        },
+        {
+          "label": "Microsoft, whole company (FY2025)",
+          "value": 13266
+        },
+        {
+          "label": "Amazon data centers (2025)",
+          "value": 9400
+        },
+        {
+          "label": "Meta data centers (2024)",
+          "value": 4145
+        }
+      ],
+      "source": "Company environmental reports; Google's gallons converted at 3.785 L/gal",
+      "caption": "Google reports the most water withdrawn, but scopes differ: Microsoft's total includes offices, Meta's report covers 2024, and only withdrawal is comparable across all four.",
+      "alt": "Horizontal bar chart of annual water withdrawal: Google data centers about 51,338 megaliters in 2025, Microsoft company-wide 13,266, Amazon data centers 9,400 and Meta data centers 4,145 in 2024."
+    }
+  ],
+  "changelog": [
+    {
+      "date": "2026-10-29",
+      "note": "First published with 17 records, each linked to its source."
+    }
+  ]
+}
