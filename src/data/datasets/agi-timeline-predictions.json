@@ -1,0 +1,1244 @@
+{
+  "slug": "agi-timeline-predictions",
+  "name": "AGI timeline predictions",
+  "title": "AGI Timeline: 74 Dated Predictions (2005-2026)",
+  "h1": "AGI timeline predictions: when experts, surveys and forecasters say AGI will happen",
+  "description": "AGI timeline predictions from lab leaders, researchers, AI Impacts surveys, Metaculus and AI 2027, each dated and sourced. Free CSV and JSON download.",
+  "summary": "74 dated, sourced predictions of when AGI, powerful AI or superintelligence will arrive, from CEOs, researchers, expert surveys, Metaculus and the AI 2027 scenario.",
+  "published": "2026-10-29",
+  "updated": "2026-10-29",
+  "keywords": [
+    "agi timeline",
+    "agi predictions",
+    "when will agi happen",
+    "agi forecast",
+    "ai 2027",
+    "agi timeline predictions",
+    "metaculus agi",
+    "ai expert survey agi",
+    "superintelligence timeline",
+    "when will we have agi"
+  ],
+  "intro": [
+    "The Metaculus community forecast for the first general AI system stood at **September 2030** on October 29, 2026, and the [2024 AI Impacts survey](http://aiimpacts.org/wp-content/uploads/2026/09/ESPAI2024.pdf) of 1,580 AI researchers put a 50% chance of human-level machine intelligence (HLMI) at **2042**. AI lab leaders name earlier dates: the median of the dated statements below made in 2025 or 2026 is 2030, and several CEOs point to 2026 to 2028.",
+    "This dataset collects 74 dated predictions of when AGI, \"powerful AI\", HLMI or superintelligence will arrive. It covers lab leaders (Sam Altman, Dario Amodei, Demis Hassabis, Elon Musk, Mark Zuckerberg, Mustafa Suleyman, Ilya Sutskever), researchers (Geoffrey Hinton, Yoshua Bengio, Yann LeCun, Ray Kurzweil), every round of the AI Impacts Expert Survey on Progress in AI, the Metaculus community forecast at several dates, and the [AI 2027](https://ai-2027.com/) scenario's dates for a superhuman coder and superintelligence. Where a person's forecast changed, each version gets its own row.",
+    "The milestones are not the same thing, so a 2027 from one source and a 2047 from another are not a disagreement about one event. Read the \"What was predicted\" column before comparing dates, and see the site's [field guide to AGI forecasts](/blog/field-guide-to-agi-forecasts/) for how each forecasting method works."
+  ],
+  "keyFindings": [
+    {
+      "text": "The Metaculus community median for the first general AI system to be devised, tested and announced was September 24, 2030 on October 29, 2026, with an interquartile range of March 2028 to August 2036.",
+      "source": {
+        "title": "Metaculus: Date of Artificial General Intelligence",
+        "url": "https://www.metaculus.com/questions/5121/date-of-artificial-general-intelligence/"
+      }
+    },
+    {
+      "text": "The same Metaculus AGI forecast moved from 2056 in February 2022 to 2038 in December 2022 and 2031 by December 2023, a 25-year shift in under two years.",
+      "source": {
+        "title": "Metaculus: Date of Artificial General Intelligence",
+        "url": "https://www.metaculus.com/questions/5121/date-of-artificial-general-intelligence/"
+      }
+    },
+    {
+      "text": "In AI Impacts' December 2024 survey of 1,580 AI researchers, the aggregate forecast gave a 50% chance of high-level machine intelligence by 2042 and of full automation of labor by 2098.",
+      "source": {
+        "title": "AI Impacts: ESPAI 2024",
+        "url": "http://aiimpacts.org/wp-content/uploads/2026/09/ESPAI2024.pdf"
+      }
+    },
+    {
+      "text": "The AI Impacts surveys' 50% year for high-level machine intelligence fell from 2061 (2016 survey) to 2059 (2022), 2047 (2023) and 2042 (2024), according to the 2024 survey paper.",
+      "source": {
+        "title": "AI Impacts: ESPAI 2024",
+        "url": "http://aiimpacts.org/wp-content/uploads/2026/09/ESPAI2024.pdf"
+      }
+    },
+    {
+      "text": "In the 2023 AI Impacts survey of 2,778 researchers, machines beating humans at every task had a 50% chance by 2047, but full automation of all occupations only by 2116.",
+      "source": {
+        "title": "Grace et al., Thousands of AI Authors on the Future of AI",
+        "url": "https://arxiv.org/abs/2401.02843"
+      }
+    },
+    {
+      "text": "The AI 2027 scenario, published April 3, 2025, has a superhuman coder in March 2027 and artificial superintelligence in December 2027 in its racing ending.",
+      "source": {
+        "title": "AI 2027",
+        "url": "https://ai-2027.com/"
+      }
+    },
+    {
+      "text": "AI 2027 co-author Daniel Kokotajlo's AGI median moved from 2027 (held since 2022) to 2028 in February 2025 and to December 2030 by January 2026, according to the AI Futures Project.",
+      "source": {
+        "title": "AI Futures Project: how our timelines changed",
+        "url": "https://blog.aifutures.org/p/clarifying-how-our-ai-timelines-forecasts"
+      }
+    },
+    {
+      "text": "In a March 6, 2025 submission to the White House OSTP, Anthropic said it expects powerful AI systems with Nobel-level capabilities to emerge in late 2026 or early 2027.",
+      "source": {
+        "title": "Anthropic: Recommendations to OSTP",
+        "url": "https://www.anthropic.com/news/anthropic-s-recommendations-ostp-u-s-ai-action-plan"
+      }
+    },
+    {
+      "text": "At Google I/O on May 20, 2025, Sergey Brin said AGI would arrive just before 2030 and Demis Hassabis said just after, Axios reported.",
+      "source": {
+        "title": "Axios: Hassabis and Brin at Google I/O",
+        "url": "https://www.axios.com/2025/05/21/google-sergey-brin-demis-hassabis-agi-2030"
+      }
+    },
+    {
+      "text": "Geoffrey Hinton said in March 2023 that general-purpose AI might be 20 years or less away, after previously expecting 20 to 50 years, CBS News reported.",
+      "source": {
+        "title": "CBS News: Geoffrey Hinton interview",
+        "url": "https://www.cbsnews.com/news/godfather-of-artificial-intelligence-weighs-in-on-the-past-and-potential-of-artificial-intelligence/"
+      }
+    }
+  ],
+  "tableTitle": "AGI and superintelligence timeline predictions, by source and date",
+  "columns": [
+    {
+      "key": "person",
+      "label": "Person or source"
+    },
+    {
+      "key": "org",
+      "label": "Role or organization",
+      "note": "Role at the time of the statement"
+    },
+    {
+      "key": "predicted",
+      "label": "Predicted year or range",
+      "note": "As stated, or converted from \"N years\" to calendar years"
+    },
+    {
+      "key": "midpoint",
+      "label": "Midpoint year",
+      "type": "number",
+      "note": "Single year or midpoint of a stated range; blank when no year was given"
+    },
+    {
+      "key": "prediction",
+      "label": "What was predicted",
+      "note": "Paraphrase keeping the source's milestone wording"
+    },
+    {
+      "key": "date",
+      "label": "Date of statement",
+      "type": "date"
+    },
+    {
+      "key": "type",
+      "label": "Type",
+      "note": "Individual statement, expert survey, forecasting platform, scenario, or forecasting model"
+    }
+  ],
+  "rows": [
+    {
+      "person": "Sam Altman",
+      "org": "CEO, OpenAI",
+      "predicted": "No year given (\"a few thousand days\" from Sept 2024)",
+      "midpoint": null,
+      "prediction": "Superintelligence possibly within a few thousand days, though it may take longer.",
+      "date": "2024-09-23",
+      "type": "Individual statement",
+      "source": {
+        "title": "Sam Altman: The Intelligence Age",
+        "url": "https://ia.samaltman.com/"
+      }
+    },
+    {
+      "person": "Sam Altman",
+      "org": "CEO, OpenAI",
+      "predicted": "2025-2029",
+      "midpoint": 2027,
+      "prediction": "AGI will probably be developed during the U.S. presidential term that began in January 2025.",
+      "date": "2025-01-05",
+      "type": "Individual statement",
+      "source": {
+        "title": "VentureBeat on Altman's Bloomberg Businessweek interview",
+        "url": "https://venturebeat.com/ai/openai-begins-2025-with-massive-hype-for-agi-superintelligence"
+      }
+    },
+    {
+      "person": "Sam Altman",
+      "org": "CEO, OpenAI",
+      "predicted": "2025",
+      "midpoint": 2025,
+      "prediction": "OpenAI is confident it knows how to build AGI \"as we have traditionally understood it\"; first AI agents may \"join the workforce\" in 2025.",
+      "date": "2025-01-05",
+      "type": "Individual statement",
+      "source": {
+        "title": "Sam Altman: Reflections",
+        "url": "https://blog.samaltman.com/reflections"
+      }
+    },
+    {
+      "person": "Sam Altman",
+      "org": "CEO, OpenAI",
+      "predicted": "2026",
+      "midpoint": 2026,
+      "prediction": "Systems that can figure out novel insights likely in 2026; robots doing real-world tasks may follow in 2027.",
+      "date": "2025-06-10",
+      "type": "Individual statement",
+      "source": {
+        "title": "Sam Altman: The Gentle Singularity",
+        "url": "https://blog.samaltman.com/the-gentle-singularity"
+      }
+    },
+    {
+      "person": "Sam Altman",
+      "org": "CEO, OpenAI",
+      "predicted": "By 2030",
+      "midpoint": null,
+      "prediction": "Would be very surprised if there were no models that are extraordinarily capable and do things humans cannot do by 2030 (asked about superintelligence).",
+      "date": "2025-09-25",
+      "type": "Individual statement",
+      "source": {
+        "title": "Politico: Altman interview with Axel Springer",
+        "url": "https://www.politico.com/news/magazine/2025/09/25/sam-altman-ai-interview-axel-springer-00580997"
+      }
+    },
+    {
+      "person": "Sam Altman",
+      "org": "CEO, OpenAI",
+      "predicted": "No year given",
+      "midpoint": null,
+      "prediction": "AGI is \"pretty close\" and superintelligence \"not that far off\"; expects a faster takeoff than he once thought.",
+      "date": "2026-02",
+      "type": "Individual statement",
+      "source": {
+        "title": "The Decoder: Altman at Express Adda",
+        "url": "https://the-decoder.com/altman-warns-the-world-is-not-prepared-as-openai-accelerates-research-using-its-own-ai/"
+      }
+    },
+    {
+      "person": "Dario Amodei",
+      "org": "CEO, Anthropic",
+      "predicted": "2025-2026",
+      "midpoint": 2025.5,
+      "prediction": "A model that talks like a generally well-educated human could arrive in two or three years.",
+      "date": "2023-08-08",
+      "type": "Individual statement",
+      "source": {
+        "title": "Dwarkesh Podcast: Dario Amodei (transcript)",
+        "url": "https://www.dwarkesh.com/p/dario-amodei"
+      }
+    },
+    {
+      "person": "Dario Amodei",
+      "org": "CEO, Anthropic",
+      "predicted": "As early as 2026",
+      "midpoint": null,
+      "prediction": "\"Powerful AI\" (smarter than a Nobel Prize winner across most fields) could come as early as 2026, or take much longer.",
+      "date": "2024-10",
+      "type": "Individual statement",
+      "source": {
+        "title": "Dario Amodei: Machines of Loving Grace",
+        "url": "https://www.darioamodei.com/essay/machines-of-loving-grace"
+      }
+    },
+    {
+      "person": "Dario Amodei",
+      "org": "CEO, Anthropic",
+      "predicted": "2026-2027",
+      "midpoint": 2026.5,
+      "prediction": "Extrapolating capability trends suggests reaching powerful, human-expert-level AI by 2026 or 2027, with many possible derailers.",
+      "date": "2024-11-11",
+      "type": "Individual statement",
+      "source": {
+        "title": "Lex Fridman Podcast #452: Dario Amodei (transcript)",
+        "url": "https://lexfridman.com/dario-amodei-transcript"
+      }
+    },
+    {
+      "person": "Dario Amodei",
+      "org": "CEO, Anthropic",
+      "predicted": "About 2027",
+      "midpoint": 2027,
+      "prediction": "AI systems better than humans at almost everything; unsure whether it will be 2027, but not a whole lot longer.",
+      "date": "2025-01-21",
+      "type": "Individual statement",
+      "source": {
+        "title": "Ars Technica: Amodei at Davos 2025",
+        "url": "https://arstechnica.com/ai/2025/01/anthropic-chief-says-ai-could-surpass-almost-all-humans-at-almost-everything-shortly-after-2027/"
+      }
+    },
+    {
+      "person": "Anthropic (company)",
+      "org": "AI lab",
+      "predicted": "Late 2026 to early 2027",
+      "midpoint": 2026.5,
+      "prediction": "Expects \"powerful AI systems\" with Nobel-level intellectual capabilities across most disciplines to emerge in late 2026 or early 2027.",
+      "date": "2025-03-06",
+      "type": "Individual statement",
+      "source": {
+        "title": "Anthropic: Recommendations to OSTP for the U.S. AI Action Plan",
+        "url": "https://www.anthropic.com/news/anthropic-s-recommendations-ostp-u-s-ai-action-plan"
+      }
+    },
+    {
+      "person": "Dario Amodei",
+      "org": "CEO, Anthropic",
+      "predicted": "2027-2028",
+      "midpoint": 2027.5,
+      "prediction": "AI models doing \"Nobel-level\" scientific research in multiple fields within two years.",
+      "date": "2026-01",
+      "type": "Individual statement",
+      "source": {
+        "title": "Fortune: AI leaders at Davos 2026",
+        "url": "https://fortune.com/2026/01/23/deepmind-demis-hassabis-anthropic-dario-amodei-yann-lecun-ai-davos/"
+      }
+    },
+    {
+      "person": "Demis Hassabis",
+      "org": "CEO, Google DeepMind",
+      "predicted": "2030-2035",
+      "midpoint": 2032.5,
+      "prediction": "AGI, a system with all the complex capabilities humans have, will start to emerge in the next five to 10 years.",
+      "date": "2025-03-17",
+      "type": "Individual statement",
+      "source": {
+        "title": "CNBC: Hassabis on AGI in five to 10 years",
+        "url": "https://www.cnbc.com/2025/03/17/human-level-ai-will-be-here-in-5-to-10-years-deepmind-ceo-says.html"
+      }
+    },
+    {
+      "person": "Demis Hassabis",
+      "org": "CEO, Google DeepMind",
+      "predicted": "Just after 2030",
+      "midpoint": 2030,
+      "prediction": "Asked whether AGI arrives before or after 2030, chose just after.",
+      "date": "2025-05-20",
+      "type": "Individual statement",
+      "source": {
+        "title": "Axios: Hassabis and Brin at Google I/O 2025",
+        "url": "https://www.axios.com/2025/05/21/google-sergey-brin-demis-hassabis-agi-2030"
+      }
+    },
+    {
+      "person": "Sergey Brin",
+      "org": "Co-founder, Google",
+      "predicted": "Just before 2030",
+      "midpoint": 2030,
+      "prediction": "Asked whether AGI arrives before or after 2030, chose just before.",
+      "date": "2025-05-20",
+      "type": "Individual statement",
+      "source": {
+        "title": "Axios: Hassabis and Brin at Google I/O 2025",
+        "url": "https://www.axios.com/2025/05/21/google-sergey-brin-demis-hassabis-agi-2030"
+      }
+    },
+    {
+      "person": "Sundar Pichai",
+      "org": "CEO, Google and Alphabet",
+      "predicted": "Slightly after 2030",
+      "midpoint": 2030,
+      "prediction": "Expects AI to fall just short of AGI by 2030, taking a bit longer, while progress will be dramatic.",
+      "date": "2025-06-05",
+      "type": "Individual statement",
+      "source": {
+        "title": "Lex Fridman Podcast #471: Sundar Pichai (transcript)",
+        "url": "https://lexfridman.com/sundar-pichai-transcript/"
+      }
+    },
+    {
+      "person": "Demis Hassabis",
+      "org": "CEO, Google DeepMind",
+      "predicted": "By 2030 (50%)",
+      "midpoint": 2030,
+      "prediction": "A 50% chance AGI is achieved within the decade, likely needing one or two more breakthroughs.",
+      "date": "2026-01",
+      "type": "Individual statement",
+      "source": {
+        "title": "Fortune: AI leaders at Davos 2026",
+        "url": "https://fortune.com/2026/01/23/deepmind-demis-hassabis-anthropic-dario-amodei-yann-lecun-ai-davos/"
+      }
+    },
+    {
+      "person": "Shane Legg",
+      "org": "Co-founder, DeepMind",
+      "predicted": "2028 (mean)",
+      "midpoint": 2028,
+      "prediction": "Human-level AGI: log-normal distribution with a mean of 2028 and a mode of 2025.",
+      "date": "2011-12-31",
+      "type": "Individual statement",
+      "source": {
+        "title": "Shane Legg: Goodbye 2011, hello 2012",
+        "url": "http://www.vetta.org/2011/12/goodbye-2011-hello-2012/"
+      }
+    },
+    {
+      "person": "Shane Legg",
+      "org": "Co-founder and Chief AGI Scientist, Google DeepMind",
+      "predicted": "2028 (50%)",
+      "midpoint": 2028,
+      "prediction": "A 50% chance of AGI by 2028.",
+      "date": "2023-10-26",
+      "type": "Individual statement",
+      "source": {
+        "title": "Dwarkesh Podcast: Shane Legg (transcript)",
+        "url": "https://www.dwarkesh.com/p/shane-legg"
+      }
+    },
+    {
+      "person": "Elon Musk",
+      "org": "CEO, Tesla and xAI",
+      "predicted": "2025-2026",
+      "midpoint": 2025.5,
+      "prediction": "If AGI means smarter than the smartest human, probably next year, within two years.",
+      "date": "2024-04-08",
+      "type": "Individual statement",
+      "source": {
+        "title": "Ars Technica: Musk on AI smarter than any human",
+        "url": "https://arstechnica.com/information-technology/2024/04/elon-musk-ai-will-be-smarter-than-any-human-around-the-end-of-next-year/"
+      }
+    },
+    {
+      "person": "Elon Musk",
+      "org": "CEO, Tesla and xAI",
+      "predicted": "2026-2027",
+      "midpoint": 2026.5,
+      "prediction": "AI smarter than any human by the end of 2026, no later than 2027.",
+      "date": "2026-01-22",
+      "type": "Individual statement",
+      "source": {
+        "title": "Decrypt: Musk at Davos 2026",
+        "url": "https://decrypt.co/355532/elon-musk-predicts-ai-outpace-human-intelligence-this-year"
+      }
+    },
+    {
+      "person": "Elon Musk",
+      "org": "CEO, Tesla and xAI",
+      "predicted": "2030-2031",
+      "midpoint": 2030.5,
+      "prediction": "AI smarter than all of humanity collectively, probably by 2030 or 2031.",
+      "date": "2026-01-22",
+      "type": "Individual statement",
+      "source": {
+        "title": "Decrypt: Musk at Davos 2026",
+        "url": "https://decrypt.co/355532/elon-musk-predicts-ai-outpace-human-intelligence-this-year"
+      }
+    },
+    {
+      "person": "Mark Zuckerberg",
+      "org": "CEO, Meta",
+      "predicted": "No year given (this decade decisive)",
+      "midpoint": null,
+      "prediction": "Developing superintelligence is \"now in sight\"; the rest of this decade is likely the decisive period.",
+      "date": "2025-07-30",
+      "type": "Individual statement",
+      "source": {
+        "title": "Meta: Personal Superintelligence (Mark Zuckerberg)",
+        "url": "https://www.meta.com/superintelligence/"
+      }
+    },
+    {
+      "person": "Mustafa Suleyman",
+      "org": "CEO, Microsoft AI",
+      "predicted": "2029-2031",
+      "midpoint": 2030,
+      "prediction": "AGI is not possible on current chips but plausible within the next five to seven years (two to five hardware generations).",
+      "date": "2024-12-09",
+      "type": "Individual statement",
+      "source": {
+        "title": "The Verge Decoder: Mustafa Suleyman interview",
+        "url": "https://www.theverge.com/24314821/microsoft-ai-ceo-mustafa-suleyman-google-deepmind-openai-inflection-agi-decoder-podcast"
+      }
+    },
+    {
+      "person": "Ilya Sutskever",
+      "org": "Co-founder, Safe Superintelligence",
+      "predicted": "2030-2045",
+      "midpoint": 2037.5,
+      "prediction": "A system that learns as well as a human and then becomes superhuman: \"like 5 to 20\" years.",
+      "date": "2025-11-25",
+      "type": "Individual statement",
+      "source": {
+        "title": "Dwarkesh Podcast: Ilya Sutskever (transcript)",
+        "url": "https://www.dwarkesh.com/p/ilya-sutskever-2"
+      }
+    },
+    {
+      "person": "Jensen Huang",
+      "org": "CEO, Nvidia",
+      "predicted": "By 2029",
+      "midpoint": null,
+      "prediction": "If AGI is defined as doing well on a specific set of tests (bar exam, logic tests and so on), within five years.",
+      "date": "2024-03-19",
+      "type": "Individual statement",
+      "source": {
+        "title": "TechCrunch: Jensen Huang on AGI at GTC 2024",
+        "url": "https://techcrunch.com/2024/03/19/agi-and-hallucinations/"
+      }
+    },
+    {
+      "person": "Masayoshi Son",
+      "org": "CEO, SoftBank",
+      "predicted": "About 2035",
+      "midpoint": 2035,
+      "prediction": "Artificial superintelligence 10,000 times smarter than a human brain within about a decade.",
+      "date": "2024-10-29",
+      "type": "Individual statement",
+      "source": {
+        "title": "The Register: Masayoshi Son at FII 2024",
+        "url": "https://www.theregister.com/software/2024/10/29/softbank-ceo-says-super-ai-will-be-here-in-2035-and-cost-9t/354098"
+      }
+    },
+    {
+      "person": "Geoffrey Hinton",
+      "org": "Turing Award and Nobel laureate",
+      "predicted": "By 2043",
+      "midpoint": null,
+      "prediction": "General-purpose AI may be \"20 years or less\" away, down from his earlier 20 to 50 years.",
+      "date": "2023-03-25",
+      "type": "Individual statement",
+      "source": {
+        "title": "CBS News: Geoffrey Hinton interview, March 2023",
+        "url": "https://www.cbsnews.com/news/godfather-of-artificial-intelligence-weighs-in-on-the-past-and-potential-of-artificial-intelligence/"
+      }
+    },
+    {
+      "person": "Yoshua Bengio",
+      "org": "Professor, Mila / Universite de Montreal",
+      "predicted": "2028-2043 (90% confidence)",
+      "midpoint": 2035.5,
+      "prediction": "Human-level AI in 5 to 20 years with 90% confidence, revised from decades to centuries.",
+      "date": "2023-08-12",
+      "type": "Individual statement",
+      "source": {
+        "title": "Yoshua Bengio: Personal and psychological dimensions of AI researchers confronting AI catastrophic risks",
+        "url": "https://yoshuabengio.org/en/blog/personal-and-psychological-dimensions-ai-researchers-confronting-ai-catastrophic-risks"
+      }
+    },
+    {
+      "person": "Geoffrey Hinton",
+      "org": "Turing Award and Nobel laureate",
+      "predicted": "By about 2035",
+      "midpoint": null,
+      "prediction": "A good chance AI that surpasses humans in every domain arrives in 10 years or less (a year earlier he said 5 to 20).",
+      "date": "2025-04",
+      "type": "Individual statement",
+      "source": {
+        "title": "Business Insider: Hinton on superintelligence timeline",
+        "url": "https://www.businessinsider.com/ai-godfather-geoffrey-hinton-superintelligence-risk-takeover-2025-4"
+      }
+    },
+    {
+      "person": "Geoffrey Hinton",
+      "org": "Turing Award and Nobel laureate",
+      "predicted": "2030-2045",
+      "midpoint": 2037.5,
+      "prediction": "AGI: \"a reasonable bet is sometime between five and 20 years.\"",
+      "date": "2025-08",
+      "type": "Individual statement",
+      "source": {
+        "title": "CNN: Geoffrey Hinton at Ai4, August 2025",
+        "url": "https://edition.cnn.com/2025/08/13/tech/ai-geoffrey-hinton"
+      }
+    },
+    {
+      "person": "Yann LeCun",
+      "org": "Chief AI Scientist, Meta (at the time)",
+      "predicted": "Years to a decade or more",
+      "midpoint": null,
+      "prediction": "Human-level AI could be \"years to decades\" away; getting world models to work will take years, if not a decade.",
+      "date": "2024-10-16",
+      "type": "Individual statement",
+      "source": {
+        "title": "TechCrunch: LeCun on world models and human-level AI",
+        "url": "https://techcrunch.com/2024/10/16/metas-ai-chief-says-world-models-are-key-to-human-level-ai-but-it-might-be-10-years-out/"
+      }
+    },
+    {
+      "person": "Ray Kurzweil",
+      "org": "Futurist, author",
+      "predicted": "2029",
+      "midpoint": 2029,
+      "prediction": "The Singularity Is Near (2005): computers reach human-level intelligence by 2029; the Singularity around 2045.",
+      "date": "2005",
+      "type": "Individual statement",
+      "source": {
+        "title": "The Guardian: Ray Kurzweil interview, June 2024",
+        "url": "https://www.theguardian.com/technology/article/2024/jun/29/ray-kurzweil-google-ai-the-singularity-is-nearer"
+      }
+    },
+    {
+      "person": "Ray Kurzweil",
+      "org": "Futurist, author",
+      "predicted": "2029",
+      "midpoint": 2029,
+      "prediction": "Reaffirms 2029 for both human-level intelligence and AGI, and 2045 for the Singularity.",
+      "date": "2024-06-29",
+      "type": "Individual statement",
+      "source": {
+        "title": "The Guardian: Ray Kurzweil interview, June 2024",
+        "url": "https://www.theguardian.com/technology/article/2024/jun/29/ray-kurzweil-google-ai-the-singularity-is-nearer"
+      }
+    },
+    {
+      "person": "Andrej Karpathy",
+      "org": "Founder, Eureka Labs; OpenAI co-founder",
+      "predicted": "About 2035",
+      "midpoint": 2035,
+      "prediction": "AGI (agents that work like an employee or intern you would hire) is still about a decade away.",
+      "date": "2025-10-17",
+      "type": "Individual statement",
+      "source": {
+        "title": "Dwarkesh Podcast: Andrej Karpathy, AGI is still a decade away",
+        "url": "https://www.dwarkesh.com/p/andrej-karpathy"
+      }
+    },
+    {
+      "person": "Leopold Aschenbrenner",
+      "org": "Former OpenAI researcher",
+      "predicted": "2027",
+      "midpoint": 2027,
+      "prediction": "AGI by 2027 is \"strikingly plausible\" based on trends in compute and algorithmic efficiency.",
+      "date": "2024-06",
+      "type": "Individual statement",
+      "source": {
+        "title": "Leopold Aschenbrenner: Situational Awareness",
+        "url": "https://situational-awareness.ai/"
+      }
+    },
+    {
+      "person": "Ajeya Cotra",
+      "org": "Open Philanthropy",
+      "predicted": "~2050 (median)",
+      "midpoint": 2050,
+      "prediction": "Median of about 2050 for transformative AI from the 2020 biological anchors report.",
+      "date": "2020",
+      "type": "Individual statement",
+      "source": {
+        "title": "Ajeya Cotra: Two-year update on my personal AI timelines",
+        "url": "https://www.alignmentforum.org/posts/AfH2oPHCApdKicM4m/two-year-update-on-my-personal-ai-timelines"
+      }
+    },
+    {
+      "person": "Ajeya Cotra",
+      "org": "Open Philanthropy",
+      "predicted": "~2040 (median)",
+      "midpoint": 2040,
+      "prediction": "Updated median of about 2040 for transformative AI, roughly 10 years earlier than in 2020.",
+      "date": "2022-08-02",
+      "type": "Individual statement",
+      "source": {
+        "title": "Ajeya Cotra: Two-year update on my personal AI timelines",
+        "url": "https://www.alignmentforum.org/posts/AfH2oPHCApdKicM4m/two-year-update-on-my-personal-ai-timelines"
+      }
+    },
+    {
+      "person": "Daniel Kokotajlo",
+      "org": "Forecaster (later AI Futures Project)",
+      "predicted": "2029 (median)",
+      "midpoint": 2029,
+      "prediction": "AGI median of about 2029.",
+      "date": "2021-08",
+      "type": "Individual statement",
+      "source": {
+        "title": "AI Futures Project: How our AI timelines forecasts have changed since AI 2027",
+        "url": "https://blog.aifutures.org/p/clarifying-how-our-ai-timelines-forecasts"
+      }
+    },
+    {
+      "person": "Daniel Kokotajlo",
+      "org": "OpenAI (at the time)",
+      "predicted": "2027 (median)",
+      "midpoint": 2027,
+      "prediction": "AGI median dropped to 2027 after joining OpenAI.",
+      "date": "2022-12",
+      "type": "Individual statement",
+      "source": {
+        "title": "AI Futures Project: How our AI timelines forecasts have changed since AI 2027",
+        "url": "https://blog.aifutures.org/p/clarifying-how-our-ai-timelines-forecasts"
+      }
+    },
+    {
+      "person": "Daniel Kokotajlo",
+      "org": "Executive Director, AI Futures Project",
+      "predicted": "2028 (median)",
+      "midpoint": 2028,
+      "prediction": "AGI median moved to 2028, up from 2027.",
+      "date": "2025-02",
+      "type": "Individual statement",
+      "source": {
+        "title": "AI Futures Project: How our AI timelines forecasts have changed since AI 2027",
+        "url": "https://blog.aifutures.org/p/clarifying-how-our-ai-timelines-forecasts"
+      }
+    },
+    {
+      "person": "Daniel Kokotajlo",
+      "org": "Executive Director, AI Futures Project",
+      "predicted": "Around 2030",
+      "midpoint": 2030,
+      "prediction": "Says \"around 2030, lots of uncertainty\" for AGI; progress somewhat slower than the AI 2027 scenario.",
+      "date": "2025-11",
+      "type": "Individual statement",
+      "source": {
+        "title": "AI Futures Project: How our AI timelines forecasts have changed since AI 2027",
+        "url": "https://blog.aifutures.org/p/clarifying-how-our-ai-timelines-forecasts"
+      }
+    },
+    {
+      "person": "Daniel Kokotajlo",
+      "org": "Executive Director, AI Futures Project",
+      "predicted": "Dec 2030 (median)",
+      "midpoint": 2030,
+      "prediction": "All-things-considered median for TED-AI (top-expert-dominating AI, the project's AGI definition).",
+      "date": "2026-01",
+      "type": "Individual statement",
+      "source": {
+        "title": "AI Futures Project: How our AI timelines forecasts have changed since AI 2027",
+        "url": "https://blog.aifutures.org/p/clarifying-how-our-ai-timelines-forecasts"
+      }
+    },
+    {
+      "person": "Daniel Kokotajlo",
+      "org": "Executive Director, AI Futures Project",
+      "predicted": "Mid-2028 (median)",
+      "midpoint": 2028,
+      "prediction": "Automated Coder (full automation of coding) median moved from late 2029 to mid-2028.",
+      "date": "2026-04-02",
+      "type": "Individual statement",
+      "source": {
+        "title": "AI Futures Project: Q1 2026 Timelines Update",
+        "url": "https://blog.aifutures.org/p/q1-2026-timelines-update"
+      }
+    },
+    {
+      "person": "Eli Lifland",
+      "org": "AI Futures Project",
+      "predicted": "2060 (median)",
+      "midpoint": 2060,
+      "prediction": "Transformative AI timelines similar to about a 50% chance by 2060.",
+      "date": "2021",
+      "type": "Individual statement",
+      "source": {
+        "title": "AI Futures Project: How our AI timelines forecasts have changed since AI 2027",
+        "url": "https://blog.aifutures.org/p/clarifying-how-our-ai-timelines-forecasts"
+      }
+    },
+    {
+      "person": "Eli Lifland",
+      "org": "AI Futures Project",
+      "predicted": "2050 (median)",
+      "midpoint": 2050,
+      "prediction": "AGI median of about 2050 after underestimating progress on MATH and MMLU.",
+      "date": "2022-07",
+      "type": "Individual statement",
+      "source": {
+        "title": "AI Futures Project: How our AI timelines forecasts have changed since AI 2027",
+        "url": "https://blog.aifutures.org/p/clarifying-how-our-ai-timelines-forecasts"
+      }
+    },
+    {
+      "person": "Eli Lifland",
+      "org": "AI Futures Project",
+      "predicted": "2038 (median)",
+      "midpoint": 2038,
+      "prediction": "AGI median of 2038.",
+      "date": "2024-01",
+      "type": "Individual statement",
+      "source": {
+        "title": "AI Futures Project: How our AI timelines forecasts have changed since AI 2027",
+        "url": "https://blog.aifutures.org/p/clarifying-how-our-ai-timelines-forecasts"
+      }
+    },
+    {
+      "person": "Eli Lifland",
+      "org": "AI Futures Project",
+      "predicted": "2031 (median)",
+      "midpoint": 2031,
+      "prediction": "AGI (TED-AI) median of 2031 at the time AI 2027 was published.",
+      "date": "2025-04",
+      "type": "Individual statement",
+      "source": {
+        "title": "AI Futures Project: How our AI timelines forecasts have changed since AI 2027",
+        "url": "https://blog.aifutures.org/p/clarifying-how-our-ai-timelines-forecasts"
+      }
+    },
+    {
+      "person": "Eli Lifland",
+      "org": "AI Futures Project",
+      "predicted": "Jan 2035 (median)",
+      "midpoint": 2035,
+      "prediction": "All-things-considered TED-AI (AGI) median.",
+      "date": "2026-01",
+      "type": "Individual statement",
+      "source": {
+        "title": "AI Futures Project: How our AI timelines forecasts have changed since AI 2027",
+        "url": "https://blog.aifutures.org/p/clarifying-how-our-ai-timelines-forecasts"
+      }
+    },
+    {
+      "person": "AI 2027 scenario",
+      "org": "AI Futures Project (Kokotajlo, Alexander, Larsen, Lifland, Dean)",
+      "predicted": "March 2027",
+      "midpoint": 2027,
+      "prediction": "Superhuman coder (SC) achieved in the scenario's racing ending.",
+      "date": "2025-04-03",
+      "type": "Scenario",
+      "source": {
+        "title": "AI 2027 (AI Futures Project)",
+        "url": "https://ai-2027.com/"
+      }
+    },
+    {
+      "person": "AI 2027 scenario",
+      "org": "AI Futures Project",
+      "predicted": "August 2027",
+      "midpoint": 2027,
+      "prediction": "Superhuman AI researcher (SAR) achieved in the scenario.",
+      "date": "2025-04-03",
+      "type": "Scenario",
+      "source": {
+        "title": "AI 2027 (AI Futures Project)",
+        "url": "https://ai-2027.com/"
+      }
+    },
+    {
+      "person": "AI 2027 scenario",
+      "org": "AI Futures Project",
+      "predicted": "December 2027",
+      "midpoint": 2027,
+      "prediction": "Artificial superintelligence (ASI), much better than the best human at every cognitive task, in the scenario.",
+      "date": "2025-04-03",
+      "type": "Scenario",
+      "source": {
+        "title": "AI 2027 (AI Futures Project)",
+        "url": "https://ai-2027.com/"
+      }
+    },
+    {
+      "person": "AI 2027 timelines forecast (Lifland)",
+      "org": "AI Futures Project",
+      "predicted": "2030 (median; 80% CI 2026 to >2050)",
+      "midpoint": 2030,
+      "prediction": "All-things-considered median for a superhuman coder.",
+      "date": "2025-04",
+      "type": "Scenario",
+      "source": {
+        "title": "AI 2027: Timelines Forecast supplement",
+        "url": "https://ai-2027.com/research/timelines-forecast"
+      }
+    },
+    {
+      "person": "AI 2027 timelines forecast (Jurkovic)",
+      "org": "AI Futures Project",
+      "predicted": "2028 (median; 80% CI 2026-2040)",
+      "midpoint": 2028,
+      "prediction": "All-things-considered median for a superhuman coder.",
+      "date": "2025-04",
+      "type": "Scenario",
+      "source": {
+        "title": "AI 2027: Timelines Forecast supplement",
+        "url": "https://ai-2027.com/research/timelines-forecast"
+      }
+    },
+    {
+      "person": "AI 2027 timelines forecast (FutureSearch)",
+      "org": "FutureSearch professional forecasters (n=3)",
+      "predicted": "2033 (median; 80% CI 2027 to >2050)",
+      "midpoint": 2033,
+      "prediction": "Aggregate all-things-considered median for a superhuman coder.",
+      "date": "2025-04",
+      "type": "Scenario",
+      "source": {
+        "title": "AI 2027: Timelines Forecast supplement",
+        "url": "https://ai-2027.com/research/timelines-forecast"
+      }
+    },
+    {
+      "person": "Muller and Bostrom survey",
+      "org": "Survey of four expert groups, 2012/2013",
+      "predicted": "2040-2050 (50%)",
+      "midpoint": 2045,
+      "prediction": "Median respondent gave a 50% chance of high-level machine intelligence around 2040-2050 and 90% by 2075.",
+      "date": "2013",
+      "type": "Expert survey",
+      "source": {
+        "title": "Muller and Bostrom: Future progress in artificial intelligence (arXiv)",
+        "url": "https://arxiv.org/abs/2508.11681"
+      }
+    },
+    {
+      "person": "ESPAI 2016 (AI Impacts)",
+      "org": "352 researchers who published at NIPS and ICML 2015",
+      "predicted": "2061 (50%)",
+      "midpoint": 2061,
+      "prediction": "Aggregate 50% chance of HLMI (machines outperform humans at every task) within 45 years of 2016.",
+      "date": "2016",
+      "type": "Expert survey",
+      "source": {
+        "title": "Grace et al.: When Will AI Exceed Human Performance? (arXiv)",
+        "url": "https://arxiv.org/abs/1705.08807"
+      }
+    },
+    {
+      "person": "ESPAI 2016 (AI Impacts)",
+      "org": "352 researchers who published at NIPS and ICML 2015",
+      "predicted": "About 120 years after 2016 (50%)",
+      "midpoint": null,
+      "prediction": "Aggregate 50% chance of full automation of all human jobs (FAOL) in about 120 years.",
+      "date": "2016",
+      "type": "Expert survey",
+      "source": {
+        "title": "Grace et al.: When Will AI Exceed Human Performance? (arXiv)",
+        "url": "https://arxiv.org/abs/1705.08807"
+      }
+    },
+    {
+      "person": "ESPAI 2022 (AI Impacts)",
+      "org": "738 researchers who published at NeurIPS and ICML 2021",
+      "predicted": "2059 (50%)",
+      "midpoint": 2059,
+      "prediction": "Aggregate 50% chance of HLMI by 2059, 37 years after the survey (later reported as 2060).",
+      "date": "2022",
+      "type": "Expert survey",
+      "source": {
+        "title": "AI Impacts: 2022 Expert Survey on Progress in AI",
+        "url": "https://aiimpacts.org/2022-expert-survey-on-progress-in-ai/"
+      }
+    },
+    {
+      "person": "ESPAI 2022 (AI Impacts)",
+      "org": "738 researchers who published at NeurIPS and ICML 2021",
+      "predicted": "2164 (50%)",
+      "midpoint": 2164,
+      "prediction": "Aggregate 50% chance of full automation of labor (FAOL) by 2164.",
+      "date": "2022",
+      "type": "Expert survey",
+      "source": {
+        "title": "Grace et al.: Thousands of AI Authors on the Future of AI (arXiv)",
+        "url": "https://arxiv.org/abs/2401.02843"
+      }
+    },
+    {
+      "person": "ESPAI 2023 (AI Impacts)",
+      "org": "2,778 researchers at six top AI venues",
+      "predicted": "2047 (50%)",
+      "midpoint": 2047,
+      "prediction": "Aggregate 50% chance unaided machines outperform humans in every possible task (HLMI) by 2047; 10% by 2027.",
+      "date": "2023-10",
+      "type": "Expert survey",
+      "source": {
+        "title": "Grace et al.: Thousands of AI Authors on the Future of AI (arXiv)",
+        "url": "https://arxiv.org/abs/2401.02843"
+      }
+    },
+    {
+      "person": "ESPAI 2023 (AI Impacts)",
+      "org": "2,778 researchers at six top AI venues",
+      "predicted": "2116 (50%)",
+      "midpoint": 2116,
+      "prediction": "Aggregate 50% chance all human occupations are fully automatable (FAOL) by 2116.",
+      "date": "2023-10",
+      "type": "Expert survey",
+      "source": {
+        "title": "Grace et al.: Thousands of AI Authors on the Future of AI (arXiv)",
+        "url": "https://arxiv.org/abs/2401.02843"
+      }
+    },
+    {
+      "person": "ESPAI 2024 (AI Impacts)",
+      "org": "1,580 researchers at six top AI venues",
+      "predicted": "2042 (50%)",
+      "midpoint": 2042,
+      "prediction": "Mean aggregate forecast reaches a 50% chance of HLMI in 2042 (18 years after the survey) and 10% in 2027.",
+      "date": "2024-12",
+      "type": "Expert survey",
+      "source": {
+        "title": "AI Impacts: Advanced AI according to 1,580 researchers (ESPAI 2024, PDF)",
+        "url": "http://aiimpacts.org/wp-content/uploads/2026/09/ESPAI2024.pdf"
+      }
+    },
+    {
+      "person": "ESPAI 2024 (AI Impacts)",
+      "org": "1,580 researchers at six top AI venues",
+      "predicted": "2098 (50%)",
+      "midpoint": 2098,
+      "prediction": "Mean aggregate forecast reaches a 50% chance of FAOL in 2098, 17 years earlier than the recomputed 2023 figure.",
+      "date": "2024-12",
+      "type": "Expert survey",
+      "source": {
+        "title": "AI Impacts: Advanced AI according to 1,580 researchers (ESPAI 2024, PDF)",
+        "url": "http://aiimpacts.org/wp-content/uploads/2026/09/ESPAI2024.pdf"
+      }
+    },
+    {
+      "person": "Metaculus community",
+      "org": "Forecasting platform, Q5121 (general AI)",
+      "predicted": "2045 (median)",
+      "midpoint": 2045,
+      "prediction": "Community median date for the first general AI system to be devised, tested and publicly announced.",
+      "date": "2020-12-27",
+      "type": "Forecasting platform",
+      "source": {
+        "title": "Metaculus: Date of Artificial General Intelligence (Q5121)",
+        "url": "https://www.metaculus.com/questions/5121/date-of-artificial-general-intelligence/"
+      }
+    },
+    {
+      "person": "Metaculus community",
+      "org": "Forecasting platform, Q5121 (general AI)",
+      "predicted": "2056 (median)",
+      "midpoint": 2056,
+      "prediction": "Community median for the first general AI system (about 112 forecasters).",
+      "date": "2022-02-24",
+      "type": "Forecasting platform",
+      "source": {
+        "title": "Metaculus: Date of Artificial General Intelligence (Q5121)",
+        "url": "https://www.metaculus.com/questions/5121/date-of-artificial-general-intelligence/"
+      }
+    },
+    {
+      "person": "Metaculus community",
+      "org": "Forecasting platform, Q5121 (general AI)",
+      "predicted": "2038 (median)",
+      "midpoint": 2038,
+      "prediction": "Community median for the first general AI system after ChatGPT's release (about 346 forecasters).",
+      "date": "2022-12-24",
+      "type": "Forecasting platform",
+      "source": {
+        "title": "Metaculus: Date of Artificial General Intelligence (Q5121)",
+        "url": "https://www.metaculus.com/questions/5121/date-of-artificial-general-intelligence/"
+      }
+    },
+    {
+      "person": "Metaculus community",
+      "org": "Forecasting platform, Q5121 (general AI)",
+      "predicted": "2031 (median)",
+      "midpoint": 2031,
+      "prediction": "Community median for the first general AI system (about 1,105 forecasters).",
+      "date": "2023-12-21",
+      "type": "Forecasting platform",
+      "source": {
+        "title": "Metaculus: Date of Artificial General Intelligence (Q5121)",
+        "url": "https://www.metaculus.com/questions/5121/date-of-artificial-general-intelligence/"
+      }
+    },
+    {
+      "person": "Metaculus community",
+      "org": "Forecasting platform, Q5121 (general AI)",
+      "predicted": "2033 (median)",
+      "midpoint": 2033,
+      "prediction": "Community median for the first general AI system (about 1,664 forecasters).",
+      "date": "2025-05-28",
+      "type": "Forecasting platform",
+      "source": {
+        "title": "Metaculus: Date of Artificial General Intelligence (Q5121)",
+        "url": "https://www.metaculus.com/questions/5121/date-of-artificial-general-intelligence/"
+      }
+    },
+    {
+      "person": "Metaculus community",
+      "org": "Forecasting platform, Q5121 (general AI)",
+      "predicted": "Sept 24, 2030 (median; IQR Mar 2028 to Aug 2036)",
+      "midpoint": 2030,
+      "prediction": "Community median for the first general AI system, as displayed on October 29, 2026 (about 1,840 forecasters).",
+      "date": "2026-10-29",
+      "type": "Forecasting platform",
+      "source": {
+        "title": "Metaculus: Date of Artificial General Intelligence (Q5121)",
+        "url": "https://www.metaculus.com/questions/5121/date-of-artificial-general-intelligence/"
+      }
+    },
+    {
+      "person": "Metaculus community",
+      "org": "Forecasting platform, Q3479 (weakly general AI)",
+      "predicted": "2042 (median)",
+      "midpoint": 2042,
+      "prediction": "Community median date for the first weakly general AI system to be publicly known.",
+      "date": "2022-02-22",
+      "type": "Forecasting platform",
+      "source": {
+        "title": "Metaculus: Date weakly general AI is publicly known (Q3479)",
+        "url": "https://www.metaculus.com/questions/3479/date-weakly-general-ai-is-publicly-known/"
+      }
+    },
+    {
+      "person": "Metaculus community",
+      "org": "Forecasting platform, Q3479 (weakly general AI)",
+      "predicted": "Nov 2027 (median)",
+      "midpoint": 2027,
+      "prediction": "Community median for the first weakly general AI system.",
+      "date": "2022-12-27",
+      "type": "Forecasting platform",
+      "source": {
+        "title": "Metaculus: Date weakly general AI is publicly known (Q3479)",
+        "url": "https://www.metaculus.com/questions/3479/date-weakly-general-ai-is-publicly-known/"
+      }
+    },
+    {
+      "person": "Metaculus community",
+      "org": "Forecasting platform, Q3479 (weakly general AI)",
+      "predicted": "Aug 29, 2027 (median; IQR Sept 2026 to Oct 2029)",
+      "midpoint": 2027,
+      "prediction": "Community median for the first weakly general AI system, as displayed on October 29, 2026.",
+      "date": "2026-10-29",
+      "type": "Forecasting platform",
+      "source": {
+        "title": "Metaculus: Date weakly general AI is publicly known (Q3479)",
+        "url": "https://www.metaculus.com/questions/3479/date-weakly-general-ai-is-publicly-known/"
+      }
+    },
+    {
+      "person": "Epoch AI Direct Approach model",
+      "org": "Epoch AI",
+      "predicted": "2029 (median; 10% 2025, 90% 2084)",
+      "midpoint": 2029,
+      "prediction": "Default-parameter output of the interactive model for transformative AI (TAI); 57% chance by 2030.",
+      "date": "2023-05-31",
+      "type": "Forecasting model",
+      "source": {
+        "title": "Epoch AI: Direct Approach interactive model",
+        "url": "https://epoch.ai/publications/direct-approach-interactive-model"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Why AGI definitions differ, and why it changes the date",
+      "body": "There is no agreed definition of AGI (see [what counts as AGI](/blog/what-counts-as-agi/)), and the rows in this table use at least six different finish lines:\n\n- **AGI** with no formal definition, as in most CEO interviews. Elon Musk, for example, defined it in April 2024 as smarter than the smartest human.\n- **\"Powerful AI\"** (Anthropic): smarter than a Nobel Prize winner across most fields, able to work autonomously for long periods.\n- **HLMI** (AI Impacts surveys): unaided machines can do every task better and more cheaply than human workers.\n- **FAOL** (AI Impacts surveys): every occupation is fully automatable. The same researchers give dates 50 to 100 years later for this than for HLMI, even though it describes a similar end state.\n- **Metaculus resolution criteria**: a specific bundle of tests, including an adversarial Turing test and robotic tasks for the \"general AI\" question, and a lighter bundle for \"weakly general AI\".\n- **Superhuman coder, superhuman AI researcher and ASI** (AI 2027): milestones defined by what share of AI research work the system can do.\n\nA lab CEO saying \"AGI in 2027\" and a survey saying \"HLMI in 2042\" are partly measuring different things. The [field guide to AGI forecasts](/blog/field-guide-to-agi-forecasts/) explains the framing effects in more detail."
+    },
+    {
+      "heading": "How AGI forecasts shifted after 2022",
+      "body": "Every type of forecast in this dataset moved earlier between 2022 and 2024, then mostly held steady or moved slightly later in 2025 and 2026.\n\n- **Metaculus, general AI (Q5121):** 2056 in February 2022, 2038 in December 2022 (weeks after ChatGPT), 2031 in December 2023, 2033 in May 2025 and September 2030 on October 29, 2026.\n- **Metaculus, weakly general AI (Q3479):** 2042 in February 2022, November 2027 by December 2022, and August 2027 on October 29, 2026.\n- **AI Impacts surveys (HLMI, 50% year):** 2061 in 2016, 2059 in 2022, 2047 in 2023 and 2042 in the survey run in December 2024. The [2024 paper](http://aiimpacts.org/wp-content/uploads/2026/09/ESPAI2024.pdf) calculates that the forecast horizon got about 3.4 years closer for each year that passed. Full automation of labor moved from 2164 (2022) to 2116 (2023) to 2098 (2024).\n- **Individual forecasters:** Geoffrey Hinton went from 20 to 50 years to \"20 years or less\" in March 2023; Yoshua Bengio from \"decades to centuries\" to 5 to 20 years in August 2023; Ajeya Cotra from about 2050 to about 2040 in August 2022.\n- **Some later lengthening:** the AI Futures Project's December 2025 model put full coding automation 3 to 5 years later than its April 2025 model, and Daniel Kokotajlo's AGI median moved from 2027 to December 2030. Their April 2026 update moved his automated-coder median back earlier, from late 2029 to mid-2028."
+    },
+    {
+      "heading": "AI 2027: what the scenario predicts",
+      "body": "[AI 2027](https://ai-2027.com/) is a scenario by Daniel Kokotajlo, Scott Alexander, Thomas Larsen, Eli Lifland and Romeo Dean of the AI Futures Project, published April 3, 2025. In its racing ending, a superhuman coder arrives in March 2027, a superhuman AI researcher in August 2027, a superintelligent AI researcher in November 2027 and artificial superintelligence in December 2027.\n\nThe scenario's dates were a modal path, not the authors' median forecast. Its [timelines supplement](https://ai-2027.com/research/timelines-forecast) gave all-things-considered superhuman-coder medians of 2030 (Eli Lifland), 2028 (Nikola Jurkovic) and 2033 (three FutureSearch forecasters). By January 2026 the authors' [AGI medians](https://blog.aifutures.org/p/clarifying-how-our-ai-timelines-forecasts) were December 2030 (Kokotajlo) and January 2035 (Lifland)."
+    },
+    {
+      "heading": "Median predicted year by type of source",
+      "body": "Medians are taken over the \"Midpoint year\" column of this dataset. Rows that give only an upper or lower bound (\"by 2030\", \"as early as 2026\") or no year have no midpoint and are left out. The milestones differ by row, so treat these as rough comparisons.\n\n| Type of source | Rows with a midpoint | Median predicted year | Note |\n| --- | --- | --- | --- |\n| Individual statements, all dates | 40 | 2030 | 2005 to 2026 |\n| Individual statements made before 2023 | 8 | 2034.5 | Mostly forecasters and researchers |\n| Individual statements made in 2025-2026 | 22 | 2030 | Lab leaders alone (13 rows): 2030 |\n| Expert surveys, HLMI (latest: ESPAI 2024) | 1 | 2042 | 2016: 2061; 2022: 2059; 2023: 2047 |\n| Expert surveys, FAOL (latest: ESPAI 2024) | 1 | 2098 | 2022: 2164; 2023: 2116 |\n| Forecasting platform, Metaculus general AI (Oct 29, 2026) | 1 | 2030 | Weakly general AI: 2027 |\n| Scenario, AI 2027 (all milestones and author forecasts) | 6 | 2027.5 | Scenario milestones all fall in 2027 |\n| Forecasting model, Epoch Direct Approach (2023 defaults) | 1 | 2029 | Transformative AI; 90th percentile 2084 |"
+    }
+  ],
+  "methodology": [
+    "Each row is one dated prediction from a named person, organization, survey, forecasting platform, scenario or model, verified on the cited page on October 29, 2026. Primary sources were used where they exist: the person's own essay or blog post, podcast transcripts, the company's policy submission, the survey paper and the scenario website. Where a statement is only available in a paywalled or video interview, the row cites reputable news coverage (Ars Technica, CNBC, Axios, Fortune, CNN, TechCrunch, The Verge, The Guardian, Politico, Business Insider, Decrypt, The Register, VentureBeat).",
+    "\"Predicted year or range\" keeps the source's own framing. When a source says \"in five to 10 years\", the row converts that to calendar years from the statement date and says so. \"Midpoint year\" is filled only when the source gives a single year, a median, or a two-sided range; it is the middle of the range (for example 2026.5 for \"2026 or 2027\"). Open-ended statements such as \"by 2030\", \"20 years or less\" or \"as early as 2026\" have no midpoint. No values were estimated beyond that arithmetic.",
+    "Metaculus values come from the recency-weighted community forecast history published on each question page (Q5121 for general AI, Q3479 for weakly general AI), read on October 29, 2026. The date in each Metaculus row is the date that forecast was current. The October 29, 2026 values match the medians displayed on the question pages that day.",
+    "AI Impacts survey figures are the aggregate (mixture) forecasts reported by the survey authors. The 2022 HLMI figure is 2059 on the AI Impacts results page and was reported as 2060 in the 2023 paper; the 2024 paper says small code and data-cleaning changes shifted it. Likewise, the 2023 FAOL figure is 2116 in the 2023 paper and 2115 when recomputed in the 2024 paper. The 2024 survey was fielded in December 2024 and published in September 2026.",
+    "AI Futures Project rows for Daniel Kokotajlo and Eli Lifland before 2026 come from the project's January 27, 2026 post, which lists each author's past AGI medians with dates and links to the original statements.",
+    "Sources disagree on one statement: for Elon Musk's January 22, 2026 Davos remarks, Decrypt and a published transcript report \"2030 or 2031\" for AI smarter than all of humanity, while Wired reported 2035. The table uses 2030-2031, which matches the transcript wording.",
+    "Excluded: statements whose wording could only be found in social media reposts or low-quality aggregator sites, and predictions that do not refer to a general or transformative capability milestone. Sergey Brin's and Demis Hassabis's May 2025 answers were to a before-or-after-2030 question, not a stated median."
+  ],
+  "faq": [
+    {
+      "q": "When will AGI happen?",
+      "a": "No one knows, and estimates depend on the definition. As of October 29, 2026, the Metaculus community forecast for the first general AI system is September 2030. AI researchers surveyed by AI Impacts in December 2024 gave a 50% chance of human-level machine intelligence by 2042. Lab leaders such as Dario Amodei, Elon Musk and Sam Altman have named dates between 2026 and 2030."
+    },
+    {
+      "q": "What is the AI 2027 prediction?",
+      "a": "AI 2027 is a scenario from the AI Futures Project, published April 3, 2025. Its racing ending has a superhuman coder in March 2027 and artificial superintelligence in December 2027. The authors said 2027 was a plausible path, not their median: lead author Daniel Kokotajlo's AGI median was 2028 at publication and December 2030 by January 2026."
+    },
+    {
+      "q": "What do AI researchers predict for AGI?",
+      "a": "In the largest recurring survey, run by AI Impacts, researchers who publish at top AI venues gave a 50% chance that machines outperform humans at every task by 2047 (2023 survey, 2,778 respondents) and by 2042 (December 2024 survey, 1,580 respondents). Asked instead when all occupations will be fully automatable, the same groups answered 2116 and 2098."
+    },
+    {
+      "q": "Have AGI predictions gotten earlier?",
+      "a": "Yes, sharply between 2022 and 2024. The Metaculus general AI forecast moved from 2056 in February 2022 to 2031 by December 2023. The AI Impacts survey's 50% year for human-level machine intelligence moved from 2059 (2022) to 2042 (2024). Some forecasts lengthened slightly in 2025, and Metaculus sat at 2030 in October 2026."
+    },
+    {
+      "q": "What did Sam Altman predict about AGI?",
+      "a": "In a Bloomberg Businessweek interview published January 5, 2025, Sam Altman said AGI would probably be developed during the U.S. presidential term that began that month. In September 2024 he wrote that superintelligence might arrive in a few thousand days, and in September 2025 he said he would be very surprised not to have extraordinarily capable models by 2030."
+    },
+    {
+      "q": "What is the difference between AGI, HLMI and superintelligence?",
+      "a": "AGI usually means AI that matches humans across most cognitive work, but labs define it differently. HLMI, used in AI Impacts surveys, means unaided machines can do every task better and more cheaply than human workers. Superintelligence means AI far beyond the best humans at virtually all cognitive tasks. See [what counts as AGI](/blog/what-counts-as-agi/) for five definitions compared."
+    },
+    {
+      "q": "Is the Metaculus AGI forecast reliable?",
+      "a": "It is a crowd forecast from more than 1,800 forecasters, updated continuously, and forecasters are scored on resolved questions. Its main limitation is the resolution criteria: the question resolves on a specific set of tests, which may not match other definitions of AGI. The [field guide to AGI forecasts](/blog/field-guide-to-agi-forecasts/) covers the strengths and weaknesses of each method."
+    }
+  ],
+  "temporalCoverage": "2005/2026",
+  "related": [
+    "ai-model-release-timeline",
+    "biggest-ai-companies"
+  ],
+  "stats": [
+    {
+      "value": "2030",
+      "label": "Metaculus community forecast for general AI (Oct 29, 2026)"
+    },
+    {
+      "value": "2042",
+      "label": "50% year for human-level AI, ESPAI 2024 survey of 1,580 researchers"
+    },
+    {
+      "value": "2030",
+      "label": "median of lab leaders' 2025-2026 statements"
+    },
+    {
+      "value": "74",
+      "label": "dated, sourced predictions, 2005 to 2026"
+    }
+  ],
+  "charts": [
+    {
+      "id": "predictions-scatter",
+      "type": "scatter",
+      "title": "Predicted AGI year vs when it was predicted",
+      "subtitle": "Midpoint of each dated prediction; predictions after 2100 not shown",
+      "x": "date",
+      "y": "midpoint",
+      "labelKey": "person",
+      "series": "type",
+      "seriesOrder": [
+        "Individual statement",
+        "Expert survey",
+        "Forecasting platform",
+        "Scenario",
+        "Forecasting model"
+      ],
+      "filter": [
+        {
+          "key": "midpoint",
+          "notNull": true
+        },
+        {
+          "key": "midpoint",
+          "max": 2100
+        }
+      ],
+      "plain": true,
+      "yLabel": "Predicted year (midpoint)",
+      "xLabel": "Date of prediction",
+      "caption": "Most individual predictions made since 2023 fall between 2027 and 2035, while expert surveys put human-level AI in the 2040s or later.",
+      "alt": "Scatter plot of predicted AGI year against the date the prediction was made, colored by source type, showing individual statements since 2023 clustering between 2027 and 2035 and expert surveys between 2040 and 2100."
+    },
+    {
+      "id": "metaculus-trend",
+      "type": "line",
+      "title": "Metaculus community forecast for general AI over time",
+      "subtitle": "Community median year, question 5121 (first general AI system)",
+      "x": "date",
+      "y": "midpoint",
+      "labelKey": "person",
+      "filter": [
+        {
+          "key": "org",
+          "contains": "Q5121"
+        },
+        {
+          "key": "midpoint",
+          "notNull": true
+        }
+      ],
+      "plain": true,
+      "yLabel": "Forecast year",
+      "caption": "The Metaculus community median fell from 2056 in February 2022 to 2038 by December 2022 and to 2030 by October 2026, after a brief rise to 2033 in mid-2025.",
+      "alt": "Line chart of the Metaculus community median forecast for the first general AI system, from 2045 in December 2020 and 2056 in February 2022 down to 2038 in December 2022, 2031 in 2023 and 2030 in October 2026."
+    }
+  ],
+  "changelog": [
+    {
+      "date": "2026-10-29",
+      "note": "First published with 74 records, each linked to its source."
+    }
+  ]
+}

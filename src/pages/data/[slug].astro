@@ -1,0 +1,582 @@
+---
+import MarkdownIt from 'markdown-it';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { SITE } from '../../site.config';
+import { breadcrumbs, dataset as datasetSchema, faqPage } from '../../lib/schema';
+import { LICENSE, cellText, datasetUrl, datasets, getDataset, type Dataset } from '../../lib/datasets';
+import { renderChart } from '../../lib/charts';
+import '../../styles/prose.css';
+
+export function getStaticPaths() {
+  return datasets.map((d) => ({ params: { slug: d.slug }, props: { d } }));
+}
+
+const { d } = Astro.props as { d: Dataset };
+const md = new MarkdownIt({ html: false, linkify: true });
+const inline = (s: string) => md.renderInline(s);
+// Markdown tables in sections scroll inside a wrapper, like tables in articles, instead of widening the page.
+const block = (s: string) =>
+  md.render(s).replace(/<table>/g, '<div class="table-wrap"><table>').replace(/<\/table>/g, '</table></div>');
+
+const url = datasetUrl(d);
+const csvUrl = `/data/${d.slug}.csv`;
+const jsonUrl = `/data/${d.slug}.json`;
+const updated = new Date(d.updated);
+const fmtDate = (dt: Date) => dt.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+const year = updated.getUTCFullYear();
+const citation = `agitracker.io (${year}). ${d.h1}. Updated ${fmtDate(updated)}. ${new URL(url, SITE.url).href}`;
+const embedHtml = `<a href="${new URL(url, SITE.url).href}">${d.h1}</a> (agitracker.io)`;
+const related = (d.related ?? []).map(getDataset).filter((x): x is Dataset => !!x);
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Data', url: '/data/' },
+  { name: d.name, url },
+];
+const isUrl = (v: unknown) => typeof v === 'string' && /^https?:\/\//.test(v);
+const abs = (p: string) => new URL(p, SITE.url).href;
+const charts = (d.charts ?? []).map((c, i) => ({
+  spec: c,
+  n: i + 1,
+  svg: renderChart(c, d.rows),
+  png: `/data/charts/${d.slug}-${c.id}.png`,
+  source: c.source ?? `agitracker.io analysis of ${d.rows.length} records in this dataset`,
+}));
+const sourceDomains = new Set(
+  d.rows.map((r) => {
+    try {
+      return new URL(r.source.url).hostname.replace(/^www\./, '');
+    } catch {
+      return r.source.url;
+    }
+  }),
+).size;
+const embedChart = (c: (typeof charts)[number]) =>
+  `<figure><img src="${abs(c.png)}" alt="${c.spec.alt.replace(/"/g, '&quot;')}" width="760" loading="lazy"><figcaption>${c.spec.title}. Source: <a href="${abs(url)}#fig-${c.spec.id}">agitracker.io</a></figcaption></figure>`;
+const toc = [
+  { id: 'key-findings', label: 'Key findings' },
+  ...(charts.length ? [{ id: 'figures', label: `Figures (${charts.length})` }] : []),
+  { id: 'data', label: 'The data' },
+  ...(d.sections ?? []).map((s, i) => ({ id: `section-${i + 1}`, label: s.heading })),
+  { id: 'methodology', label: 'Methodology' },
+  { id: 'cite', label: 'Cite and reuse' },
+  ...(d.faq.length ? [{ id: 'faq', label: 'FAQ' }] : []),
+  { id: 'changes', label: 'Version history' },
+];
+const changelog = d.changelog ?? [{ date: d.published, note: 'First published.' }];
+---
+
+<BaseLayout
+  title={d.title}
+  description={d.description}
+  image={`/og/data/${d.slug}.png`}
+  imageAlt={d.h1}
+  schema={[
+    datasetSchema({
+      url,
+      name: d.h1,
+      description: d.description,
+      keywords: d.keywords,
+      published: d.published,
+      updated: d.updated,
+      license: LICENSE.url,
+      temporalCoverage: d.temporalCoverage,
+      variables: d.columns.map((c) => c.label),
+      csvUrl,
+      jsonUrl,
+      citation,
+      images: charts.map((c) => ({ url: c.png, caption: c.spec.title })),
+    }),
+    breadcrumbs(crumbs),
+    ...(d.faq.length ? [faqPage(d.faq)] : []),
+  ]}
+>
+  <header class="page-hero wrap">
+    <Breadcrumbs items={crumbs} />
+    <h1>{d.h1}</h1>
+    <p class="data-meta">
+      Updated <time datetime={d.updated}>{fmtDate(updated)}</time> · {d.rows.length} records ·{' '}
+      <a href={csvUrl} download>CSV</a> · <a href={jsonUrl}>JSON</a> · <a href={LICENSE.url}>{LICENSE.name}</a>
+    </p>
+  </header>
+
+  {
+    d.stats && d.stats.length > 0 && (
+      <section class="wrap stats" aria-label="At a glance">
+        {d.stats.map((s, i) => (
+          <div class:list={['stat', 'cut', `fill-${['signal', 'sun', 'lilac', 'sky'][i % 4]}`]}>
+            <span class="stat-value">{s.value}</span>
+            <span class="stat-label">{s.label}</span>
+          </div>
+        ))}
+      </section>
+    )
+  }
+
+  <article class="wrap section data-page">
+    <div class="data-columns">
+      <div class="prose">
+        <p class="kicker">Summary</p>
+        {d.intro.map((p) => <p set:html={inline(p)} />)}
+      </div>
+      <aside class="data-aside">
+        <dl class="facts cut cut--sm fill-paper">
+          <div><dt>Records</dt><dd>{d.rows.length}</dd></div>
+          <div><dt>Sources</dt><dd>{sourceDomains} publishers, every row linked</dd></div>
+          {d.temporalCoverage && <div><dt>Coverage</dt><dd>{d.temporalCoverage.replace('/', ' to ')}</dd></div>}
+          <div><dt>Last updated</dt><dd><time datetime={d.updated}>{fmtDate(updated)}</time></dd></div>
+          <div><dt>License</dt><dd><a href={LICENSE.url}>{LICENSE.name}</a></dd></div>
+          <div><dt>Download</dt><dd><a href={csvUrl} download>CSV</a> · <a href={jsonUrl}>JSON</a></dd></div>
+        </dl>
+        <nav class="toc" aria-label="On this page">
+          <p class="toc-title">On this page</p>
+          <ol>{toc.map((t) => <li><a href={`#${t.id}`}>{t.label}</a></li>)}</ol>
+        </nav>
+      </aside>
+    </div>
+    <div class="prose">
+
+      <h2 id="key-findings">Key Findings</h2>
+      <ul class="findings">
+        {
+          d.keyFindings.map((f) => (
+            <li>
+              <span set:html={inline(f.text)} />{' '}
+              <a class="src" href={f.source.url} target="_blank" rel="noopener noreferrer">
+                ({f.source.title})
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      {
+        charts.length > 0 && (
+          <h2 id="figures">Figures</h2>
+        )
+      }
+    </div>
+    {
+      charts.map((c) => (
+        <figure class="chart" id={`fig-${c.spec.id}`}>
+          <p class="chart-num">Figure {c.n}</p>
+          <h3 class="chart-title">{c.spec.title}</h3>
+          {c.spec.subtitle && <p class="chart-sub">{c.spec.subtitle}</p>}
+          <div class="chart-svg" set:html={c.svg} />
+          <figcaption>
+            <p class="chart-caption">{c.spec.caption}</p>
+            <p class="chart-source">
+              Source: {c.source}. <a href={c.png} download>Download PNG</a>
+            </p>
+            <details class="chart-embed">
+              <summary>Embed this chart</summary>
+              <pre class="cite"><code>{embedChart(c)}</code></pre>
+            </details>
+          </figcaption>
+        </figure>
+      ))
+    }
+    <div class="prose">
+      <h2 id="data">{d.tableTitle}</h2>
+    </div>
+
+    <div class="data-tools">
+      <label>
+        <span class="visually-hidden">Filter rows</span>
+        <input type="search" placeholder={`Filter ${d.rows.length} rows…`} data-filter />
+      </label>
+      <span class="data-count" data-count>{d.rows.length} of {d.rows.length}</span>
+    </div>
+    <div class="table-wrap data-table-wrap">
+      <table class="data-table" data-sortable>
+        <thead>
+          <tr>
+            {
+              d.columns.map((c) => (
+                <th scope="col" data-type={c.type ?? 'text'}>
+                  <button type="button">{c.label}</button>
+                  {c.note && <span class="col-note">{c.note}</span>}
+                </th>
+              ))
+            }
+            <th scope="col">Source</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            d.rows.map((r) => (
+              <tr>
+                {d.columns.map((c) => {
+                  const v = r[c.key];
+                  const text = cellText(v);
+                  return (
+                    <td data-sort={text}>
+                      {c.type === 'url' && isUrl(v) ? (
+                        <a href={v as string} target="_blank" rel="noopener noreferrer">link</a>
+                      ) : c.type === 'tags' && Array.isArray(v) ? (
+                        v.join(', ')
+                      ) : (
+                        text || '—'
+                      )}
+                    </td>
+                  );
+                })}
+                <td>
+                  <a href={r.source.url} target="_blank" rel="noopener noreferrer">{r.source.title}</a>
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prose">
+      {
+        (d.sections ?? []).map((s, i) => (
+          <>
+            <h2 id={`section-${i + 1}`}>{s.heading}</h2>
+            <Fragment set:html={block(s.body)} />
+          </>
+        ))
+      }
+
+      <h2 id="methodology">Methodology</h2>
+      {d.methodology.map((p) => <p set:html={inline(p)} />)}
+
+      <h2 id="cite">Cite and Reuse This Dataset</h2>
+      <p>
+        The data is free to reuse under <a href={LICENSE.url}>{LICENSE.name}</a>: copy it, chart it or build on it, with a
+        link back to this page. Download the <a href={csvUrl} download>CSV</a> or <a href={jsonUrl}>JSON</a>.
+      </p>
+      <p><strong>Citation</strong></p>
+      <pre class="cite"><code>{citation}</code></pre>
+      <p><strong>HTML link</strong></p>
+      <pre class="cite"><code>{embedHtml}</code></pre>
+
+      {
+        d.faq.length > 0 && (
+          <>
+            <h2 id="faq">Frequently Asked Questions</h2>
+            {d.faq.map((f) => (
+              <>
+                <h3>{f.q}</h3>
+                <p set:html={inline(f.a)} />
+              </>
+            ))}
+          </>
+        )
+      }
+
+      {
+        related.length > 0 && (
+          <>
+            <h2 id="related">Related Datasets</h2>
+            <ul>
+              {related.map((r) => (
+                <li>
+                  <a href={datasetUrl(r)}>{r.h1}</a>: {r.summary}
+                </li>
+              ))}
+            </ul>
+          </>
+        )
+      }
+      <h2 id="changes">Version History</h2>
+      <ul class="changelog">
+        {changelog.map((c) => (
+          <li>
+            <time datetime={c.date}>{fmtDate(new Date(c.date))}</time>: {c.note}
+          </li>
+        ))}
+      </ul>
+      <p class="data-corrections">
+        Spotted an error or a missing record? Every row links to its source; corrections are made and dated on this page.
+        See <a href="/data/">all datasets</a>.
+      </p>
+    </div>
+  </article>
+</BaseLayout>
+
+<script>
+  // Client-side sort and filter for the data table (no dependencies).
+  for (const table of document.querySelectorAll<HTMLTableElement>('table[data-sortable]')) {
+    const tbody = table.tBodies[0];
+    const rows = Array.from(tbody.rows);
+    const ths = Array.from(table.tHead!.rows[0].cells);
+    ths.forEach((th, i) => {
+      const btn = th.querySelector('button');
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        const type = th.dataset.type;
+        const dir = th.getAttribute('aria-sort') === 'ascending' ? -1 : 1;
+        ths.forEach((t) => t.removeAttribute('aria-sort'));
+        th.setAttribute('aria-sort', dir === 1 ? 'ascending' : 'descending');
+        const val = (r: HTMLTableRowElement) => r.cells[i].dataset.sort ?? r.cells[i].textContent ?? '';
+        rows.sort((a, b) => {
+          const x = val(a), y = val(b);
+          if (type === 'number') return (parseFloat(x || 'NaN') - parseFloat(y || 'NaN') || 0) * dir;
+          return x.localeCompare(y, undefined, { numeric: true }) * dir;
+        });
+        tbody.append(...rows);
+      });
+    });
+    const input = document.querySelector<HTMLInputElement>('[data-filter]');
+    const count = document.querySelector('[data-count]');
+    input?.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      let n = 0;
+      for (const r of rows) {
+        const show = !q || (r.textContent ?? '').toLowerCase().includes(q);
+        r.hidden = !show;
+        if (show) n++;
+      }
+      if (count) count.textContent = `${n} of ${rows.length}`;
+    });
+  }
+</script>
+
+<style>
+  .data-meta {
+    font-size: var(--step-0) !important;
+    color: var(--muted);
+  }
+  .data-page .prose {
+    max-width: var(--measure);
+  }
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5rem), 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  .stat {
+    --c: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1rem 1.15rem;
+  }
+  .stat-value {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: var(--step-3);
+    line-height: 1.05;
+  }
+  .stat-label {
+    font-size: var(--step--1);
+    line-height: 1.35;
+  }
+  .data-columns {
+    display: grid;
+    grid-template-columns: minmax(0, var(--measure)) minmax(0, 20rem);
+    justify-content: space-between;
+    gap: 2.5rem;
+    align-items: start;
+  }
+  .kicker {
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--step--1);
+    color: var(--muted);
+  }
+  .data-aside {
+    display: grid;
+    gap: 1.5rem;
+    position: sticky;
+    top: 1.5rem;
+  }
+  .facts {
+    padding: 1rem 1.15rem;
+    display: grid;
+    gap: 0.6rem;
+    margin: 0;
+  }
+  .facts div {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr;
+    gap: 0.5rem;
+    font-size: var(--step--1);
+  }
+  .facts dt {
+    font-weight: 700;
+  }
+  .facts dd {
+    margin: 0;
+  }
+  .toc-title {
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+  .toc ol {
+    padding-left: 1.2rem;
+    font-size: var(--step--1);
+    display: grid;
+    gap: 0.3rem;
+  }
+  .chart {
+    margin: 0 0 3rem;
+    max-width: 52rem;
+  }
+  .chart-num {
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--step--1);
+    color: var(--muted);
+  }
+  .chart-title {
+    font-size: var(--step-1);
+    font-weight: 800;
+    margin: 0.2rem 0 0.25rem;
+  }
+  .chart-sub {
+    color: var(--muted);
+    font-size: var(--step--1);
+    margin-bottom: 0.75rem;
+  }
+  .chart-svg {
+    border: var(--bw) solid var(--ink);
+    background: var(--paper);
+    box-shadow: 6px 6px 0 var(--ink);
+    padding: 0.5rem;
+  }
+  .chart-svg :global(svg) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .chart figcaption {
+    margin-top: 1rem;
+  }
+  .chart-caption {
+    font-size: var(--step-0);
+  }
+  .chart-source {
+    font-size: var(--step--1);
+    color: var(--muted);
+    margin-top: 0.4rem;
+  }
+  .chart-embed {
+    margin-top: 0.5rem;
+    font-size: var(--step--1);
+  }
+  .chart-embed summary {
+    cursor: pointer;
+    font-weight: 700;
+  }
+  .chart-embed .cite {
+    font-family: var(--font-code);
+    font-size: 0.85rem;
+    padding: 0.9rem 1rem;
+    margin-top: 0.5rem;
+    border: var(--bw) solid var(--ink);
+    background: #121212;
+  }
+  .changelog {
+    font-size: var(--step--1);
+  }
+  @media (max-width: 960px) {
+    .data-columns {
+      grid-template-columns: 1fr;
+    }
+    .data-aside {
+      position: static;
+    }
+  }
+  .findings li {
+    margin-bottom: 0.6rem;
+  }
+  .findings .src {
+    font-size: var(--step--1);
+    color: var(--muted);
+  }
+  .data-tools {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+  }
+  .data-tools input {
+    font: inherit;
+    padding: 0.5rem 0.75rem;
+    border: var(--bw) solid var(--ink);
+    background: var(--paper);
+    min-width: min(100%, 22rem);
+  }
+  .data-count {
+    color: var(--muted);
+    font-size: var(--step--1);
+  }
+  .data-table-wrap {
+    overflow-x: auto;
+    border: var(--bw) solid var(--ink);
+    box-shadow: 6px 6px 0 var(--ink);
+    background: var(--paper);
+    margin-bottom: 2.5rem;
+  }
+  .data-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  .data-table th,
+  .data-table td {
+    padding: 0.55rem 0.75rem;
+    border-bottom: 1px solid #d8cfbd;
+    text-align: left;
+    vertical-align: top;
+  }
+  .data-table thead th {
+    background: var(--ink);
+    color: var(--paper);
+    position: sticky;
+    top: 0;
+  }
+  .data-table th button {
+    all: unset;
+    cursor: pointer;
+    font-weight: 700;
+  }
+  .data-table th[aria-sort='ascending'] button::after {
+    content: ' ▲';
+  }
+  .data-table th[aria-sort='descending'] button::after {
+    content: ' ▼';
+  }
+  .col-note {
+    display: block;
+    font-weight: 400;
+    font-size: 0.8rem;
+    opacity: 0.8;
+  }
+  .data-table tbody tr:nth-child(even) {
+    background: #f4eedf;
+  }
+  .cite {
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: var(--paper);
+  }
+  .cite code {
+    color: inherit;
+    background: none;
+  }
+  .data-corrections {
+    color: var(--muted);
+    font-size: var(--step--1);
+    margin-top: 2.5rem;
+  }
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+</style>

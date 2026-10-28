@@ -1,0 +1,3140 @@
+{
+  "slug": "ai-model-release-timeline",
+  "name": "AI Model Release Timeline",
+  "title": "AI Model Release Timeline: 159 LLMs, 2018 to 2026",
+  "h1": "AI Model Release Timeline: Every Major LLM From GPT-1 to GPT-6 (2018-2026)",
+  "description": "AI model release timeline of 159 LLMs from GPT-1 to GPT-6: release dates, open weights, context windows and launch API prices, each linked to the lab's source.",
+  "summary": "Release dates, open-weight status, context windows, input types and launch API prices for 159 notable LLMs from 2018 to October 2026, each sourced to the lab.",
+  "published": "2026-10-29",
+  "updated": "2026-10-29",
+  "keywords": [
+    "ai model release timeline",
+    "chatgpt release date",
+    "ai timeline",
+    "llm list",
+    "list of llms",
+    "ai models list",
+    "ai model comparison",
+    "open weight models",
+    "best open weight models",
+    "llm release dates",
+    "context window comparison",
+    "llm api pricing history"
+  ],
+  "intro": [
+    "ChatGPT was released on November 30, 2022, as a free research preview built on a GPT-3.5 model, according to [OpenAI's announcement](https://openai.com/index/chatgpt/); developers got the same model through the API on March 1, 2023, at $2 per million tokens. This AI model release timeline covers 159 notable large language models, from OpenAI's GPT-1 (June 11, 2018) to GPT-6.1 Terra (October 26, 2026), with release date, open-weight status, context window, input types and launch API price for each, every row linked to the lab's own announcement, model card or documentation.",
+    "The pace has changed most since 2023. The table holds 19 releases from 2023, 35 from 2024, 44 from 2025 and 51 from January through October 2026. Context windows grew from 512 tokens for GPT-1 to about 1 million tokens for 39 of the 51 models released in 2026, and the price of a top OpenAI model fell from $30 per million input tokens for GPT-4 in March 2023 to $2 for GPT-6.1 Sol in September 2026. Of the 159 rows, 82 are open-weight releases, led by Meta, Mistral, DeepSeek, Alibaba's Qwen team and Moonshot AI.",
+    "The table is sortable and downloadable as CSV or JSON. Release date means the first day the model was publicly usable (in an app, through an API, or as downloadable weights), not the day a paper or teaser appeared. Prices are the lab's standard list price per million tokens on launch day; a dash means the lab did not sell API access or did not publish a price."
+  ],
+  "keyFindings": [
+    {
+      "text": "OpenAI released ChatGPT on November 30, 2022, as a free research preview based on a GPT-3.5 model fine-tuned with reinforcement learning from human feedback.",
+      "source": {
+        "title": "OpenAI: Introducing ChatGPT",
+        "url": "https://openai.com/index/chatgpt/"
+      }
+    },
+    {
+      "text": "GPT-4 launched on March 14, 2023, with an 8,192-token context window at $0.03 per 1,000 prompt tokens and $0.06 per 1,000 completion tokens ($30 and $60 per million), according to OpenAI.",
+      "source": {
+        "title": "OpenAI: GPT-4",
+        "url": "https://openai.com/index/gpt-4-research/"
+      }
+    },
+    {
+      "text": "Google's Gemini 1.5 Pro became the first model offered through a public API with a 1-million-token context window when it entered public preview in the Gemini API on April 9, 2024.",
+      "source": {
+        "title": "Google Developers Blog: Gemini 1.5 Pro now available in 180+ countries",
+        "url": "https://developers.googleblog.com/en/gemini-15-pro-now-available-in-180-countries-with-native-audio-understanding-system-instructions-json-mode-and-more/"
+      }
+    },
+    {
+      "text": "DeepSeek released the open-weight reasoning model DeepSeek-R1 under the MIT License on January 20, 2025, with API prices of $0.55 per million input tokens (cache miss) and $2.19 per million output tokens.",
+      "source": {
+        "title": "DeepSeek-R1 Release (DeepSeek API news, archived copy)",
+        "url": "https://web.archive.org/web/20250202014805/https://api-docs.deepseek.com/news/news250120"
+      }
+    },
+    {
+      "text": "Meta released Llama 4 Scout on April 5, 2025, with a 10-million-token context window, the longest of any model in this dataset.",
+      "source": {
+        "title": "The Llama 4 herd (Meta AI)",
+        "url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/"
+      }
+    },
+    {
+      "text": "OpenAI's gpt-oss-120b and gpt-oss-20b, released on August 5, 2025, under the Apache 2.0 license, were the company's first open-weight language models since GPT-2 in 2019.",
+      "source": {
+        "title": "OpenAI: Introducing gpt-oss",
+        "url": "https://openai.com/index/introducing-gpt-oss/"
+      }
+    },
+    {
+      "text": "Anthropic cut the price of its Opus tier from $15 and $75 per million input and output tokens to $5 and $25 with Claude Opus 4.5 on November 24, 2025.",
+      "source": {
+        "title": "Anthropic: Introducing Claude Opus 4.5",
+        "url": "https://www.anthropic.com/news/claude-opus-4-5"
+      }
+    },
+    {
+      "text": "OpenAI released GPT-6 Astra on September 3, 2026, and GPT-6 Sol and GPT-6 Luna on September 22, 2026, with Luna priced at $0.10 per million input tokens and $0.50 per million output tokens, according to its API changelog.",
+      "source": {
+        "title": "OpenAI API changelog",
+        "url": "https://developers.openai.com/api/docs/changelog"
+      }
+    },
+    {
+      "text": "Anthropic released Claude Opus 5.5 on September 22, 2026, with a 1-million-token context window at $4 per million input tokens and $20 per million output tokens, 20% below Claude Opus 5.",
+      "source": {
+        "title": "Anthropic: Claude Opus 5.5",
+        "url": "https://www.anthropic.com/claude-opus-5-5"
+      }
+    },
+    {
+      "text": "Moonshot AI's Kimi K3, released on July 16, 2026, is a 2.8-trillion-parameter mixture-of-experts model whose weights Moonshot published under its own Kimi K3 License, with API prices of $3 and $15 per million input and output tokens.",
+      "source": {
+        "title": "Kimi K3: Open Frontier Intelligence (Moonshot AI)",
+        "url": "https://www.kimi.com/en/blog/kimi-k3"
+      }
+    }
+  ],
+  "tableTitle": "Major AI model releases, 2018 to October 2026",
+  "columns": [
+    {
+      "key": "model",
+      "label": "Model"
+    },
+    {
+      "key": "lab",
+      "label": "Lab"
+    },
+    {
+      "key": "released",
+      "label": "Released",
+      "type": "date",
+      "note": "First public availability (app, API or weights)"
+    },
+    {
+      "key": "openWeights",
+      "label": "Open weights",
+      "note": "Yes = weights downloadable, under any license"
+    },
+    {
+      "key": "context",
+      "label": "Context window",
+      "type": "number",
+      "note": "Tokens at launch; max sequence length for early models"
+    },
+    {
+      "key": "modalities",
+      "label": "Input types",
+      "type": "tags"
+    },
+    {
+      "key": "inputPrice",
+      "label": "Input price",
+      "type": "number",
+      "note": "USD per 1M tokens, lab's own API, standard list price at launch"
+    },
+    {
+      "key": "outputPrice",
+      "label": "Output price",
+      "type": "number",
+      "note": "USD per 1M tokens, lab's own API, standard list price at launch"
+    },
+    {
+      "key": "notes",
+      "label": "Notes"
+    }
+  ],
+  "rows": [
+    {
+      "model": "GPT-1",
+      "lab": "OpenAI",
+      "released": "2018-06-11",
+      "openWeights": "Yes",
+      "context": 512,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "First GPT model: generative pre-training of a Transformer followed by fine-tuning",
+      "source": {
+        "title": "OpenAI: Improving language understanding with unsupervised learning",
+        "url": "https://openai.com/index/language-unsupervised/"
+      }
+    },
+    {
+      "model": "BERT",
+      "lab": "Google",
+      "released": "2018-11-02",
+      "openWeights": "Yes",
+      "context": 512,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Bidirectional transformer encoder; Google open-sourced code and pre-trained models",
+      "source": {
+        "title": "Google Research blog: Open Sourcing BERT",
+        "url": "https://research.google/blog/open-sourcing-bert-state-of-the-art-pre-training-for-natural-language-processing/"
+      }
+    },
+    {
+      "model": "GPT-2",
+      "lab": "OpenAI",
+      "released": "2019-02-14",
+      "openWeights": "Yes",
+      "context": 1024,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Staged release: only a smaller model at first; full 1.5B-parameter weights published 2019-11-05",
+      "source": {
+        "title": "OpenAI: Better language models and their implications",
+        "url": "https://openai.com/index/better-language-models/"
+      }
+    },
+    {
+      "model": "T5",
+      "lab": "Google",
+      "released": "2019-10-23",
+      "openWeights": "Yes",
+      "context": null,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Text-to-text framework; largest model 11B parameters; released with the C4 dataset",
+      "source": {
+        "title": "arXiv: Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer",
+        "url": "https://arxiv.org/abs/1910.10683"
+      }
+    },
+    {
+      "model": "GPT-3",
+      "lab": "OpenAI",
+      "released": "2020-06-11",
+      "openWeights": "No",
+      "context": 2048,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "175 billion parameters; first OpenAI model sold through an API (private beta)",
+      "source": {
+        "title": "OpenAI: OpenAI API",
+        "url": "https://openai.com/index/openai-api/"
+      }
+    },
+    {
+      "model": "Jurassic-1 Jumbo",
+      "lab": "AI21 Labs",
+      "released": "2021-08",
+      "openWeights": "No",
+      "context": null,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "178B parameters; offered through the AI21 Studio open beta API",
+      "source": {
+        "title": "AI21 Labs: Announcing AI21 Studio and Jurassic-1",
+        "url": "https://www.ai21.com/blog/announcing-ai21-studio-and-jurassic-1"
+      }
+    },
+    {
+      "model": "GPT-NeoX-20B",
+      "lab": "EleutherAI",
+      "released": "2022-02-09",
+      "openWeights": "Yes",
+      "context": 2048,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "20B parameters; weights released under Apache 2.0 after a one-week delay from the Feb 2 announcement.",
+      "source": {
+        "title": "Announcing GPT-NeoX-20B (EleutherAI blog)",
+        "url": "https://blog.eleuther.ai/announcing-20b/"
+      }
+    },
+    {
+      "model": "OPT-175B",
+      "lab": "Meta",
+      "released": "2022-05-03",
+      "openWeights": "Yes",
+      "context": 2048,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "175B parameters; weights by request under a noncommercial research license (OPT-175B License).",
+      "source": {
+        "title": "Democratizing access to large-scale language models with OPT-175B (Meta AI)",
+        "url": "https://ai.meta.com/blog/democratizing-access-to-large-scale-language-models-with-opt-175b/"
+      }
+    },
+    {
+      "model": "BLOOM",
+      "lab": "BigScience",
+      "released": "2022-07-11",
+      "openWeights": "Yes",
+      "context": 2048,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "176B-parameter multilingual model built by a 1,000+ researcher collaboration; BigScience RAIL License v1.0.",
+      "source": {
+        "title": "bigscience/bloom model card (Hugging Face)",
+        "url": "https://huggingface.co/bigscience/bloom"
+      }
+    },
+    {
+      "model": "ChatGPT (GPT-3.5)",
+      "lab": "OpenAI",
+      "released": "2022-11-30",
+      "openWeights": "No",
+      "context": null,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Free research preview of a chat interface trained with RLHF; no API until March 2023",
+      "source": {
+        "title": "OpenAI: Introducing ChatGPT",
+        "url": "https://openai.com/index/chatgpt/"
+      }
+    },
+    {
+      "model": "LLaMA",
+      "lab": "Meta",
+      "released": "2023-02-24",
+      "openWeights": "Yes",
+      "context": 2048,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "7B to 65B parameters; weights granted case by case under a noncommercial research license.",
+      "source": {
+        "title": "Introducing LLaMA: A foundational, 65-billion-parameter large language model (Meta AI)",
+        "url": "https://ai.meta.com/blog/large-language-model-llama-meta-ai/"
+      }
+    },
+    {
+      "model": "GPT-3.5 Turbo (ChatGPT API)",
+      "lab": "OpenAI",
+      "released": "2023-03-01",
+      "openWeights": "No",
+      "context": null,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": 2.0,
+      "outputPrice": 2.0,
+      "notes": "Same model as ChatGPT; priced at $0.002 per 1K tokens, 10x cheaper than earlier GPT-3.5 models",
+      "source": {
+        "title": "OpenAI: Introducing ChatGPT and Whisper APIs",
+        "url": "https://openai.com/index/introducing-chatgpt-and-whisper-apis/"
+      }
+    },
+    {
+      "model": "Claude",
+      "lab": "Anthropic",
+      "released": "2023-03-14",
+      "openWeights": "No",
+      "context": null,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "First Claude release, alongside the lighter Claude Instant; offered via chat interface and API",
+      "source": {
+        "title": "Anthropic: Introducing Claude",
+        "url": "https://www.anthropic.com/news/introducing-claude"
+      }
+    },
+    {
+      "model": "GPT-4",
+      "lab": "OpenAI",
+      "released": "2023-03-14",
+      "openWeights": "No",
+      "context": 8192,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": 30.0,
+      "outputPrice": 60.0,
+      "notes": "32,768-token gpt-4-32k variant at $60/$120; image input demonstrated but not in the API at launch",
+      "source": {
+        "title": "OpenAI: GPT-4",
+        "url": "https://openai.com/index/gpt-4-research/"
+      }
+    },
+    {
+      "model": "PaLM 2",
+      "lab": "Google",
+      "released": "2023-05-10",
+      "openWeights": "No",
+      "context": null,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Announced at Google I/O in four sizes (Gecko, Otter, Bison, Unicorn); powered Bard and 25+ Google products",
+      "source": {
+        "title": "Google: Introducing PaLM 2",
+        "url": "https://blog.google/technology/ai/google-palm-2-ai-large-language-model/"
+      }
+    },
+    {
+      "model": "Falcon 40B",
+      "lab": "TII (UAE)",
+      "released": "2023-05-25",
+      "openWeights": "Yes",
+      "context": 2048,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "40B parameters trained on 1 trillion tokens; made royalty-free under Apache 2.0 on May 31, 2023.",
+      "source": {
+        "title": "UAE's TII Launches Open-Source Falcon 40B (TII)",
+        "url": "https://www.tii.ae/news/uaes-technology-innovation-institute-launches-open-source-falcon-40b-large-language-model"
+      }
+    },
+    {
+      "model": "Claude 2",
+      "lab": "Anthropic",
+      "released": "2023-07-11",
+      "openWeights": "No",
+      "context": 100000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "100K-token prompts; launched public beta of claude.ai in the US and UK",
+      "source": {
+        "title": "Anthropic: Claude 2",
+        "url": "https://www.anthropic.com/news/claude-2"
+      }
+    },
+    {
+      "model": "Llama 2",
+      "lab": "Meta",
+      "released": "2023-07-18",
+      "openWeights": "Yes",
+      "context": 4096,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "7B to 70B; first Llama licensed for commercial use (Llama 2 Community License), launched with Microsoft.",
+      "source": {
+        "title": "Meta and Microsoft Introduce the Next Generation of Llama (Meta AI)",
+        "url": "https://ai.meta.com/blog/llama-2/"
+      }
+    },
+    {
+      "model": "Qwen-7B",
+      "lab": "Alibaba Qwen",
+      "released": "2023-08-03",
+      "openWeights": "Yes",
+      "context": 2048,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "First open-weight Qwen model, released with Qwen-7B-Chat under the Tongyi Qianwen license; context later extended to 8K in a Sept 2023 update.",
+      "source": {
+        "title": "Qwen GitHub README (news and updates)",
+        "url": "https://github.com/QwenLM/Qwen"
+      }
+    },
+    {
+      "model": "Code Llama",
+      "lab": "Meta",
+      "released": "2023-08-24",
+      "openWeights": "Yes",
+      "context": 100000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Code-specialized Llama 2; trained on 16K-token sequences, stable up to 100K tokens; 70B version followed Jan 29, 2024.",
+      "source": {
+        "title": "Introducing Code Llama (Meta AI)",
+        "url": "https://ai.meta.com/blog/code-llama-large-language-model-coding/"
+      }
+    },
+    {
+      "model": "Falcon 180B",
+      "lab": "TII (UAE)",
+      "released": "2023-09-06",
+      "openWeights": "Yes",
+      "context": null,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "180B parameters trained on 3.5 trillion tokens; Falcon 180B TII License based on Apache 2.0.",
+      "source": {
+        "title": "TII Introduces World's Most Powerful Open LLM: Falcon 180B (TII)",
+        "url": "https://www.tii.ae/news/technology-innovation-institute-introduces-worlds-most-powerful-open-llm-falcon-180b"
+      }
+    },
+    {
+      "model": "Mistral 7B",
+      "lab": "Mistral AI",
+      "released": "2023-09-27",
+      "openWeights": "Yes",
+      "context": null,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Mistral's first model; Apache 2.0, uses sliding window attention.",
+      "source": {
+        "title": "Mistral 7B (Mistral AI)",
+        "url": "https://mistral.ai/news/announcing-mistral-7b"
+      }
+    },
+    {
+      "model": "Yi-34B",
+      "lab": "01.AI",
+      "released": "2023-11-02",
+      "openWeights": "Yes",
+      "context": 4096,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "34B dense model; a 200K-context variant (Yi-34B-200K) followed on 2023-11-05. Model card now lists Apache 2.0.",
+      "source": {
+        "title": "Yi-34B model card (01.AI, Hugging Face)",
+        "url": "https://huggingface.co/01-ai/Yi-34B"
+      }
+    },
+    {
+      "model": "GPT-4 Turbo",
+      "lab": "OpenAI",
+      "released": "2023-11-06",
+      "openWeights": "No",
+      "context": 128000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 10.0,
+      "outputPrice": 30.0,
+      "notes": "First OpenAI model with a 128K context window; launched as a preview at DevDay",
+      "source": {
+        "title": "OpenAI: New models and developer products announced at DevDay",
+        "url": "https://openai.com/index/new-models-and-developer-products-announced-at-devday/"
+      }
+    },
+    {
+      "model": "Claude 2.1",
+      "lab": "Anthropic",
+      "released": "2023-11-21",
+      "openWeights": "No",
+      "context": 200000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Doubled context to 200K tokens; added system prompts and tool use in beta",
+      "source": {
+        "title": "Anthropic: Introducing Claude 2.1",
+        "url": "https://www.anthropic.com/news/claude-2-1"
+      }
+    },
+    {
+      "model": "Amazon Titan Text Express",
+      "lab": "Amazon",
+      "released": "2023-11-29",
+      "openWeights": "No",
+      "context": 8000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Generally available on Amazon Bedrock with Titan Text Lite (4,000 tokens)",
+      "source": {
+        "title": "AWS What's New: Amazon Titan Text models Express and Lite now generally available",
+        "url": "https://aws.amazon.com/about-aws/whats-new/2023/11/amazon-titan-models-express-lite-bedrock/"
+      }
+    },
+    {
+      "model": "Gemini 1.0 Pro",
+      "lab": "Google",
+      "released": "2023-12-06",
+      "openWeights": "No",
+      "context": 32000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "First Gemini model; Bard switched to Gemini Pro on launch day; API access from December 13 with a 32K context window; a separate Pro Vision endpoint accepted images",
+      "source": {
+        "title": "Google: Introducing Gemini",
+        "url": "https://blog.google/technology/ai/google-gemini-ai/"
+      }
+    },
+    {
+      "model": "Mixtral 8x7B",
+      "lab": "Mistral AI",
+      "released": "2023-12-11",
+      "openWeights": "Yes",
+      "context": 32000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Sparse mixture-of-experts model with open weights under Apache 2.0.",
+      "source": {
+        "title": "Mixtral of experts (Mistral AI)",
+        "url": "https://mistral.ai/news/mixtral-of-experts"
+      }
+    },
+    {
+      "model": "Phi-2",
+      "lab": "Microsoft",
+      "released": "2023-12-12",
+      "openWeights": "Yes",
+      "context": 2048,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "2.7B-parameter small language model; MIT license",
+      "source": {
+        "title": "Microsoft Research: Phi-2: The surprising power of small language models",
+        "url": "https://www.microsoft.com/en-us/research/blog/phi-2-the-surprising-power-of-small-language-models/"
+      }
+    },
+    {
+      "model": "OLMo 7B",
+      "lab": "Ai2",
+      "released": "2024-02-01",
+      "openWeights": "Yes",
+      "context": 2048,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Released weights plus full training data, code, logs and checkpoints under Apache 2.0.",
+      "source": {
+        "title": "OLMo: Open Language Model (Ai2)",
+        "url": "https://allenai.org/blog/olmo-open-language-model-87ccfc95f580"
+      }
+    },
+    {
+      "model": "Qwen1.5",
+      "lab": "Alibaba Qwen",
+      "released": "2024-02-04",
+      "openWeights": "Yes",
+      "context": 32768,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Family from 0.5B to 72B (later 110B); all sizes support a 32,768-token context.",
+      "source": {
+        "title": "Introducing Qwen1.5 (Qwen blog)",
+        "url": "https://qwenlm.github.io/blog/qwen1.5/"
+      }
+    },
+    {
+      "model": "Gemma",
+      "lab": "Google",
+      "released": "2024-02-21",
+      "openWeights": "Yes",
+      "context": 8192,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Google's first open-weight Gemma models (2B and 7B)",
+      "source": {
+        "title": "Google: Gemma, introducing new state-of-the-art open models",
+        "url": "https://blog.google/technology/developers/gemma-open-models/"
+      }
+    },
+    {
+      "model": "Mistral Large",
+      "lab": "Mistral AI",
+      "released": "2024-02-26",
+      "openWeights": "No",
+      "context": 32000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Closed flagship model offered through Mistral's API.",
+      "source": {
+        "title": "Au Large (Mistral AI)",
+        "url": "https://mistral.ai/news/mistral-large"
+      }
+    },
+    {
+      "model": "Claude 3 Opus",
+      "lab": "Anthropic",
+      "released": "2024-03-04",
+      "openWeights": "No",
+      "context": 200000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 15,
+      "outputPrice": 75,
+      "notes": "Claude 3 family launch (Opus, Sonnet); first Claude models with image input",
+      "source": {
+        "title": "Anthropic: Introducing the next generation of Claude",
+        "url": "https://www.anthropic.com/news/claude-3-family"
+      }
+    },
+    {
+      "model": "Command R",
+      "lab": "Cohere",
+      "released": "2024-03-11",
+      "openWeights": "Yes",
+      "context": 128000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": 0.5,
+      "outputPrice": 1.5,
+      "notes": "RAG- and tool-use-focused model; weights published under a non-commercial CC-BY-NC license",
+      "source": {
+        "title": "Cohere docs: Command R",
+        "url": "https://docs.cohere.com/docs/command-r"
+      }
+    },
+    {
+      "model": "Claude 3 Haiku",
+      "lab": "Anthropic",
+      "released": "2024-03-13",
+      "openWeights": "No",
+      "context": 200000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 0.25,
+      "outputPrice": 1.25,
+      "notes": "Smallest Claude 3 model",
+      "source": {
+        "title": "Anthropic: Claude 3 Haiku",
+        "url": "https://www.anthropic.com/news/claude-3-haiku"
+      }
+    },
+    {
+      "model": "Grok-1 (open weights)",
+      "lab": "xAI",
+      "released": "2024-03-17",
+      "openWeights": "Yes",
+      "context": null,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "314B-parameter mixture-of-experts base model; weights and architecture released under Apache 2.0.",
+      "source": {
+        "title": "Open Release of Grok-1 (xAI)",
+        "url": "https://x.ai/news/grok-os"
+      }
+    },
+    {
+      "model": "Jamba",
+      "lab": "AI21 Labs",
+      "released": "2024-03-28",
+      "openWeights": "Yes",
+      "context": 256000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Hybrid Mamba-Transformer mixture-of-experts model (52B total, 12B active); Apache 2.0 weights",
+      "source": {
+        "title": "AI21 Labs: Introducing Jamba",
+        "url": "https://www.ai21.com/blog/announcing-jamba"
+      }
+    },
+    {
+      "model": "Command R+",
+      "lab": "Cohere",
+      "released": "2024-04-04",
+      "openWeights": "Yes",
+      "context": 128000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": 3,
+      "outputPrice": 15,
+      "notes": "Larger RAG model, first available on Microsoft Azure; CC-BY-NC weights",
+      "source": {
+        "title": "Cohere: Introducing Command R+",
+        "url": "https://cohere.com/blog/command-r-plus-microsoft-azure"
+      }
+    },
+    {
+      "model": "Gemini 1.5 Pro",
+      "lab": "Google",
+      "released": "2024-04-09",
+      "openWeights": "No",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image",
+        "Audio",
+        "Video"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "First public API model with a 1M-token context window; announced February 15, 2024 for limited testing",
+      "source": {
+        "title": "Google Developers Blog: Gemini 1.5 Pro now available in 180+ countries",
+        "url": "https://developers.googleblog.com/en/gemini-15-pro-now-available-in-180-countries-with-native-audio-understanding-system-instructions-json-mode-and-more/"
+      }
+    },
+    {
+      "model": "Mixtral 8x22B",
+      "lab": "Mistral AI",
+      "released": "2024-04-17",
+      "openWeights": "Yes",
+      "context": 64000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Sparse mixture-of-experts; Apache 2.0.",
+      "source": {
+        "title": "Cheaper, Better, Faster, Stronger (Mistral AI)",
+        "url": "https://mistral.ai/news/mixtral-8x22b"
+      }
+    },
+    {
+      "model": "Llama 3",
+      "lab": "Meta",
+      "released": "2024-04-18",
+      "openWeights": "Yes",
+      "context": 8192,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "8B and 70B; trained on 8,192-token sequences with a new 128K-vocabulary tokenizer.",
+      "source": {
+        "title": "Introducing Meta Llama 3 (Meta AI)",
+        "url": "https://ai.meta.com/blog/meta-llama-3/"
+      }
+    },
+    {
+      "model": "Phi-3-mini",
+      "lab": "Microsoft",
+      "released": "2024-04-23",
+      "openWeights": "Yes",
+      "context": 128000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "3.8B parameters; 4K and 128K context variants; Microsoft says first model in its class with a 128K window",
+      "source": {
+        "title": "Microsoft Azure Blog: Introducing Phi-3",
+        "url": "https://azure.microsoft.com/en-us/blog/introducing-phi-3-redefining-whats-possible-with-slms/"
+      }
+    },
+    {
+      "model": "DeepSeek-V2",
+      "lab": "DeepSeek",
+      "released": "2024-05-06",
+      "openWeights": "Yes",
+      "context": 128000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Mixture-of-experts model with 236B total and 21B active parameters; introduced Multi-head Latent Attention. DeepSeek Model License (commercial use allowed).",
+      "source": {
+        "title": "DeepSeek-V2 GitHub README",
+        "url": "https://github.com/deepseek-ai/DeepSeek-V2"
+      }
+    },
+    {
+      "model": "GPT-4o",
+      "lab": "OpenAI",
+      "released": "2024-05-13",
+      "openWeights": "No",
+      "context": 128000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 5.0,
+      "outputPrice": 15.0,
+      "notes": "'Omni' model; API launched with text and vision, audio added later",
+      "source": {
+        "title": "OpenAI API changelog (May 13, 2024)",
+        "url": "https://developers.openai.com/api/docs/changelog"
+      }
+    },
+    {
+      "model": "Codestral",
+      "lab": "Mistral AI",
+      "released": "2024-05-29",
+      "openWeights": "Yes",
+      "context": 32000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Mistral's first code model, 22B; Mistral AI Non-Production License.",
+      "source": {
+        "title": "Codestral (Mistral AI)",
+        "url": "https://mistral.ai/news/codestral"
+      }
+    },
+    {
+      "model": "Qwen2",
+      "lab": "Alibaba Qwen",
+      "released": "2024-06-07",
+      "openWeights": "Yes",
+      "context": 131072,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Sizes 0.5B to 72B; Qwen2-72B kept the Qianwen license while smaller models moved to Apache 2.0.",
+      "source": {
+        "title": "Hello Qwen2 (Qwen blog)",
+        "url": "https://qwenlm.github.io/blog/qwen2/"
+      }
+    },
+    {
+      "model": "Nemotron-4 340B",
+      "lab": "NVIDIA",
+      "released": "2024-06-14",
+      "openWeights": "Yes",
+      "context": null,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Family of open models aimed at synthetic data generation; NVIDIA Open Model License.",
+      "source": {
+        "title": "NVIDIA Releases Open Synthetic Data Generation Pipeline (NVIDIA blog)",
+        "url": "https://blogs.nvidia.com/blog/nemotron-4-synthetic-data-generation-llm-training/"
+      }
+    },
+    {
+      "model": "Claude 3.5 Sonnet",
+      "lab": "Anthropic",
+      "released": "2024-06-20",
+      "openWeights": "No",
+      "context": 200000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 3,
+      "outputPrice": 15,
+      "notes": "Introduced Artifacts in claude.ai; upgraded version in October 2024 added computer use in beta",
+      "source": {
+        "title": "Anthropic: Introducing Claude 3.5 Sonnet",
+        "url": "https://www.anthropic.com/news/claude-3-5-sonnet"
+      }
+    },
+    {
+      "model": "Gemma 2",
+      "lab": "Google",
+      "released": "2024-06-27",
+      "openWeights": "Yes",
+      "context": 8192,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "9B and 27B open models",
+      "source": {
+        "title": "Google: Gemma 2 is now available to researchers and developers",
+        "url": "https://blog.google/technology/developers/google-gemma-2/"
+      }
+    },
+    {
+      "model": "GPT-4o mini",
+      "lab": "OpenAI",
+      "released": "2024-07-18",
+      "openWeights": "No",
+      "context": 128000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 0.15,
+      "outputPrice": 0.6,
+      "notes": "Small, low-cost model that replaced GPT-3.5 Turbo as the cheap default",
+      "source": {
+        "title": "OpenAI API changelog (Jul 18, 2024)",
+        "url": "https://developers.openai.com/api/docs/changelog"
+      }
+    },
+    {
+      "model": "Llama 3.1 405B",
+      "lab": "Meta",
+      "released": "2024-07-23",
+      "openWeights": "Yes",
+      "context": 128000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Meta called the 405B model the first frontier-level open source AI model; 128K context, eight languages.",
+      "source": {
+        "title": "Introducing Llama 3.1: Our most capable models to date (Meta AI)",
+        "url": "https://ai.meta.com/blog/meta-llama-3-1/"
+      }
+    },
+    {
+      "model": "Mistral Large 2",
+      "lab": "Mistral AI",
+      "released": "2024-07-24",
+      "openWeights": "Yes",
+      "context": 128000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "123B parameters; weights under the Mistral Research License (non-commercial).",
+      "source": {
+        "title": "Large Enough (Mistral AI)",
+        "url": "https://mistral.ai/news/mistral-large-2407"
+      }
+    },
+    {
+      "model": "Grok-2",
+      "lab": "xAI",
+      "released": "2024-08-13",
+      "openWeights": "No",
+      "context": null,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Released in beta on X with Grok-2 mini; text and vision understanding.",
+      "source": {
+        "title": "Grok-2 Beta Release (xAI)",
+        "url": "https://x.ai/news/grok-2"
+      }
+    },
+    {
+      "model": "o1-preview",
+      "lab": "OpenAI",
+      "released": "2024-09-12",
+      "openWeights": "No",
+      "context": 128000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": 15.0,
+      "outputPrice": 60.0,
+      "notes": "First OpenAI reasoning model trained with reinforcement learning to think before answering",
+      "source": {
+        "title": "OpenAI API changelog (Sep 12, 2024)",
+        "url": "https://developers.openai.com/api/docs/changelog"
+      }
+    },
+    {
+      "model": "Qwen2.5",
+      "lab": "Alibaba Qwen",
+      "released": "2024-09-19",
+      "openWeights": "Yes",
+      "context": 131072,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Sizes 0.5B to 72B; most under Apache 2.0, with the 3B and 72B models under Qwen licenses.",
+      "source": {
+        "title": "Qwen2.5: A Party of Foundation Models! (Qwen blog)",
+        "url": "https://qwenlm.github.io/blog/qwen2.5/"
+      }
+    },
+    {
+      "model": "Llama 3.2 Vision (11B, 90B)",
+      "lab": "Meta",
+      "released": "2024-09-25",
+      "openWeights": "Yes",
+      "context": 128000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "First Llama models with image input; released alongside 1B and 3B text models for devices.",
+      "source": {
+        "title": "Llama 3.2: edge AI and vision with open, customizable models (Meta AI)",
+        "url": "https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/"
+      }
+    },
+    {
+      "model": "Hunyuan-Large",
+      "lab": "Tencent",
+      "released": "2024-11-05",
+      "openWeights": "Yes",
+      "context": 128000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "MoE with 389B total and 52B active parameters; Tencent described it as the largest open Transformer MoE at release. Instruct model 128K, pretrain 256K.",
+      "source": {
+        "title": "Tencent-Hunyuan-Large GitHub README",
+        "url": "https://github.com/Tencent/Tencent-Hunyuan-Large"
+      }
+    },
+    {
+      "model": "Amazon Nova Pro",
+      "lab": "Amazon",
+      "released": "2024-12-03",
+      "openWeights": "No",
+      "context": 300000,
+      "modalities": [
+        "Text",
+        "Image",
+        "Video"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Launched with Nova Micro (text-only, 128K) and Nova Lite (300K) on Amazon Bedrock",
+      "source": {
+        "title": "AWS News Blog: Introducing Amazon Nova foundation models",
+        "url": "https://aws.amazon.com/blogs/aws/introducing-amazon-nova-frontier-intelligence-and-industry-leading-price-performance/"
+      }
+    },
+    {
+      "model": "Llama 3.3 70B",
+      "lab": "Meta",
+      "released": "2024-12-06",
+      "openWeights": "Yes",
+      "context": 128000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Text-only 70B model; Llama 3.3 Community License.",
+      "source": {
+        "title": "meta-llama/Llama-3.3-70B-Instruct model card (Hugging Face)",
+        "url": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct"
+      }
+    },
+    {
+      "model": "Gemini 2.0 Flash",
+      "lab": "Google",
+      "released": "2024-12-11",
+      "openWeights": "No",
+      "context": 1048576,
+      "modalities": [
+        "Text",
+        "Image",
+        "Audio",
+        "Video"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Experimental release December 11, 2024; generally available February 5, 2025",
+      "source": {
+        "title": "Google: Introducing Gemini 2.0",
+        "url": "https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/"
+      }
+    },
+    {
+      "model": "Phi-4",
+      "lab": "Microsoft",
+      "released": "2024-12-12",
+      "openWeights": "Yes",
+      "context": 16000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "14B-parameter small model focused on math reasoning; MIT license",
+      "source": {
+        "title": "Microsoft Foundry Blog: Introducing Phi-4",
+        "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-phi-4-microsoft%E2%80%99s-newest-small-language-model-specializing-in-comple/4357090"
+      }
+    },
+    {
+      "model": "o1",
+      "lab": "OpenAI",
+      "released": "2024-12-17",
+      "openWeights": "No",
+      "context": 200000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 15.0,
+      "outputPrice": 60.0,
+      "notes": "Full o1 in the API with reasoning_effort control and image input",
+      "source": {
+        "title": "OpenAI API changelog (Dec 17, 2024)",
+        "url": "https://developers.openai.com/api/docs/changelog"
+      }
+    },
+    {
+      "model": "DeepSeek-V3",
+      "lab": "DeepSeek",
+      "released": "2024-12-26",
+      "openWeights": "Yes",
+      "context": 128000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": 0.27,
+      "outputPrice": 1.1,
+      "notes": "MoE with 671B total and 37B active parameters, trained on 14.8T tokens. Listed price applied from 2025-02-08; V2 prices applied until then.",
+      "source": {
+        "title": "Introducing DeepSeek-V3 (DeepSeek API news)",
+        "url": "https://api-docs.deepseek.com/news/news1226"
+      }
+    },
+    {
+      "model": "MiniMax-01 (MiniMax-Text-01)",
+      "lab": "MiniMax",
+      "released": "2025-01-15",
+      "openWeights": "Yes",
+      "context": 1000000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": 0.2,
+      "outputPrice": 1.1,
+      "notes": "MoE with 456B total and 45.9B active parameters using lightning (linear) attention; MiniMax says it handles up to 4M tokens at inference.",
+      "source": {
+        "title": "MiniMax-01 is Now Open-Source (MiniMax news)",
+        "url": "https://www.minimax.io/news/minimax-01-series-2"
+      }
+    },
+    {
+      "model": "DeepSeek-R1",
+      "lab": "DeepSeek",
+      "released": "2025-01-20",
+      "openWeights": "Yes",
+      "context": 128000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": 0.55,
+      "outputPrice": 2.19,
+      "notes": "Open-weight reasoning model trained with large-scale RL, released under MIT with six distilled smaller models; DeepSeek reported o1-level math, code and reasoning.",
+      "source": {
+        "title": "DeepSeek-R1 Release (DeepSeek API news, archived copy)",
+        "url": "https://web.archive.org/web/20250202014805/https://api-docs.deepseek.com/news/news250120"
+      }
+    },
+    {
+      "model": "Mistral Small 3",
+      "lab": "Mistral AI",
+      "released": "2025-01-30",
+      "openWeights": "Yes",
+      "context": 32000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "24B latency-optimized model; Apache 2.0.",
+      "source": {
+        "title": "Mistral Small 3 (Mistral AI)",
+        "url": "https://mistral.ai/news/mistral-small-3"
+      }
+    },
+    {
+      "model": "o3-mini",
+      "lab": "OpenAI",
+      "released": "2025-01-31",
+      "openWeights": "No",
+      "context": 200000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": 1.1,
+      "outputPrice": 4.4,
+      "notes": "Small reasoning model for science, math and coding",
+      "source": {
+        "title": "OpenAI API changelog (Jan 31, 2025)",
+        "url": "https://developers.openai.com/api/docs/changelog"
+      }
+    },
+    {
+      "model": "Grok 3",
+      "lab": "xAI",
+      "released": "2025-02-19",
+      "openWeights": "No",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "xAI says context is 8x its previous models; added Think reasoning mode and DeepSearch.",
+      "source": {
+        "title": "Grok 3 Beta: The Age of Reasoning Agents (xAI)",
+        "url": "https://x.ai/news/grok-3"
+      }
+    },
+    {
+      "model": "Claude 3.7 Sonnet",
+      "lab": "Anthropic",
+      "released": "2025-02-24",
+      "openWeights": "No",
+      "context": null,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 3,
+      "outputPrice": 15,
+      "notes": "Anthropic calls it the first hybrid reasoning model on the market (instant or extended thinking); launched with Claude Code preview",
+      "source": {
+        "title": "Anthropic: Claude 3.7 Sonnet and Claude Code",
+        "url": "https://www.anthropic.com/news/claude-3-7-sonnet"
+      }
+    },
+    {
+      "model": "GPT-4.5",
+      "lab": "OpenAI",
+      "released": "2025-02-27",
+      "openWeights": "No",
+      "context": 128000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 75.0,
+      "outputPrice": 150.0,
+      "notes": "Research preview; OpenAI's largest chat model at the time and its most expensive per token; deprecated in April 2025",
+      "source": {
+        "title": "OpenAI API changelog (Feb 27, 2025)",
+        "url": "https://developers.openai.com/api/docs/changelog"
+      }
+    },
+    {
+      "model": "QwQ-32B",
+      "lab": "Alibaba Qwen",
+      "released": "2025-03-06",
+      "openWeights": "Yes",
+      "context": 131072,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "32B dense reasoning model trained with reinforcement learning, Apache 2.0.",
+      "source": {
+        "title": "QwQ-32B: Embracing the Power of Reinforcement Learning (Qwen blog)",
+        "url": "https://qwenlm.github.io/blog/qwq-32b/"
+      }
+    },
+    {
+      "model": "Gemma 3",
+      "lab": "Google",
+      "released": "2025-03-12",
+      "openWeights": "Yes",
+      "context": 128000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Open models from 1B to 27B with text and image input",
+      "source": {
+        "title": "Google: Introducing Gemma 3",
+        "url": "https://blog.google/technology/developers/gemma-3/"
+      }
+    },
+    {
+      "model": "Command A",
+      "lab": "Cohere",
+      "released": "2025-03-13",
+      "openWeights": "Yes",
+      "context": 256000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": 2.5,
+      "outputPrice": 10,
+      "notes": "111B parameters, runs on two GPUs; CC-BY-NC weights",
+      "source": {
+        "title": "Cohere docs: Command A",
+        "url": "https://docs.cohere.com/docs/command-a"
+      }
+    },
+    {
+      "model": "Gemini 2.5 Pro",
+      "lab": "Google",
+      "released": "2025-03-25",
+      "openWeights": "No",
+      "context": 1048576,
+      "modalities": [
+        "Text",
+        "Image",
+        "Audio",
+        "Video",
+        "PDF"
+      ],
+      "inputPrice": 1.25,
+      "outputPrice": 10,
+      "notes": "Thinking model released as experimental; paid preview pricing from April 4, 2025 ($1.25/$10 for prompts up to 200K tokens)",
+      "source": {
+        "title": "Google: Gemini 2.5, our most intelligent AI model",
+        "url": "https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/"
+      }
+    },
+    {
+      "model": "Llama 4 Maverick",
+      "lab": "Meta",
+      "released": "2025-04-05",
+      "openWeights": "Yes",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "17B active, 400B total parameters, 128 experts; natively multimodal.",
+      "source": {
+        "title": "The Llama 4 herd (Meta AI)",
+        "url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/"
+      }
+    },
+    {
+      "model": "Llama 4 Scout",
+      "lab": "Meta",
+      "released": "2025-04-05",
+      "openWeights": "Yes",
+      "context": 10000000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "First Llama mixture-of-experts models (17B active, 109B total); Meta called its 10M-token context industry-leading.",
+      "source": {
+        "title": "The Llama 4 herd (Meta AI)",
+        "url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/"
+      }
+    },
+    {
+      "model": "GPT-4.1",
+      "lab": "OpenAI",
+      "released": "2025-04-14",
+      "openWeights": "No",
+      "context": 1047576,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 2.0,
+      "outputPrice": 8.0,
+      "notes": "First OpenAI models with a 1M-token context window (with GPT-4.1 mini and nano)",
+      "source": {
+        "title": "OpenAI API changelog (Apr 14, 2025)",
+        "url": "https://developers.openai.com/api/docs/changelog"
+      }
+    },
+    {
+      "model": "o3",
+      "lab": "OpenAI",
+      "released": "2025-04-16",
+      "openWeights": "No",
+      "context": 200000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 10.0,
+      "outputPrice": 40.0,
+      "notes": "Released with o4-mini; price cut 80% to $2/$8 on 2025-06-10",
+      "source": {
+        "title": "OpenAI API changelog (Apr 16, 2025)",
+        "url": "https://developers.openai.com/api/docs/changelog"
+      }
+    },
+    {
+      "model": "Qwen3 (Qwen3-235B-A22B)",
+      "lab": "Alibaba Qwen",
+      "released": "2025-04-29",
+      "openWeights": "Yes",
+      "context": 128000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Hybrid thinking/non-thinking family; flagship MoE has 235B total and 22B active parameters; Apache 2.0.",
+      "source": {
+        "title": "Qwen3: Think Deeper, Act Faster (Qwen blog)",
+        "url": "https://qwenlm.github.io/blog/qwen3/"
+      }
+    },
+    {
+      "model": "Amazon Nova Premier",
+      "lab": "Amazon",
+      "released": "2025-04-30",
+      "openWeights": "No",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image",
+        "Video"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Amazon's most capable Nova 1 model and a teacher for model distillation",
+      "source": {
+        "title": "AWS News Blog: Amazon Nova Premier",
+        "url": "https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/"
+      }
+    },
+    {
+      "model": "Mistral Medium 3",
+      "lab": "Mistral AI",
+      "released": "2025-05-07",
+      "openWeights": "No",
+      "context": null,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 0.4,
+      "outputPrice": 2,
+      "notes": "Closed model Mistral pitched at 90% of Claude Sonnet 3.7's benchmark scores for lower cost.",
+      "source": {
+        "title": "Medium is the new large (Mistral AI)",
+        "url": "https://mistral.ai/news/mistral-medium-3"
+      }
+    },
+    {
+      "model": "Claude Opus 4",
+      "lab": "Anthropic",
+      "released": "2025-05-22",
+      "openWeights": "No",
+      "context": null,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 15,
+      "outputPrice": 75,
+      "notes": "Claude 4 launch with Sonnet 4 ($3/$15); Claude Code became generally available",
+      "source": {
+        "title": "Anthropic: Introducing Claude 4",
+        "url": "https://www.anthropic.com/news/claude-4"
+      }
+    },
+    {
+      "model": "Claude Sonnet 4",
+      "lab": "Anthropic",
+      "released": "2025-05-22",
+      "openWeights": "No",
+      "context": null,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 3,
+      "outputPrice": 15,
+      "notes": "Released alongside Opus 4; available to free claude.ai users",
+      "source": {
+        "title": "Anthropic: Introducing Claude 4",
+        "url": "https://www.anthropic.com/news/claude-4"
+      }
+    },
+    {
+      "model": "ERNIE 4.5 (ERNIE-4.5-300B-A47B)",
+      "lab": "Baidu",
+      "released": "2025-06",
+      "openWeights": "Yes",
+      "context": 131072,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Baidu's first open-weight ERNIE family (ten variants up to 424B total parameters), Apache 2.0; rollout began June 29-30, 2025.",
+      "source": {
+        "title": "China's Baidu open-sources its Ernie AI model (SiliconANGLE)",
+        "url": "https://siliconangle.com/2025/06/29/chinas-baidu-declares-war-openai-others-open-sourcing-ernie-ai-model/"
+      }
+    },
+    {
+      "model": "Magistral Small / Medium",
+      "lab": "Mistral AI",
+      "released": "2025-06-10",
+      "openWeights": "Yes",
+      "context": 128000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Mistral's first reasoning models; Small (24B) open under Apache 2.0, Medium closed. Context figure is for Small.",
+      "source": {
+        "title": "Magistral (Mistral AI)",
+        "url": "https://mistral.ai/news/magistral"
+      }
+    },
+    {
+      "model": "MiniMax-M1",
+      "lab": "MiniMax",
+      "released": "2025-06-16",
+      "openWeights": "Yes",
+      "context": 1000000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": 0.4,
+      "outputPrice": 2.2,
+      "notes": "Hybrid-attention reasoning model (456B total, 45.9B active) with a 1M-token context; price shown is for inputs up to 200K tokens. Apache 2.0.",
+      "source": {
+        "title": "MiniMax-M1 announcement (MiniMax news)",
+        "url": "https://www.minimax.io/news/minimaxm1"
+      }
+    },
+    {
+      "model": "Grok 4",
+      "lab": "xAI",
+      "released": "2025-07-09",
+      "openWeights": "No",
+      "context": 256000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Native tool use and real-time search; API context 256,000 tokens.",
+      "source": {
+        "title": "Grok 4 (xAI)",
+        "url": "https://x.ai/news/grok-4"
+      }
+    },
+    {
+      "model": "Kimi K2",
+      "lab": "Moonshot AI",
+      "released": "2025-07-11",
+      "openWeights": "Yes",
+      "context": 128000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "MoE with 1T total and 32B active parameters, trained with the Muon optimizer; modified MIT license.",
+      "source": {
+        "title": "Kimi K2: Open Agentic Intelligence (Moonshot AI)",
+        "url": "https://www.kimi.com/en/blog/kimi-k2"
+      }
+    },
+    {
+      "model": "GLM-4.5",
+      "lab": "Z.ai (Zhipu)",
+      "released": "2025-07-28",
+      "openWeights": "Yes",
+      "context": 128000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "MoE with 355B total and 32B active parameters (Air: 106B/12B), MIT license.",
+      "source": {
+        "title": "GLM-4.5: Reasoning, Coding, and Agentic Abilities (Z.ai blog)",
+        "url": "https://z.ai/blog/glm-4.5"
+      }
+    },
+    {
+      "model": "Grok 2 (open weights)",
+      "lab": "xAI",
+      "released": "2025-08",
+      "openWeights": "Yes",
+      "context": null,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Weights of the 2024 Grok 2 model published under the Grok 2 Community License Agreement.",
+      "source": {
+        "title": "xai-org/grok-2 (Hugging Face)",
+        "url": "https://huggingface.co/xai-org/grok-2"
+      }
+    },
+    {
+      "model": "gpt-oss-120b",
+      "lab": "OpenAI",
+      "released": "2025-08-05",
+      "openWeights": "Yes",
+      "context": 131072,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "OpenAI's first open-weight language models since GPT-2 (with gpt-oss-20b); Apache 2.0; 117B total, 5.1B active parameters",
+      "source": {
+        "title": "OpenAI: Introducing gpt-oss",
+        "url": "https://openai.com/index/introducing-gpt-oss/"
+      }
+    },
+    {
+      "model": "GPT-5",
+      "lab": "OpenAI",
+      "released": "2025-08-07",
+      "openWeights": "No",
+      "context": 400000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 1.25,
+      "outputPrice": 10.0,
+      "notes": "Released in three sizes (gpt-5, mini, nano); 272K input plus 128K output tokens",
+      "source": {
+        "title": "OpenAI: Introducing GPT-5 for developers",
+        "url": "https://openai.com/index/introducing-gpt-5-for-developers/"
+      }
+    },
+    {
+      "model": "Seed-OSS-36B",
+      "lab": "ByteDance Seed",
+      "released": "2025-08-20",
+      "openWeights": "Yes",
+      "context": 512000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "36B dense model trained on 12T tokens with native 512K context, Apache 2.0.",
+      "source": {
+        "title": "Seed-OSS-36B-Instruct model card (Hugging Face)",
+        "url": "https://huggingface.co/ByteDance-Seed/Seed-OSS-36B-Instruct"
+      }
+    },
+    {
+      "model": "DeepSeek-V3.1",
+      "lab": "DeepSeek",
+      "released": "2025-08-21",
+      "openWeights": "Yes",
+      "context": 128000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Single model with switchable thinking and non-thinking modes; MIT license.",
+      "source": {
+        "title": "DeepSeek-V3.1 Release (DeepSeek API news)",
+        "url": "https://api-docs.deepseek.com/news/news250821"
+      }
+    },
+    {
+      "model": "MAI-1-preview",
+      "lab": "Microsoft",
+      "released": "2025-08-28",
+      "openWeights": "No",
+      "context": null,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Microsoft AI's first foundation model trained end to end in-house; public testing on LMArena",
+      "source": {
+        "title": "Microsoft AI: Two in-house models in support of our mission",
+        "url": "https://microsoft.ai/news/two-new-in-house-models/"
+      }
+    },
+    {
+      "model": "Qwen3-Max-Preview",
+      "lab": "Alibaba Qwen",
+      "released": "2025-09-05",
+      "openWeights": "No",
+      "context": 262144,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Alibaba's first model above 1 trillion parameters; API and Qwen Chat only, no open weights.",
+      "source": {
+        "title": "Qwen3-Max arrives in preview with 1 trillion parameters (VentureBeat)",
+        "url": "https://venturebeat.com/ai/qwen3-max-arrives-in-preview-with-1-trillion-parameters-blazing-fast"
+      }
+    },
+    {
+      "model": "Claude Sonnet 4.5",
+      "lab": "Anthropic",
+      "released": "2025-09-29",
+      "openWeights": "No",
+      "context": 200000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 3,
+      "outputPrice": 15,
+      "notes": "Sonnet upgrade focused on coding and agents",
+      "source": {
+        "title": "Anthropic: Introducing Claude Sonnet 4.5",
+        "url": "https://www.anthropic.com/news/claude-sonnet-4-5"
+      }
+    },
+    {
+      "model": "Claude Haiku 4.5",
+      "lab": "Anthropic",
+      "released": "2025-10-15",
+      "openWeights": "No",
+      "context": 200000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 1,
+      "outputPrice": 5,
+      "notes": "Small model priced at $1/$5",
+      "source": {
+        "title": "Anthropic: Introducing Claude Haiku 4.5",
+        "url": "https://www.anthropic.com/news/claude-haiku-4-5"
+      }
+    },
+    {
+      "model": "MiniMax-M2",
+      "lab": "MiniMax",
+      "released": "2025-10-27",
+      "openWeights": "Yes",
+      "context": null,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": 0.3,
+      "outputPrice": 1.2,
+      "notes": "MoE with 230B total and 10B active parameters aimed at coding and agents; modified MIT license.",
+      "source": {
+        "title": "MiniMax M2 & Agent: Ingenious in Simplicity (MiniMax news)",
+        "url": "https://www.minimax.io/news/minimax-m2"
+      }
+    },
+    {
+      "model": "Kimi K2 Thinking",
+      "lab": "Moonshot AI",
+      "released": "2025-11-06",
+      "openWeights": "Yes",
+      "context": 256000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Thinking-agent version of K2 (1T total, 32B active) that reasons while calling tools; modified MIT license.",
+      "source": {
+        "title": "Introducing Kimi K2 Thinking (Moonshot AI)",
+        "url": "https://www.kimi.com/en/blog/kimi-k2-thinking"
+      }
+    },
+    {
+      "model": "GPT-5.1",
+      "lab": "OpenAI",
+      "released": "2025-11-13",
+      "openWeights": "No",
+      "context": 400000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 1.25,
+      "outputPrice": 10.0,
+      "notes": "Added a 'none' reasoning setting as the default for faster replies",
+      "source": {
+        "title": "OpenAI API changelog (Nov 13, 2025)",
+        "url": "https://developers.openai.com/api/docs/changelog"
+      }
+    },
+    {
+      "model": "Gemini 3 Pro",
+      "lab": "Google",
+      "released": "2025-11-18",
+      "openWeights": "No",
+      "context": 1048576,
+      "modalities": [
+        "Text",
+        "Image",
+        "Audio",
+        "Video",
+        "PDF"
+      ],
+      "inputPrice": 2,
+      "outputPrice": 12,
+      "notes": "First Gemini 3 model, released in preview; price applies to prompts up to 200K tokens",
+      "source": {
+        "title": "Google: Gemini 3 for developers",
+        "url": "https://blog.google/technology/developers/gemini-3-developers/"
+      }
+    },
+    {
+      "model": "Claude Opus 4.5",
+      "lab": "Anthropic",
+      "released": "2025-11-24",
+      "openWeights": "No",
+      "context": 200000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 5,
+      "outputPrice": 25,
+      "notes": "Cut Opus pricing from $15/$75 to $5/$25",
+      "source": {
+        "title": "Anthropic: Introducing Claude Opus 4.5",
+        "url": "https://www.anthropic.com/news/claude-opus-4-5"
+      }
+    },
+    {
+      "model": "DeepSeek-V3.2",
+      "lab": "DeepSeek",
+      "released": "2025-12-01",
+      "openWeights": "Yes",
+      "context": 128000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": 0.28,
+      "outputPrice": 0.42,
+      "notes": "Successor to V3.2-Exp (2025-09-29), which introduced DeepSeek Sparse Attention; first DeepSeek model to integrate thinking into tool use. MIT license.",
+      "source": {
+        "title": "DeepSeek-V3.2 Release (DeepSeek API news)",
+        "url": "https://api-docs.deepseek.com/news/news251201"
+      }
+    },
+    {
+      "model": "Amazon Nova 2 Lite",
+      "lab": "Amazon",
+      "released": "2025-12-02",
+      "openWeights": "No",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image",
+        "Video",
+        "PDF"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Reasoning model with three thinking levels; Nova 2 Pro released the same day in preview",
+      "source": {
+        "title": "AWS News Blog: Introducing Amazon Nova 2 Lite",
+        "url": "https://aws.amazon.com/blogs/aws/introducing-amazon-nova-2-lite-a-fast-cost-effective-reasoning-model/"
+      }
+    },
+    {
+      "model": "Mistral Large 3",
+      "lab": "Mistral AI",
+      "released": "2025-12-02",
+      "openWeights": "Yes",
+      "context": 256000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 0.5,
+      "outputPrice": 1.5,
+      "notes": "675B total / 41B active mixture-of-experts; Apache 2.0 with image understanding.",
+      "source": {
+        "title": "Introducing Mistral 3 (Mistral AI)",
+        "url": "https://mistral.ai/news/mistral-3"
+      }
+    },
+    {
+      "model": "GPT-5.2",
+      "lab": "OpenAI",
+      "released": "2025-12-11",
+      "openWeights": "No",
+      "context": 400000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 1.75,
+      "outputPrice": 14.0,
+      "notes": "Added an xhigh reasoning effort level and compaction",
+      "source": {
+        "title": "OpenAI API changelog (Dec 11, 2025)",
+        "url": "https://developers.openai.com/api/docs/changelog"
+      }
+    },
+    {
+      "model": "Jamba2",
+      "lab": "AI21 Labs",
+      "released": "2026-01-08",
+      "openWeights": "Yes",
+      "context": 256000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Jamba2 3B and Jamba2 Mini (52B total, 12B active); Apache 2.0 weights",
+      "source": {
+        "title": "AI21 Labs: Introducing Jamba2",
+        "url": "https://www.ai21.com/blog/introducing-jamba2/"
+      }
+    },
+    {
+      "model": "Kimi K2.5",
+      "lab": "Moonshot AI",
+      "released": "2026-01-27",
+      "openWeights": "Yes",
+      "context": 256000,
+      "modalities": [
+        "Text",
+        "Image",
+        "Video"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Natively multimodal K2 continuation (about 15T mixed visual and text tokens); 1T total, 32B active; modified MIT license.",
+      "source": {
+        "title": "Kimi K2.5: Visual Agentic Intelligence (Moonshot AI)",
+        "url": "https://www.kimi.com/en/blog/kimi-k2-5"
+      }
+    },
+    {
+      "model": "Qwen3.5 (Qwen3.5-397B-A17B)",
+      "lab": "Alibaba Qwen",
+      "released": "2026-02",
+      "openWeights": "Yes",
+      "context": 262144,
+      "modalities": [
+        "Text",
+        "Image",
+        "Video"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "MoE with 397B total and 17B active parameters; first Qwen open-weight flagship with native vision. Apache 2.0; hosted Qwen3.5-Plus offers 1M context.",
+      "source": {
+        "title": "Alibaba's Qwen 3.5 397B-A17B (VentureBeat)",
+        "url": "https://venturebeat.com/technology/alibabas-qwen-3-5-397b-a17-beats-its-larger-trillion-parameter-model-at-a"
+      }
+    },
+    {
+      "model": "Claude Opus 4.6",
+      "lab": "Anthropic",
+      "released": "2026-02-05",
+      "openWeights": "No",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 5,
+      "outputPrice": 25,
+      "notes": "First Opus model with a 1M-token context window (in beta at launch)",
+      "source": {
+        "title": "Anthropic: Claude Opus 4.6",
+        "url": "https://www.anthropic.com/news/claude-opus-4-6"
+      }
+    },
+    {
+      "model": "GLM-5",
+      "lab": "Z.ai (Zhipu)",
+      "released": "2026-02-12",
+      "openWeights": "Yes",
+      "context": 202752,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "MoE with 744B total and 40B active parameters, adopting DeepSeek Sparse Attention; MIT license.",
+      "source": {
+        "title": "GLM-5: From Vibe Coding to Agentic Engineering (Z.ai blog)",
+        "url": "https://z.ai/blog/glm-5"
+      }
+    },
+    {
+      "model": "Claude Sonnet 4.6",
+      "lab": "Anthropic",
+      "released": "2026-02-17",
+      "openWeights": "No",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 3,
+      "outputPrice": 15,
+      "notes": "1M-token context in beta at launch; default model for Free and Pro plans",
+      "source": {
+        "title": "Anthropic: Introducing Sonnet 4.6",
+        "url": "https://www.anthropic.com/news/claude-sonnet-4-6"
+      }
+    },
+    {
+      "model": "Gemini 3.1 Pro",
+      "lab": "Google",
+      "released": "2026-02-19",
+      "openWeights": "No",
+      "context": 1048576,
+      "modalities": [
+        "Text",
+        "Image",
+        "Audio",
+        "Video",
+        "PDF"
+      ],
+      "inputPrice": 2,
+      "outputPrice": 12,
+      "notes": "Released in preview in the Gemini API and Gemini app; price for prompts up to 200K tokens",
+      "source": {
+        "title": "Google: Gemini 3.1 Pro",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/"
+      }
+    },
+    {
+      "model": "GPT-5.4",
+      "lab": "OpenAI",
+      "released": "2026-03-05",
+      "openWeights": "No",
+      "context": 1050000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 2.5,
+      "outputPrice": 15.0,
+      "notes": "First GPT-5 model with a 1M-token context window and built-in computer use",
+      "source": {
+        "title": "OpenAI API changelog (Mar 5, 2026)",
+        "url": "https://developers.openai.com/api/docs/changelog"
+      }
+    },
+    {
+      "model": "Mistral Small 4",
+      "lab": "Mistral AI",
+      "released": "2026-03-16",
+      "openWeights": "Yes",
+      "context": 256000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 0.15,
+      "outputPrice": 0.6,
+      "notes": "119B total / 6.5B active; unifies instruct, reasoning and coding; Apache 2.0.",
+      "source": {
+        "title": "Introducing Mistral Small 4 (Mistral AI)",
+        "url": "https://mistral.ai/news/mistral-small-4"
+      }
+    },
+    {
+      "model": "Gemma 4",
+      "lab": "Google",
+      "released": "2026-04-02",
+      "openWeights": "Yes",
+      "context": 256000,
+      "modalities": [
+        "Text",
+        "Image",
+        "Audio"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Released under the Apache 2.0 license; up to 256K context; audio input on smaller sizes",
+      "source": {
+        "title": "Google: Gemma 4",
+        "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/"
+      }
+    },
+    {
+      "model": "Claude Mythos Preview",
+      "lab": "Anthropic",
+      "released": "2026-04-07",
+      "openWeights": "No",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 25,
+      "outputPrice": 125,
+      "notes": "Restricted to Project Glasswing cybersecurity partners; Anthropic does not plan general availability",
+      "source": {
+        "title": "Anthropic: Project Glasswing",
+        "url": "https://www.anthropic.com/glasswing"
+      }
+    },
+    {
+      "model": "Muse Spark",
+      "lab": "Meta",
+      "released": "2026-04-08",
+      "openWeights": "No",
+      "context": null,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "First model from Meta Superintelligence Labs; launched in meta.ai and the Meta AI app, API only in private preview.",
+      "source": {
+        "title": "Introducing Muse Spark (Meta AI)",
+        "url": "https://ai.meta.com/blog/introducing-muse-spark-msl/"
+      }
+    },
+    {
+      "model": "Claude Opus 4.7",
+      "lab": "Anthropic",
+      "released": "2026-04-16",
+      "openWeights": "No",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 5,
+      "outputPrice": 25,
+      "notes": "Higher-resolution vision; introduced the current Claude tokenizer",
+      "source": {
+        "title": "Anthropic: Introducing Claude Opus 4.7",
+        "url": "https://www.anthropic.com/news/claude-opus-4-7"
+      }
+    },
+    {
+      "model": "DeepSeek-V4-Flash",
+      "lab": "DeepSeek",
+      "released": "2026-04-24",
+      "openWeights": "Yes",
+      "context": 1000000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": 0.14,
+      "outputPrice": 0.28,
+      "notes": "Smaller V4 preview model with 284B total and 13B active parameters, MIT license.",
+      "source": {
+        "title": "DeepSeek V4 Preview Release (DeepSeek API news)",
+        "url": "https://api-docs.deepseek.com/news/news260424"
+      }
+    },
+    {
+      "model": "DeepSeek-V4-Pro",
+      "lab": "DeepSeek",
+      "released": "2026-04-24",
+      "openWeights": "Yes",
+      "context": 1000000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": 1.74,
+      "outputPrice": 3.48,
+      "notes": "Preview release; MoE with 1.6T total and 49B active parameters, MIT license. Launched at a 75% discount; general availability 2026-08-13.",
+      "source": {
+        "title": "DeepSeek V4 Preview Release (DeepSeek API news)",
+        "url": "https://api-docs.deepseek.com/news/news260424"
+      }
+    },
+    {
+      "model": "GPT-5.5",
+      "lab": "OpenAI",
+      "released": "2026-04-24",
+      "openWeights": "No",
+      "context": 1050000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 5.0,
+      "outputPrice": 30.0,
+      "notes": "Released with GPT-5.5 Pro for harder problems",
+      "source": {
+        "title": "OpenAI API changelog (Apr 24, 2026)",
+        "url": "https://developers.openai.com/api/docs/changelog"
+      }
+    },
+    {
+      "model": "Mistral Medium 3.5",
+      "lab": "Mistral AI",
+      "released": "2026-04-28",
+      "openWeights": "Yes",
+      "context": 256000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 1.5,
+      "outputPrice": 7.5,
+      "notes": "Dense 128B model merging instruct, reasoning and coding; modified MIT license.",
+      "source": {
+        "title": "Mistral changelog (Mistral AI docs)",
+        "url": "https://docs.mistral.ai/resources/changelogs"
+      }
+    },
+    {
+      "model": "Command A+",
+      "lab": "Cohere",
+      "released": "2026-05-20",
+      "openWeights": "Yes",
+      "context": 128000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Cohere's first mixture-of-experts model (218B total, 25B active); Apache 2.0 license",
+      "source": {
+        "title": "Cohere changelog: Announcing Command A+",
+        "url": "https://docs.cohere.com/changelog"
+      }
+    },
+    {
+      "model": "Claude Opus 4.8",
+      "lab": "Anthropic",
+      "released": "2026-05-28",
+      "openWeights": "No",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 5,
+      "outputPrice": 25,
+      "notes": "Fast mode priced at $10/$50",
+      "source": {
+        "title": "Anthropic: Introducing Claude Opus 4.8",
+        "url": "https://www.anthropic.com/news/claude-opus-4-8"
+      }
+    },
+    {
+      "model": "MiniMax-M3",
+      "lab": "MiniMax",
+      "released": "2026-06-01",
+      "openWeights": "Yes",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image",
+        "Video"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Native multimodal MoE (about 428B total, 23B active) with MiniMax Sparse Attention; weights followed within about 10 days under the MiniMax Community License.",
+      "source": {
+        "title": "MiniMax M3: Frontier Coding, 1M Context, Native Multimodality (MiniMax)",
+        "url": "https://www.minimax.io/blog/minimax-m3"
+      }
+    },
+    {
+      "model": "Nemotron 3 Ultra",
+      "lab": "NVIDIA",
+      "released": "2026-06-04",
+      "openWeights": "Yes",
+      "context": 1000000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "550B total / 55B active hybrid Mamba-Transformer mixture-of-experts; OpenMDW-1.1 license.",
+      "source": {
+        "title": "NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16 model card (Hugging Face)",
+        "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16"
+      }
+    },
+    {
+      "model": "Claude Fable 5",
+      "lab": "Anthropic",
+      "released": "2026-06-09",
+      "openWeights": "No",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 10,
+      "outputPrice": 50,
+      "notes": "New tier above Opus; Claude Mythos 5, released the same day, is offered only through a trusted access program",
+      "source": {
+        "title": "Anthropic: Claude Fable 5 and Claude Mythos 5",
+        "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5"
+      }
+    },
+    {
+      "model": "GLM-5.2",
+      "lab": "Z.ai (Zhipu)",
+      "released": "2026-06-16",
+      "openWeights": "Yes",
+      "context": 1000000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Long-horizon model with a 1M-token context, MIT license.",
+      "source": {
+        "title": "GLM-5.2: Built for Long-Horizon Tasks (Z.ai blog)",
+        "url": "https://z.ai/blog/glm-5.2"
+      }
+    },
+    {
+      "model": "Claude Sonnet 5",
+      "lab": "Anthropic",
+      "released": "2026-06-30",
+      "openWeights": "No",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 2,
+      "outputPrice": 10,
+      "notes": "Launched at $2/$10 introductory pricing, later made the standard price",
+      "source": {
+        "title": "Anthropic: Introducing Claude Sonnet 5",
+        "url": "https://www.anthropic.com/news/claude-sonnet-5"
+      }
+    },
+    {
+      "model": "GPT-5.6 Sol",
+      "lab": "OpenAI",
+      "released": "2026-07-09",
+      "openWeights": "No",
+      "context": 1050000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 4.0,
+      "outputPrice": 20.0,
+      "notes": "Flagship of the GPT-5.6 family, released with GPT-5.6 Terra ($2/$12) and Luna ($0.20/$1.20)",
+      "source": {
+        "title": "OpenAI API changelog (Jul 9, 2026)",
+        "url": "https://developers.openai.com/api/docs/changelog"
+      }
+    },
+    {
+      "model": "Inkling",
+      "lab": "Thinking Machines Lab",
+      "released": "2026-07-15",
+      "openWeights": "Yes",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image",
+        "Audio"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Thinking Machines' first model; 975B total / 41B active mixture-of-experts; Apache 2.0.",
+      "source": {
+        "title": "Inkling: Our Open-Weights Model (Thinking Machines Lab)",
+        "url": "https://thinkingmachines.ai/news/introducing-inkling/"
+      }
+    },
+    {
+      "model": "Kimi K3",
+      "lab": "Moonshot AI",
+      "released": "2026-07-16",
+      "openWeights": "Yes",
+      "context": 1048576,
+      "modalities": [
+        "Text",
+        "Image",
+        "Video"
+      ],
+      "inputPrice": 3.0,
+      "outputPrice": 15.0,
+      "notes": "2.8T-parameter MoE (model card: 104B active) that Moonshot calls the first open 3T-class model; weights promised by 2026-07-27 under the Kimi K3 License.",
+      "source": {
+        "title": "Kimi K3: Open Frontier Intelligence (Moonshot AI)",
+        "url": "https://www.kimi.com/en/blog/kimi-k3"
+      }
+    },
+    {
+      "model": "Grok 4.5",
+      "lab": "xAI",
+      "released": "2026-07-16",
+      "openWeights": "No",
+      "context": 500000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 2,
+      "outputPrice": 6,
+      "notes": "Published under the SpaceXSI brand (SpaceX Super Intelligence LLC) on x.ai; aimed at coding, agentic tasks and knowledge work.",
+      "source": {
+        "title": "Introducing Grok 4.5 (SpaceXSI)",
+        "url": "https://x.ai/news/grok-4-5"
+      }
+    },
+    {
+      "model": "Claude Opus 5",
+      "lab": "Anthropic",
+      "released": "2026-07-24",
+      "openWeights": "No",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 5,
+      "outputPrice": 25,
+      "notes": "Anthropic says it comes close to Fable 5 at half the price",
+      "source": {
+        "title": "Anthropic: Introducing Claude Opus 5",
+        "url": "https://www.anthropic.com/news/claude-opus-5"
+      }
+    },
+    {
+      "model": "Qwen3.8-Max",
+      "lab": "Alibaba Qwen",
+      "released": "2026-08-03",
+      "openWeights": "Yes",
+      "context": 1000000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "MoE with 2.4T total and 95B active parameters; API first, open weights (Qwen3.8-2.4T-A95B, text-only, custom license) followed in August 2026.",
+      "source": {
+        "title": "Alibaba Unveils Qwen3.8-Max (Alibaba Group)",
+        "url": "https://www.alibabagroup.com/document-2021044032125272064"
+      }
+    },
+    {
+      "model": "MAI-Thinking-1",
+      "lab": "Microsoft",
+      "released": "2026-08-12",
+      "openWeights": "No",
+      "context": 256000,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Microsoft AI's first reasoning model; announced at Build on 2026-06-02 in private preview, public preview on Microsoft Foundry from 2026-08-12",
+      "source": {
+        "title": "Microsoft AI: Introducing MAI-Thinking-1",
+        "url": "https://microsoft.ai/news/introducing-mai-thinking-1/"
+      }
+    },
+    {
+      "model": "GLM-5.3",
+      "lab": "Z.ai (Zhipu)",
+      "released": "2026-08-18",
+      "openWeights": "Yes",
+      "context": 1048576,
+      "modalities": [
+        "Text"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Same base as GLM-5.2 with stronger coding; moved from MIT to a custom GLM-5.3 license with conditions for large model-as-a-service operators.",
+      "source": {
+        "title": "Z.ai release notes (New Released)",
+        "url": "https://docs.z.ai/release-notes/new-released"
+      }
+    },
+    {
+      "model": "Claude Fable 5.1",
+      "lab": "Anthropic",
+      "released": "2026-09-01",
+      "openWeights": "No",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 10,
+      "outputPrice": 50,
+      "notes": "Same model as Claude Mythos 5.1 with different safeguards; Mythos 5.1 is limited to trusted access programs",
+      "source": {
+        "title": "Claude Docs: Claude Fable 5.1 overview",
+        "url": "https://platform.claude.com/docs/en/models/fable-5-1/overview"
+      }
+    },
+    {
+      "model": "Gemini 3.8 Flash",
+      "lab": "Google",
+      "released": "2026-09-02",
+      "openWeights": "No",
+      "context": 1048576,
+      "modalities": [
+        "Text",
+        "Image",
+        "Audio",
+        "Video",
+        "PDF"
+      ],
+      "inputPrice": 0.75,
+      "outputPrice": 3.75,
+      "notes": "Introductory price through December 31, 2026, rising to $1.50/$7.50",
+      "source": {
+        "title": "Google: Gemini 3.8 Flash and 3.8 Flash Cyber",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/"
+      }
+    },
+    {
+      "model": "Muse Spark 1.3",
+      "lab": "Meta",
+      "released": "2026-09-02",
+      "openWeights": "No",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image",
+        "Video",
+        "PDF"
+      ],
+      "inputPrice": 1.25,
+      "outputPrice": 4.25,
+      "notes": "Available in Muse Code and the Meta Model API; a cheaper contributor tier lets Meta use data to improve products.",
+      "source": {
+        "title": "Introducing Muse Spark 1.3 (Meta AI Research)",
+        "url": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+      }
+    },
+    {
+      "model": "GPT-6 Astra",
+      "lab": "OpenAI",
+      "released": "2026-09-03",
+      "openWeights": "No",
+      "context": 1050000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 10.0,
+      "outputPrice": 50.0,
+      "notes": "OpenAI's flagship GPT-6 model; does not support the 'none' reasoning level",
+      "source": {
+        "title": "OpenAI API changelog (Sep 3, 2026)",
+        "url": "https://developers.openai.com/api/docs/changelog"
+      }
+    },
+    {
+      "model": "DeepSeek-V4.1-Flash",
+      "lab": "DeepSeek",
+      "released": "2026-09-10",
+      "openWeights": "Yes",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 0.3,
+      "outputPrice": 1.2,
+      "notes": "552B-parameter MoE with a causal encoder-decoder design (8B active for input, 16B for output) and native vision; MIT license. Prices are peak rates; off-peak is half.",
+      "source": {
+        "title": "DeepSeek-V4.1-Flash Release (DeepSeek API news)",
+        "url": "https://api-docs.deepseek.com/news/news260910"
+      }
+    },
+    {
+      "model": "Grok 4.7",
+      "lab": "xAI",
+      "released": "2026-09-21",
+      "openWeights": "No",
+      "context": 500000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 2,
+      "outputPrice": 6,
+      "notes": "New, larger base model than Grok 4.6, same price.",
+      "source": {
+        "title": "Introducing Grok 4.7 (SpaceXSI)",
+        "url": "https://x.ai/news/grok-4-7"
+      }
+    },
+    {
+      "model": "Claude Opus 5.5",
+      "lab": "Anthropic",
+      "released": "2026-09-22",
+      "openWeights": "No",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 4,
+      "outputPrice": 20,
+      "notes": "First model in the Claude 5.5 family; prices 20% below Opus 5",
+      "source": {
+        "title": "Anthropic: Claude Opus 5.5",
+        "url": "https://www.anthropic.com/claude-opus-5-5"
+      }
+    },
+    {
+      "model": "GPT-6 Luna",
+      "lab": "OpenAI",
+      "released": "2026-09-22",
+      "openWeights": "No",
+      "context": 1050000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 0.1,
+      "outputPrice": 0.5,
+      "notes": "Lowest-cost GPT-6 model, for high-volume tasks",
+      "source": {
+        "title": "OpenAI API changelog (Sep 22, 2026)",
+        "url": "https://developers.openai.com/api/docs/changelog"
+      }
+    },
+    {
+      "model": "GPT-6 Sol",
+      "lab": "OpenAI",
+      "released": "2026-09-22",
+      "openWeights": "No",
+      "context": 1050000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 2.0,
+      "outputPrice": 10.0,
+      "notes": "Half the per-token price of GPT-5.6 Sol; replaced by GPT-6.1 Sol a week later",
+      "source": {
+        "title": "OpenAI API changelog (Sep 22, 2026)",
+        "url": "https://developers.openai.com/api/docs/changelog"
+      }
+    },
+    {
+      "model": "MiMo-V2.6-Pro",
+      "lab": "Xiaomi",
+      "released": "2026-09-22",
+      "openWeights": "Yes",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image",
+        "Video",
+        "Audio"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "MoE with 1.02T total and 42B active parameters; Xiaomi released weights, technical report, RL environments and code under MIT.",
+      "source": {
+        "title": "Introducing MiMo-V2.6 series (Xiaomi MiMo)",
+        "url": "https://mimo.xiaomi.com/mimo-v2-6"
+      }
+    },
+    {
+      "model": "Claude Sonnet 5.5",
+      "lab": "Anthropic",
+      "released": "2026-09-28",
+      "openWeights": "No",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 2,
+      "outputPrice": 10,
+      "notes": "Same price as Sonnet 5 with cache reads halved to $0.10",
+      "source": {
+        "title": "Anthropic: Claude Sonnet 5.5",
+        "url": "https://www.anthropic.com/claude-sonnet-5-5"
+      }
+    },
+    {
+      "model": "GPT-6.1 Sol",
+      "lab": "OpenAI",
+      "released": "2026-09-29",
+      "openWeights": "No",
+      "context": 1050000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 2.0,
+      "outputPrice": 10.0,
+      "notes": "Released at DevDay 2026; same list price as GPT-6 Sol",
+      "source": {
+        "title": "OpenAI API changelog (Sep 29, 2026)",
+        "url": "https://developers.openai.com/api/docs/changelog"
+      }
+    },
+    {
+      "model": "Mistral Large 4",
+      "lab": "Mistral AI",
+      "released": "2026-10-06",
+      "openWeights": "No",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "52B active / 1.05T total mixture-of-experts in public preview; Mistral says open weights are coming soon. Model card lists $1.36/$4.18; a 50% launch discount applied for two weeks.",
+      "source": {
+        "title": "Mistral Large 4 model card (Mistral AI docs)",
+        "url": "https://docs.mistral.ai/models/mistral-large-4-0"
+      }
+    },
+    {
+      "model": "Claude Haiku 5.5",
+      "lab": "Anthropic",
+      "released": "2026-10-07",
+      "openWeights": "No",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 0.1,
+      "outputPrice": 0.5,
+      "notes": "Price shown is for prompts up to 100K tokens; longer prompts cost $0.50/$2.50",
+      "source": {
+        "title": "Anthropic: Introducing Claude Haiku 5.5",
+        "url": "https://www.anthropic.com/news/claude-haiku-5-5"
+      }
+    },
+    {
+      "model": "Muse Wonder",
+      "lab": "Meta",
+      "released": "2026-10-12",
+      "openWeights": "No",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 4,
+      "outputPrice": 20,
+      "notes": "Meta's first frontier model, for long-running agents and computer use; available via Meta Model API and Muse Code.",
+      "source": {
+        "title": "Muse Wonder: A Frontier Model For Personal & Professional AI Agents (Meta AI Research)",
+        "url": "https://research.meta.ai/blog/muse-wonder"
+      }
+    },
+    {
+      "model": "Gemini 4 Argon",
+      "lab": "Google",
+      "released": "2026-10-13",
+      "openWeights": "No",
+      "context": 1048576,
+      "modalities": [
+        "Text",
+        "Image",
+        "Audio",
+        "Video",
+        "PDF"
+      ],
+      "inputPrice": 2,
+      "outputPrice": 10,
+      "notes": "Announced September 30, 2026 for Fairwind Program cyber defenders; GA October 13 at an introductory price through November 30, then $4/$20; context shared by input, thinking and output",
+      "source": {
+        "title": "Google: Gemini 4 Argon is now available",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/"
+      }
+    },
+    {
+      "model": "Muse Spark Open",
+      "lab": "Meta",
+      "released": "2026-10-15",
+      "openWeights": "Yes",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image",
+        "Audio",
+        "Video"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "816B total / 42B active; Meta calls it the most capable US open-weight model to date. Muse Model License with limited commercial terms.",
+      "source": {
+        "title": "Introducing Muse Spark Open (Meta AI Research)",
+        "url": "https://research.meta.ai/blog/muse-spark-open"
+      }
+    },
+    {
+      "model": "Kimi K3.1 Pro",
+      "lab": "Moonshot AI",
+      "released": "2026-10-24",
+      "openWeights": "No",
+      "context": 1000000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": null,
+      "outputPrice": null,
+      "notes": "Available in Kimi apps and API; Moonshot says full weights will be released by 2026-11-04, so weights were not yet public as of 2026-10-29.",
+      "source": {
+        "title": "Kimi K3.1 Pro (Moonshot AI)",
+        "url": "https://www.kimi.com/en/blog/kimi-k3-1-pro"
+      }
+    },
+    {
+      "model": "GPT-6.1 Terra",
+      "lab": "OpenAI",
+      "released": "2026-10-26",
+      "openWeights": "No",
+      "context": 1050000,
+      "modalities": [
+        "Text",
+        "Image"
+      ],
+      "inputPrice": 1.0,
+      "outputPrice": 5.0,
+      "notes": "Mid-priced GPT-6 model for visual reasoning and computer use",
+      "source": {
+        "title": "OpenAI API changelog (Oct 26, 2026)",
+        "url": "https://developers.openai.com/api/docs/changelog"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "heading": "AI model releases per year, by lab",
+      "body": "The table below counts the rows in this dataset by lab and calendar year (2026 runs through October 29). It measures what this timeline includes, not every checkpoint a lab has shipped: minor dated snapshots, fine-tunes and most size variants are folded into one row.\n\n| Lab | 2018 | 2019 | 2020 | 2021 | 2022 | 2023 | 2024 | 2025 | 2026 | Total |\n|---|---|---|---|---|---|---|---|---|---|---|\n| OpenAI | 1 | 1 | 1 | 0 | 1 | 3 | 4 | 8 | 8 | 27 |\n| Anthropic | 0 | 0 | 0 | 0 | 0 | 3 | 3 | 6 | 12 | 24 |\n| Google | 1 | 1 | 0 | 0 | 0 | 2 | 4 | 3 | 4 | 15 |\n| Meta | 0 | 0 | 0 | 0 | 1 | 3 | 4 | 2 | 4 | 14 |\n| xAI | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 3 | 2 | 7 |\n| Mistral AI | 0 | 0 | 0 | 0 | 0 | 2 | 4 | 4 | 3 | 13 |\n| DeepSeek | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 3 | 3 | 8 |\n| Alibaba Qwen | 0 | 0 | 0 | 0 | 0 | 1 | 3 | 3 | 2 | 9 |\n| Moonshot AI | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 3 | 5 |\n| Microsoft | 0 | 0 | 0 | 0 | 0 | 1 | 2 | 1 | 1 | 5 |\n| Amazon | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 2 | 0 | 4 |\n| Other Chinese labs | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 6 | 5 | 13 |\n| Other labs (Cohere, AI21, NVIDIA, others) | 0 | 0 | 0 | 1 | 2 | 2 | 5 | 1 | 4 | 15 |\n| **All rows** | **2** | **2** | **1** | **1** | **4** | **19** | **35** | **44** | **51** | **159** |\n\nTwo patterns stand out. Release cadence at the largest labs roughly doubled between 2024 and 2026: Anthropic has 12 rows in 2026 against 3 in 2024, and OpenAI moved to new model families every few months (GPT-5.4 in March, GPT-5.5 in April, GPT-5.6 in July and GPT-6 in September 2026). And Chinese labs outside DeepSeek, Qwen and Moonshot (Z.ai, MiniMax, Xiaomi, Baidu, Tencent, ByteDance) went from one row in 2024 to six in 2025, almost all of them open-weight."
+    },
+    {
+      "heading": "How context windows and API prices have changed",
+      "body": "**Context windows grew about 2,000-fold in eight years.** Documented launch figures in the table:\n\n| Date | Model | Context window (tokens) |\n|---|---|---|\n| 2018-06 | [GPT-1](https://openai.com/index/language-unsupervised/) | 512 |\n| 2020-06 | [GPT-3](https://openai.com/index/openai-api/) | 2,048 |\n| 2023-03 | [GPT-4](https://openai.com/index/gpt-4-research/) | 8,192 (32,768 for gpt-4-32k) |\n| 2023-07 | [Claude 2](https://www.anthropic.com/news/claude-2) | 100,000 |\n| 2023-11 | [GPT-4 Turbo](https://openai.com/index/new-models-and-developer-products-announced-at-devday/) | 128,000 |\n| 2023-11 | [Claude 2.1](https://www.anthropic.com/news/claude-2-1) | 200,000 |\n| 2024-04 | [Gemini 1.5 Pro](https://developers.googleblog.com/en/gemini-15-pro-now-available-in-180-countries-with-native-audio-understanding-system-instructions-json-mode-and-more/) | 1,000,000 |\n| 2025-04 | [Llama 4 Scout](https://ai.meta.com/blog/llama-4-multimodal-intelligence/) | 10,000,000 |\n| 2026-03 | [GPT-5.4](https://developers.openai.com/api/docs/changelog) | 1,050,000 |\n\nOne million tokens has become the default rather than the exception. No 2023 row reaches 1 million tokens; 2 of 35 rows in 2024 do, 10 of 44 in 2025, and 39 of 51 in 2026. Opus-class Claude models reached 1 million tokens with [Claude Opus 4.6](https://www.anthropic.com/news/claude-opus-4-6) in February 2026, in beta at launch.\n\n**Prices for a given capability tier fell sharply, while the top tier did not get cheaper.** OpenAI's flagship input price dropped from $30 per million tokens for GPT-4 (March 2023) to $10 for GPT-4 Turbo (November 2023), $5 for GPT-4o (May 2024) and $2 for GPT-6 Sol and GPT-6.1 Sol (September 2026). Small models fell further: GPT-4o mini launched at $0.15 input and $0.60 output in July 2024, and GPT-6 Luna at $0.10 and $0.50 in September 2026. Anthropic's Opus tier went from $15 and $75 ([Claude 3 Opus](https://www.anthropic.com/news/claude-3-family), March 2024) to $5 and $25 ([Claude Opus 4.5](https://www.anthropic.com/news/claude-opus-4-5), November 2025) and $4 and $20 ([Claude Opus 5.5](https://www.anthropic.com/claude-opus-5-5), September 2026). OpenAI cut o3's price by 80% on June 10, 2025, less than two months after launch.\n\nAt the same time, labs added more expensive tiers above their previous flagships. GPT-4.5 launched at $75 and $150 per million tokens in February 2025, the highest list price in the table. In 2026, GPT-6 Astra ($10 and $50), Claude Fable 5 and 5.1 ($10 and $50) and the restricted Claude Mythos Preview ($25 and $125 for partners) sit above the mainstream price points. Chinese open-weight models are priced lower: DeepSeek-V4-Flash listed at $0.14 and $0.28 per million tokens in April 2026.\n\nLaunch list prices are only a partial guide to cost. Reasoning models bill their thinking tokens as output, so the cost of a task depends on how many tokens a model writes, and introductory prices (Gemini 4 Argon, Gemini 3.8 Flash) rise after a set date."
+    },
+    {
+      "heading": "Open weights versus open source",
+      "body": "\"Open weights\" in this table means the trained model parameters can be downloaded and run on your own hardware. It says nothing about the license, the training data or the training code, and those differ widely between models marked \"Yes\".\n\n- **Permissive licenses.** Apache 2.0 (Mistral 7B, Mixtral, gpt-oss, Qwen3, Gemma 4) and MIT (DeepSeek-R1 and V4, MiMo-V2.6-Pro, GLM-4.5) allow commercial use and modification with few conditions.\n- **Custom community licenses.** Meta's Llama licenses allow commercial use but require companies whose products had more than 700 million monthly active users to request a separate license from Meta ([Llama 3 license](https://dev.meta.ai/llama/llama3/license/)). Kimi K3, Qwen3.8-Max, GLM-5.3 and Muse Spark Open also ship under lab-specific licenses with their own conditions.\n- **Non-commercial or research licenses.** OPT-175B, the first LLaMA, Command R, Command R+, Command A, Codestral and Mistral Large 2 published weights for research or non-commercial use only.\n\nOpen source is a stricter standard. The [Open Source Initiative's Open Source AI Definition 1.0](https://opensource.org/ai/open-source-ai-definition), released in October 2024, requires the model parameters, the complete code used to train and run the system, and enough detail about the training data for a skilled person to build a substantially equivalent system, all under OSI-approved terms. Most open-weight models publish the weights and inference code but not the training data or full training pipeline, so they meet the first condition and not the others. Ai2's [OLMo](https://allenai.org/blog/olmo-open-language-model-87ccfc95f580), which released its training data, code, logs and checkpoints alongside the weights, is an example of a fuller release.\n\nFor anyone choosing among the best open-weight models, the license column matters as much as benchmark scores: check whether commercial use, fine-tuning, hosting for third parties and use of outputs to train other models are allowed before deploying."
+    }
+  ],
+  "methodology": [
+    "Scope: notable large language model releases from 2018 to October 29, 2026, chosen to cover each major lab's main generations (OpenAI, Anthropic, Google, Meta, xAI, Mistral AI, DeepSeek, Alibaba's Qwen team, Moonshot AI, Microsoft, Amazon, Cohere, AI21 Labs and leading Chinese labs) plus influential open-weight releases from EleutherAI, BigScience, TII, Ai2, NVIDIA and Thinking Machines Lab. Image, video and speech-only models are excluded. Minor dated snapshots and most size variants are merged into one row, so per-lab counts measure this dataset, not total output.",
+    "Sources: each row cites the lab's own announcement, model card, Hugging Face card, documentation or API changelog, read during compilation on October 29, 2026. Where one field came from a second official page from the same lab (for example a pricing page or model docs page for the context window), that page was also checked. Three rows (Qwen3-Max-Preview, Qwen3.5 and ERNIE 4.5) cite reputable technology press because no dated official English announcement was found. DeepSeek-R1 cites an archived copy of DeepSeek's own news page, because the live URL now redirects. Wikipedia and third-party trackers were not used as sources.",
+    "Release date is the first day the model was publicly usable: in a consumer app, through an API (including public previews), or as downloadable weights. Where a model was announced earlier for limited testing, the note says so (for example, Gemini 1.5 Pro was announced February 15, 2024, and Gemini 4 Argon on September 30, 2026, to a restricted program). Dates shown as YYYY-MM have a documented month but no single documented day.",
+    "Prices are the standard list price per million tokens on the lab's own API at launch, before caching, batch or off-peak discounts. Prices quoted per 1,000 tokens in older announcements were multiplied by 1,000. Where a lab launched with an introductory price (Gemini 4 Argon, Gemini 3.8 Flash, Claude Sonnet 5), the introductory price is shown and the note says so. Tiered prices show the lowest tier (for example, Claude Haiku 5.5 for prompts up to 100,000 tokens and Gemini 3 Pro up to 200,000). For a few recent OpenAI and Google models, the price comes from the current pricing page and the changelog records no change since launch. DeepSeek-V3 launched at promotional V2 rates; the row shows its standard price, which took effect February 8, 2025. Prices in Chinese yuan only were left blank rather than converted.",
+    "Values not stated by an official source are left blank, never estimated: this includes several Anthropic context windows from 2023 to 2025, most Amazon Nova prices and many open-weight models' prices because their labs offered no API at launch. Context windows are the documented launch maximum, so later extensions are not shown. Counts in the text are computed from the rows in this table. xAI's 2026 announcements appear under the SpaceXSI brand on x.ai; the rows keep the label xAI for continuity."
+  ],
+  "faq": [
+    {
+      "q": "When was ChatGPT released?",
+      "a": "ChatGPT was released on November 30, 2022, as a free research preview, according to OpenAI. It ran on a model from the GPT-3.5 series fine-tuned with reinforcement learning from human feedback. Developers got API access to the same model, gpt-3.5-turbo, on March 1, 2023, at $0.002 per 1,000 tokens. GPT-4 followed on March 14, 2023, and GPT-6 Astra on September 3, 2026."
+    },
+    {
+      "q": "What is the latest AI model released?",
+      "a": "As of October 29, 2026, the most recent releases in this timeline are OpenAI's GPT-6.1 Terra (October 26, 2026), Moonshot AI's Kimi K3.1 Pro (October 24), Meta's Muse Spark Open (October 15), Google's Gemini 4 Argon (generally available October 13) and Meta's Muse Wonder (October 12). New frontier models now arrive every few weeks, so check the release date column for the current order."
+    },
+    {
+      "q": "What are the best open-weight models?",
+      "a": "Among 2026 releases, the largest open-weight models in this table include Moonshot AI's Kimi K3 (2.8 trillion parameters), Alibaba's Qwen3.8-2.4T-A95B, DeepSeek-V4-Pro (1.6 trillion), Xiaomi's MiMo-V2.6-Pro, Thinking Machines' Inkling and Meta's Muse Spark Open. Which is best depends on the task, hardware and license; MiMo-V2.6-Pro and DeepSeek V4 use the permissive MIT license, while Kimi K3 and Qwen3.8 use custom licenses."
+    },
+    {
+      "q": "What is the difference between open weights and open source AI?",
+      "a": "Open-weight models let anyone download the trained parameters, often under licenses that restrict some uses. Open source AI, as defined by the Open Source Initiative in October 2024, also requires the full training and inference code and enough information about the training data to rebuild a substantially equivalent model, all under OSI-approved terms. Most open-weight LLMs, including Llama and many Chinese models, do not meet that full definition."
+    },
+    {
+      "q": "Which AI model has the largest context window?",
+      "a": "In this dataset, Meta's Llama 4 Scout, released April 5, 2025, has the largest documented context window at 10 million tokens. Most 2026 frontier models, including Claude Opus 5.5, GPT-6 Sol, Gemini 4 Argon and DeepSeek V4, offer about 1 million tokens. For comparison, GPT-4 launched in March 2023 with 8,192 tokens, and GPT-1 handled 512."
+    },
+    {
+      "q": "How many LLMs are there?",
+      "a": "There is no fixed count, because labs release new checkpoints, sizes and fine-tunes constantly, and anyone can publish fine-tuned versions of open-weight models. This list of LLMs tracks 159 notable releases from 26 organizations between June 2018 and October 2026, merging minor variants into one row. Of those, 82 shipped with downloadable weights and 77 were available only through apps or APIs."
+    },
+    {
+      "q": "How have AI model prices changed over time?",
+      "a": "Prices for a given tier have fallen steeply. GPT-4 cost $30 per million input tokens in March 2023; GPT-6 Sol cost $2 in September 2026, and GPT-6 Luna $0.10. Anthropic's Opus tier fell from $15 and $75 per million input and output tokens in 2024 to $4 and $20 with Claude Opus 5.5. Labs have also added premium tiers, such as GPT-6 Astra and Claude Fable 5.1 at $10 and $50."
+    }
+  ],
+  "temporalCoverage": "2018/2026",
+  "related": [
+    "ai-system-prompts",
+    "biggest-ai-companies",
+    "agi-timeline-predictions"
+  ],
+  "stats": [
+    {
+      "value": "159",
+      "label": "notable LLM releases tracked, 2018 to October 2026"
+    },
+    {
+      "value": "82",
+      "label": "released with open weights"
+    },
+    {
+      "value": "512 → 10M",
+      "label": "tokens of context, GPT-1 (2018) to Llama 4 Scout (2025)"
+    },
+    {
+      "value": "Nov 30, 2022",
+      "label": "ChatGPT release date (OpenAI)"
+    }
+  ],
+  "charts": [
+    {
+      "id": "releases-per-year",
+      "type": "column",
+      "title": "Notable LLM releases per year, open vs closed weights",
+      "subtitle": "Count of releases in this dataset by year of public availability",
+      "x": "released",
+      "xIsDate": true,
+      "aggregate": "count",
+      "series": "openWeights",
+      "seriesMap": {
+        "Yes": "Open weights",
+        "No": "Closed weights"
+      },
+      "seriesOrder": [
+        "Open weights",
+        "Closed weights"
+      ],
+      "yLabel": "Releases",
+      "decimals": 0,
+      "caption": "Releases tracked here rose from 4 in 2022 to 51 in 2026 (January to October), and 82 of the 159 models shipped with open weights.",
+      "alt": "Stacked column chart of notable LLM releases per year from 2018 to 2026, split into open-weight and closed-weight models, rising sharply from 2023."
+    },
+    {
+      "id": "context-window",
+      "type": "scatter",
+      "title": "Context window at launch, by release date",
+      "subtitle": "Maximum context in tokens, log scale",
+      "x": "released",
+      "y": "context",
+      "labelKey": "model",
+      "filter": [
+        {
+          "key": "context",
+          "notNull": true
+        }
+      ],
+      "log": true,
+      "annotate": [
+        "GPT-1^",
+        "GPT-3^",
+        "GPT-4<",
+        "Claude 2<",
+        "Gemini 1.5 Pro<",
+        "Llama 4 Scout<"
+      ],
+      "yLabel": "Tokens (log scale)",
+      "caption": "Maximum context grew from 512 tokens with GPT-1 to 10 million with Llama 4 Scout, with the largest jumps in 2023 and 2024.",
+      "alt": "Scatter plot on a log scale of context window size against release date for 140 models, rising from 512 tokens in 2018 to 10 million tokens in 2025, with GPT-1, GPT-3, GPT-4, Claude 2, Gemini 1.5 Pro and Llama 4 Scout labeled."
+    },
+    {
+      "id": "launch-price",
+      "type": "scatter",
+      "title": "API input price at launch, by release date",
+      "subtitle": "US$ per million input tokens, log scale (models with a published launch price)",
+      "x": "released",
+      "y": "inputPrice",
+      "labelKey": "model",
+      "filter": [
+        {
+          "key": "inputPrice",
+          "notNull": true
+        }
+      ],
+      "log": true,
+      "prefix": "$",
+      "annotate": [
+        "GPT-4<",
+        "GPT-4.5<",
+        "GPT-4o mini<",
+        "DeepSeek-V3>",
+        "Claude 3 Opus<"
+      ],
+      "yLabel": "US$ per 1M input tokens (log)",
+      "caption": "In 2025 and 2026, launch prices ran from $0.10 per million input tokens (Claude Haiku 5.5, GPT-6 Luna) to $75 (GPT-4.5).",
+      "alt": "Scatter plot on a log scale of API input price at launch against release date for 69 models, from $75 for GPT-4.5 to $0.10, with GPT-4, GPT-4.5, GPT-4o mini, DeepSeek-V3 and Claude 3 Opus labeled."
+    },
+    {
+      "id": "releases-by-lab",
+      "type": "hbar",
+      "title": "Notable releases by lab",
+      "subtitle": "Count of releases in this dataset, top 10 labs",
+      "x": "lab",
+      "aggregate": "count",
+      "limit": 10,
+      "decimals": 0,
+      "yLabel": "Releases",
+      "caption": "OpenAI and Anthropic account for the most releases tracked here, followed by Google and Meta.",
+      "alt": "Horizontal bar chart of release counts by lab for the top 10 labs, led by OpenAI with 27 and Anthropic with 24."
+    }
+  ],
+  "changelog": [
+    {
+      "date": "2026-10-29",
+      "note": "First published with 159 records, each linked to its source."
+    }
+  ]
+}

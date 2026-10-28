@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { breadcrumbs, collectionPage, dataCatalog } from '../../lib/schema';
+import { LICENSE, datasetUrl, datasets } from '../../lib/datasets';
+
+const title = 'Open AI Datasets';
+const description =
+  'Free, sourced datasets on AI: water and energy use, model releases, AI companies, AGI forecasts, system prompts and hallucination cases. CSV and JSON, CC BY 4.0.';
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Data', url: '/data/' },
+];
+const urls = datasets.map(datasetUrl);
+const fmt = (s: string) =>
+  new Date(s).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
+const swatches = ['signal', 'sun', 'lilac', 'sky', 'rose'];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  schema={[
+    dataCatalog({ url: '/data/', name: 'agitracker.io open datasets', description, datasets: urls }),
+    collectionPage({ url: '/data/', name: title, description, items: urls }),
+    breadcrumbs(crumbs),
+  ]}
+>
+  <header class="page-hero wrap">
+    <Breadcrumbs items={crumbs} />
+    <h1>Open AI Datasets</h1>
+    <p>
+      Sourced, regularly updated datasets on AI's footprint, companies, models and forecasts. Every row links to its source,
+      and everything is free to reuse under {LICENSE.name}.
+    </p>
+  </header>
+
+  <section class="section wrap" aria-label="All datasets">
+    <ul class="data-grid" role="list">
+      {
+        datasets.map((d, i) => (
+          <li>
+            <a class:list={['data-card', 'cut', 'press', `fill-${swatches[i % swatches.length]}`]} href={datasetUrl(d)}>
+              <span class="data-card-name">{d.h1}</span>
+              <span class="data-card-summary">{d.summary}</span>
+              <span class="data-card-meta">
+                {d.rows.length} records · updated {fmt(d.updated)}
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="data-note">
+      Every dataset is available as CSV and JSON from its page. Cite agitracker.io with a link to the dataset page. For
+      corrections, see each page's methodology.
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
+    gap: 1.75rem;
+  }
+  .data-card {
+    --c: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-height: 12rem;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .data-card-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: var(--step-1);
+    line-height: 1.15;
+  }
+  .data-card-meta {
+    margin-top: auto;
+    font-size: var(--step--1);
+  }
+  .data-note {
+    margin-top: 2rem;
+    color: var(--muted);
+    max-width: 68ch;
+  }
+</style>

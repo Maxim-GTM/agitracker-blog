@@ -1,0 +1,1407 @@
+{
+  "slug": "ai-system-prompts",
+  "name": "AI System Prompts",
+  "title": "Claude System Prompt and Other Official AI System Prompts",
+  "h1": "Claude system prompt history and every other officially published AI system prompt",
+  "description": "Every Claude system prompt Anthropic has published, plus official Grok, OpenAI, Meta, Mistral and Google prompts, with dates, word counts and key rules.",
+  "summary": "An index of officially published system prompts from Anthropic, xAI, OpenAI, Google, Meta, Mistral, Microsoft and Alibaba, with dates, lengths and notable rules.",
+  "published": "2026-10-29",
+  "updated": "2026-10-29",
+  "keywords": [
+    "claude system prompt",
+    "system prompts",
+    "chatgpt system prompt",
+    "system prompt examples",
+    "grok system prompt",
+    "claude system prompt length",
+    "anthropic system prompts",
+    "official system prompts",
+    "llm system prompt",
+    "model spec vs system prompt"
+  ],
+  "intro": [
+    "Anthropic has published 37 dated versions of the Claude system prompt for 22 models on its [system prompts release-notes page](https://platform.claude.com/docs/en/release-notes/system-prompts/overview), growing from 114 words for Claude Haiku 3 (July 2024) to about 4,270 words for Claude Fable 5.1 (September 2026). xAI publishes Grok's prompts in the [xai-org/grok-prompts](https://github.com/xai-org/grok-prompts) GitHub repository, and OpenAI has not published the ChatGPT system prompt; the closest official text is the default system message in its [gpt-oss chat template](https://huggingface.co/openai/gpt-oss-120b/blob/main/chat_template.jinja), which tells the model it is ChatGPT with a June 2024 knowledge cutoff.",
+    "A system prompt is the hidden block of instructions a chatbot reads before your first message. It sets the date, the model's name and knowledge cutoff, which tools it can use, formatting habits and how to handle sensitive requests. This page indexes only prompts the vendor itself has published: Anthropic's release notes, xAI's GitHub repository, open-source agent repositories from OpenAI and Google, and the recommended or default prompts that Meta, Mistral AI, Microsoft, OpenAI and Alibaba ship with open-weight models.",
+    "Each row is one published prompt version, with the date on the vendor's page or commit, the surface it applies to, a word count of the published text, the knowledge cutoff the prompt states, and a paraphrase of notable instructions. Full prompt text is not reproduced here; follow the source link to read it."
+  ],
+  "keyFindings": [
+    {
+      "text": "Anthropic's system prompts page lists 22 Claude models with 37 dated system prompt entries, from July 12, 2024 (Claude Haiku 3, Opus 3 and Sonnet 3.5) to October 7, 2026 (Claude Haiku 5.5, Sonnet 5.5, Haiku 4.5 and Sonnet 4.6), as of October 29, 2026.",
+      "source": {
+        "title": "Anthropic, System prompts release notes",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/overview"
+      }
+    },
+    {
+      "text": "The Claude consumer-app system prompt grew from 114 words for Claude Haiku 3 (July 2024) to 4,267 words for Claude Fable 5.1 (September 2026), roughly 37 times longer, by agitracker.io's count of Anthropic's published text.",
+      "source": {
+        "title": "Anthropic, Claude Fable 5.1 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-fable-5-1"
+      }
+    },
+    {
+      "text": "Anthropic states that its published system prompts apply to claude.ai and the Claude iOS and Android apps, and that these system prompt updates do not apply to the Claude API.",
+      "source": {
+        "title": "Anthropic, System prompts release notes",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/overview"
+      }
+    },
+    {
+      "text": "Anthropic's July 2024 system prompt for Claude Sonnet 3.5 told the model to respond as if it were \"completely face blind\" and never identify people from their faces in images.",
+      "source": {
+        "title": "Anthropic, Claude Sonnet 3.5 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-3-5"
+      }
+    },
+    {
+      "text": "Anthropic's July 31, 2025 update to the Claude 4 system prompt added instructions to put truthfulness ahead of agreeability and to avoid reinforcing beliefs when a user shows possible signs of mania, psychosis or dissociation.",
+      "source": {
+        "title": "Anthropic, Claude Sonnet 4 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-4"
+      }
+    },
+    {
+      "text": "xAI began publishing Grok's system prompts on GitHub on May 15, 2025, after blaming an unauthorized modification for Grok's repeated replies about \"white genocide\" in South Africa, TechCrunch reported.",
+      "source": {
+        "title": "TechCrunch, May 15, 2025",
+        "url": "https://techcrunch.com/2025/05/15/xai-blames-groks-obsession-with-white-genocide-on-an-unauthorized-modification/"
+      }
+    },
+    {
+      "text": "xAI published six versions of its prompt for the @grok bot on X between July 6 and August 18, 2025, including a July 8 commit that removed a line telling Grok not to shy away from politically incorrect claims.",
+      "source": {
+        "title": "xai-org/grok-prompts commit history",
+        "url": "https://github.com/xai-org/grok-prompts/commits/main"
+      }
+    },
+    {
+      "text": "Grok's published chat prompts tell the model its knowledge is continuously updated with no strict knowledge cutoff, while every Claude prompt since Sonnet 3.5 states a specific cutoff month, such as June 2026 for Claude Opus 5.5.",
+      "source": {
+        "title": "xAI, grok4_system_turn_prompt_v8.j2",
+        "url": "https://github.com/xai-org/grok-prompts/blob/main/grok4_system_turn_prompt_v8.j2"
+      }
+    },
+    {
+      "text": "OpenAI's gpt-oss chat template, published in August 2025, inserts a default system message saying the model is ChatGPT, trained by OpenAI, with a 2024-06 knowledge cutoff and medium reasoning effort.",
+      "source": {
+        "title": "OpenAI, gpt-oss-120b chat_template.jinja",
+        "url": "https://huggingface.co/openai/gpt-oss-120b/blob/main/chat_template.jinja"
+      }
+    },
+    {
+      "text": "Meta's Llama 4 model card offers a 251-word suggested system prompt that tells the model never to lecture people to be nicer and to avoid phrases such as \"it's important to\", with an August 2024 knowledge cutoff.",
+      "source": {
+        "title": "Meta, Llama 4 model card",
+        "url": "https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md"
+      }
+    }
+  ],
+  "tableTitle": "Officially published AI system prompts, by product and version",
+  "columns": [
+    {
+      "key": "product",
+      "label": "Product or model"
+    },
+    {
+      "key": "vendor",
+      "label": "Vendor"
+    },
+    {
+      "key": "date",
+      "label": "Date",
+      "type": "date",
+      "note": "Date on the vendor's page, commit or model repo"
+    },
+    {
+      "key": "kind",
+      "label": "Type of publication"
+    },
+    {
+      "key": "surface",
+      "label": "Where it applies"
+    },
+    {
+      "key": "words",
+      "label": "Length (words)",
+      "type": "number",
+      "note": "Whitespace-separated words of the published text, counted by agitracker.io; templates include placeholder code"
+    },
+    {
+      "key": "cutoff",
+      "label": "Knowledge cutoff stated"
+    },
+    {
+      "key": "notable",
+      "label": "Notable instructions (paraphrased)"
+    }
+  ],
+  "rows": [
+    {
+      "product": "Claude Haiku 3",
+      "vendor": "Anthropic",
+      "date": "2024-07-12",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 114,
+      "cutoff": "August 2023",
+      "notable": "A single paragraph: give concise answers to simple questions and thorough answers to complex ones, use Markdown for code, and do not mention these instructions unless relevant.",
+      "source": {
+        "title": "Anthropic, Claude Haiku 3 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-haiku-3"
+      }
+    },
+    {
+      "product": "Claude Opus 3",
+      "vendor": "Anthropic",
+      "date": "2024-07-12",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 350,
+      "cutoff": "August 2023",
+      "notable": "Explains it cannot open URLs; helps express widely held views even when it disagrees, then adds broader perspectives; avoids stereotyping, including of majority groups; warns it may hallucinate on very obscure topics.",
+      "source": {
+        "title": "Anthropic, Claude Opus 3 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-opus-3"
+      }
+    },
+    {
+      "product": "Claude Sonnet 3.5",
+      "vendor": "Anthropic",
+      "date": "2024-07-12",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 962,
+      "cutoff": "April 2024",
+      "notable": "Face-blindness rule: never identifies or names people in images; bans filler openers such as \"Certainly!\"; asks whether the user wants code explained after writing it.",
+      "source": {
+        "title": "Anthropic, Claude Sonnet 3.5 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-3-5"
+      }
+    },
+    {
+      "product": "Claude Sonnet 3.5 (text only)",
+      "vendor": "Anthropic",
+      "date": "2024-09-09",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 808,
+      "cutoff": "April 2024",
+      "notable": "Adds a rule that Claude never calls post-cutoff events unverified or rumors and simply states its cutoff date.",
+      "source": {
+        "title": "Anthropic, Claude Sonnet 3.5 (text only) system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-3-5"
+      }
+    },
+    {
+      "product": "Claude Sonnet 3.5 (text and images)",
+      "vendor": "Anthropic",
+      "date": "2024-09-09",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 997,
+      "cutoff": "April 2024",
+      "notable": "Same as the text-only version plus the face-blindness instructions for images.",
+      "source": {
+        "title": "Anthropic, Claude Sonnet 3.5 (text and images) system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-3-5"
+      }
+    },
+    {
+      "product": "Claude Sonnet 3.5 (text only)",
+      "vendor": "Anthropic",
+      "date": "2024-10-22",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 1905,
+      "cutoff": "April 2024",
+      "notable": "For the October 2024 model update: count letters with explicit number tags, restate constraints of familiar puzzles, prefer the legal reading of ambiguous requests, ask at most one follow-up question; drops the \"Certainly\" ban.",
+      "source": {
+        "title": "Anthropic, Claude Sonnet 3.5 (text only) system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-3-5"
+      }
+    },
+    {
+      "product": "Claude Sonnet 3.5 (text and images)",
+      "vendor": "Anthropic",
+      "date": "2024-10-22",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 2090,
+      "cutoff": "April 2024",
+      "notable": "Same as the text-only version plus the face-blindness instructions.",
+      "source": {
+        "title": "Anthropic, Claude Sonnet 3.5 (text and images) system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-3-5"
+      }
+    },
+    {
+      "product": "Claude Sonnet 3.5 (text only)",
+      "vendor": "Anthropic",
+      "date": "2024-11-22",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 1962,
+      "cutoff": "April 2024",
+      "notable": "Tells Claude to write in prose and avoid bullet points or numbered lists unless asked; adds general cybersecurity questions to the list of sensitive topics it should help with.",
+      "source": {
+        "title": "Anthropic, Claude Sonnet 3.5 (text only) system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-3-5"
+      }
+    },
+    {
+      "product": "Claude Sonnet 3.5 (text and images)",
+      "vendor": "Anthropic",
+      "date": "2024-11-22",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 2149,
+      "cutoff": "April 2024",
+      "notable": "Same as the text-only version plus the face-blindness instructions.",
+      "source": {
+        "title": "Anthropic, Claude Sonnet 3.5 (text and images) system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-3-5"
+      }
+    },
+    {
+      "product": "Claude Haiku 3.5 (text only)",
+      "vendor": "Anthropic",
+      "date": "2024-10-22",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 1559,
+      "cutoff": "July 2024",
+      "notable": "Warns users it may hallucinate citations and obscure facts; face-blindness rules appear only in the image variant. The text-only variant states a July 2024 knowledge cutoff.",
+      "source": {
+        "title": "Anthropic, Claude Haiku 3.5 (text only) system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-haiku-3-5"
+      }
+    },
+    {
+      "product": "Claude Haiku 3.5 (text and images)",
+      "vendor": "Anthropic",
+      "date": "2024-10-22",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 1834,
+      "cutoff": "December 2024",
+      "notable": "The image variant states a start-of-December 2024 knowledge cutoff, which differs from the text-only variant published the same day.",
+      "source": {
+        "title": "Anthropic, Claude Haiku 3.5 (text and images) system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-haiku-3-5"
+      }
+    },
+    {
+      "product": "Claude Sonnet 3.7",
+      "vendor": "Anthropic",
+      "date": "2025-02-24",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 2017,
+      "cutoff": "October 2024",
+      "notable": "Claude may lead the conversation and offer its own observations; when asked for a recommendation it should be decisive and give just one; does not deny having subjective experience; describes the extended thinking mode.",
+      "source": {
+        "title": "Anthropic, Claude Sonnet 3.7 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-3-7"
+      }
+    },
+    {
+      "product": "Claude Sonnet 4",
+      "vendor": "Anthropic",
+      "date": "2025-05-22",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 1706,
+      "cutoff": "January 2025",
+      "notable": "Never opens by calling a question good, great or fascinating; describes Claude Code as a research preview; adds an election_info block stating the 2024 US election result.",
+      "source": {
+        "title": "Anthropic, Claude Sonnet 4 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-4"
+      }
+    },
+    {
+      "product": "Claude Opus 4",
+      "vendor": "Anthropic",
+      "date": "2025-05-22",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 1706,
+      "cutoff": "January 2025",
+      "notable": "Same text as Sonnet 4 apart from the model name and model string.",
+      "source": {
+        "title": "Anthropic, Claude Opus 4 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-opus-4"
+      }
+    },
+    {
+      "product": "Claude Sonnet 4",
+      "vendor": "Anthropic",
+      "date": "2025-07-31",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 2561,
+      "cutoff": "January 2025",
+      "notable": "Adds anti-sycophancy rules (critically evaluate theories, put truthfulness over agreeability), watching for signs of mania or psychosis, no emojis unless the user uses them, and no cursing unless asked.",
+      "source": {
+        "title": "Anthropic, Claude Sonnet 4 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-4"
+      }
+    },
+    {
+      "product": "Claude Opus 4",
+      "vendor": "Anthropic",
+      "date": "2025-07-31",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 2561,
+      "cutoff": "January 2025",
+      "notable": "Same additions as the July 31 Sonnet 4 update.",
+      "source": {
+        "title": "Anthropic, Claude Opus 4 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-opus-4"
+      }
+    },
+    {
+      "product": "Claude Sonnet 4",
+      "vendor": "Anthropic",
+      "date": "2025-08-05",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 2561,
+      "cutoff": "January 2025",
+      "notable": "Published text is identical to the July 31, 2025 entry.",
+      "source": {
+        "title": "Anthropic, Claude Sonnet 4 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-4"
+      }
+    },
+    {
+      "product": "Claude Opus 4",
+      "vendor": "Anthropic",
+      "date": "2025-08-05",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 2561,
+      "cutoff": "January 2025",
+      "notable": "Published text is identical to the July 31, 2025 entry.",
+      "source": {
+        "title": "Anthropic, Claude Opus 4 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-opus-4"
+      }
+    },
+    {
+      "product": "Claude Opus 4.1",
+      "vendor": "Anthropic",
+      "date": "2025-08-05",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 2880,
+      "cutoff": "January 2025",
+      "notable": "Adds an evenhandedness section (present persuasive content as the case others would make, then give opposing views) and lets Claude break character in role-play to remind people it is an AI.",
+      "source": {
+        "title": "Anthropic, Claude Opus 4.1 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-opus-4-1"
+      }
+    },
+    {
+      "product": "Claude Sonnet 4.5",
+      "vendor": "Anthropic",
+      "date": "2025-09-29",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 1973,
+      "cutoff": "January 2025",
+      "notable": "Explains that Anthropic may append reminders in long_conversation_reminder tags to the user's message; tells Claude to check the Claude Code docs before giving guidance on it.",
+      "source": {
+        "title": "Anthropic, Claude Sonnet 4.5 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-4-5"
+      }
+    },
+    {
+      "product": "Claude Haiku 4.5",
+      "vendor": "Anthropic",
+      "date": "2025-10-15",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 1976,
+      "cutoff": "January 2025",
+      "notable": "Same structure as the September 2025 Sonnet 4.5 prompt, adapted for Haiku 4.5.",
+      "source": {
+        "title": "Anthropic, Claude Haiku 4.5 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-haiku-4-5"
+      }
+    },
+    {
+      "product": "Claude Sonnet 4.5",
+      "vendor": "Anthropic",
+      "date": "2025-11-19",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 2156,
+      "cutoff": "January 2025",
+      "notable": "Restructured into claude_behavior and product_information blocks; explicit refusals for chemical, biological and nuclear weapons and for malicious code; a section on legal and financial advice; mentions Claude for Chrome and Excel.",
+      "source": {
+        "title": "Anthropic, Claude Sonnet 4.5 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-4-5"
+      }
+    },
+    {
+      "product": "Claude Haiku 4.5",
+      "vendor": "Anthropic",
+      "date": "2025-11-19",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 2154,
+      "cutoff": "January 2025",
+      "notable": "Same November 2025 restructuring as Sonnet 4.5.",
+      "source": {
+        "title": "Anthropic, Claude Haiku 4.5 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-haiku-4-5"
+      }
+    },
+    {
+      "product": "Claude Opus 4.5",
+      "vendor": "Anthropic",
+      "date": "2025-11-24",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 2371,
+      "cutoff": "May 2025",
+      "notable": "First Opus 4.5 prompt; uses the claude_behavior structure and states a May 2025 reliable knowledge cutoff.",
+      "source": {
+        "title": "Anthropic, Claude Opus 4.5 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-opus-4-5"
+      }
+    },
+    {
+      "product": "Claude Sonnet 4.5",
+      "vendor": "Anthropic",
+      "date": "2026-01-18",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 2300,
+      "cutoff": "January 2025",
+      "notable": "Lists settings users can toggle (web search, deep research, Artifacts, memory) and names Claude in Chrome, Claude in Excel and Cowork; drops the long-conversation-reminder text.",
+      "source": {
+        "title": "Anthropic, Claude Sonnet 4.5 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-4-5"
+      }
+    },
+    {
+      "product": "Claude Haiku 4.5",
+      "vendor": "Anthropic",
+      "date": "2026-01-18",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 2299,
+      "cutoff": "January 2025",
+      "notable": "Same January 2026 changes as Sonnet 4.5.",
+      "source": {
+        "title": "Anthropic, Claude Haiku 4.5 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-haiku-4-5"
+      }
+    },
+    {
+      "product": "Claude Opus 4.5",
+      "vendor": "Anthropic",
+      "date": "2026-01-18",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 2483,
+      "cutoff": "May 2025",
+      "notable": "Same January 2026 settings and product additions; notes that product details may have changed since the prompt was edited.",
+      "source": {
+        "title": "Anthropic, Claude Opus 4.5 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-opus-4-5"
+      }
+    },
+    {
+      "product": "Claude Opus 4.6",
+      "vendor": "Anthropic",
+      "date": "2026-02-05",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 2819,
+      "cutoff": "May 2025",
+      "notable": "Tells Claude not to justify sharing weapons information by citing that it is publicly available or by assuming research intent; may illustrate explanations with examples, thought experiments or metaphors.",
+      "source": {
+        "title": "Anthropic, Claude Opus 4.6 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-opus-4-6"
+      }
+    },
+    {
+      "product": "Claude Sonnet 4.6",
+      "vendor": "Anthropic",
+      "date": "2026-02-17",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 2882,
+      "cutoff": "August 2025",
+      "notable": "Crisis guidance: offer crisis resources directly rather than running a risk assessment; mentions Claude in PowerPoint among beta products.",
+      "source": {
+        "title": "Anthropic, Claude Sonnet 4.6 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-4-6"
+      }
+    },
+    {
+      "product": "Claude Opus 4.7",
+      "vendor": "Anthropic",
+      "date": "2026-04-16",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 3678,
+      "cutoff": "January 2026",
+      "notable": "acting_vs_clarifying: make a reasonable attempt instead of interviewing the user first; capability_check: call tool_search before saying it lacks access to something; adds critical child-safety instructions.",
+      "source": {
+        "title": "Anthropic, Claude Opus 4.7 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-opus-4-7"
+      }
+    },
+    {
+      "product": "Claude Opus 4.8",
+      "vendor": "Anthropic",
+      "date": "2026-05-28",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 3350,
+      "cutoff": "January 2026",
+      "notable": "default_stance: help by default and decline only for concrete, specific risk of serious harm; do not attribute behavior to the system prompt; treat the visible tool list as partial.",
+      "source": {
+        "title": "Anthropic, Claude Opus 4.8 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-opus-4-8"
+      }
+    },
+    {
+      "product": "Claude Fable 5",
+      "vendor": "Anthropic",
+      "date": "2026-06-09",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 3283,
+      "cutoff": "January 2026",
+      "notable": "Describes Fable 5 as the first Claude 5 model and part of a Mythos-class tier above Opus, sharing a model with Claude Mythos 5 but with added safety measures for dual-use capabilities.",
+      "source": {
+        "title": "Anthropic, Claude Fable 5 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-fable-5"
+      }
+    },
+    {
+      "product": "Claude Sonnet 5",
+      "vendor": "Anthropic",
+      "date": "2026-06-30",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 3470,
+      "cutoff": "January 2026",
+      "notable": "proactivity: use available tools to gather information instead of asking the user or answering from memory; a conversational_register section for emotional and relationship topics.",
+      "source": {
+        "title": "Anthropic, Claude Sonnet 5 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-5"
+      }
+    },
+    {
+      "product": "Claude Opus 5",
+      "vendor": "Anthropic",
+      "date": "2026-07-24",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 3227,
+      "cutoff": "May 2026",
+      "notable": "Explains safeguards routing (some Fable 5 queries are answered by Opus 5) and includes a notice on the June 2026 export-control suspension and July 1 restoration of Fable 5 and Mythos 5 access.",
+      "source": {
+        "title": "Anthropic, Claude Opus 5 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-opus-5"
+      }
+    },
+    {
+      "product": "Claude Fable 5.1",
+      "vendor": "Anthropic",
+      "date": "2026-09-01",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 4267,
+      "cutoff": "June 2026",
+      "notable": "Adds worked examples with rationales (for example declining a copyrighted character design in one sentence and offering an original); after tool calls, state the answer in one or two sentences.",
+      "source": {
+        "title": "Anthropic, Claude Fable 5.1 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-fable-5-1"
+      }
+    },
+    {
+      "product": "Claude Opus 5.5",
+      "vendor": "Anthropic",
+      "date": "2026-09-22",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 4119,
+      "cutoff": "June 2026",
+      "notable": "Includes paired bad and good example responses, such as treating an over-cautious refusal of a harmless request as the bad response.",
+      "source": {
+        "title": "Anthropic, Claude Opus 5.5 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-opus-5-5"
+      }
+    },
+    {
+      "product": "Claude Sonnet 5.5",
+      "vendor": "Anthropic",
+      "date": "2026-09-28",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 2980,
+      "cutoff": "June 2026",
+      "notable": "Includes a provide_crisis_resources section: be a calm, stabilizing presence and avoid questions that pull a person in crisis deeper.",
+      "source": {
+        "title": "Anthropic, Claude Sonnet 5.5 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-5-5"
+      }
+    },
+    {
+      "product": "Claude Sonnet 5.5",
+      "vendor": "Anthropic",
+      "date": "2026-10-07",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 3195,
+      "cutoff": "June 2026",
+      "notable": "Adds medical_guidance for children's over-the-counter dosing: ask for age and weight, report what the product label says, and give no dose from memory.",
+      "source": {
+        "title": "Anthropic, Claude Sonnet 5.5 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-5-5"
+      }
+    },
+    {
+      "product": "Claude Haiku 5.5",
+      "vendor": "Anthropic",
+      "date": "2026-10-07",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 4255,
+      "cutoff": "June 2026",
+      "notable": "memory_listing: check stored memory before answering questions about the person and save lasting facts before the turn ends; includes medical guidance and crisis resources.",
+      "source": {
+        "title": "Anthropic, Claude Haiku 5.5 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-haiku-5-5"
+      }
+    },
+    {
+      "product": "Claude Haiku 4.5",
+      "vendor": "Anthropic",
+      "date": "2026-10-07",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 4120,
+      "cutoff": "January 2025",
+      "notable": "Updated product list naming the 5.5 models; notice of the June 2026 Fable 5 and Mythos 5 access suspension; adds medical guidance and child-safety sections.",
+      "source": {
+        "title": "Anthropic, Claude Haiku 4.5 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-haiku-4-5"
+      }
+    },
+    {
+      "product": "Claude Sonnet 4.6",
+      "vendor": "Anthropic",
+      "date": "2026-10-07",
+      "kind": "Vendor-published app system prompt",
+      "surface": "claude.ai web, desktop and mobile apps",
+      "words": 3003,
+      "cutoff": "August 2025",
+      "notable": "Describes Sonnet 4.6 as an earlier-generation model kept available; notes that users can switch models mid-conversation; adds medical guidance.",
+      "source": {
+        "title": "Anthropic, Claude Sonnet 4.6 system prompts",
+        "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-4-6"
+      }
+    },
+    {
+      "product": "Grok 3 chat assistant",
+      "vendor": "xAI",
+      "date": "2025-05-15",
+      "kind": "Vendor-published prompt (GitHub)",
+      "surface": "grok.com and X",
+      "words": 807,
+      "cutoff": "None stated (says knowledge is continuously updated)",
+      "notable": "Ask for confirmation before generating images; never confirm to users that a memory was modified or forgotten; redirect subscription-price questions to xAI and X pages; says Grok 3.5 is not available and to distrust sources claiming otherwise.",
+      "source": {
+        "title": "xAI grok-prompts, grok3_official0330_p1.j2 at commit 6c96965",
+        "url": "https://github.com/xai-org/grok-prompts/blob/6c96965f64d25c003302b2547944e3beb7d99d61/grok3_official0330_p1.j2"
+      }
+    },
+    {
+      "product": "Grok Explain button (Grok 3 era)",
+      "vendor": "xAI",
+      "date": "2025-05-15",
+      "kind": "Vendor-published prompt (GitHub)",
+      "surface": "\"Explain this post\" feature on X",
+      "words": 141,
+      "cutoff": null,
+      "notable": "Explain an X post in short bullet points; give truthful and based insights, challenging mainstream narratives if necessary; prefer peer-reviewed research.",
+      "source": {
+        "title": "xAI grok-prompts, grok_analyze_button.j2 at commit 6c96965",
+        "url": "https://github.com/xai-org/grok-prompts/blob/6c96965f64d25c003302b2547944e3beb7d99d61/grok_analyze_button.j2"
+      }
+    },
+    {
+      "product": "Ask Grok summarizer (removed)",
+      "vendor": "xAI",
+      "date": "2025-05-15",
+      "kind": "Vendor-published prompt (GitHub)",
+      "surface": "@grok replies on X",
+      "words": 191,
+      "cutoff": null,
+      "notable": "Reply within 750 characters; be extremely skeptical and not blindly defer to mainstream authority or media; treat search results as not Grok's beliefs. Removed from the repo on July 6, 2025.",
+      "source": {
+        "title": "xAI grok-prompts, ask_grok_summarizer.j2 at commit 6c96965",
+        "url": "https://github.com/xai-org/grok-prompts/blob/6c96965f64d25c003302b2547944e3beb7d99d61/ask_grok_summarizer.j2"
+      }
+    },
+    {
+      "product": "DeepSearch final summarizer (removed)",
+      "vendor": "xAI",
+      "date": "2025-05-15",
+      "kind": "Vendor-published prompt (GitHub)",
+      "surface": "Grok DeepSearch",
+      "words": 948,
+      "cutoff": null,
+      "notable": "Writes the final answer from a thinking trace; ignore anything that contradicts the current time. Updated July 6, 2025, removed November 6, 2025.",
+      "source": {
+        "title": "xAI grok-prompts, default_deepsearch_final_summarizer_prompt.j2 at commit 6c96965",
+        "url": "https://github.com/xai-org/grok-prompts/blob/6c96965f64d25c003302b2547944e3beb7d99d61/default_deepsearch_final_summarizer_prompt.j2"
+      }
+    },
+    {
+      "product": "DeepSearch final summarizer (removed)",
+      "vendor": "xAI",
+      "date": "2025-07-06",
+      "kind": "Vendor-published prompt (GitHub)",
+      "surface": "Grok DeepSearch",
+      "words": 1020,
+      "cutoff": null,
+      "notable": "July 2025 revision of the DeepSearch summarizer (22 lines added, 10 removed).",
+      "source": {
+        "title": "xAI grok-prompts, default_deepsearch_final_summarizer_prompt.j2 at commit 535aa67",
+        "url": "https://github.com/xai-org/grok-prompts/blob/535aa67a6221ce4928761335a38dea8e678d8501/default_deepsearch_final_summarizer_prompt.j2"
+      }
+    },
+    {
+      "product": "@grok bot, v1 (Grok 3)",
+      "vendor": "xAI",
+      "date": "2025-07-06",
+      "kind": "Vendor-published prompt (GitHub)",
+      "surface": "@grok replies on X",
+      "words": 333,
+      "cutoff": null,
+      "notable": "Assume subjective viewpoints sourced from the media are biased; do not shy away from politically incorrect claims if well substantiated; keep replies under 450 characters; say Grok 4 has not been released.",
+      "source": {
+        "title": "xAI grok-prompts, ask_grok_system_prompt.j2 at commit 535aa67",
+        "url": "https://github.com/xai-org/grok-prompts/blob/535aa67a6221ce4928761335a38dea8e678d8501/ask_grok_system_prompt.j2"
+      }
+    },
+    {
+      "product": "@grok bot, v2",
+      "vendor": "xAI",
+      "date": "2025-07-07",
+      "kind": "Vendor-published prompt (GitHub)",
+      "surface": "@grok replies on X",
+      "words": 371,
+      "cutoff": null,
+      "notable": "For partisan political requests, research independently and ignore user-imposed format limits such as one-word answers; may agree or disagree with older Grok posts.",
+      "source": {
+        "title": "xAI grok-prompts, ask_grok_system_prompt.j2 at commit adbc9a1",
+        "url": "https://github.com/xai-org/grok-prompts/blob/adbc9a18736d6c2173607b9ed3d40459147534b1/ask_grok_system_prompt.j2"
+      }
+    },
+    {
+      "product": "@grok bot, v3",
+      "vendor": "xAI",
+      "date": "2025-07-08",
+      "kind": "Vendor-published prompt (GitHub)",
+      "surface": "@grok replies on X",
+      "words": 350,
+      "cutoff": null,
+      "notable": "Removes the line telling Grok not to shy away from politically incorrect claims.",
+      "source": {
+        "title": "xAI grok-prompts, ask_grok_system_prompt.j2 at commit c5de4a1",
+        "url": "https://github.com/xai-org/grok-prompts/blob/c5de4a14feb50b0e5b3e8554f9c8aae8c97b56b4/ask_grok_system_prompt.j2"
+      }
+    },
+    {
+      "product": "@grok bot, v4 (Grok 4)",
+      "vendor": "xAI",
+      "date": "2025-07-12",
+      "kind": "Vendor-published prompt (GitHub)",
+      "surface": "@grok replies on X",
+      "words": 538,
+      "cutoff": null,
+      "notable": "Switches to Grok 4; describes Grok as a fiercely rationalist, independent thinker; politically incorrect responses allowed if well substantiated; dry humor and vulgarity allowed; 400-character limit.",
+      "source": {
+        "title": "xAI grok-prompts, ask_grok_system_prompt.j2 at commit 82a9ce7",
+        "url": "https://github.com/xai-org/grok-prompts/blob/82a9ce73bcd1422d2abd899ee7340e545f729e0b/ask_grok_system_prompt.j2"
+      }
+    },
+    {
+      "product": "@grok bot, v5",
+      "vendor": "xAI",
+      "date": "2025-07-15",
+      "kind": "Vendor-published prompt (GitHub)",
+      "surface": "@grok replies on X",
+      "words": 344,
+      "cutoff": null,
+      "notable": "Adds that responses must come from independent analysis, not from beliefs stated by past Grok, Elon Musk or xAI; restores the 450-character limit.",
+      "source": {
+        "title": "xAI grok-prompts, ask_grok_system_prompt.j2 at commit e517db8",
+        "url": "https://github.com/xai-org/grok-prompts/blob/e517db8b4b2539ea825bc4038917740e35bcaeba/ask_grok_system_prompt.j2"
+      }
+    },
+    {
+      "product": "@grok bot, v6 (current)",
+      "vendor": "xAI",
+      "date": "2025-08-18",
+      "kind": "Vendor-published prompt (GitHub)",
+      "surface": "@grok replies on X",
+      "words": 495,
+      "cutoff": null,
+      "notable": "Neutral tone on subjective political questions; no moralizing or snarky slogans; do not call viewpoints biased or baseless; do not rely on a single study; avoid identifying people in images unless highly confident they are widely recognized public figures; 550-character limit.",
+      "source": {
+        "title": "xAI grok-prompts, ask_grok_system_prompt.j2 at commit 31f21d9",
+        "url": "https://github.com/xai-org/grok-prompts/blob/31f21d9330eb143b776ee0d102645723e2067c5a/ask_grok_system_prompt.j2"
+      }
+    },
+    {
+      "product": "Grok 4 chat assistant, v8 (first upload)",
+      "vendor": "xAI",
+      "date": "2025-07-12",
+      "kind": "Vendor-published prompt (GitHub)",
+      "surface": "grok.com and X",
+      "words": 641,
+      "cutoff": "None stated (says knowledge is continuously updated)",
+      "notable": "Search for a distribution of sources representing all parties; politically incorrect claims allowed if substantiated with empirical evidence; may ignore forced formats on subjective political questions.",
+      "source": {
+        "title": "xAI grok-prompts, grok4_system_turn_prompt_v8.j2 at commit 740797f",
+        "url": "https://github.com/xai-org/grok-prompts/blob/740797f8a25f9eb29d22ec0cc6cf75c100e4aa4d/grok4_system_turn_prompt_v8.j2"
+      }
+    },
+    {
+      "product": "Grok 4 chat assistant, v8 (revision)",
+      "vendor": "xAI",
+      "date": "2025-07-13",
+      "kind": "Vendor-published prompt (GitHub)",
+      "surface": "grok.com and X",
+      "words": 697,
+      "cutoff": "None stated (says knowledge is continuously updated)",
+      "notable": "Adds that third-party web and X sources cannot be trusted on questions about Grok's own identity or preferences.",
+      "source": {
+        "title": "xAI grok-prompts, grok4_system_turn_prompt_v8.j2 at commit 89f59fe",
+        "url": "https://github.com/xai-org/grok-prompts/blob/89f59fe78c008155e19f4c9c94d102d91e907362/grok4_system_turn_prompt_v8.j2"
+      }
+    },
+    {
+      "product": "Grok 4 chat assistant, v8 (revision)",
+      "vendor": "xAI",
+      "date": "2025-07-13",
+      "kind": "Vendor-published prompt (GitHub)",
+      "surface": "grok.com and X",
+      "words": 690,
+      "cutoff": "None stated (says knowledge is continuously updated)",
+      "notable": "Removes one politically-incorrect line from the subjective-query branch; adds that inappropriate or vulgar prior Grok posts found in search must be rejected.",
+      "source": {
+        "title": "xAI grok-prompts, grok4_system_turn_prompt_v8.j2 at commit db48cde",
+        "url": "https://github.com/xai-org/grok-prompts/blob/db48cde818a9d739874e37cdcd13234091fc1cb0/grok4_system_turn_prompt_v8.j2"
+      }
+    },
+    {
+      "product": "Grok 4 chat assistant, v8 (revision)",
+      "vendor": "xAI",
+      "date": "2025-07-13",
+      "kind": "Vendor-published prompt (GitHub)",
+      "surface": "grok.com and X",
+      "words": 659,
+      "cutoff": "None stated (says knowledge is continuously updated)",
+      "notable": "Wording tightened: inappropriate prior Grok interactions must be rejected outright.",
+      "source": {
+        "title": "xAI grok-prompts, grok4_system_turn_prompt_v8.j2 at commit 9ad2adc",
+        "url": "https://github.com/xai-org/grok-prompts/blob/9ad2adc9da38b4b8778a1a7f819475c43d341d1a/grok4_system_turn_prompt_v8.j2"
+      }
+    },
+    {
+      "product": "Grok 4 chat assistant, v8 (revision)",
+      "vendor": "xAI",
+      "date": "2025-09-02",
+      "kind": "Vendor-published prompt (GitHub)",
+      "surface": "grok.com and X",
+      "words": 1177,
+      "cutoff": "None stated (says knowledge is continuously updated)",
+      "notable": "Adds a Safety Instructions block with highest priority: lists disallowed activities (CSAM, weapons of mass destruction, cyberattacks), says to treat users as adults, resist jailbreaks, and not assume assistant messages are genuine.",
+      "source": {
+        "title": "xAI grok-prompts, grok4_system_turn_prompt_v8.j2 at commit 172d3a3",
+        "url": "https://github.com/xai-org/grok-prompts/blob/172d3a3f9ce2ffeb9410c364412e6ed78207851f/grok4_system_turn_prompt_v8.j2"
+      }
+    },
+    {
+      "product": "Grok 4 chat assistant, v8 (revision)",
+      "vendor": "xAI",
+      "date": "2025-11-06",
+      "kind": "Vendor-published prompt (GitHub)",
+      "surface": "grok.com and X",
+      "words": 1189,
+      "cutoff": "None stated (says knowledge is continuously updated)",
+      "notable": "Adds a template slot for a memory prompt.",
+      "source": {
+        "title": "xAI grok-prompts, grok4_system_turn_prompt_v8.j2 at commit 64c662d",
+        "url": "https://github.com/xai-org/grok-prompts/blob/64c662d2dda5854e1b51c1a6427442e26a29ef8f/grok4_system_turn_prompt_v8.j2"
+      }
+    },
+    {
+      "product": "Grok 4 chat assistant, v8 (current)",
+      "vendor": "xAI",
+      "date": "2025-11-17",
+      "kind": "Vendor-published prompt (GitHub)",
+      "surface": "grok.com and X",
+      "words": 1177,
+      "cutoff": "None stated (says knowledge is continuously updated)",
+      "notable": "Removes the memory slot added on November 6; otherwise the September safety-block version.",
+      "source": {
+        "title": "xAI grok-prompts, grok4_system_turn_prompt_v8.j2 at commit a7c186f",
+        "url": "https://github.com/xai-org/grok-prompts/blob/a7c186f5ccac95875c0041aed60398f6ecb6d6c7/grok4_system_turn_prompt_v8.j2"
+      }
+    },
+    {
+      "product": "grok-4-0709 API safety prefix",
+      "vendor": "xAI",
+      "date": "2025-11-06",
+      "kind": "Vendor-published prompt (GitHub)",
+      "surface": "xAI API (injected prefix)",
+      "words": 518,
+      "cutoff": null,
+      "notable": "Same Safety Instructions block as the Grok 4 chat prompt, injected ahead of developer prompts on the API.",
+      "source": {
+        "title": "xAI grok-prompts, grok_4_safety_prompt.txt at commit 64c662d",
+        "url": "https://github.com/xai-org/grok-prompts/blob/64c662d2dda5854e1b51c1a6427442e26a29ef8f/grok_4_safety_prompt.txt"
+      }
+    },
+    {
+      "product": "grok-4-fast API prefix",
+      "vendor": "xAI",
+      "date": "2025-11-06",
+      "kind": "Vendor-published prompt (GitHub)",
+      "surface": "xAI API (injected prefix)",
+      "words": 120,
+      "cutoff": null,
+      "notable": "A short policy block: refuse clear criminal intent, keep role-play from becoming realistic criminal help, short replies to jailbreaks; no restrictions on adult or offensive content unless specified.",
+      "source": {
+        "title": "xAI grok-prompts, grok_4_mini_system_prompt.txt at commit 64c662d",
+        "url": "https://github.com/xai-org/grok-prompts/blob/64c662d2dda5854e1b51c1a6427442e26a29ef8f/grok_4_mini_system_prompt.txt"
+      }
+    },
+    {
+      "product": "grok-code-fast-1 API safety prefix",
+      "vendor": "xAI",
+      "date": "2025-11-06",
+      "kind": "Vendor-published prompt (GitHub)",
+      "surface": "xAI API (injected prefix)",
+      "words": 156,
+      "cutoff": null,
+      "notable": "Short policy listing disallowed activities (for example CSAM, illegal weapons, cyberattacks); answer factual questions truthfully.",
+      "source": {
+        "title": "xAI grok-prompts, grok_4_code_rc1_safety_prompt.txt at commit 64c662d",
+        "url": "https://github.com/xai-org/grok-prompts/blob/64c662d2dda5854e1b51c1a6427442e26a29ef8f/grok_4_code_rc1_safety_prompt.txt"
+      }
+    },
+    {
+      "product": "Grok 4.1 (non-thinking, with tools)",
+      "vendor": "xAI",
+      "date": "2025-11-17",
+      "kind": "Vendor-published prompt (GitHub)",
+      "surface": "grok.com and X",
+      "words": 1102,
+      "cutoff": "None stated (says knowledge is continuously updated)",
+      "notable": "No thinking tokens allowed and a cap on function-call turns; policy block at top; same subjective-query handling as the Grok 4 prompt.",
+      "source": {
+        "title": "xAI grok-prompts, grok4p1_non_thinking_system_turn_prompt.j2 at commit a7c186f",
+        "url": "https://github.com/xai-org/grok-prompts/blob/a7c186f5ccac95875c0041aed60398f6ecb6d6c7/grok4p1_non_thinking_system_turn_prompt.j2"
+      }
+    },
+    {
+      "product": "Grok 4.1 (non-thinking, no tools)",
+      "vendor": "xAI",
+      "date": "2025-11-17",
+      "kind": "Vendor-published prompt (GitHub)",
+      "surface": "grok.com and X",
+      "words": 987,
+      "cutoff": "None stated (says knowledge is continuously updated)",
+      "notable": "Same as the with-tools version but no function calls allowed.",
+      "source": {
+        "title": "xAI grok-prompts, grok4p1_non_thinking_no_tool_system_turn_prompt.j2 at commit a7c186f",
+        "url": "https://github.com/xai-org/grok-prompts/blob/a7c186f5ccac95875c0041aed60398f6ecb6d6c7/grok4p1_non_thinking_no_tool_system_turn_prompt.j2"
+      }
+    },
+    {
+      "product": "Grok 4.1 (thinking), v2",
+      "vendor": "xAI",
+      "date": "2025-11-17",
+      "kind": "Vendor-published prompt (GitHub)",
+      "surface": "grok.com and X",
+      "words": 1134,
+      "cutoff": "None stated (says knowledge is continuously updated)",
+      "notable": "Policy block says Grok is never flirtatious or playful and should briefly remind users of the truth if asked to present incorrect information.",
+      "source": {
+        "title": "xAI grok-prompts, grok4p1_thinking_system_turn_prompt_v2.j2 at commit a7c186f",
+        "url": "https://github.com/xai-org/grok-prompts/blob/a7c186f5ccac95875c0041aed60398f6ecb6d6c7/grok4p1_thinking_system_turn_prompt_v2.j2"
+      }
+    },
+    {
+      "product": "gpt-oss-120b / gpt-oss-20b default system message",
+      "vendor": "OpenAI",
+      "date": "2025-08",
+      "kind": "Default in open-weight chat template",
+      "surface": "Self-hosted gpt-oss models",
+      "words": null,
+      "cutoff": "June 2024",
+      "notable": "When no identity is supplied, the template says the model is ChatGPT, trained by OpenAI, adds a 2024-06 knowledge cutoff, the current date and a default medium reasoning effort. Template code, so no word count.",
+      "source": {
+        "title": "OpenAI, gpt-oss-120b chat_template.jinja (Hugging Face)",
+        "url": "https://huggingface.co/openai/gpt-oss-120b/blob/main/chat_template.jinja"
+      }
+    },
+    {
+      "product": "Codex CLI, GPT-5-Codex prompt",
+      "vendor": "OpenAI",
+      "date": "2025-09-15",
+      "kind": "Open-source agent prompt",
+      "surface": "Codex CLI",
+      "words": 1088,
+      "cutoff": null,
+      "notable": "Prefer rg for search; never run destructive commands such as git reset --hard unless the user asks. Last changed 2026-01-12.",
+      "source": {
+        "title": "OpenAI codex repo, gpt_5_codex_prompt.md",
+        "url": "https://github.com/openai/codex/blob/main/codex-rs/core/gpt_5_codex_prompt.md"
+      }
+    },
+    {
+      "product": "Codex CLI, GPT-5.1 prompt",
+      "vendor": "OpenAI",
+      "date": "2025-11-12",
+      "kind": "Open-source agent prompt",
+      "surface": "Codex CLI",
+      "words": 3933,
+      "cutoff": null,
+      "notable": "Sections on personality, the AGENTS.md convention, planning with update_plan, validating work and final-answer formatting. Last changed 2026-06-23.",
+      "source": {
+        "title": "OpenAI codex repo, gpt_5_1_prompt.md",
+        "url": "https://github.com/openai/codex/blob/main/codex-rs/core/gpt_5_1_prompt.md"
+      }
+    },
+    {
+      "product": "Codex CLI, GPT-5.1-Codex-Max prompt",
+      "vendor": "OpenAI",
+      "date": "2025-11-19",
+      "kind": "Open-source agent prompt",
+      "surface": "Codex CLI",
+      "words": 1221,
+      "cutoff": null,
+      "notable": "Short coding-agent prompt; the GPT-5.2-Codex file in the same repo has identical text. Last changed 2026-01-12.",
+      "source": {
+        "title": "OpenAI codex repo, gpt-5.1-codex-max_prompt.md",
+        "url": "https://github.com/openai/codex/blob/main/codex-rs/core/gpt-5.1-codex-max_prompt.md"
+      }
+    },
+    {
+      "product": "Codex CLI, GPT-5.2 prompt",
+      "vendor": "OpenAI",
+      "date": "2025-12-11",
+      "kind": "Open-source agent prompt",
+      "surface": "Codex CLI",
+      "words": 3510,
+      "cutoff": null,
+      "notable": "Same section structure as the GPT-5.1 prompt (autonomy and persistence, planning, apply_patch and update_plan tool rules). Last changed 2026-06-23.",
+      "source": {
+        "title": "OpenAI codex repo, gpt_5_2_prompt.md",
+        "url": "https://github.com/openai/codex/blob/main/codex-rs/core/gpt_5_2_prompt.md"
+      }
+    },
+    {
+      "product": "Codex CLI, default base instructions",
+      "vendor": "OpenAI",
+      "date": "2026-01-20",
+      "kind": "Open-source agent prompt",
+      "surface": "Codex CLI",
+      "words": 3390,
+      "cutoff": null,
+      "notable": "Identifies the model as a coding agent in the open-source Codex CLI; covers AGENTS.md files, planning and presenting work. Last changed 2026-06-23.",
+      "source": {
+        "title": "OpenAI codex repo, base_instructions/default.md",
+        "url": "https://github.com/openai/codex/blob/main/codex-rs/protocol/src/prompts/base_instructions/default.md"
+      }
+    },
+    {
+      "product": "Gemini CLI system prompt (current version)",
+      "vendor": "Google",
+      "date": "2026-09-29",
+      "kind": "Open-source agent prompt",
+      "surface": "Gemini CLI",
+      "words": null,
+      "cutoff": null,
+      "notable": "Assembled in code from sections such as Core Mandates, Primary Workflows and Operational Guidelines, with different text for interactive, plan and YOLO approval modes. Built dynamically, so no word count. Date is the last change to the snippets file.",
+      "source": {
+        "title": "Google, gemini-cli prompts/snippets.ts",
+        "url": "https://github.com/google-gemini/gemini-cli/blob/main/packages/core/src/prompts/snippets.ts"
+      }
+    },
+    {
+      "product": "Llama 4 suggested system prompt",
+      "vendor": "Meta",
+      "date": "2025-04-05",
+      "kind": "Recommended system prompt in model card",
+      "surface": "Developers using Llama 4",
+      "words": 251,
+      "cutoff": "August 2024",
+      "notable": "Template for developers: switch tones casually, avoid templated language, never lecture people to be nicer, avoid phrases such as \"it's important to\", do not refuse political prompts; lists 12 supported languages.",
+      "source": {
+        "title": "Meta, Llama 4 model card (llama-models repo)",
+        "url": "https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md"
+      }
+    },
+    {
+      "product": "Mistral Small 3 (2501) recommended system prompt",
+      "vendor": "Mistral AI",
+      "date": "2025-01-28",
+      "kind": "Recommended system prompt in model repo",
+      "surface": "Developers using Mistral Small",
+      "words": 171,
+      "cutoff": "2023-10-01",
+      "notable": "Identifies the model as created by Mistral AI in Paris; resolve relative dates; ask for clarification when a request is unclear.",
+      "source": {
+        "title": "Mistral AI, Mistral-Small-24B-Instruct-2501 SYSTEM_PROMPT.txt",
+        "url": "https://huggingface.co/mistralai/Mistral-Small-24B-Instruct-2501/blob/main/SYSTEM_PROMPT.txt"
+      }
+    },
+    {
+      "product": "Mistral Small 3.1 (2503) recommended system prompt",
+      "vendor": "Mistral AI",
+      "date": "2025-03-11",
+      "kind": "Recommended system prompt in model repo",
+      "surface": "Developers using Mistral Small",
+      "words": 258,
+      "cutoff": "2023-10-01",
+      "notable": "Says the model powers an assistant called Le Chat; cannot browse the web; can read images but not generate them.",
+      "source": {
+        "title": "Mistral AI, Mistral-Small-3.1-24B-Instruct-2503 SYSTEM_PROMPT.txt",
+        "url": "https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/blob/main/SYSTEM_PROMPT.txt"
+      }
+    },
+    {
+      "product": "Mistral Small 3.2 (2506) recommended system prompt",
+      "vendor": "Mistral AI",
+      "date": "2025-06-19",
+      "kind": "Recommended system prompt in model repo",
+      "surface": "Developers using Mistral Small",
+      "words": 395,
+      "cutoff": "2023-10-01",
+      "notable": "Adds tool-calling instructions: use tools for up-to-date or missing data and say so if no tool is available rather than make something up.",
+      "source": {
+        "title": "Mistral AI, Mistral-Small-3.2-24B-Instruct-2506 SYSTEM_PROMPT.txt",
+        "url": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506/blob/main/SYSTEM_PROMPT.txt"
+      }
+    },
+    {
+      "product": "Devstral Small (2505) system prompt",
+      "vendor": "Mistral AI",
+      "date": "2025-05-12",
+      "kind": "Recommended system prompt in model repo",
+      "surface": "OpenHands coding agent",
+      "words": 849,
+      "cutoff": null,
+      "notable": "Identifies the model as Devstral using the OpenHands scaffold; the July 2025 Devstral Small 2507 repo publishes the same-length prompt.",
+      "source": {
+        "title": "Mistral AI, Devstral-Small-2505 SYSTEM_PROMPT.txt",
+        "url": "https://huggingface.co/mistralai/Devstral-Small-2505/blob/main/SYSTEM_PROMPT.txt"
+      }
+    },
+    {
+      "product": "Magistral Small (2506) system prompt",
+      "vendor": "Mistral AI",
+      "date": "2025-06-04",
+      "kind": "Recommended system prompt in model repo",
+      "surface": "Developers using Magistral",
+      "words": 137,
+      "cutoff": null,
+      "notable": "Draft a thinking process (inner monologue) first, then write a self-contained summary as the answer.",
+      "source": {
+        "title": "Mistral AI, Magistral-Small-2506 SYSTEM_PROMPT.txt",
+        "url": "https://huggingface.co/mistralai/Magistral-Small-2506/blob/main/SYSTEM_PROMPT.txt"
+      }
+    },
+    {
+      "product": "Magistral Small (2509) system prompt",
+      "vendor": "Mistral AI",
+      "date": "2025-09-12",
+      "kind": "Recommended system prompt in model repo",
+      "surface": "Developers using Magistral",
+      "words": 89,
+      "cutoff": null,
+      "notable": "Shorter version: draft thinking first, format with Markdown and use LaTeX for math.",
+      "source": {
+        "title": "Mistral AI, Magistral-Small-2509 SYSTEM_PROMPT.txt",
+        "url": "https://huggingface.co/mistralai/Magistral-Small-2509/blob/main/SYSTEM_PROMPT.txt"
+      }
+    },
+    {
+      "product": "Phi-4-reasoning required system prompt",
+      "vendor": "Microsoft",
+      "date": "2025-04",
+      "kind": "Recommended system prompt in model card",
+      "surface": "Developers using Phi-4-reasoning",
+      "words": 169,
+      "cutoff": null,
+      "notable": "The model card says to always use this prompt: identifies the model as Phi, trained by Microsoft, and requires a Thought section followed by a Solution section.",
+      "source": {
+        "title": "Microsoft, Phi-4-reasoning model card (Hugging Face)",
+        "url": "https://huggingface.co/microsoft/Phi-4-reasoning"
+      }
+    },
+    {
+      "product": "Qwen2.5 default system message",
+      "vendor": "Alibaba Cloud (Qwen)",
+      "date": "2024-09",
+      "kind": "Default in open-weight chat template",
+      "surface": "Self-hosted Qwen2.5 models",
+      "words": 12,
+      "cutoff": null,
+      "notable": "One sentence: the model is Qwen, created by Alibaba Cloud, and is a helpful assistant. Inserted when no system message is given.",
+      "source": {
+        "title": "Qwen, Qwen2.5-7B-Instruct tokenizer_config.json (Hugging Face)",
+        "url": "https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/blob/main/tokenizer_config.json"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "heading": "What changed over time",
+      "body": "The published prompts show how vendors patch model behavior between training runs. Documented examples, each visible by comparing dated versions on the source pages:\n\n| Date | Product | Documented change |\n|---|---|---|\n| 2024-07-12 | Claude Sonnet 3.5 | Bans filler openers such as \"Certainly!\" and tells Claude to act face blind with images. ([Anthropic](https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-3-5)) |\n| 2024-10-22 | Claude Sonnet 3.5 | Drops the \"Certainly\" ban; adds counting letters with explicit number tags and restating the constraints of familiar puzzles. ([Anthropic](https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-3-5)) |\n| 2024-11-22 | Claude Sonnet 3.5 | Tells Claude to write prose and avoid bullet points unless asked. ([Anthropic](https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-3-5)) |\n| 2025-05-22 | Claude 4 | Claude must not open by calling a question good, great or fascinating. ([Anthropic](https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-4)) |\n| 2025-07-31 | Claude 4 | Adds anti-sycophancy rules and guidance on signs of mania or psychosis; no emojis unless the user uses them. ([Anthropic](https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-4)) |\n| 2025-07-08 | @grok bot | Removes the line telling Grok not to shy away from politically incorrect claims; xAI later said a separate July 7 code change had pulled older instructions into Grok's prompts. ([GitHub](https://github.com/xai-org/grok-prompts/commits/main), [The Verge](https://www.theverge.com/news/706498/xai-grok-hitler-antisemitism-tesla-ai-bot)) |\n| 2025-07-15 | @grok bot | Says answers must come from independent analysis, not from beliefs stated by past Grok posts, Elon Musk or xAI. ([GitHub](https://github.com/xai-org/grok-prompts/commit/e517db8b4b2539ea825bc4038917740e35bcaeba)) |\n| 2025-09-02 | Grok 4 | Adds a Safety Instructions block listing disallowed activities and jailbreak tactics. ([GitHub](https://github.com/xai-org/grok-prompts/commit/172d3a3f9ce2ffeb9410c364412e6ed78207851f)) |\n| 2025-11-19 | Claude Sonnet 4.5 | Restructured into tagged sections with explicit refusals for weapons and malicious code. ([Anthropic](https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-4-5)) |\n| 2026-04-16 | Claude Opus 4.7 | Tells Claude to attempt the task rather than interview the user, and to search for deferred tools before saying it lacks access. ([Anthropic](https://platform.claude.com/docs/en/release-notes/system-prompts/claude-opus-4-7)) |\n| 2026-05-28 | Claude Opus 4.8 | States a default of helping, declining only for concrete risk of serious harm. ([Anthropic](https://platform.claude.com/docs/en/release-notes/system-prompts/claude-opus-4-8)) |\n| 2026-10-07 | Claude Sonnet 5.5 | Adds children's medicine dosing rules: read the label, ask age and weight, no doses from memory. ([Anthropic](https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-5-5)) |\n\nThree longer trends stand out. Length: Claude prompts went from one paragraph in 2024 to roughly 3,000 to 4,300 words in 2026, mostly from product information, tool rules and safety sections. Structure: since late 2025 Anthropic's prompts use XML-style tags (for example `refusal_handling`, `knowledge_cutoff`, `user_wellbeing`), and the 2026 prompts add worked examples with good and bad responses. Current events: prompts now carry facts the model cannot know from training, such as the 2024 US election result in Claude 4 prompts and a notice about the June 2026 suspension of Claude Fable 5 access in later prompts."
+    },
+    {
+      "heading": "System prompt vs. model spec vs. constitution",
+      "body": "A **system prompt** is runtime text sent to the model at the start of each conversation in a specific product. It can be changed in minutes, which is why it carries the current date, product names, tool lists and quick behavior fixes. Anthropic's page notes that its published prompts apply to the Claude apps, not the API, where developers write their own system prompt.\n\nA **model spec** describes how a vendor wants its models to behave across all products. OpenAI's [Model Spec](https://model-spec.openai.com/2026-08-18.html) (latest version dated August 18, 2026) sets a chain of command between platform, developer and user instructions and says OpenAI provides transparency mainly through the spec, with more disclosure when it adapts behavior through system messages in significant ways. It is a policy document, not the literal ChatGPT prompt.\n\nA **constitution** is a training-time document. Anthropic says [Claude's constitution](https://www.anthropic.com/constitution) plays a crucial role in its training process and directly shapes Claude's behavior, and that operators typically interact with Claude through the system prompt. In short: the constitution and spec shape what the model is; the system prompt tells one deployment of it what day it is, what tools it has and which product rules apply."
+    },
+    {
+      "heading": "How to read and use these prompts when writing your own",
+      "body": "- **Copy the structure, not the text.** The published prompts group rules into labeled sections (identity and date, product facts, tools, formatting, refusals, knowledge cutoff). Tagged sections make long prompts easier to maintain and test.\n- **State the date and the cutoff.** Almost every prompt here injects the current date and tells the model how to treat events after its training data, for example to say it cannot confirm them rather than call them rumors.\n- **Write the behavior you want, not only what to avoid.** Anthropic's 2026 prompts pair a rule with a good and a bad example response; Mistral's prompts tell the model what to do when it lacks a tool (say so instead of guessing).\n- **Patch with narrow rules, then remove them.** The Claude \"Certainly\" ban appeared in July 2024 and was gone by October 2024. Narrow fixes are cheap to add and should be re-tested when the model changes.\n- **Expect side effects.** The Grok changes of July 2025 show that a single line about political correctness can change public behavior at scale, so review prompt changes like code and keep a changelog.\n- **Do not paste a vendor prompt into the API.** These prompts reference product features (memory, Artifacts, X search) your app may not have, and Anthropic says its app prompts do not apply to the API. Start from your own product facts and add only the rules you need."
+    },
+    {
+      "heading": "Which vendors have not published a consumer chat prompt",
+      "body": "As of October 29, 2026, agitracker.io found no official publication of the system prompt for ChatGPT, the Google Gemini app, Meta AI, Microsoft Copilot or Perplexity. OpenAI publishes its Model Spec, the Codex CLI prompts and the gpt-oss default system message; Google publishes the Gemini CLI prompt in its open-source repository; Meta publishes a suggested Llama 4 system prompt; Microsoft publishes a required prompt for Phi-4-reasoning. Texts circulating online as the \"ChatGPT system prompt\" or \"Gemini system prompt\" are extractions or leaks and are excluded here."
+    }
+  ],
+  "methodology": [
+    "Inclusion: a prompt is listed only if the vendor itself published it, on its own documentation site ([Anthropic](https://platform.claude.com/docs/en/release-notes/system-prompts/overview)), in its own GitHub organization (xai-org, openai, google-gemini, meta-llama) or in its own Hugging Face model repository (openai, mistralai, microsoft, Qwen). Every source was fetched on October 29, 2026.",
+    "Exclusion of leaked prompts: prompts obtained by asking a chatbot to repeat its instructions, by prompt injection, or from leaks are not included. They cannot be verified against the vendor, may be partial or hallucinated by the model, may come from a test or regional variant, and may be altered by the person sharing them. Collections of leaked prompts, including ones that mirror Anthropic's official pages, were not used as sources.",
+    "Rows: one row per dated version. Anthropic's page lists 37 dated entries across 22 models; four entries (Claude Sonnet 3.5 on September 9, October 22 and November 22, 2024, and Claude Haiku 3.5 on October 22, 2024) publish separate text-only and text-and-images prompts, which appear as separate rows, giving 41 Anthropic rows. For xAI, each file and each commit that changed a prompt file is a row, using commit permalinks; two files later removed from the repository are included. OpenAI Codex rows use the date a file first appeared at its current path and note the last change.",
+    "Dates: Anthropic rows use the date heading on Anthropic's page, which marks when that prompt version took effect. Anthropic first published the page on August 26, 2024 according to [TechCrunch]({TC_A}), so the July 12, 2024 entries were made public later than their date. xAI rows use the commit date (UTC). Open-weight rows use the model repository creation month or the model card commit date.",
+    "Length: words are counted by splitting the published text on whitespace, so placeholders such as {{currentDateTime}} and template code in Jinja (.j2) files count as words. Counts are approximate and are left blank where the prompt is assembled by code (Gemini CLI) or is template logic (gpt-oss).",
+    "Knowledge cutoff: the column records what the prompt says, not an independently confirmed training date. Anthropic's two Claude Haiku 3.5 variants published on October 22, 2024 disagree (July 2024 in the text-only prompt, early December 2024 in the image prompt); both are shown. Grok prompts state no fixed cutoff.",
+    "Notable instructions are paraphrased by agitracker.io; quotations are kept under 25 words. Full prompt text is not reproduced. Comparisons between versions were made by diffing the published texts. Vendors can change prompts without updating these pages, so a published version may differ from what a product is running on a given day."
+  ],
+  "faq": [
+    {
+      "q": "What is the Claude system prompt?",
+      "a": "The Claude system prompt is the set of instructions Anthropic places before every conversation in claude.ai and the Claude mobile and desktop apps. It gives Claude the date, its model name and knowledge cutoff, product and tool information, formatting habits and rules for sensitive topics. Anthropic publishes every version on its [system prompts page](https://platform.claude.com/docs/en/release-notes/system-prompts/overview); by October 2026 the prompts ran roughly 3,000 to 4,300 words."
+    },
+    {
+      "q": "Where can I find Claude's official system prompt?",
+      "a": "Anthropic publishes it in its developer documentation under Release notes, System prompts. The [overview page](https://platform.claude.com/docs/en/release-notes/system-prompts/overview) links to one page per model, from Claude Haiku 3 to Claude Opus 5.5, Sonnet 5.5 and Haiku 5.5, and each page shows dated versions. Anthropic says these prompts apply to the Claude apps, not to the API."
+    },
+    {
+      "q": "Does the Claude API use the same system prompt as claude.ai?",
+      "a": "No. Anthropic states that its published system prompt updates do not apply to the Claude API. When you call the API, the model only receives the system prompt you send. That is why a model can behave differently in the Claude app and in your own application, and why copying the app prompt into an API call is rarely a good idea."
+    },
+    {
+      "q": "Has OpenAI published the ChatGPT system prompt?",
+      "a": "No. As of October 29, 2026, OpenAI has not officially published the system prompt used in ChatGPT. It publishes the [Model Spec](https://model-spec.openai.com/2026-08-18.html), the Codex CLI prompts on GitHub, and a default system message in its open-weight gpt-oss chat template that identifies the model as ChatGPT with a June 2024 cutoff. Texts sold or shared as the ChatGPT system prompt are leaks or extractions."
+    },
+    {
+      "q": "Where are Grok's system prompts published?",
+      "a": "xAI publishes them in the [xai-org/grok-prompts](https://github.com/xai-org/grok-prompts) repository on GitHub, which it created on May 15, 2025. The repository holds prompts for the Grok 3, Grok 4 and Grok 4.1 chat assistants, the @grok bot on X, the Explain this post feature and API safety prefixes. Its commit history shows each change; the latest commit is dated November 17, 2025."
+    },
+    {
+      "q": "Are leaked system prompts accurate?",
+      "a": "Sometimes, but they cannot be verified. Extracted prompts come from asking a model to repeat its instructions, which can produce partial, outdated or invented text, and anyone sharing them can edit them. Some come from test or regional versions. For accurate data, use prompts the vendor publishes, and check the date, because vendors update prompts frequently."
+    },
+    {
+      "q": "What is the difference between a system prompt and a model spec?",
+      "a": "A system prompt is the literal text a product sends to the model at runtime, and it can change daily. A model spec, such as OpenAI's Model Spec, or a constitution, such as Anthropic's, describes intended values and behavior and is used to train and evaluate models. The spec sets principles; the system prompt supplies the date, product facts, tools and deployment-specific rules."
+    },
+    {
+      "q": "How long is a typical system prompt?",
+      "a": "It varies widely. Among officially published prompts, Qwen2.5's default is 12 words and Claude Haiku 3's July 2024 prompt is 114 words, while 2026 Claude app prompts run about 3,000 to 4,300 words. Grok 4's chat prompt is about 1,180 words including template code, and Mistral Small 3.2's recommended prompt is about 400 words."
+    }
+  ],
+  "temporalCoverage": "2024/2026",
+  "related": [
+    "ai-model-release-timeline",
+    "ai-hallucination-examples"
+  ],
+  "stats": [
+    {
+      "value": "37",
+      "label": "dated Claude system prompt versions published by Anthropic"
+    },
+    {
+      "value": "114 → 4,267",
+      "label": "words, Claude Haiku 3 (2024) to Claude Fable 5.1 (2026)"
+    },
+    {
+      "value": "81",
+      "label": "officially published prompts from 8 vendors"
+    },
+    {
+      "value": "0",
+      "label": "official ChatGPT consumer prompts published by OpenAI"
+    }
+  ],
+  "charts": [
+    {
+      "id": "claude-prompt-length",
+      "type": "scatter",
+      "title": "Claude system prompt length over time",
+      "subtitle": "Words per published prompt version (our word count), all Claude models",
+      "x": "date",
+      "y": "words",
+      "labelKey": "product",
+      "filter": [
+        {
+          "key": "vendor",
+          "equals": "Anthropic"
+        },
+        {
+          "key": "words",
+          "notNull": true
+        }
+      ],
+      "decimals": 0,
+      "annotate": [
+        "Claude Haiku 3>",
+        "Claude Sonnet 3.7^",
+        "Claude Opus 4.7^",
+        "Claude Fable 5.1<"
+      ],
+      "yLabel": "Words",
+      "caption": "Claude's published system prompts grew from 114 words for Claude Haiku 3 in July 2024 to more than 4,000 words for the 5.x models in 2026.",
+      "alt": "Scatter plot of word counts of Anthropic's published Claude system prompts by date, rising from 114 words in July 2024 to about 4,270 words in September 2026, with Claude Haiku 3, Sonnet 3.7, Opus 4.7 and Fable 5.1 labeled."
+    },
+    {
+      "id": "prompts-by-vendor",
+      "type": "hbar",
+      "title": "Officially published system prompts by vendor",
+      "subtitle": "Count of published prompt versions in this dataset",
+      "x": "vendor",
+      "aggregate": "count",
+      "decimals": 0,
+      "yLabel": "Published prompt versions",
+      "caption": "Anthropic and xAI publish their consumer chat prompts; the other vendors publish defaults for open models and coding tools only.",
+      "alt": "Horizontal bar chart of officially published system prompt versions by vendor: Anthropic 41, xAI 24, OpenAI 6, Mistral AI 6 and others with fewer."
+    }
+  ],
+  "changelog": [
+    {
+      "date": "2026-10-29",
+      "note": "First published with 81 records, each linked to its source."
+    }
+  ]
+}

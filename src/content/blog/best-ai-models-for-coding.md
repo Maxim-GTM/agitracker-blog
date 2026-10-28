@@ -151,11 +151,11 @@ MiMo-V2.6-Pro is the cheapest model per completed agentic coding task on this li
 
 ## 10. Grok 4.7
 
-Grok 4.7 is SpaceXAI's coding and knowledge-work model, released September 21, 2026, and it ships with first-party integration in Cursor.
+Grok 4.7 is SpaceXSI's coding and knowledge-work model, released September 21, 2026, and it ships with first-party integration in Cursor.
 
-- **Benchmarks:** 28.79% on Vals' Terminal-Bench 4.0. Artificial Analysis measured 73% on DeepSWE v1.1 (up from 65%) and 56 on its Coding Agent Index (up from 47). SpaceXAI says it sits at the price-performance frontier on CursorBench 4.0.
+- **Benchmarks:** 28.79% on Vals' Terminal-Bench 4.0. Artificial Analysis measured 73% on DeepSWE v1.1 (up from 65%) and 56 on its Coding Agent Index (up from 47). SpaceXSI says it sits at the price-performance frontier on CursorBench 4.0.
 - **Price and context:** $2 / $6 per million tokens, cache hits $0.50, 500K context.
-- **In coding agents:** Available in Cursor and SpaceXAI's Grok Build agent, with a faster variant offered only in those two tools at twice the standard rate, per the [Grok 4.7 announcement](https://x.ai/news/grok-4-7).
+- **In coding agents:** Available in Cursor and SpaceXSI's Grok Build agent, with a faster variant offered only in those two tools at twice the standard rate, per the [Grok 4.7 announcement](https://x.ai/news/grok-4-7).
 - **Weaknesses:** Output token usage rose 125% over Grok 4.6, which pushes its Terminal-Bench cost to $18.09 per task, and the 500K context is half that of its peers.
 
 **Best for:** Cursor-centric teams that want a low output price for interactive editing.

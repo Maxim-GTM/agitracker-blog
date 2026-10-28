@@ -44,7 +44,7 @@ The table below lists the ten best AI models of October 2026 with standard API l
 | 5 | GPT-6.1 Sol | OpenAI | Sep 29, 2026 | Closed | 1.05M | $2 / $10 | 52 | n/a |
 | 6 | Claude Fable 5.1 | Anthropic | Sep 1, 2026 | Closed | 1M | $10 / $50 | 53 | 164.8 |
 | 7 | Gemini 3.8 Flash | Google DeepMind | Sep 2, 2026 | Closed | 1M | $0.75 / $3.75 (intro, through Dec 31) | n/a | 156.9 |
-| 8 | Grok 4.7 | SpaceXAI (xAI) | Sep 21, 2026 | Closed | 500K | $2 / $6 | 46 | n/a |
+| 8 | Grok 4.7 | SpaceXSI (xAI) | Sep 21, 2026 | Closed | 500K | $2 / $6 | 46 | n/a |
 | 9 | MiMo-V2.6-Pro | Xiaomi | Sep 22, 2026 | Open (MIT) | 1M | $0.43 / $0.87 | 46 | n/a |
 | 10 | Kimi K3 | Moonshot AI | Jul 16, 2026 | Open (custom license) | 1M | $3 / $15 | 44 | 157.6 |
 
@@ -129,7 +129,7 @@ Gemini 3.8 Flash is the best low-cost closed model, released September 2, 2026, 
 
 ## 8. Grok 4.7
 
-Grok 4.7 is SpaceXAI's latest model (the company formerly branded xAI), released September 21, 2026, on a new, larger base model with longer reinforcement learning.
+Grok 4.7 is SpaceXSI's latest model (the company formerly branded xAI), released September 21, 2026, on a new, larger base model with longer reinforcement learning.
 
 - **Scores:** 46 on the AA Intelligence Index, 56 on Artificial Analysis's Coding Agent Index (up from 47), 73% on DeepSWE v1.1 in Artificial Analysis's run, 54.95% on the Vals Index, and 28.79% on Vals' Terminal-Bench 4.0.
 - **Price and context:** $2 / $6 per million tokens, cache hits $0.50, 500K context.

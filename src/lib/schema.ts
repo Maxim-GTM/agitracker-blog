@@ -117,5 +117,64 @@ export function collectionPage(p: { url: string; name: string; description: stri
   };
 }
 
+export const DATA_CATALOG_ID = `${SITE.url}/data/#catalog`;
+
+/** schema.org Dataset, the type Google Dataset Search indexes. */
+export function dataset(d: {
+  url: string;
+  name: string;
+  description: string;
+  keywords: string[];
+  published: string;
+  updated: string;
+  license: string;
+  temporalCoverage?: string;
+  variables: string[];
+  csvUrl: string;
+  jsonUrl: string;
+  citation: string;
+  images?: { url: string; caption: string }[];
+}) {
+  const url = abs(d.url);
+  return {
+    '@type': 'Dataset',
+    '@id': `${url}#dataset`,
+    url,
+    name: d.name,
+    description: d.description,
+    keywords: d.keywords,
+    datePublished: d.published,
+    dateModified: d.updated,
+    license: d.license,
+    isAccessibleForFree: true,
+    inLanguage: SITE.lang,
+    creator: { '@id': ORG_ID },
+    publisher: { '@id': ORG_ID },
+    includedInDataCatalog: { '@id': DATA_CATALOG_ID },
+    ...(d.temporalCoverage && { temporalCoverage: d.temporalCoverage }),
+    variableMeasured: d.variables,
+    citation: d.citation,
+    ...(d.images?.length && {
+      image: d.images.map((i) => ({ '@type': 'ImageObject', contentUrl: abs(i.url), caption: i.caption })),
+    }),
+    distribution: [
+      { '@type': 'DataDownload', encodingFormat: 'text/csv', contentUrl: abs(d.csvUrl) },
+      { '@type': 'DataDownload', encodingFormat: 'application/json', contentUrl: abs(d.jsonUrl) },
+    ],
+  };
+}
+
+export function dataCatalog(p: { url: string; name: string; description: string; datasets: string[] }) {
+  return {
+    '@type': 'DataCatalog',
+    '@id': DATA_CATALOG_ID,
+    url: abs(p.url),
+    name: p.name,
+    description: p.description,
+    publisher: { '@id': ORG_ID },
+    dataset: p.datasets.map((u) => ({ '@id': `${abs(u)}#dataset` })),
+  };
+}
+
 /** Wraps nodes in one @graph so entities can reference each other by @id. */
 export const graph = (nodes: object[]) => ({ '@context': 'https://schema.org', '@graph': nodes });
