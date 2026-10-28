@@ -197,7 +197,7 @@ An AI governance framework only works when each written requirement maps to a co
 
 *Figure 4: Most enterprises answer yes to more than one question, which is why the two layers are bought together.*
 
-The last question in Figure 4 covers AI used on employee machines that never passes through the gateway. The Bifrost AI gateway remains the policy engine; [Bifrost Edge](https://docs.getbifrost.ai/edge/overview), currently in alpha, extends the same virtual keys, budgets, guardrails, and audit logs to desktop apps, browser AI, and coding agents on each device. The walkthrough on [deploying AI Gateway + Bifrost Edge](https://www.getmaxim.ai/articles/deploying-ai-governance-for-enterprises-with-bifrost-edge-bifrost-gateway/) shows the combined setup.
+The last question in Figure 4 covers AI used on employee machines that never passes through the gateway. The Bifrost AI gateway remains the policy engine; [Bifrost Edge](https://docs.getbifrost.ai/edge/overview), now generally available, extends the same virtual keys, budgets, guardrails, and audit logs to desktop apps, browser AI, and coding agents on each device. The walkthrough on [deploying AI Gateway + Bifrost Edge](https://www.getmaxim.ai/articles/deploying-ai-governance-for-enterprises-with-bifrost-edge-bifrost-gateway/) shows the combined setup.
 
 ## Frequently Asked Questions
 

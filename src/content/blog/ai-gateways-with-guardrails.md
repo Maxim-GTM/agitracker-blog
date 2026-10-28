@@ -65,7 +65,7 @@ The policy model has two parts. Rules, written in Common Expression Language (CE
 Guardrail coverage in Bifrost:
 
 - **Native checks.** Gitleaks-backed Secrets Detection, Custom Regex with a built-in PII Detection template, and LLM-as-judge Prompt Guardrails for organization-specific policies.
-- **Integrated providers.** Microsoft Presidio, Azure AI Language PII, AWS Bedrock Guardrails, Azure Content Safety, Google Model Armor, CrowdStrike AIDR, Gray Swan Cygnal, Patronus AI, Check Point AI Agent Security, Repello Argus, and Singulr AI.
+- **Integrated providers.** Presidio, Azure AI Language PII, AWS Bedrock Guardrails, Azure Content Safety, Google Model Armor, CrowdStrike AIDR, Gray Swan Cygnal, Patronus AI, Check Point AI Agent Security, Repello Argus, and Singulr AI.
 - **Redaction modes.** [Guardrail redaction](https://docs.getbifrost.ai/enterprise/guardrails/redaction) can redact the live payload, redact only logs and trace exports, or redact with reversible placeholders for authorized review.
 - **Streaming.** Detect-only rules observe streams without delay, runtime redaction releases buffered safe text as it is generated, and block-capable rules hold the stream until evaluation completes.
 
@@ -75,7 +75,7 @@ Governance gives those guardrails context, and it applies to every provider behi
 
 Enterprise deployments add RBAC with custom roles, OIDC user provisioning, and [HMAC-signed audit logs](https://docs.getbifrost.ai/enterprise/audit-logs) with retention and object-storage archival. Because Bifrost also serves as an [MCP gateway](https://www.getmaxim.ai/mcp-gateway) with per-key tool filtering, the same identity governs which tools an agent can call and which guardrails inspect those calls.
 
-Gateway guardrails only cover traffic that reaches the gateway. [Bifrost Edge](https://www.getmaxim.ai/edge), currently in alpha, extends the same governance and security controls to employee machines by routing AI traffic from desktop apps, browser AI, and coding agents through Bifrost, so the [guardrail profiles already configured apply on each endpoint](https://docs.getbifrost.ai/edge/security) with no per-app setup.
+Gateway guardrails only cover traffic that reaches the gateway. [Bifrost Edge](https://www.getmaxim.ai/edge), now generally available, extends the same governance and security controls to employee machines by routing AI traffic from desktop apps, browser AI, and coding agents through Bifrost, so the [guardrail profiles already configured apply on each endpoint](https://docs.getbifrost.ai/edge/security) with no per-app setup.
 
 **Best for:** In this assessment, Bifrost is the strongest option for enterprises and regulated teams that need guardrails, governance, and routing in one self-hosted control plane. It runs identity-scoped guardrails on both LLM traffic and MCP tool calls, backs them with hierarchical budgets and signed audit logs, and supports VPC, on-prem, and air-gapped deployment.
 

@@ -71,7 +71,7 @@ What matters for self-hosters:
 - **Small footprint.** One binary or container, no required cache, and an optional PostgreSQL store. The [Kubernetes deployment guide](https://docs.getbifrost.ai/deployment-guides/k8s) covers cluster installs.
 - **One control plane.** The same deployment is an [LLM gateway with provider failover](https://www.getmaxim.ai/llm-gateway), so model and tool traffic share [virtual keys, budgets, and RBAC](https://www.getmaxim.ai/ai-governance) instead of two policy systems.
 - **Telemetry included.** [Gateway-level observability](https://www.getmaxim.ai/ai-observability) exposes Prometheus metrics, OpenTelemetry traces, and per-tool duration and failure rates, and [guardrails](https://www.getmaxim.ai/ai-guardrails) for secrets and PII run on the same request path.
-- **Path beyond the data center.** [Bifrost Edge](https://www.getmaxim.ai/edge), in early access, extends the gateway's governance and security to employee machines and inventories the MCP servers configured in apps such as Claude Code and Cursor.
+- **Path beyond the data center.** [Bifrost Edge](https://www.getmaxim.ai/edge), now generally available, extends the gateway's governance and security to employee machines and inventories the MCP servers configured in apps such as Claude Code and Cursor.
 
 **Best for:** In this assessment, Bifrost is the strongest open source MCP gateway for teams that want enterprise-grade performance and governance without adding a separate tool gateway. It suits regulated environments that require air-gapped, VPC, or on-premises deployment and full control over data and execution.
 

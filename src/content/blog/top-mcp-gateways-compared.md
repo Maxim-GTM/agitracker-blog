@@ -100,7 +100,7 @@ Key features:
 
 Because Bifrost is also a full [LLM gateway with routing and failover](https://www.getmaxim.ai/llm-gateway), the same deployment that governs MCP traffic handles provider fallbacks and load balancing, which removes a second control plane. [Guardrails](https://www.getmaxim.ai/ai-guardrails) for secrets, PII, and content safety apply on the same path.
 
-Governance and security also extend past the data center. [Bifrost Edge](https://www.getmaxim.ai/edge), currently in early access, carries the gateway's virtual keys, guardrails, and audit logging to employee machines, and it [discovers the MCP servers configured inside AI apps](https://docs.getbifrost.ai/edge/mcp-governance) such as Claude Code, Claude Desktop, Cursor, and Codex, so administrators can allow or deny each server across the fleet with enforcement on the device.
+Governance and security also extend past the data center. [Bifrost Edge](https://www.getmaxim.ai/edge), now generally available, carries the gateway's virtual keys, guardrails, and audit logging to employee machines, and it [discovers the MCP servers configured inside AI apps](https://docs.getbifrost.ai/edge/mcp-governance) such as Claude Code, Claude Desktop, Cursor, and Codex, so administrators can allow or deny each server across the fleet with enforcement on the device.
 
 **Best for:** In this assessment, Bifrost is the strongest choice for enterprises running mission-critical agent workloads. It governs model calls and tool calls in one low-latency control plane, offers the deepest per-user authentication of any gateway reviewed here, and deploys air-gapped, in a VPC, or on-premises for regulated industries.
 

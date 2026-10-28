@@ -68,7 +68,7 @@ A fuller framework for the governance side is in the [Bifrost governance resourc
 
 ## 1. Bifrost with Bifrost Edge
 
-Bifrost is the AI gateway and the control plane: virtual keys, budgets, rate limits, guardrails, and audit logs are configured and enforced there. Bifrost Edge extends that same policy to every machine, routing AI traffic from desktop apps, browser AI, coding agents, and MCP servers through the organization's Bifrost automatically. Edge is currently in alpha.
+Bifrost is the AI gateway and the control plane: virtual keys, budgets, rate limits, guardrails, and audit logs are configured and enforced there. Bifrost Edge extends that same policy to every machine, routing AI traffic from desktop apps, browser AI, coding agents, and MCP servers through the organization's Bifrost automatically. Edge is generally available.
 
 **Best for:** Bifrost is built for enterprises running mission-critical AI workloads that require best-in-class performance, scalability, and reliability. It serves as a centralized AI gateway to route, govern, and secure all AI traffic across models and environments with ultra low latency. Bifrost unifies LLM gateway, MCP gateway, and Agents gateway capabilities into a single platform. Designed for regulated industries and strict enterprise requirements, it supports air-gapped deployments, VPC isolation, and on-prem infrastructure. It provides full control over data, access, and execution, along with robust security, policy enforcement, and governance capabilities.
 
@@ -91,7 +91,7 @@ Key capabilities:
 
 Coverage today includes Claude Desktop, ChatGPT desktop, Cursor, and Codex on the desktop, Claude Code, Codex CLI, and OpenCode as coding agents, and ChatGPT and Claude in the browser, with the current list published on the [supported applications page](https://docs.getbifrost.ai/edge/supported-applications).
 
-**Deployment note:** Bifrost Edge is in alpha, and teams register to be onboarded. As an endpoint agent rolled out through MDM, it covers managed company devices, and it pairs well with identity-based discovery for any unmanaged machines.
+**Deployment note:** Bifrost Edge is generally available and works with Bifrost Enterprise as an add-on; it is not included in the Enterprise license by default. As an endpoint agent rolled out through MDM, it covers managed company devices, and it pairs well with identity-based discovery for any unmanaged machines.
 
 ## 2. Zscaler
 
@@ -181,6 +181,6 @@ Yes, and they are the newest blind spot. MCP servers are external tools that AI 
 
 ## Getting Started with Bifrost
 
-Shadow AI persists when governance depends on users pointing their tools at the right place. Bifrost, the AI gateway, is where virtual keys, budgets, guardrails, and audit logs are defined, and Bifrost Edge carries that policy to every machine so desktop apps, browser AI, coding agents, and MCP servers are governed without per-app setup. Edge is in alpha today, and teams register to be onboarded.
+Shadow AI persists when governance depends on users pointing their tools at the right place. Bifrost, the AI gateway, is where virtual keys, budgets, guardrails, and audit logs are defined, and Bifrost Edge carries that policy to every machine so desktop apps, browser AI, coding agents, and MCP servers are governed without per-app setup. Edge is generally available.
 
 To see how this works across your fleet, review the [Bifrost Edge documentation](https://docs.getbifrost.ai/edge/overview), or explore [deployment options for enterprises](https://www.getmaxim.ai/bifrost/enterprise).

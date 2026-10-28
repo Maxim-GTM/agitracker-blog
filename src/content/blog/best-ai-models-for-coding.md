@@ -185,7 +185,7 @@ That compatibility lets [Claude Code](https://docs.getbifrost.ai/cli-agents/clau
 - **Cost and latency visibility:** [gateway observability](https://www.getmaxim.ai/ai-observability) records tokens, cost, and latency per request, turning cost per task into a number measured on the team's own repositories rather than a benchmark estimate.
 - **Tools and policy:** as an [MCP gateway](https://www.getmaxim.ai/mcp-gateway), Bifrost controls which MCP tools each coding agent can call, and [guardrails](https://www.getmaxim.ai/ai-guardrails) apply content policies to agent traffic regardless of model.
 
-Coding agents increasingly run on developer laptops outside any configured endpoint. [Bifrost Edge](https://www.getmaxim.ai/edge), in early access, extends the same gateway governance and security (virtual keys, budgets, guardrails, audit logs) to Claude Code, Codex, Cursor, and their MCP servers on each machine, with [endpoint enforcement](https://docs.getbifrost.ai/edge/security) on the device.
+Coding agents increasingly run on developer laptops outside any configured endpoint. [Bifrost Edge](https://www.getmaxim.ai/edge), now generally available, extends the same gateway governance and security (virtual keys, budgets, guardrails, audit logs) to Claude Code, Codex, Cursor, and their MCP servers on each machine, with [endpoint enforcement](https://docs.getbifrost.ai/edge/security) on the device.
 
 ## Frequently Asked Questions
 
