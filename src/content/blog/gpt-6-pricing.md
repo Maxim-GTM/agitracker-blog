@@ -106,7 +106,7 @@ To estimate GPT-6 Sol costs for a specific workload, the Bifrost [GPT-6 Sol cost
 
 Cost controls are only one criterion when choosing a gateway. This [production-ready comparison of LLM gateways](https://www.getmaxim.ai/articles/top-5-llm-gateways-in-2026-a-production-ready-comparison/) scores the leading options on routing, governance depth, and performance overhead, and the guide to [open-source LLM gateways for self-hosted deployments](https://www.getmaxim.ai/articles/5-best-open-source-llm-gateways-for-self-hosted-deployments-in-2026/) is useful for teams that do not want a gateway that charges a percentage of model spend, which would eat into the savings a price cut creates.
 
-Beyond routing, Bifrost applies [governance](https://www.getmaxim.ai/bifrost/resources/governance) and security controls (virtual keys, budgets, guardrails, audit logs) centrally, and [Bifrost Edge](https://www.getmaxim.ai/bifrost/edge) extends that same governance and security to AI traffic on employee machines, with [endpoint enforcement](https://docs.getbifrost.ai/edge/security) on each device. Bifrost Edge is currently in alpha.
+Beyond routing, Bifrost applies [governance](https://www.getmaxim.ai/bifrost/resources/governance) and security controls (virtual keys, budgets, guardrails, audit logs) centrally, and [Bifrost Edge](https://www.getmaxim.ai/bifrost/edge) extends that same governance and security to AI traffic on employee machines, with [endpoint enforcement](https://docs.getbifrost.ai/edge/security) on each device. Bifrost Edge is generally available.
 
 ## Choosing Where GPT-6 Fits in a Multi-Model Stack
 

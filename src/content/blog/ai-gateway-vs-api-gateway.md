@@ -136,7 +136,7 @@ Teams that land on a dedicated, self-hosted AI gateway can compare the open-sour
 
 [Bifrost](https://www.getmaxim.ai/bifrost) is a dedicated AI gateway that sits beside an existing API gateway rather than replacing it. It provides one OpenAI-compatible API across 20+ providers, automatic failover, semantic caching, token and request limits, budgets, and an MCP gateway in one open-source binary, and it runs as a single container or a Kubernetes deployment inside your network. Its self-hosting trade-offs against other open-source options are covered in the [self-hosted open-source gateway comparison](https://www.getmaxim.ai/articles/5-best-open-source-llm-gateways-for-self-hosted-deployments-in-2026/).
 
-Beyond routing, Bifrost applies [governance](https://www.getmaxim.ai/bifrost/resources/governance) and security controls (virtual keys, budgets, guardrails, audit logs) centrally, and [Bifrost Edge](https://www.getmaxim.ai/bifrost/edge) extends that same governance and security to AI traffic on employee machines, with [endpoint enforcement](https://docs.getbifrost.ai/edge/security) on each device. Bifrost Edge is currently in alpha.
+Beyond routing, Bifrost applies [governance](https://www.getmaxim.ai/bifrost/resources/governance) and security controls (virtual keys, budgets, guardrails, audit logs) centrally, and [Bifrost Edge](https://www.getmaxim.ai/bifrost/edge) extends that same governance and security to AI traffic on employee machines, with [endpoint enforcement](https://docs.getbifrost.ai/edge/security) on each device. Bifrost Edge is generally available.
 
 ## Frequently Asked Questions
 

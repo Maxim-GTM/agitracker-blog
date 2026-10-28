@@ -192,7 +192,7 @@ What that layer typically handles for a multi-model stack:
 - **Cost and latency observability:** [AI observability](https://www.getmaxim.ai/ai-observability) logs tokens, cost, and latency per request, with [OpenTelemetry export](https://docs.getbifrost.ai/features/observability/otel) for existing tracing stacks, so cost per task can be compared across models on real traffic.
 - **Guardrails and tools:** [AI guardrails](https://www.getmaxim.ai/ai-guardrails) apply the same content policies regardless of which model answers, and for tool-using agents Bifrost also works as an [MCP gateway](https://www.getmaxim.ai/mcp-gateway) that controls which tools each key can call.
 
-The same governance and security controls (virtual keys, budgets, guardrails, audit logs) can also reach employee laptops: [Bifrost Edge](https://www.getmaxim.ai/edge), currently in early access, extends that gateway policy to desktop AI apps, coding agents, and MCP servers on each machine, with [endpoint enforcement](https://docs.getbifrost.ai/edge/security) on the device.
+The same governance and security controls (virtual keys, budgets, guardrails, audit logs) can also reach employee laptops: [Bifrost Edge](https://www.getmaxim.ai/edge), now generally available, extends that gateway policy to desktop AI apps, coding agents, and MCP servers on each machine, with [endpoint enforcement](https://docs.getbifrost.ai/edge/security) on the device.
 
 ## Frequently Asked Questions
 

@@ -154,7 +154,7 @@ Once the deployment model is settled, the next step is choosing the gateway itse
 
 [Bifrost](https://www.getmaxim.ai/bifrost) covers the self-hosted and in-VPC columns of the decision table with one codebase. The open-source gateway runs anywhere a container runs, exposes an OpenAI-compatible API as a [drop-in replacement](https://docs.getbifrost.ai/features/drop-in-replacement) for existing SDKs, and includes failover, governance, and an MCP gateway. Bifrost Enterprise adds clustering, guardrails, SSO, audit logs, and the in-VPC option with an uptime commitment, so a team can start with a single container and move to an SLA-backed deployment without changing application code.
 
-Beyond routing, Bifrost applies [governance](https://www.getmaxim.ai/bifrost/resources/governance) and security controls (virtual keys, budgets, guardrails, audit logs) centrally, and [Bifrost Edge](https://www.getmaxim.ai/bifrost/edge) extends the same governance and security to AI traffic on employee machines, with [endpoint enforcement](https://docs.getbifrost.ai/edge/security) on each device. Bifrost Edge is currently in alpha.
+Beyond routing, Bifrost applies [governance](https://www.getmaxim.ai/bifrost/resources/governance) and security controls (virtual keys, budgets, guardrails, audit logs) centrally, and [Bifrost Edge](https://www.getmaxim.ai/bifrost/edge) extends the same governance and security to AI traffic on employee machines, with [endpoint enforcement](https://docs.getbifrost.ai/edge/security) on each device. Bifrost Edge is generally available.
 
 For more on the open-source landscape, this site also covers [open-source LLM gateways worth running in production](/blog/open-source-llm-gateways/) and [LiteLLM alternatives](/blog/litellm-alternatives/).
 

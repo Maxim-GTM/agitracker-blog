@@ -202,7 +202,7 @@ An MCP gateway gives every coding agent on a team the same governed set of tools
 
 Routing Claude Code through a gateway also brings model failover and spend controls, which the comparison of [Claude Code gateways](/blog/claude-code-gateways/) covers separately; teams running Claude Code, Codex CLI and Cursor side by side can compare [AI gateways that serve all three coding agents](/blog/ai-gateways-for-coding-agents/) under one key.
 
-The remaining gap is servers developers add locally without going through the gateway. [Bifrost Edge](https://www.getmaxim.ai/edge), in alpha, extends the gateway's governance and security to developer machines: it [discovers MCP servers configured](https://docs.getbifrost.ai/edge/mcp-governance) in Claude Code, Cursor, Codex, Gemini CLI, OpenCode, and Claude Desktop, builds a fleet-wide inventory, and enforces allow or deny decisions on each device. For a broader view of tools in this space, see the review of [enterprise MCP governance tools](/blog/mcp-governance-tools/).
+The remaining gap is servers developers add locally without going through the gateway. [Bifrost Edge](https://www.getmaxim.ai/edge), now generally available, extends the gateway's governance and security to developer machines: it [discovers MCP servers configured](https://docs.getbifrost.ai/edge/mcp-governance) in Claude Code, Cursor, Codex, Gemini CLI, OpenCode, and Claude Desktop, builds a fleet-wide inventory, and enforces allow or deny decisions on each device. For a broader view of tools in this space, see the review of [enterprise MCP governance tools](/blog/mcp-governance-tools/).
 
 ## Frequently Asked Questions
 

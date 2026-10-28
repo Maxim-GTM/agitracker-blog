@@ -173,7 +173,7 @@ Each platform above governs the agents it runs. None of them governs every agent
 - **Model access and failover.** The [Bifrost LLM gateway](https://www.getmaxim.ai/llm-gateway) exposes 1,000+ models through one API with automatic provider fallbacks.
 - **Audit and tracing.** [Gateway-level observability](https://www.getmaxim.ai/ai-observability) logs tokens, cost, and latency per request, and [signed audit logs](https://docs.getbifrost.ai/enterprise/audit-logs) record administrative changes with export to JSON, JSON Lines, or Syslog for compliance review.
 
-The endpoint is where enterprise orchestration most often has a gap. Coding agents, desktop assistants, and locally configured MCP servers run on employee machines, outside every managed platform above. [Bifrost Edge](https://www.getmaxim.ai/edge), currently in alpha, extends the gateway's governance and security controls to those machines: it routes desktop, browser, and coding-agent AI traffic through Bifrost, enforces [app allow and deny decisions](https://docs.getbifrost.ai/edge/app-governance) on the device, and rolls out silently through [MDM tools such as Jamf, Intune, and Kandji](https://docs.getbifrost.ai/edge/deployment-mdm).
+The endpoint is where enterprise orchestration most often has a gap. Coding agents, desktop assistants, and locally configured MCP servers run on employee machines, outside every managed platform above. [Bifrost Edge](https://www.getmaxim.ai/edge), now generally available, extends the gateway's governance and security controls to those machines: it routes desktop, browser, and coding-agent AI traffic through Bifrost, enforces [app allow and deny decisions](https://docs.getbifrost.ai/edge/app-governance) on the device, and rolls out silently through [MDM tools such as Jamf, Intune, and Kandji](https://docs.getbifrost.ai/edge/deployment-mdm).
 
 Teams comparing this control layer can also review [agent gateways for governing AI agents](/blog/agent-gateways/) and the broader roundup of [enterprise AI governance platforms](/blog/enterprise-ai-governance-platforms/).
 
@@ -219,7 +219,7 @@ Agent identity is a distinct, auditable credential assigned to each AI agent rat
 
 ### Can AI agents on employee laptops be governed?
 
-Yes, but managed orchestration platforms do not cover them, because coding agents and desktop assistants run outside the platform. Endpoint governance tools route that traffic through a central policy layer. Bifrost Edge, in alpha, routes AI traffic from desktop apps, browsers, and coding agents through the Bifrost gateway so the same virtual keys, guardrails, and audit logs apply on each machine.
+Yes, but managed orchestration platforms do not cover them, because coding agents and desktop assistants run outside the platform. Endpoint governance tools route that traffic through a central policy layer. Bifrost Edge, now generally available, routes AI traffic from desktop apps, browsers, and coding agents through the Bifrost gateway so the same virtual keys, guardrails, and audit logs apply on each machine.
 
 ## Final Recommendation
 

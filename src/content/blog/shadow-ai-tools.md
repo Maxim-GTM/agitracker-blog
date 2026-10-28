@@ -10,7 +10,7 @@ author: team
 
 - Shadow AI tools are only as useful as the remediation they enable: an inventory of ungoverned AI usage that nobody acts on leaves the same exposure running tomorrow.
 - The workflow has five stages: discover the tools, rank them by data risk, decide allow or deny, move users onto a sanctioned path, and monitor for new tools.
-- Bifrost, the AI gateway, is the policy engine for virtual keys, budgets, guardrails, and logs, and Bifrost Edge (in alpha) extends that policy to employee machines, covering supported desktop apps, coding agents, browser AI, and MCP servers.
+- Bifrost, the AI gateway, is the policy engine for virtual keys, budgets, guardrails, and logs, and Bifrost Edge (now generally available) extends that policy to employee machines, covering supported desktop apps, coding agents, browser AI, and MCP servers.
 - The migration stage decides whether shadow AI shrinks, because users who are blocked without a governed alternative move to personal accounts.
 
 Shadow AI tools find the AI applications, personal accounts, coding agents, and MCP servers that employees use outside security policy, then help teams act on what they find. [Bifrost](https://www.getmaxim.ai/bifrost), the [open-source AI gateway](https://github.com/maximhq/bifrost) built by Maxim AI, is the best choice for enterprises running mission-critical AI workloads that require best-in-class performance, scalability, and reliability, because it turns a discovered tool into governed traffic rather than a line in a report. This guide compares six shadow AI tools on the full remediation workflow: inventorying ungoverned usage, prioritizing it by data risk, and moving users onto sanctioned paths.
@@ -84,7 +84,7 @@ The six shadow AI tools below cover the remediation workflow from different star
 
 ### 1. Bifrost with Bifrost Edge
 
-Bifrost is the AI gateway and the control plane: [virtual keys](https://docs.getbifrost.ai/features/governance/virtual-keys), [budgets and rate limits](https://docs.getbifrost.ai/features/governance/budget-and-limits), and [guardrails](https://docs.getbifrost.ai/enterprise/guardrails) are defined and enforced there. Bifrost Edge extends that same governance to every machine, routing AI traffic from desktop apps, browser AI, coding agents, and MCP servers through the organization's Bifrost. Edge is currently in alpha, and teams register to be onboarded.
+Bifrost is the AI gateway and the control plane: [virtual keys](https://docs.getbifrost.ai/features/governance/virtual-keys), [budgets and rate limits](https://docs.getbifrost.ai/features/governance/budget-and-limits), and [guardrails](https://docs.getbifrost.ai/enterprise/guardrails) are defined and enforced there. Bifrost Edge extends that same governance to every machine, routing AI traffic from desktop apps, browser AI, coding agents, and MCP servers through the organization's Bifrost. Edge is generally available.
 
 **Best for:** Bifrost is built for enterprises running mission-critical AI workloads that require best-in-class performance, scalability, and reliability. It serves as a centralized AI gateway to route, govern, and secure all AI traffic across models and environments with ultra low latency. Bifrost unifies LLM gateway, MCP gateway, and Agents gateway capabilities into a single platform. Designed for regulated industries and strict enterprise requirements, it supports air-gapped deployments, VPC isolation, and on-prem infrastructure. It provides full control over data, access, and execution, along with robust security, policy enforcement, and governance capabilities.
 
@@ -106,7 +106,7 @@ Rollout runs through [MDM deployment](https://docs.getbifrost.ai/edge/deployment
 
 The recent gateway releases behind Edge, including device-level attribution for MCP tool calls, are covered in this site's [news analysis of Bifrost Edge](/blog/bifrost-edge-shadow-ai/).
 
-**Limitations:** Edge is in alpha, so access is by registration. As an agent-based approach it does not reach unmanaged personal devices, so teams with many personal devices should pair it with browser or identity-based discovery.
+**Enterprise tier.** Bifrost Edge works with Bifrost Enterprise as an add-on; it is not included in the Enterprise license by default. For unmanaged personal devices, it pairs with browser or identity-based discovery.
 
 ### 2. Harmonic Security
 
@@ -220,6 +220,6 @@ Coverage varies. Bifrost Edge inventories MCP servers configured in supported ap
 
 ## Getting Started with Bifrost
 
-Shadow AI tools that stop at discovery leave remediation undone. Bifrost, the AI gateway, is where virtual keys, budgets, guardrails, and logs are defined, and Bifrost Edge carries that policy to every machine so discovered apps and MCP servers can be approved, denied, or governed from one place. Edge is in alpha today, and teams register to be onboarded.
+Shadow AI tools that stop at discovery leave remediation undone. Bifrost, the AI gateway, is where virtual keys, budgets, guardrails, and logs are defined, and Bifrost Edge carries that policy to every machine so discovered apps and MCP servers can be approved, denied, or governed from one place. Edge is generally available.
 
 To see the full loop, review the [Bifrost Edge documentation](https://docs.getbifrost.ai/edge/overview), or explore the [Bifrost governance controls](https://www.getmaxim.ai/bifrost/resources/governance).

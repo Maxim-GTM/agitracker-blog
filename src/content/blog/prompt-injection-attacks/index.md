@@ -188,7 +188,7 @@ Mapped to the defense-in-depth table, the gateway covers least privilege, tool a
 
 **Enterprise tier.** Guardrails, audit logs and Prompt Guardrails are part of Bifrost Enterprise.
 
-For agents that run on employee laptops, such as coding agents and desktop assistants with local MCP servers, [Bifrost Edge](https://www.getmaxim.ai/edge) routes that traffic through the same gateway so virtual keys, tool policies and guardrails also apply on the device. Bifrost Edge is in early access.
+For agents that run on employee laptops, such as coding agents and desktop assistants with local MCP servers, [Bifrost Edge](https://www.getmaxim.ai/edge) routes that traffic through the same gateway so virtual keys, tool policies and guardrails also apply on the device. Bifrost Edge is generally available.
 
 ## A Prompt Injection Defense Checklist
 

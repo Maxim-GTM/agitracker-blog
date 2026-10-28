@@ -29,7 +29,7 @@ Cursor skills are on-demand instruction packages that Cursor's Agent loads when 
 
 ## What Cursor Skills Are
 
-A Cursor skill is a directory with a `SKILL.md` file whose YAML frontmatter holds a required `name` and `description`, followed by instructions in Markdown. It can also include `scripts/`, `references/` and `assets/` folders. Cursor implements the open Agent Skills standard, so the same skill can run in Cursor, Claude Code and Codex. This site's roundup of [Claude Code gateways](/blog/claude-code-gateways/) covers routing for another agent that reads the same format, and its overview of [AI coding agents](/blog/ai-coding-agents/) compares the agents themselves.
+A Cursor skill is a directory with a `SKILL.md` file whose YAML frontmatter holds a required `name` and `description`, followed by instructions in Markdown. It can also include `scripts/`, `references/` and `assets/` folders. Cursor implements the open Agent Skills standard, so the same skill can run in Cursor, Claude Code and Codex. This site's roundup of [Claude Code gateways](/blog/claude-code-gateways/) covers routing for another agent that reads the same format, and its overview of [AI coding agents](/blog/ai-coding-agents/) compares the agents themselves. A companion guide covers how the same skills load in [OpenAI Codex](/blog/codex-skills/).
 
 Cursor's [Agent Skills documentation](https://cursor.com/docs/skills) describes skills as portable, version-controlled packages that "teach agents how to perform domain-specific tasks", and lists four properties: portable across agents that support the standard, stored as files that can be tracked in a repository, actionable through scripts and templates, and progressive, loading resources only when needed.
 

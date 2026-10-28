@@ -204,7 +204,7 @@ npx skills add build-with-ai-hq/llm-observability-stack -a codex
 
 **Best for:** teams that ship LLM features but cannot answer which user, feature or model drove last week's latency or cost.
 
-All six also install for Claude Code, Cursor, Gemini CLI or OpenCode by changing the `-a` value, which is the practical benefit of a shared format. This site's guide to [MCP servers for coding agents](/blog/mcp-servers-for-coding-agents/) covers the tool side of the same setup.
+All six also install for Claude Code, Cursor, Gemini CLI or OpenCode by changing the `-a` value, which is the practical benefit of a shared format. This site's guide to [MCP servers for coding agents](/blog/mcp-servers-for-coding-agents/) covers the tool side of the same setup. For Cursor's discovery paths and how skills compare with Cursor rules, see the companion guide to [Cursor skills](/blog/cursor-skills/).
 
 ## Pairing Skills With a Gateway for Codex Traffic
 
