@@ -82,7 +82,7 @@ Bifrost is an open-source AI gateway that selects a model per request with CEL r
 
 *Figure 3: An unclassified request falls through to normal routing instead of being blocked, so complexity rules degrade safely.*
 
-**How the complexity router works.** Bifrost embeds the latest user message with an embedding provider you configure and assigns the tier of the nearest labeled reference phrase. It ships 150 default phrases, 50 per tier, which teams extend with phrases from their own traffic. This is nearest-neighbor classification against examples you control, not a vendor-trained black box.
+**How the complexity router works.** Bifrost embeds the latest user message with an embedding provider you configure and assigns the tier of the nearest labeled reference phrase. It ships 150 default phrases, 50 per tier, which teams extend with phrases from their own traffic. This is nearest-neighbor classification against examples you control, not a vendor-trained black box. Since October 2026 the router can also classify with a decision model instead of phrases; this site's [report on the upgraded complexity router](/blog/bifrost-complexity-router/) covers the change and its published benchmark.
 
 **How the decision is expressed.** The tier becomes the `complexity_tier` variable in [CEL routing rules](https://docs.getbifrost.ai/providers/routing-rules), alongside headers, team, customer, and live budget usage:
 

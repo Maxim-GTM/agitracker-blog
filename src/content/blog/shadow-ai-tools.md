@@ -104,6 +104,8 @@ Coverage by stage:
 
 Rollout runs through [MDM deployment](https://docs.getbifrost.ai/edge/deployment-mdm) on Jamf, Intune, Kandji, Workspace ONE, and JumpCloud. [Supported applications](https://docs.getbifrost.ai/edge/supported-applications) include Claude Desktop, ChatGPT, Cursor, Codex, Claude Code, OpenCode, and Claude and ChatGPT on the web. Behind Edge, the gateway reaches 25+ providers and 10,000+ models through one OpenAI-compatible API, with [11 microseconds of overhead per request at 5,000 RPS](https://www.getmaxim.ai/bifrost/resources/benchmarks).
 
+The recent gateway releases behind Edge, including device-level attribution for MCP tool calls, are covered in this site's [news analysis of Bifrost Edge](/blog/bifrost-edge-shadow-ai/).
+
 **Limitations:** Edge is in alpha, so access is by registration. As an agent-based approach it does not reach unmanaged personal devices, so teams with many personal devices should pair it with browser or identity-based discovery.
 
 ### 2. Harmonic Security

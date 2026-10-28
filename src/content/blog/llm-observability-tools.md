@@ -89,7 +89,7 @@ Teams building a shortlist beyond tracing can use the [LLM gateway buyer's guide
 
 *Figure 3: The same request produces a searchable log entry and an exported span, so teams debug locally and correlate in their existing backend.*
 
-Because Bifrost traces at the gateway, agent code does not change. The [built-in request logging](https://docs.getbifrost.ai/features/observability/default) captures messages, parameters, tool calls, provider, tokens, cost, latency, and status for every request, adding under 0.1 ms. Logs live in SQLite or PostgreSQL and are searchable in the dashboard or by API.
+Because Bifrost traces at the gateway, agent code does not change. The [built-in request logging](https://docs.getbifrost.ai/features/observability/default) captures messages, parameters, tool calls, provider, tokens, cost, latency, and status for every request, adding under 0.1 ms. Logs live in SQLite or PostgreSQL and are searchable in the dashboard or by API. Since v2.3.0 they can also be queried in plain language through [Warp, a read-only agent in the Bifrost dashboard](/blog/bifrost-warp-llm-observability-agent/).
 
 Each log records an `attempt_trail` listing every key tried, why it failed (`rate_limit_error`, `authentication_error`, `network_error`), and whether it triggered key rotation. Logs can be filtered by `tool_call_names`, and a [latency and overhead breakdown](https://docs.getbifrost.ai/features/observability/latency-breakdown) separates provider time from gateway time.
 

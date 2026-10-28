@@ -55,6 +55,8 @@ That is what "System 1" means in the AI context. The model has no separate phase
 
 It breaks down on problems that need many dependent steps, where one early slip ruins everything downstream: competition maths, multi-step logic, long debugging sessions, planning.
 
+Some vendors have pushed the idea further and borrowed the name. "System One" models such as TypeSafe's Jev skip text generation altogether and return probabilities for typed questions, an approach now offered by several providers and covered in this site's report on [decision models reaching a single gateway API](/blog/bifrost-decisions-api-decision-models/).
+
 ## Teaching models to think slowly: the prompting era
 
 Researchers first discovered that you could coax System 2 behaviour out of a System 1 model by asking for it.

@@ -199,7 +199,7 @@ Bifrost's published benchmark reports 11 µs of added overhead per request at 5,
 
 **Shadow AI inventory with Bifrost Edge.** The gateway only sees traffic that is sent to it. [Bifrost Edge](https://www.getmaxim.ai/edge), currently in early access, runs on employee machines and routes AI traffic from desktop chat apps, browser AI, coding agents and MCP servers through the same Bifrost deployment. According to the [Edge documentation](https://docs.getbifrost.ai/edge/overview), it reports the AI apps and MCP servers found on each device, sends new ones to an approval queue, and [enforces allow or block decisions](https://docs.getbifrost.ai/edge/app-governance) per app across the fleet. For the Act, that turns the inventory from a survey into a live list, and extends logging and guardrails to tools the organization did not build.
 
-**Enterprise tier.** Guardrails, audit logs, log exports to object storage, RBAC and Edge are part of Bifrost Enterprise; the gateway, virtual keys and built-in request logging are in the open-source release.
+**Enterprise tier.** Guardrails, audit logs, log exports to object storage and RBAC are part of Bifrost Enterprise; the gateway, virtual keys and built-in request logging are in the open-source release. Bifrost Edge is a separate product and is not included in Bifrost Enterprise by default.
 
 ## EU AI Act Fines and Enforcement
 
