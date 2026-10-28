@@ -133,7 +133,7 @@ Anthropic's [MCP guide for Claude Code](https://code.claude.com/docs/en/mcp) rec
 The surrounding extension model is similar too:
 
 - **Project instructions:** Claude Code reads `CLAUDE.md` and can read an existing `AGENTS.md` instead; Codex reads `AGENTS.md`.
-- **Skills:** both agents load packaged skills for repeatable workflows.
+- **Skills:** both agents load packaged skills for repeatable workflows, from different folders (`.claude/skills` for Claude Code, `.agents/skills` for Codex); the guide to [Codex skills](/blog/codex-skills/) covers where Codex looks and how to install them.
 - **Hooks:** Claude Code [hooks](https://code.claude.com/docs/en/hooks) run shell commands before or after agent actions; Codex [hooks](https://learn.chatgpt.com/docs/hooks) run scripts or MCP tools during the agentic loop, for example to block pasted API keys.
 - **Plugins:** both vendors publish plugins that package reusable workflows, such as Anthropic's official plugin for scaffolding MCP servers and the plugins in OpenAI's public plugins repository.
 

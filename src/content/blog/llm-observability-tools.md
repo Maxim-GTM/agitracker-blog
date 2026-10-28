@@ -148,7 +148,7 @@ AgentOps is an MIT licensed agent monitoring tool that starts tracing after two 
 
 ## OpenTelemetry-Native and APM-Integrated Tracing
 
-OpenTelemetry-native tools emit or ingest standard spans, so agent traces land in the same backend as the rest of the system's telemetry. They suit platform teams that already run an OTel collector or an APM product and do not want a separate LLM-only data store.
+OpenTelemetry-native tools emit or ingest standard spans, so agent traces land in the same backend as the rest of the system's telemetry. They suit platform teams that already run an OTel collector or an APM product and do not want a separate LLM-only data store. The fields, span names, sampling rules and alert thresholds those teams need to set up first are covered in this site's guide to [setting up LLM monitoring in production](/blog/llm-monitoring-setup/).
 
 [Bifrost as an AI gateway](https://www.getmaxim.ai/bifrost) belongs here too, since its OTLP export follows the GenAI conventions, and teams using Prometheus can scrape [gateway metrics for LLM traffic](https://docs.getbifrost.ai/features/observability/prometheus) alongside traces.
 

@@ -79,7 +79,7 @@ The [Claude Opus 5.5 explainer](/blog/claude-opus-5-5/) covers the flagship mode
 
 ## Claude Code Usage Limits
 
-Claude Code usage limits are the same subscription limits as claude.ai when you sign in with a Pro, Max, Team or Enterprise account, and per-token API billing when you sign in with an API key. Weekly limits in Claude Code have been 25% above their pre-promotion level since September 14, 2026.
+Claude Code usage limits are the same subscription limits as claude.ai when you sign in with a Pro, Max, Team or Enterprise account, and per-token API billing when you sign in with an API key. Weekly limits in Claude Code have been 25% above their pre-promotion level since September 14, 2026. For what Claude Code costs an engineering team on API or cloud billing, and how to set per-developer budgets, see this site's guide to [Claude Code cost for teams](/blog/claude-code-cost-for-teams/).
 
 Anthropic's Claude Code article for individual plans says [both Pro and Max plans have a five-hour session limit and a weekly limit](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan#:~:text=Both%20Pro%20and%20Max%20plans,and%20a%20weekly%20limit), shared with Claude on the web, desktop and mobile. IDE extensions draw from the same pool. When the session limit arrives in the middle of a response, [Claude Code may keep working briefly so it can finish the step in progress](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan#:~:text=Claude%20Code%20may%20keep%20working,the%20step%20in%20progress); on Pro this wrap-up allowance applies once per weekly period, and on Max it can apply at each session limit.
 

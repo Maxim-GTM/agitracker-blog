@@ -99,7 +99,7 @@ Edge's remediation path runs through the gateway's guardrails. The [Edge securit
 
 A fuller account of which checks run natively and which are integrations is in the project's post on [guardrails at the gateway](https://www.getmaxim.ai/bifrost/blog/guardrails-at-the-gateway-what-bifrost-ships-and-what-it-integrates/).
 
-**Enterprise tier.** Bifrost Edge is a separate product from the gateway and is not included in Bifrost Enterprise by default. [Guardrails](https://docs.getbifrost.ai/enterprise/guardrails) are part of Bifrost Enterprise.
+**Enterprise tier.** Bifrost Edge works with Bifrost Enterprise as an add-on; it is not included in the Enterprise license by default. [Guardrails](https://docs.getbifrost.ai/enterprise/guardrails) are part of Bifrost Enterprise.
 
 ## How Network and CASB Tools Approach the Same Problem
 
