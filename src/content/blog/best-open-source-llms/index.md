@@ -61,7 +61,7 @@ The ten best open source LLMs of 2026 split cleanly into four tiers: three front
 
 ## Open Source LLMs vs Open-Weight Models
 
-Nearly every model sold as an open source LLM is, strictly, an open-weight model: the parameters are public, but the training data and full pipeline are not. That matters for audits more than for deployment.
+Nearly every model sold as an open source LLM is, strictly, an open-weight model: the parameters are public, but the training data and full pipeline are not. Where those open weights come from has a clear geographic pattern, covered in this site's analysis of how [open weights follow geography](/blog/open-weights-geography/). That matters for audits more than for deployment.
 
 The Open Source Initiative's [Open Source AI Definition 1.0](https://opensource.org/ai/open-source-ai-definition) asks for three things: the parameters, the complete code used to train and run the system, and enough information about the training data that a skilled person could build a substantially equivalent model. None of the ten models here publishes all of that, although some labs go further than weights alone: Xiaomi, for example, published a MiMo-V2.6 reinforcement-learning dataset next to the model checkpoints.
 

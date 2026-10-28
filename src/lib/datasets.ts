@@ -54,6 +54,8 @@ export interface Dataset {
   stats?: { value: string; label: string }[];
   /** Figures rendered as build-time SVG (and PNG for embedding). */
   charts?: ChartSpec[];
+  /** Original analyses that use this dataset: blog post slugs. */
+  research?: string[];
   /** Version history, newest first. */
   changelog?: { date: string; note: string }[];
 }

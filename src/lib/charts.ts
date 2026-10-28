@@ -176,10 +176,12 @@ function niceTicks(min: number, max: number, count = 5): number[] {
   return out;
 }
 /** Axis domain that always contains [min, max]: bounds rounded outward to a nice step. */
-function niceDomain(min: number, max: number, count = 5) {
+function niceDomain(min: number, max: number, count = 5, integer = false) {
   if (max === min) max = min + 1;
   const span = max - min, step0 = span / count, mag = 10 ** Math.floor(Math.log10(step0));
-  const step = [1, 2, 2.5, 5, 10].map((m) => m * mag).find((st) => span / st <= count) ?? 10 * mag;
+  // Integer axes (counts, decimals: 0) never use 2.5 steps or steps below 1.
+  const mults = integer ? [1, 2, 5, 10] : [1, 2, 2.5, 5, 10];
+  const step = Math.max(integer ? 1 : 0, mults.map((m) => m * mag).find((st) => span / st <= count) ?? 10 * mag);
   const lo = Math.floor(min / step) * step, hi = Math.ceil(max / step) * step;
   const ticks: number[] = [];
   for (let t = lo; t <= hi + step * 1e-9; t += step) ticks.push(+t.toFixed(10));
@@ -283,9 +285,9 @@ function hbar(spec: ChartSpec, pts: Point[], W: number, top: number) {
   const band = 30, bar = 18;
   const vals = data.map((d) => d.value);
   const lo = spec.log ? 10 ** Math.floor(Math.log10(Math.min(...vals))) : 0;
-  const hi = spec.log ? 10 ** Math.ceil(Math.log10(Math.max(...vals))) : niceDomain(0, Math.max(...vals)).hi;
+  const hi = spec.log ? 10 ** Math.ceil(Math.log10(Math.max(...vals))) : niceDomain(0, Math.max(...vals), 5, spec.decimals === 0).hi;
   const sx = (v: number) => (spec.log ? x0 + ((Math.log10(v) - Math.log10(lo)) / (Math.log10(hi) - Math.log10(lo))) * (x1 - x0) : x0 + (v / hi) * (x1 - x0));
-  const ticks = spec.log ? logTicks(lo, hi) : niceDomain(0, hi).ticks;
+  const ticks = spec.log ? logTicks(lo, hi) : niceDomain(0, hi, 5, spec.decimals === 0).ticks;
   const plotTop = top + 26, plotH = data.length * band, axisY = plotTop + plotH;
   const out: string[] = [];
   for (const t of ticks) {
@@ -310,7 +312,7 @@ function column(spec: ChartSpec, pts: Point[], W: number, top: number) {
   const series = seriesList(spec, pts);
   const cats = [...new Set(pts.map((p) => p.label))].sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
   const totals = cats.map((c) => pts.filter((p) => p.label === c).reduce((a, p) => a + p.value, 0));
-  const { hi, ticks } = niceDomain(0, Math.max(...totals));
+  const { hi, ticks } = niceDomain(0, Math.max(...totals), 5, spec.decimals === 0);
   const lg = legend(spec, series, 56, top + 18);
   const x0 = 56, x1 = W - 24, plotTop = top + 18 + lg.h, plotH = 260, base = plotTop + plotH;
   const slot = (x1 - x0) / cats.length, bw = Math.min(24 * (series.length > 1 ? 1.4 : 1), slot * 0.62);
@@ -370,8 +372,9 @@ function scatter(spec: ChartSpec, pts: Point[], W: number, top: number) {
     out.push(`<g><title>${esc(`${p.label}${p.series ? ` (${p.series})` : ''}: ${fmt(p.value, spec)}, ${yearMonth(p.x!)}`)}</title><circle cx="${cx}" cy="${cy}" r="12" fill="transparent"/><circle cx="${cx}" cy="${cy}" r="4.5" fill="${c}" stroke="${SURFACE}" stroke-width="2"/></g>`);
   }
   // selective direct labels, right of the point unless near the right edge
-  // Line charts: label the peak and the latest value of each series directly on the line.
-  if (spec.type === 'line')
+  // Single-series line charts: label the peak and the latest value directly on the line.
+  // With several series the legend and hover values carry identity (labels would collide).
+  if (spec.type === 'line' && series.length === 1)
     for (const s of series) {
       const ps = pts.filter((p) => p.series === s);
       const last = ps[ps.length - 1], peak = ps.reduce((m, p) => (p.value > m.value ? p : m), ps[0]);
