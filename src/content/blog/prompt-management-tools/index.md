@@ -22,7 +22,7 @@ A prompt is the cheapest line of code in an LLM application to change and the mo
 
 A prompt management tool is a system of record for an LLM application's prompts. It stores templates with their model, parameters, and variables, records every change as a version, and serves a chosen version to the application through an SDK or API.
 
-The core benefit is decoupling. When prompts are fetched at runtime, a product manager or domain expert can improve wording without a code review and deploy cycle, while engineers keep control over which version is live through labels or deployment rules. Rollback becomes a click instead of a hotfix.
+The core benefit is decoupling. When prompts are fetched at runtime, a product manager or domain expert can improve wording without a code review and deploy cycle, while engineers keep control over which version is live through labels or deployment rules. Rollback becomes a click instead of a hotfix. The same discipline now applies to the instructions coding agents load from `SKILL.md` files, which this site covers in its guide to [agent skills for teams](/blog/agent-skills-for-teams/).
 
 The harder part is knowing whether a new version is better. "It looked fine on three examples" is how regressions ship. Our explainer on [how to read an AI benchmark](/blog/how-to-read-an-ai-benchmark/) makes the same point about model scores: a number is only as good as the test set and the grader behind it. That is why the best tools attach evaluation directly to versions.
 

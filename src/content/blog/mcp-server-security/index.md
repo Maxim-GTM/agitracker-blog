@@ -61,7 +61,7 @@ The same guide notes that [every server you configure shares the same model cont
 
 ## Why Routing Is a Security Decision
 
-Routing decides which server receives each tool call, and in an enterprise that choice is where policy can be enforced. If every agent connects to one gateway endpoint, identity checks, tool allowlists and logging apply to all traffic. If agents connect directly to each server, every server must implement those controls itself, and unmanaged servers escape them entirely.
+Routing decides which server receives each tool call, and in an enterprise that choice is where policy can be enforced. If every agent connects to one gateway endpoint, identity checks, tool allowlists and logging apply to all traffic. If agents connect directly to each server, every server must implement those controls itself, and unmanaged servers escape them entirely. The operating side of that decision, from tool budgets to per-agent grants and credential handling, is covered in this site's guide to [MCP best practices](/blog/mcp-best-practices/).
 
 The 2026-07-28 revision of the specification made this easier. Its changelog lists the decision to [remove protocol-level sessions](https://modelcontextprotocol.io/specification/2026-07-28/changelog#:~:text=Remove%20protocol%2Dlevel%20sessions) and the `initialize` handshake, so each request carries its own protocol version and capabilities. Any gateway or server instance can handle any request, which removes the sticky-session constraint that complicated load balancing in earlier versions. Stateful work now runs through explicit handles, which is why the handle-binding rule above matters.
 

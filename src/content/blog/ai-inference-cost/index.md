@@ -154,7 +154,7 @@ The survey of [semantic caching solutions for enterprises](/blog/semantic-cachin
 
 ## Budgets, Batching and Smaller Models
 
-Budgets, batching and smaller models are the least technical levers and often the fastest to apply. Budgets stop overruns at request time, batch APIs halve the price of work that can wait, and replacing a flagship with a small model for a whole workload is a configuration change once quality is verified.
+Budgets, batching and smaller models are the least technical levers and often the fastest to apply. Budgets stop overruns at request time, batch APIs halve the price of work that can wait, and replacing a flagship with a small model for a whole workload is a configuration change once quality is verified. An OpenAI-specific walkthrough of these levers, with current prices and caching rules, is in the guide to [reducing OpenAI API cost](/blog/reduce-openai-api-cost/).
 
 A budget only controls cost if it is checked before the request reaches the provider. A monthly report of spend by team is useful for planning but does not stop an agent loop that runs overnight. Request-time budgets usually sit at several levels, organization, team, application key and sometimes per model, and the request must pass all of them. LiteLLM's proxy, for example, documents [budgets for the proxy, teams, users and keys](https://docs.litellm.ai/docs/proxy/users), and rejects requests with a budget error once a key crosses its maximum. The pattern is covered in more depth in a guide to [controlling LLM costs with budget alerts and rate limits](https://www.getmaxim.ai/articles/control-llm-costs-with-budget-alerts-and-rate-limits/).
 

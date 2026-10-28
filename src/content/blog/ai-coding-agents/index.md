@@ -66,7 +66,7 @@ We did not rank on benchmark scores. Leaderboards such as [SWE-bench](https://ww
 Key capabilities:
 
 - **Git-native workflow.** It stages changes, writes commit messages, creates branches, and opens pull requests, and it runs in CI through GitHub Actions or GitLab CI/CD.
-- **Team customization.** A `CLAUDE.md` file sets project conventions, skills package repeatable workflows, and hooks run shell commands before or after agent actions (for example, formatting after every edit).
+- **Team customization.** A `CLAUDE.md` file sets project conventions, skills package repeatable workflows, and hooks run shell commands before or after agent actions (for example, formatting after every edit). This site's roundup of the [best Claude Code skills](/blog/best-claude-code-skills/) lists ready-made skills for cost, security, MCP and observability work.
 - **Parallel and scripted work.** Subagents split a task, web sessions run long jobs in the cloud, and headless mode (`claude -p`) drops it into scripts and pipelines.
 - **MCP** connects it to issue trackers, docs, and internal tools.
 

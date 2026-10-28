@@ -40,7 +40,7 @@ Claude Code reads its gateway configuration from environment variables, set in a
 | `CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY=1` | Adds the gateway's model list to the `/model` picker |
 | `ANTHROPIC_BEDROCK_BASE_URL` + `CLAUDE_CODE_USE_BEDROCK=1` | Targets a gateway that speaks the Bedrock format instead |
 
-Two details catch teams during rollout. Setting only `ANTHROPIC_BASE_URL` without a credential variable keeps a developer's saved claude.ai login active, so subscription billing still applies. And the credential never belongs in a project's committed `.claude/settings.json`; use `~/.claude/settings.json` or managed settings pushed through device management.
+Two details catch teams during rollout. Setting only `ANTHROPIC_BASE_URL` without a credential variable keeps a developer's saved claude.ai login active, so subscription billing still applies. And the credential never belongs in a project's committed `.claude/settings.json`; use `~/.claude/settings.json` or managed settings pushed through device management. Skills that teach Claude Code a rollout procedure, such as a governance checklist, can be installed into the repository the same way for every developer; this site's [npx skills guide](/blog/npx-skills-add-guide/) covers the commands.
 
 ### What the gateway has to forward
 

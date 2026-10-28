@@ -28,7 +28,7 @@ Prompt injection is an attack in which instructions hidden in a model's input ov
 
 ## What Prompt Injection Is
 
-Prompt injection is a vulnerability class where untrusted text changes a language model's behavior against the developer's intent. The OWASP Top 10 for LLM Applications ranks it first, as [LLM01:2025 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/), and notes it is unclear whether any fool-proof prevention method exists.
+Prompt injection is a vulnerability class where untrusted text changes a language model's behavior against the developer's intent. The OWASP Top 10 for LLM Applications ranks it first, as [LLM01:2025 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/), and notes it is unclear whether any fool-proof prevention method exists. It still holds the top spot in the 2026 edition of the list, and this site's [OWASP LLM Top 10 checklist](/blog/owasp-llm-top-10-checklist/) covers the fixes and tests for all ten risks.
 
 The term dates to September 2022, when Simon Willison wrote up [prompt injection attacks against GPT-3](https://simonwillison.net/2022/Sep/12/prompt-injection/), naming it after SQL injection. The example that started it was benign: Riley Goodside asked GPT-3 to translate text into French, and the text to translate told the model to ignore that request and output a fixed phrase instead. The model complied.
 
