@@ -24,7 +24,7 @@ An LLM router is a component that receives a model request and decides which mod
 
 *Figure 1: The application calls one endpoint; the router chooses the model for each request behind it.*
 
-Teams adopt a router because traffic is uneven. A support assistant might answer "what are your business hours" and "reconcile these invoices against the contract terms" in the same minute. A frontier model overpays for the first; a small model fails the second. Our explainer on [how model routing works inside an LLM router](https://www.getmaxim.ai/articles/what-is-an-llm-router-how-model-routing-works/) covers the concept in more depth.
+Teams adopt a router because traffic is uneven. A support assistant might answer "what are your business hours" and "reconcile these invoices against the contract terms" in the same minute. A frontier model overpays for the first; a small model fails the second. The explainer on [how model routing works inside an LLM router](https://www.getmaxim.ai/articles/what-is-an-llm-router-how-model-routing-works/) covers the concept in more depth.
 
 A router is narrower than an AI gateway, which also handles authentication, [budgets and rate limits](https://docs.getbifrost.ai/features/governance/budget-and-limits), retries, and logging. Some tools below are routers only; others put the decision inside the gateway.
 
@@ -47,7 +47,7 @@ Each approach has a different cost to run and a different failure mode:
 
 Rules and classifiers combine well: a classifier produces a tier, and rules decide what each tier means for a team or budget state. That is how Bifrost exposes its [complexity router](https://docs.getbifrost.ai/features/governance/complexity-router): the tier is a variable in the rule language, not a separate black box.
 
-Learned routers are the most studied approach: the [RouteLLM paper from LMSYS](https://arxiv.org/abs/2406.18665) reported cost reductions of over 2x in some cases without degrading quality, using routers trained on human preference data. Our guide to [smart LLM routing and picking the optimal model per request](https://www.getmaxim.ai/articles/smart-llm-routing-picking-the-optimal-model-per-request/) walks through how these signals combine in practice.
+Learned routers are the most studied approach: the [RouteLLM paper from LMSYS](https://arxiv.org/abs/2406.18665) reported cost reductions of over 2x in some cases without degrading quality, using routers trained on human preference data. The guide to [smart LLM routing and picking the optimal model per request](https://www.getmaxim.ai/articles/smart-llm-routing-picking-the-optimal-model-per-request/) walks through how these signals combine in practice.
 
 ## LLM Routers Compared at a Glance
 
@@ -70,7 +70,7 @@ When evaluating a router for per-request model selection, check five things:
 | **OpenRouter Auto Router** | Task classification ranked by community spend share | Hosted by OpenRouter | Restrict or exclude models | OpenRouter catalog | No |
 | **Azure Model Router** | Trained language model | Microsoft Foundry deployment | Balanced, Quality, or Cost mode | Fixed supported list, with subsets | No |
 
-For a wider survey that includes cost-focused tools, see our roundup of the [top LLM router solutions in 2026](https://www.getmaxim.ai/articles/top-5-llm-router-solutions-in-2026/).
+For a wider survey that includes cost-focused tools, see the roundup of the [top LLM router solutions in 2026](https://www.getmaxim.ai/articles/top-5-llm-router-solutions-in-2026/).
 
 ## 1. Bifrost
 
@@ -132,7 +132,7 @@ Key characteristics:
 - **Threshold as the dial:** the model name encodes the router and threshold, and a calibration command sets the threshold for a target share of strong-model calls.
 - **Published results:** the project reports up to 85% cost reduction while maintaining 95% of GPT-4 performance on MT Bench.
 
-RouteLLM is a research framework more than an operational product: it routes between two models, and budgets, access control, and failover are left to the surrounding stack. Teams comparing framework-style routers with gateway-native ones can read our [enterprise LLM router comparison of Bifrost and LiteLLM](https://www.getmaxim.ai/articles/best-llm-router-for-enterprise-ai-bifrost-vs-litellm/).
+RouteLLM is a research framework more than an operational product: it routes between two models, and budgets, access control, and failover are left to the surrounding stack. Teams comparing framework-style routers with gateway-native ones can read the [enterprise LLM router comparison of Bifrost and LiteLLM](https://www.getmaxim.ai/articles/best-llm-router-for-enterprise-ai-bifrost-vs-litellm/).
 
 ## 4. vLLM Semantic Router
 
@@ -203,7 +203,7 @@ How each tool exposes the dial:
 
 A practical rollout starts narrow: route only a Complex carve-out to a frontier model, keep everything else on the current default, and compare quality and cost before adding a full three-tier ladder. In the [Bifrost gateway](https://www.getmaxim.ai/bifrost), scoping the first rules to one team's virtual key contains the experiment, and [Prometheus metrics](https://docs.getbifrost.ai/features/observability/prometheus) track the classifier's embedding overhead.
 
-For the signals a router can read and where each fits, see our [LLM router fundamentals guide](https://www.getmaxim.ai/articles/what-is-an-llm-router-how-model-routing-works/), and for the savings side, our write-up on [cutting LLM token costs with model routing](https://www.getmaxim.ai/articles/model-routing-how-to-cut-llm-token-costs/).
+For the signals a router can read and where each fits, see the [LLM router fundamentals guide](https://www.getmaxim.ai/articles/what-is-an-llm-router-how-model-routing-works/), and for the savings side, the write-up on [cutting LLM token costs with model routing](https://www.getmaxim.ai/articles/model-routing-how-to-cut-llm-token-costs/).
 
 ## Frequently Asked Questions
 

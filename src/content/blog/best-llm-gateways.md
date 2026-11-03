@@ -26,7 +26,7 @@ The problem it solves is combinatorial. Three applications calling three provide
 
 *Figure 1: Integration count grows with apps times providers until a gateway collapses it to one.*
 
-The deeper value appears during incidents. When a provider returns 429 rate-limit errors, as [OpenAI's rate limit documentation](https://platform.openai.com/docs/guides/rate-limits) describes, an application without a gateway fails until someone ships a code change. With a gateway, the reroute is configuration. Our guide to [what an LLM gateway actually does](https://www.getmaxim.ai/articles/what-an-llm-gateway-actually-does-a-guide-for-ai-infrastructure-teams/) covers the layer in more detail.
+The deeper value appears during incidents. When a provider returns 429 rate-limit errors, as [OpenAI's rate limit documentation](https://platform.openai.com/docs/guides/rate-limits) describes, an application without a gateway fails until someone ships a code change. With a gateway, the reroute is configuration. The guide to [what an LLM gateway actually does](https://www.getmaxim.ai/articles/what-an-llm-gateway-actually-does-a-guide-for-ai-infrastructure-teams/) covers the layer in more detail.
 
 ## LLM Gateway vs LLM Proxy vs LLM Router
 

@@ -21,7 +21,7 @@ Shadow AI is the use of AI applications, accounts, agents, and tool connections 
 
 The cost is measurable. IBM's 2025 Cost of a Data Breach research found that [one in five organizations reported a breach due to shadow AI](https://newsroom.ibm.com/2025-07-30-ibm-report-13-of-organizations-reported-breaches-of-ai-models-or-applications,-97-of-which-reported-lacking-proper-ai-access-controls), and that organizations with high shadow AI usage saw an average of $670,000 in higher breach costs. The same research found that among organizations with AI governance policies, only 34% perform regular audits for unsanctioned AI.
 
-Most programs can list their AI apps; far fewer can act on the list. Our roundup of [shadow AI tools for detection and governance](https://www.getmaxim.ai/articles/top-5-shadow-ai-tools-in-2026-for-detection-and-governance/) covers the category broadly, and the companion guide on agitracker, [shadow AI detection tools compared by vantage point](/blog/shadow-ai-detection-tools/), explains what each detection method can see.
+Most programs can list their AI apps; far fewer can act on the list. The roundup of [shadow AI tools for detection and governance](https://www.getmaxim.ai/articles/top-5-shadow-ai-tools-in-2026-for-detection-and-governance/) covers the category broadly, and the companion guide on agitracker, [shadow AI detection tools compared by vantage point](/blog/shadow-ai-detection-tools/), explains what each detection method can see.
 
 ## The Shadow AI Remediation Workflow
 
@@ -39,7 +39,7 @@ As Figure 1 shows, discovery feeds everything else but finishes nothing. Each st
 - **Migrate.** Where do users go when a tool is denied, and does that path carry identity, budgets, and logs?
 - **Monitor.** Does the sanctioned path produce logs and spend data, and does a new tool trigger review?
 
-The [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) makes the same assumption: an organization has to inventory its AI systems before it can manage them. Our guide to [governing shadow AI usage across enterprises](https://www.getmaxim.ai/articles/how-to-govern-shadow-ai-usage-across-enterprises/) walks through the policy side, and the [Bifrost governance resource page](https://www.getmaxim.ai/bifrost/resources/governance) covers the controls that the migration stage depends on.
+The [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) makes the same assumption: an organization has to inventory its AI systems before it can manage them. The guide to [governing shadow AI usage across enterprises](https://www.getmaxim.ai/articles/how-to-govern-shadow-ai-usage-across-enterprises/) walks through the policy side, and the [Bifrost governance resource page](https://www.getmaxim.ai/bifrost/resources/governance) covers the controls that the migration stage depends on.
 
 ## How to Detect Shadow AI
 

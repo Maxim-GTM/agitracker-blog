@@ -30,7 +30,7 @@ Production operation adds four components around the proxy: a load balancer with
 
 *Figure 1: The proxy is one box; running it in production means owning the load balancer, shared state, and telemetry around it.*
 
-Three replicas is the practical floor, and Kubernetes teams usually add a [PodDisruptionBudget](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) so voluntary disruptions never take down more than one gateway pod at a time. Error budgets from the [Google SRE book](https://sre.google/sre-book/embracing-risk/) apply directly: the gateway fronts every model call, so its availability caps every AI feature behind it. Our [self-hosted open source AI gateway guide](https://www.getmaxim.ai/articles/top-5-open-source-ai-gateways-for-self-hosted-llm-deployments/) covers the replica math in more detail.
+Three replicas is the practical floor, and Kubernetes teams usually add a [PodDisruptionBudget](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) so voluntary disruptions never take down more than one gateway pod at a time. Error budgets from the [Google SRE book](https://sre.google/sre-book/embracing-risk/) apply directly: the gateway fronts every model call, so its availability caps every AI feature behind it. The [self-hosted open source AI gateway guide](https://www.getmaxim.ai/articles/top-5-open-source-ai-gateways-for-self-hosted-llm-deployments/) covers the replica math in more detail.
 
 Shared state is where gateways diverge most: a $500 monthly budget is only a budget if every replica counts against the same number. Figure 3 in the cost section compares the three ways gateways solve this.
 
@@ -115,7 +115,7 @@ Plano is a Rust data plane built on Envoy that combines LLM routing, agent orche
 
 ## API Gateways with AI Plugins: Kong, Apache APISIX, and Higress
 
-An API gateway with AI plugins is an existing HTTP gateway extended with LLM-specific plugins for provider proxying, token-based rate limits, and prompt policies. These fit teams that already run the gateway, because dashboards and runbooks carry over. Our roundup of [open source AI gateway platforms for in-VPC teams](https://www.getmaxim.ai/articles/top-5-open-source-ai-gateway-platforms-for-in-vpc-teams/) covers the network-isolation angle for this family.
+An API gateway with AI plugins is an existing HTTP gateway extended with LLM-specific plugins for provider proxying, token-based rate limits, and prompt policies. These fit teams that already run the gateway, because dashboards and runbooks carry over. The roundup of [open source AI gateway platforms for in-VPC teams](https://www.getmaxim.ai/articles/top-5-open-source-ai-gateway-platforms-for-in-vpc-teams/) covers the network-isolation angle for this family.
 
 ### 5. Kong Gateway OSS
 

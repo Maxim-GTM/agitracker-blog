@@ -24,7 +24,7 @@ A Claude Code gateway is a service in your infrastructure that receives Claude C
 
 *Figure 1: Developers hold only a gateway credential; the provider credential, budgets, and logs stay inside your network.*
 
-Anthropic's [gateway overview for Claude Code](https://code.claude.com/docs/en/gateways) describes the split in Figure 1: a developer credential per person, and one provider credential the gateway holds. For a longer walkthrough, see our explainer on [Claude Code gateway routing, governance, and cost control](https://www.getmaxim.ai/articles/claude-code-gateway-explained-routing-governance-and-cost-control/).
+Anthropic's [gateway overview for Claude Code](https://code.claude.com/docs/en/gateways) describes the split in Figure 1: a developer credential per person, and one provider credential the gateway holds. For a longer walkthrough, see the explainer on [Claude Code gateway routing, governance, and cost control](https://www.getmaxim.ai/articles/claude-code-gateway-explained-routing-governance-and-cost-control/).
 
 ### The Claude Code environment variables that matter
 
@@ -59,7 +59,7 @@ The right Claude Code gateway depends on five questions: who holds the provider 
 | MCP governance | Can it expose MCP tools and filter them per developer? | MCP servers carry more data access than model calls |
 | Deployment | Self-hosted, in-VPC, air-gapped, or tied to a hosted control plane? | "Your own infrastructure" covers the control plane too |
 
-Our breakdown of [governing Claude Code token usage per team](https://www.getmaxim.ai/articles/best-claude-code-gateway-to-govern-token-usage-per-team/) goes deeper on budget design.
+The breakdown of [governing Claude Code token usage per team](https://www.getmaxim.ai/articles/best-claude-code-gateway-to-govern-token-usage-per-team/) goes deeper on budget design.
 
 ## Claude Code Gateways Compared at a Glance
 
@@ -104,7 +104,7 @@ With `ANTHROPIC_AUTH_TOKEN` set to a Bifrost virtual key, developers need no Ant
 
 In the configuration above, `sonnet-model` is an arbitrary label. A [routing rule](https://docs.getbifrost.ai/providers/routing-rules) written in CEL matches that model name and a `user-agent` starting with `claude-cli`, then rewrites it to a target such as `vertex/claude-sonnet-4-6`. Rules are scoped by virtual key, team, customer, or global, most specific first, so one team can land on Bedrock while another stays on the Anthropic API behind the same alias. Models can also be pinned directly, as in `bedrock/global.anthropic.claude-sonnet-4-6`.
 
-[Session affinity](https://docs.getbifrost.ai/providers/session-affinity) adopts the `x-claude-code-session-id` header, keeping a session and its subagents on the provider and key that warmed the prompt cache. Bifrost can also route Claude Code to non-Claude models across [25+ supported providers](https://docs.getbifrost.ai/providers/supported-providers/overview), provided the model supports the tool calling Claude Code relies on; Anthropic itself does not support running Claude Code against non-Claude models, so treat that path as an engineering decision you own. Our guide to [using Claude Code with non-Anthropic models](https://www.getmaxim.ai/articles/how-to-use-claude-code-with-non-anthropic-models-the-enterprise-gateway-guide-2026/) covers the trade-offs.
+[Session affinity](https://docs.getbifrost.ai/providers/session-affinity) adopts the `x-claude-code-session-id` header, keeping a session and its subagents on the provider and key that warmed the prompt cache. Bifrost can also route Claude Code to non-Claude models across [25+ supported providers](https://docs.getbifrost.ai/providers/supported-providers/overview), provided the model supports the tool calling Claude Code relies on; Anthropic itself does not support running Claude Code against non-Claude models, so treat that path as an engineering decision you own. The guide to [using Claude Code with non-Anthropic models](https://www.getmaxim.ai/articles/how-to-use-claude-code-with-non-anthropic-models-the-enterprise-gateway-guide-2026/) covers the trade-offs.
 
 ### Governance, audit, and deployment
 
@@ -129,7 +129,7 @@ Key characteristics, from Anthropic's [Claude apps gateway documentation](https:
 - Spend limits cap each developer by day, week, or month, scoped by user, IdP group, or organization, and return `429` when exceeded.
 - Emits OTLP metrics with token counts, model, user identity, and latency; logs and traces are opt-in per destination.
 
-The trade-offs follow from its scope. It routes Claude models only, there is no service-token flow for CI pipelines, and the one-hour prompt cache TTL is unavailable on gateway sessions. MCP servers are governed through managed-settings allowlists on each client rather than proxied, a gap covered in our guide to [using an MCP gateway with Claude Code](https://www.getmaxim.ai/articles/using-an-mcp-gateway-with-claude-code-a-practical-guide/).
+The trade-offs follow from its scope. It routes Claude models only, there is no service-token flow for CI pipelines, and the one-hour prompt cache TTL is unavailable on gateway sessions. MCP servers are governed through managed-settings allowlists on each client rather than proxied, a gap covered in the guide to [using an MCP gateway with Claude Code](https://www.getmaxim.ai/articles/using-an-mcp-gateway-with-claude-code-a-practical-guide/).
 
 ## 3. Kong AI Gateway
 
@@ -144,7 +144,7 @@ What Kong's documentation shows for Claude Code:
 - The SSO cookbook combines the OpenID Connect, AI Proxy Advanced, and AI Rate Limiting Advanced plugins so no provider credential sits on developer machines.
 - The AI MCP Proxy plugin bridges MCP and HTTP services, and is available only in the AI Gateway Enterprise offering.
 
-Two constraints matter for self-hosting. Kong's Claude Code tutorials run against a Konnect control plane and are marked incompatible with on-prem deployments, and spend control is expressed as token rate limits per consumer group rather than a dollar budget per developer. Our overview of [how a Claude Code gateway handles cost control](https://www.getmaxim.ai/articles/claude-code-gateway-explained-routing-governance-and-cost-control/) compares the two models.
+Two constraints matter for self-hosting. Kong's Claude Code tutorials run against a Konnect control plane and are marked incompatible with on-prem deployments, and spend control is expressed as token rate limits per consumer group rather than a dollar budget per developer. The overview of [how a Claude Code gateway handles cost control](https://www.getmaxim.ai/articles/claude-code-gateway-explained-routing-governance-and-cost-control/) compares the two models.
 
 ## 4. Azure API Management AI Gateway (Microsoft)
 
@@ -196,9 +196,9 @@ claude mcp add --transport http bifrost http://localhost:8080/mcp \
   --header "Authorization: Bearer your-virtual-key" --scope user
 ```
 
-[MCP tool filtering](https://docs.getbifrost.ai/features/governance/mcp-tools) is deny-by-default: a virtual key with no MCP configuration exposes no tools except from clients marked allow-by-default, and the allow-list is enforced again at execution time. Per-user OAuth lets each developer authorize their own upstream accounts. The [Bifrost MCP gateway resource page](https://www.getmaxim.ai/bifrost/resources/mcp-gateway) covers Code Mode and token savings, and our practical guide to [connecting Claude Code to an MCP gateway](https://www.getmaxim.ai/articles/how-to-connect-claude-code-to-an-mcp-gateway/) walks through the setup.
+[MCP tool filtering](https://docs.getbifrost.ai/features/governance/mcp-tools) is deny-by-default: a virtual key with no MCP configuration exposes no tools except from clients marked allow-by-default, and the allow-list is enforced again at execution time. Per-user OAuth lets each developer authorize their own upstream accounts. The [Bifrost MCP gateway resource page](https://www.getmaxim.ai/bifrost/resources/mcp-gateway) covers Code Mode and token savings, and the practical guide to [connecting Claude Code to an MCP gateway](https://www.getmaxim.ai/articles/how-to-connect-claude-code-to-an-mcp-gateway/) walks through the setup.
 
-For audit, keep the records distinct: request logs capture traffic and attribution, while Bifrost Enterprise audit logs capture administrative changes to keys, budgets, and policies. For the security side of this model, read our analysis of [securing Claude Code agent access with an AI gateway](https://www.getmaxim.ai/articles/claude-code-governance-securing-agent-access-with-an-ai-gateway/).
+For audit, keep the records distinct: request logs capture traffic and attribution, while Bifrost Enterprise audit logs capture administrative changes to keys, budgets, and policies. For the security side of this model, read the analysis of [securing Claude Code agent access with an AI gateway](https://www.getmaxim.ai/articles/claude-code-governance-securing-agent-access-with-an-ai-gateway/).
 
 ## Frequently Asked Questions
 
@@ -230,4 +230,4 @@ Yes. A gateway can expose the Anthropic Messages format and forward to Bedrock, 
 
 A Claude Code gateway earns its place when it keeps provider credentials, per-developer budgets, audit records, and MCP tool access inside infrastructure you control. [The open-source Bifrost gateway](https://www.getmaxim.ai/bifrost) does that for Claude Code with virtual keys, CEL routing rules, request logs, and one governed MCP endpoint, deployed in your VPC or on-premises through [Bifrost Enterprise](https://www.getmaxim.ai/bifrost/enterprise).
 
-Our survey of [open-source Claude Code gateways](https://www.getmaxim.ai/articles/top-5-open-source-claude-code-gateways-in-2026/) and the [enterprise guide to Claude Code on Bifrost](https://www.getmaxim.ai/bifrost/resources/claude-code) cover more detail.
+The survey of [open-source Claude Code gateways](https://www.getmaxim.ai/articles/top-5-open-source-claude-code-gateways-in-2026/) and the [enterprise guide to Claude Code on Bifrost](https://www.getmaxim.ai/bifrost/resources/claude-code) cover more detail.

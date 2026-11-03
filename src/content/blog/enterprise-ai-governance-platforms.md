@@ -26,7 +26,7 @@ An AI governance platform is a system of record and control for enterprise AI: i
 
 Most lists rank these against each other as one category. A model inventory cannot stop a prompt containing customer records from reaching a hosted model, and a gateway cannot produce a board-level risk register. As Figure 1 shows, the two layers connect: frameworks become controls in the GRC platform, controls are enforced at the gateway, and gateway logs return as evidence.
 
-Our earlier [roundup of the top AI governance platforms](https://www.getmaxim.ai/articles/top-5-ai-governance-platforms-in-2026/) covers a narrower set of tools, and the [AI governance explainer](https://www.getmaxim.ai/articles/ai-governance-explained-what-it-is-and-how-it-works/) covers the program side in more depth. For the control model behind the runtime layer, see the [Bifrost governance overview](https://www.getmaxim.ai/bifrost/resources/governance).
+The earlier [roundup of the top AI governance platforms](https://www.getmaxim.ai/articles/top-5-ai-governance-platforms-in-2026/) covers a narrower set of tools, and the [AI governance explainer](https://www.getmaxim.ai/articles/ai-governance-explained-what-it-is-and-how-it-works/) covers the program side in more depth. For the control model behind the runtime layer, see the [Bifrost governance overview](https://www.getmaxim.ai/bifrost/resources/governance).
 
 ## Runtime Governance vs GRC AI Governance Tools
 

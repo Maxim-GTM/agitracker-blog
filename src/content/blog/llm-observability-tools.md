@@ -20,7 +20,7 @@ LLM observability tools capture the prompts, completions, tool calls, token coun
 
 LLM observability tools are systems that record, store, and query the full context of each model interaction: inputs, outputs, parameters, tokens, cost, latency, and errors. For agents, they also link those interactions into traces so a multi-step run can be read in order.
 
-An agent that plans, calls three tools, retries a provider, and answers incorrectly produces a dozen requests that each look healthy; only a trace that connects them shows where the run diverged. Our [enterprise comparison of LLM observability tools](https://www.getmaxim.ai/articles/top-5-llm-observability-tools-for-enterprises-in-2026/) covers the category broadly; this guide narrows to tracing and debugging agents.
+An agent that plans, calls three tools, retries a provider, and answers incorrectly produces a dozen requests that each look healthy; only a trace that connects them shows where the run diverged. The [enterprise comparison of LLM observability tools](https://www.getmaxim.ai/articles/top-5-llm-observability-tools-for-enterprises-in-2026/) covers the category broadly; this guide narrows to tracing and debugging agents.
 
 The tools in this list fall into three groups:
 

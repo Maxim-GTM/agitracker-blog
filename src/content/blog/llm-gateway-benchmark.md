@@ -40,9 +40,9 @@ Published LLM gateway benchmark results disagree mainly because they draw the bo
 |---|---|---|
 | Bifrost [benchmark docs](https://docs.getbifrost.ai/benchmarking/getting-started) | 11 µs per request at 5,000 RPS on a t3.xlarge | Internal overhead, explicitly excluding JSON marshalling and HTTP calls |
 | Bifrost [benchmark comparison](https://www.getmaxim.ai/bifrost/resources/benchmarks) | 0.99 ms gateway overhead, 500 virtual users on a t3.medium | Gateway overhead in a head-to-head test against LiteLLM |
-| [LiteLLM's Rust gateway benchmark](https://docs.litellm.ai/blog/rust-ai-gateway-benchmarks) (July 2026) | 4.5 ms p99 added latency for Bifrost v1.6.4 | p99 latency through the gateway minus direct latency, single 4 vCPU host |
+| [LiteLLM's Rust gateway benchmark](https://docs.litellm.ai/blog/rust-ai-gateway-benchmarks) (July 2026) | 4.5 ms p99 added latency for Bifrost v1.6.4 | p99 latency through the gateway minus direct latency, single host (machine type not published) |
 
-None of these is necessarily wrong. They differ in boundary (internal code versus the full proxy path), percentile (mean versus p99), hardware (2 vCPU, 4 vCPU, a dedicated instance or a shared host), and who ran them. The LiteLLM authors themselves describe their results as a vendor-run benchmark with logging, spend tracking, and persistence disabled, meant to show order-of-magnitude differences.
+None of these is necessarily wrong. They differ in boundary (internal code versus the full proxy path), percentile (mean versus p99), hardware (2 vCPU, 4 vCPU, a dedicated instance or a shared host), and who ran them. The LiteLLM authors themselves describe their results as a vendor-run benchmark with logging, spend tracking, and persistence disabled, meant to show order-of-magnitude differences. For a checklist on reading claims like these, see [how to read an AI gateway benchmark](/blog/how-to-read-an-ai-gateway-benchmark/); to run a like-for-like test yourself, see the [LLM gateway test plan](/blog/llm-gateway-test-plan/).
 
 The practical conclusion is that no published number substitutes for a benchmark on your own hardware, with your own payloads and the features you will actually enable.
 

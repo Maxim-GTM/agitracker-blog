@@ -24,7 +24,7 @@ The LiteLLM proxy (which LiteLLM also calls its AI Gateway) is a standalone serv
 
 LiteLLM is porting request translation to Rust, but the beta Rust core is opt-in per model, covers a subset of routes, and falls back to Python, while Python continues to own auth, configuration, routing, logging, callbacks, and spend tracking. The serving path today is still a Python service.
 
-Teams rarely leave over provider coverage; they leave over what it takes to run the proxy at scale, which our roundup of the [best LiteLLM alternatives in 2026](https://www.getmaxim.ai/articles/best-litellm-alternatives-in-2026/) covers from a broader feature angle, and our [enterprise comparison of Bifrost and LiteLLM](https://www.getmaxim.ai/articles/ai-gateway-for-enterprise-bifrost-vs-litellm-compared/) covers head to head.
+Teams rarely leave over provider coverage; they leave over what it takes to run the proxy at scale, which the roundup of the [best LiteLLM alternatives in 2026](https://www.getmaxim.ai/articles/best-litellm-alternatives-in-2026/) covers from a broader feature angle, and the [enterprise comparison of Bifrost and LiteLLM](https://www.getmaxim.ai/articles/ai-gateway-for-enterprise-bifrost-vs-litellm-compared/) covers head to head.
 
 ## Signs Your Team Has Outgrown the LiteLLM Proxy
 
@@ -38,7 +38,7 @@ The guide also caps database connections per worker and warns that a deployment 
 
 *Figure 1: The Python proxy scales by adding pods, and every pod adds database connections and background jobs to coordinate.*
 
-As Figure 1 shows, the production footprint of the proxy is a distributed system in its own right. LiteLLM's published benchmarks show the same pattern: in a large-prompt test at a 3,000 RPS target, its v1.101.0 baseline settled near 190 RPS with a 92.07% client-visible success rate, and reaching the full target required a nightly high-throughput profile with Rust token counting, [PgBouncer](https://www.pgbouncer.org/) per pod, and separate spend and metrics sidecars. For workloads where gateway overhead dominates, our list of [LiteLLM alternatives for high-throughput workloads](https://www.getmaxim.ai/articles/top-5-litellm-alternatives-for-high-throughput-workloads/) goes deeper.
+As Figure 1 shows, the production footprint of the proxy is a distributed system in its own right. LiteLLM's published benchmarks show the same pattern: in a large-prompt test at a 3,000 RPS target, its v1.101.0 baseline settled near 190 RPS with a 92.07% client-visible success rate, and reaching the full target required a nightly high-throughput profile with Rust token counting, [PgBouncer](https://www.pgbouncer.org/) per pod, and separate spend and metrics sidecars. For workloads where gateway overhead dominates, the list of [LiteLLM alternatives for high-throughput workloads](https://www.getmaxim.ai/articles/top-5-litellm-alternatives-for-high-throughput-workloads/) goes deeper.
 
 | Signal | What you observe | What it points to |
 |---|---|---|
@@ -118,7 +118,7 @@ Kong AI Gateway extends Kong Gateway with AI plugins for LLM, MCP, and agent-to-
 
 The license boundary deserves a check before migrating: Kong's documentation states the AI Semantic Cache plugin "is only available as part of our AI Gateway Enterprise offering," and it requires Redis 8.0+ or another supported vector store.
 
-**Best for:** Teams already running Kong Gateway for API traffic who want LLM policy in the same control plane. Our list of [enterprise-focused LiteLLM replacements](https://www.getmaxim.ai/articles/5-litellm-alternatives-for-enterprise-teams-in-2026/) compares it with other enterprise options.
+**Best for:** Teams already running Kong Gateway for API traffic who want LLM policy in the same control plane. The list of [enterprise-focused LiteLLM replacements](https://www.getmaxim.ai/articles/5-litellm-alternatives-for-enterprise-teams-in-2026/) compares it with other enterprise options.
 
 ### 3. Agent Router (formerly Envoy AI Gateway)
 
@@ -136,7 +136,7 @@ The [AI gateway in Azure API Management](https://learn.microsoft.com/en-us/azure
 
 Cloudflare AI Gateway is a managed gateway that adds caching, rate limiting, retries with model fallback, logging, and analytics in front of providers such as Workers AI, OpenAI, Anthropic, and Google Gemini. Cloudflare states its core features are free; a 5% fee applies to credits bought through Unified Billing.
 
-**Best for:** Teams already on Cloudflare that want visibility and caching without running infrastructure. Our roundup of [LiteLLM alternatives for production AI workloads](https://www.getmaxim.ai/articles/litellm-alternatives-for-production-ai-workloads-in-2026/) weighs it against self-hosted options.
+**Best for:** Teams already on Cloudflare that want visibility and caching without running infrastructure. The roundup of [LiteLLM alternatives for production AI workloads](https://www.getmaxim.ai/articles/litellm-alternatives-for-production-ai-workloads-in-2026/) weighs it against self-hosted options.
 
 ### 6. Vercel AI Gateway
 
@@ -150,7 +150,7 @@ Budgets apply per team, project, API key, or member, but Vercel documents them a
 
 OpenRouter is a hosted API that gives access to hundreds of models through one OpenAI-compatible endpoint, with automatic fallbacks. It passes provider prices through without markup, charges 5.5% on card credit purchases, and applies a 5% fee on BYOK usage beyond a monthly allowance. Its documentation describes no self-hosted option.
 
-**Best for:** Small teams and prototypes that want broad model access without provider accounts. Our [OpenRouter, LiteLLM, and Bifrost comparison](https://www.getmaxim.ai/articles/openrouter-vs-litellm-vs-bifrost-ai-gateway-comparison/) covers when a hosted router stops fitting.
+**Best for:** Small teams and prototypes that want broad model access without provider accounts. The [OpenRouter, LiteLLM, and Bifrost comparison](https://www.getmaxim.ai/articles/openrouter-vs-litellm-vs-bifrost-ai-gateway-comparison/) covers when a hosted router stops fitting.
 
 ### 8. MLflow AI Gateway
 
@@ -183,7 +183,7 @@ Figure 3 shows the five steps:
 | `drop_params` behavior | Compatibility setting: drop unsupported params |
 | Prometheus metrics and callbacks | Native Prometheus metrics and [OpenTelemetry](https://opentelemetry.io/) export |
 
-On Kubernetes, the [Bifrost Kubernetes deployment guide](https://docs.getbifrost.ai/deployment-guides/k8s) provides Terraform for AWS, Azure, and GCP. Our [complete guide to migrating from LiteLLM to Bifrost](https://www.getmaxim.ai/articles/migrating-to-bifrost-from-litellm-a-complete-guide/) walks through each step with configuration examples, and the [Bifrost LiteLLM alternative overview](https://www.getmaxim.ai/bifrost/resources/litellm-alternative) summarizes the performance differences.
+On Kubernetes, the [Bifrost Kubernetes deployment guide](https://docs.getbifrost.ai/deployment-guides/k8s) provides Terraform for AWS, Azure, and GCP. The [complete guide to migrating from LiteLLM to Bifrost](https://www.getmaxim.ai/articles/migrating-to-bifrost-from-litellm-a-complete-guide/) walks through each step with configuration examples, and the [Bifrost LiteLLM alternative overview](https://www.getmaxim.ai/bifrost/resources/litellm-alternative) summarizes the performance differences.
 
 ## How to Choose the Right LiteLLM Alternative
 
@@ -199,7 +199,7 @@ Three checks separate close options:
 - **What runs beside the gateway.** Count databases, caches, and sidecars in the vendor's production guidance, including [Kubernetes autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) effects.
 - **How clients migrate.** Prefer a gateway that accepts current SDK calls unchanged.
 
-For a wider shortlist, our [2026 guide to LiteLLM alternatives](https://www.getmaxim.ai/articles/best-litellm-alternatives-in-2026/) scores more gateways against these checks.
+For a wider shortlist, the [2026 guide to LiteLLM alternatives](https://www.getmaxim.ai/articles/best-litellm-alternatives-in-2026/) scores more gateways against these checks.
 
 ## Frequently Asked Questions
 

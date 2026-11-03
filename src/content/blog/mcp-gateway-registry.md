@@ -20,7 +20,7 @@ An MCP gateway registry is the layer that keeps a team's MCP servers, their cred
 
 An MCP gateway registry is a gateway that stores the list of approved MCP servers, maintains live connections to them, holds their credentials, and exposes a filtered set of tools to each client. It turns per-client MCP configuration into a single, auditable inventory that platform teams can change once.
 
-Without one, every developer adds servers to their own client config, pastes tokens into local files, and exposes every tool a server offers. That stops working at thirty servers, when nobody can say which agents reach the production database or which tokens are still live. Our [explainer on how an MCP gateway works](https://www.getmaxim.ai/articles/mcp-gateway-explained-what-it-is-and-how-it-works/) covers the base pattern; this post focuses on managing the server fleet behind it.
+Without one, every developer adds servers to their own client config, pastes tokens into local files, and exposes every tool a server offers. That stops working at thirty servers, when nobody can say which agents reach the production database or which tokens are still live. The [explainer on how an MCP gateway works](https://www.getmaxim.ai/articles/mcp-gateway-explained-what-it-is-and-how-it-works/) covers the base pattern; this post focuses on managing the server fleet behind it.
 
 ![Coding agents, desktop clients, and custom agents connect to one MCP gateway that holds the server registry, brokers credentials, and filters tools for local, remote, and SaaS servers](https://articles-images-cdn.t3.tigrisfiles.io/diagrams/mcp-gateway-registry/mcp-gateway-registry-reference-architecture.png)
 
@@ -32,7 +32,7 @@ As Figure 1 shows, the registry is only one of three jobs. The same gateway also
 
 An MCP registry is a catalog that answers "which servers exist and how do I install them," while an MCP gateway is a runtime that answers "which servers can this caller reach right now, with which credentials and tools." Most teams need both, and several products here combine them.
 
-The official [MCP Registry launched in preview in September 2025](https://blog.modelcontextprotocol.io/posts/2025-09-08-mcp-registry-preview/) as an open catalog and API for publicly available servers, and its maintainers expect enterprises to run private sub-registries on top of it. A registry alone does not proxy traffic, refresh OAuth tokens, or strip tools from a request. Our guide to [discovering and governing MCP servers with a registry](https://www.getmaxim.ai/articles/what-is-an-mcp-registry-discovering-and-governing-mcp-servers/) goes deeper on the catalog side.
+The official [MCP Registry launched in preview in September 2025](https://blog.modelcontextprotocol.io/posts/2025-09-08-mcp-registry-preview/) as an open catalog and API for publicly available servers, and its maintainers expect enterprises to run private sub-registries on top of it. A registry alone does not proxy traffic, refresh OAuth tokens, or strip tools from a request. The guide to [discovering and governing MCP servers with a registry](https://www.getmaxim.ai/articles/what-is-an-mcp-registry-discovering-and-governing-mcp-servers/) goes deeper on the catalog side.
 
 | Concern | MCP registry (catalog) | MCP gateway (runtime) |
 |---|---|---|
@@ -177,7 +177,7 @@ The Bifrost benchmark ran the same query set with Code Mode off and on at three 
 | 251 tools / 11 servers | 35.7M | 5.5M | -84.5% | -83.4% |
 | 508 tools / 16 servers | 75.1M | 5.4M | -92.8% | -92.2% |
 
-The savings widen as the fleet grows, and the pass rate held at 100% in the largest round. The full methodology is in the [Bifrost MCP gateway benchmark writeup](https://www.getmaxim.ai/bifrost/blog/bifrost-mcp-gateway-access-control-cost-governance-and-92-lower-token-costs-at-scale), and our [walkthrough of Code Mode in Bifrost](https://www.getmaxim.ai/articles/what-is-code-mode-in-bifrost-mcp-gateway/) shows when to mix Code Mode servers with direct tools. The [MCP gateway cost controls](https://www.getmaxim.ai/bifrost/resources/mcp-gateway) pair Code Mode with per-key filtering so both levers apply to the same traffic.
+The savings widen as the fleet grows, and the pass rate held at 100% in the largest round. The full methodology is in the [Bifrost MCP gateway benchmark writeup](https://www.getmaxim.ai/bifrost/blog/bifrost-mcp-gateway-access-control-cost-governance-and-92-lower-token-costs-at-scale), and the [walkthrough of Code Mode in Bifrost](https://www.getmaxim.ai/articles/what-is-code-mode-in-bifrost-mcp-gateway/) shows when to mix Code Mode servers with direct tools. The [MCP gateway cost controls](https://www.getmaxim.ai/bifrost/resources/mcp-gateway) pair Code Mode with per-key filtering so both levers apply to the same traffic.
 
 ## How to Choose an MCP Gateway for Your Server Fleet
 
@@ -190,11 +190,11 @@ Choose an MCP gateway by where your servers run and who calls them. Production a
 A few questions separate the options quickly:
 
 - **Do the same agents call models and tools?** If so, one gateway for both keeps budgets, keys, and audit in one place; the [Bifrost governance model](https://www.getmaxim.ai/bifrost/resources/governance) applies virtual keys to LLM and MCP traffic alike.
-- **Do users need their own credentials upstream?** Per-user OAuth and token exchange keep personal tokens off laptops; see our guide to [OAuth 2.1 patterns for MCP authentication](https://www.getmaxim.ai/articles/mcp-authentication-oauth-2-1-patterns-for-agent-tool-access/).
-- **How many tools will a single agent see?** Past a few servers, curated bundles matter; our post on [MCP tool groups for managing tool access at scale](https://www.getmaxim.ai/articles/mcp-tool-groups-managing-ai-tool-access-at-scale/) covers the pattern.
-- **Who maintains the project?** Check release cadence and maintainer notes before standardizing on a young project; our breakdown of [MCP gateways, MCP proxies, and MCP servers](https://www.getmaxim.ai/articles/mcp-gateway-vs-mcp-proxy-vs-mcp-server-key-differences/) helps separate full gateways from thin proxies.
+- **Do users need their own credentials upstream?** Per-user OAuth and token exchange keep personal tokens off laptops; see the guide to [OAuth 2.1 patterns for MCP authentication](https://www.getmaxim.ai/articles/mcp-authentication-oauth-2-1-patterns-for-agent-tool-access/).
+- **How many tools will a single agent see?** Past a few servers, curated bundles matter; the post on [MCP tool groups for managing tool access at scale](https://www.getmaxim.ai/articles/mcp-tool-groups-managing-ai-tool-access-at-scale/) covers the pattern.
+- **Who maintains the project?** Check release cadence and maintainer notes before standardizing on a young project; the breakdown of [MCP gateways, MCP proxies, and MCP servers](https://www.getmaxim.ai/articles/mcp-gateway-vs-mcp-proxy-vs-mcp-server-key-differences/) helps separate full gateways from thin proxies.
 
-For the broader category, our roundup of [MCP server management platforms](https://www.getmaxim.ai/articles/best-mcp-server-management-platforms-for-ai-teams-in-2026/) and the [MCP gateway fundamentals guide](https://www.getmaxim.ai/articles/mcp-gateway-explained-what-it-is-and-how-it-works/) cover adjacent evaluation questions.
+For the broader category, the roundup of [MCP server management platforms](https://www.getmaxim.ai/articles/best-mcp-server-management-platforms-for-ai-teams-in-2026/) and the [MCP gateway fundamentals guide](https://www.getmaxim.ai/articles/mcp-gateway-explained-what-it-is-and-how-it-works/) cover adjacent evaluation questions.
 
 ## Frequently Asked Questions
 

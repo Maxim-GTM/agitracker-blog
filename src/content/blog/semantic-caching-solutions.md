@@ -26,7 +26,7 @@ Semantic caching stores past request and response pairs, embeds each incoming re
 
 Two parameters govern the behavior. The **similarity threshold** decides how close is close enough, where too low returns wrong answers confidently and too high collapses the hit rate. The **time to live** decides how long an entry stays valid, which matters whenever the underlying answer can change.
 
-Our [technical deep dive on semantic caching](https://www.getmaxim.ai/articles/what-is-semantic-caching-a-technical-deep-dive/) covers the mechanics in more depth, and the guide to [cutting AI costs and latency with an enterprise gateway](https://www.getmaxim.ai/articles/semantic-caching-for-llms-cut-ai-costs-and-latency-with-an-enterprise-ai-gateway/) covers the deployment side.
+The [technical deep dive on semantic caching](https://www.getmaxim.ai/articles/what-is-semantic-caching-a-technical-deep-dive/) covers the mechanics in more depth, and the guide to [cutting AI costs and latency with an enterprise gateway](https://www.getmaxim.ai/articles/semantic-caching-for-llms-cut-ai-costs-and-latency-with-an-enterprise-ai-gateway/) covers the deployment side.
 
 ## Semantic Caching vs Prompt Caching
 

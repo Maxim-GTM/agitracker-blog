@@ -4,6 +4,8 @@ The agitracker.io blog: a static Astro site with a neobrutalist design built fro
 
 ## Publish a post
 
+Follow [AGENTS.md](AGENTS.md) for publisher identity and attribution rules. Maxim/Bifrost pages are external vendor resources; never call them "our guide", "our comparison" or "our docs".
+
 1. Add a Markdown file to `src/content/blog/`. The file name becomes the URL: `my-post.md` becomes `/blog/my-post/`.
    You can also run `npm run new "My post title"` to create one from the template.
 2. Push to `main`. The site rebuilds, and the post appears on the home page, in the archive, on its topic pages, in the sitemap, in the RSS feed and in `llms.txt`, with its own social card.

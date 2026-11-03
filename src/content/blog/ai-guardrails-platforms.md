@@ -24,7 +24,7 @@ An output guardrail is a policy check that runs after a model generates a respon
 
 *Figure 1: Output guardrails are the last checkpoint between a generated response and the caller, so their action choice decides what users see.*
 
-The [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llmrisk/llm052025-improper-output-handling/) lists improper output handling as LLM05:2025 and recommends treating model output with the same skepticism as user input. For a broader primer on the category, see our overview of [what AI guardrails are and how they build trust in AI systems](https://www.getmaxim.ai/articles/what-are-ai-guardrails-ensuring-trust-and-safety-in-ai/).
+The [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llmrisk/llm052025-improper-output-handling/) lists improper output handling as LLM05:2025 and recommends treating model output with the same skepticism as user input. For a broader primer on the category, see the overview of [what AI guardrails are and how they build trust in AI systems](https://www.getmaxim.ai/articles/what-are-ai-guardrails-ensuring-trust-and-safety-in-ai/).
 
 Output guardrails usually cover four jobs:
 
@@ -50,7 +50,7 @@ A [gateway governance model](https://www.getmaxim.ai/bifrost/resources/governanc
 
 ## AI Guardrails Platforms Compared at a Glance
 
-The eight AI guardrails platforms below fall into four types: an AI gateway ([Bifrost, compared in our LLM gateway buyer's guide](https://www.getmaxim.ai/bifrost/resources/buyers-guide)), cloud guardrail services (AWS, Azure, Google), open-source libraries (NeMo Guardrails, Guardrails AI), and detection models or APIs (Llama Guard, Lakera Guard). The table compares them on output-side enforcement only; "Not published" means we found no public documentation for that behavior.
+The eight AI guardrails platforms below fall into four types: an AI gateway ([Bifrost, compared in the LLM gateway buyer's guide](https://www.getmaxim.ai/bifrost/resources/buyers-guide)), cloud guardrail services (AWS, Azure, Google), open-source libraries (NeMo Guardrails, Guardrails AI), and detection models or APIs (Llama Guard, Lakera Guard). The table compares them on output-side enforcement only; "Not published" means we found no public documentation for that behavior.
 
 | Platform | Type | Grounding or hallucination check | PII in output | Streaming behavior | Actions |
 |---|---|---|---|---|---|
@@ -96,7 +96,7 @@ AWS Bedrock Guardrails is a managed AWS service with content filters (hate, insu
 - **Grounding:** contextual grounding scores a response against the source and query and blocks or flags it below a threshold.
 - **Streaming:** synchronous mode buffers and scans chunks before release; asynchronous mode sends chunks immediately and blocks later chunks once a violation is found, and it does not support masking.
 
-It is also a [Bedrock guardrail profile inside Bifrost](https://docs.getbifrost.ai/integrations/guardrails/aws-bedrock), covered in our guide to [Bedrock PII detection and content filtering in Bifrost](https://www.getmaxim.ai/articles/aws-bedrock-guardrails-in-bifrost-pii-detection-and-content-filtering-setup/).
+It is also a [Bedrock guardrail profile inside Bifrost](https://docs.getbifrost.ai/integrations/guardrails/aws-bedrock), covered in the guide to [Bedrock PII detection and content filtering in Bifrost](https://www.getmaxim.ai/articles/aws-bedrock-guardrails-in-bifrost-pii-detection-and-content-filtering-setup/).
 
 ### 3. Azure AI Content Safety
 
@@ -211,7 +211,7 @@ For rollout patterns, see [tools for adding guardrails to LLM traffic](https://w
 
 ### What exactly are AI guardrails?
 
-AI guardrails are runtime policy checks placed around a language model that inspect prompts, model responses, and tool calls, then allow, redact, flag, or block them. Input guardrails stop prompt injection and sensitive data before the model call. Output guardrails stop toxic content, leaked PII, and ungrounded answers before the caller sees them. A deeper definition is in our [guide to AI guardrails for trust and safety](https://www.getmaxim.ai/articles/what-are-ai-guardrails-ensuring-trust-and-safety-in-ai/).
+AI guardrails are runtime policy checks placed around a language model that inspect prompts, model responses, and tool calls, then allow, redact, flag, or block them. Input guardrails stop prompt injection and sensitive data before the model call. Output guardrails stop toxic content, leaked PII, and ungrounded answers before the caller sees them. A deeper definition is in the [guide to AI guardrails for trust and safety](https://www.getmaxim.ai/articles/what-are-ai-guardrails-ensuring-trust-and-safety-in-ai/).
 
 ### What are examples of AI guardrails?
 

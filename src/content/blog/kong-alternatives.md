@@ -32,7 +32,7 @@ Three practical triggers push teams toward a purpose-built LLM gateway:
 - **Per-model pricing.** Kong's pricing page lists AI Gateway on the Konnect Plus plan at $100 per month per model, with a limit of five unique LLM models; the Enterprise plan uses custom pricing.
 - **Agent traffic.** MCP tool calls and multi-provider agent workflows need tool filtering and per-consumer scoping that map poorly onto per-route plugin configuration.
 
-For a broader primer on the category, see our explanation of [how an AI gateway works as the control plane for enterprise LLM traffic](https://www.getmaxim.ai/articles/what-is-an-ai-gateway-the-control-plane-for-enterprise-llm-traffic/).
+For a broader primer on the category, see the explanation of [how an AI gateway works as the control plane for enterprise LLM traffic](https://www.getmaxim.ai/articles/what-is-an-ai-gateway-the-control-plane-for-enterprise-llm-traffic/).
 
 ## How to Evaluate Kong AI Gateway Alternatives
 
@@ -50,7 +50,7 @@ The [LLM gateway buyer's guide](https://www.getmaxim.ai/bifrost/resources/buyers
 
 ## Kong Alternatives Compared at a Glance
 
-The eight Kong alternatives below split into self-hosted gateways that keep traffic on your infrastructure and hosted gateways that remove the operations burden. Every entry is built for model traffic first, a distinction our guide to the [best LLM gateways for Kong users](https://www.getmaxim.ai/articles/best-kong-ai-gateway-alternatives-in-2026/) also draws. "Not published" means the vendor pages read for this comparison did not state the value.
+The eight Kong alternatives below split into self-hosted gateways that keep traffic on your infrastructure and hosted gateways that remove the operations burden. Every entry is built for model traffic first, a distinction the guide to the [best LLM gateways for Kong users](https://www.getmaxim.ai/articles/best-kong-ai-gateway-alternatives-in-2026/) also draws. "Not published" means the vendor pages read for this comparison did not state the value.
 
 | Gateway | Deployment | Language / license | Governance unit | MCP support | Pricing model |
 |---|---|---|---|---|---|
@@ -91,13 +91,13 @@ Bifrost [guardrails](https://docs.getbifrost.ai/enterprise/guardrails) include n
 
 ## Self-Hosted Open Source Kong Alternatives
 
-Three further open source projects replace Kong for LLM traffic on your own infrastructure. They differ in language, in how much governance ships free, and in whether they target application traffic or Kubernetes-native agent traffic. Our guide to [self-hosted options for leaving Kong](https://www.getmaxim.ai/articles/top-5-kong-alternatives-for-self-hosted-ai-gateways-in-2026/) covers deployment sizing for this group in more depth.
+Three further open source projects replace Kong for LLM traffic on your own infrastructure. They differ in language, in how much governance ships free, and in whether they target application traffic or Kubernetes-native agent traffic. The guide to [self-hosted options for leaving Kong](https://www.getmaxim.ai/articles/top-5-kong-alternatives-for-self-hosted-ai-gateways-in-2026/) covers deployment sizing for this group in more depth.
 
 ### 2. LiteLLM
 
 LiteLLM Proxy is a Python AI gateway that calls 100+ LLMs through a unified OpenAI-format interface and tracks spend per virtual key and user. The open source build includes virtual keys, budgets, rate limiting, load balancing with failover, caching, guardrails with custom plugins, and an MCP gateway.
 
-The trade-off against Kong is where the enterprise line falls. LiteLLM's enterprise page lists SSO for the admin UI, RBAC, audit logs with retention policies, secret manager integrations, tag-based budgets, and guardrails per key or team as paid features. Teams comparing Kong AI Gateway vs LiteLLM should also weigh the Python runtime against their throughput targets. Our [LiteLLM alternatives comparison](https://www.getmaxim.ai/resources/litellm-alternative) covers that trade-off in detail.
+The trade-off against Kong is where the enterprise line falls. LiteLLM's enterprise page lists SSO for the admin UI, RBAC, audit logs with retention policies, secret manager integrations, tag-based budgets, and guardrails per key or team as paid features. Teams comparing Kong AI Gateway vs LiteLLM should also weigh the Python runtime against their throughput targets. The [LiteLLM alternatives comparison](https://www.getmaxim.ai/resources/litellm-alternative) covers that trade-off in detail.
 
 **Best for:** Python-centric teams that want a broad model catalog and spend tracking from an open source proxy, and can accept that SSO, RBAC, and audit logs are enterprise features.
 
@@ -113,7 +113,7 @@ ContextForge's distinguishing feature is protocol coverage: it routes MCP and [A
 
 Agent Router is the project previously called Envoy AI Gateway, now an Agentic AI Foundation project with "same code, same maintainers." It is written in Go, licensed Apache 2.0, and built on Envoy Gateway. Agent Router routes to 16 AI providers through one OpenAI-compatible API, with token limits per team, app, or model, provider fallback, and model name virtualization.
 
-For MCP, Agent Router offers one tool catalog assembled from many MCP servers and filtered by caller identity, and it emits telemetry that follows the [OpenTelemetry GenAI semantic conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/). Our [Envoy AI Gateway alternatives](https://www.getmaxim.ai/articles/top-5-envoy-ai-gateway-alternatives-for-llm-routing/) guide compares it against other routing-focused options.
+For MCP, Agent Router offers one tool catalog assembled from many MCP servers and filtered by caller identity, and it emits telemetry that follows the [OpenTelemetry GenAI semantic conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/). The [Envoy AI Gateway alternatives](https://www.getmaxim.ai/articles/top-5-envoy-ai-gateway-alternatives-for-llm-routing/) guide compares it against other routing-focused options.
 
 **Best for:** organizations standardized on Envoy that want AI routing expressed as Envoy Gateway configuration.
 
@@ -125,7 +125,7 @@ Hosted gateways remove operations entirely: the vendor runs the proxy, and teams
 
 Cloudflare AI Gateway runs on Cloudflare's network and provides analytics, caching, rate limiting, request retry, and model fallback for AI applications. Cloudflare states that the core features (dashboard analytics, caching, and rate limiting) are free, that guardrails are billed as Workers AI token-based inference, that DLP scanning is free on all plans, and that unified billing applies a 5% fee to purchased credits.
 
-**Best for:** teams already on Cloudflare that want caching and analytics for model calls with no infrastructure to run. For enterprise-grade self-hosted options, see our list of [Cloudflare AI Gateway alternatives for enterprises](https://www.getmaxim.ai/articles/top-5-cloudflare-ai-gateway-alternatives-for-enterprises-in-2026/).
+**Best for:** teams already on Cloudflare that want caching and analytics for model calls with no infrastructure to run. For enterprise-grade self-hosted options, see the list of [Cloudflare AI Gateway alternatives for enterprises](https://www.getmaxim.ai/articles/top-5-cloudflare-ai-gateway-alternatives-for-enterprises-in-2026/).
 
 ### 6. OpenRouter
 
@@ -160,7 +160,7 @@ A side-by-side rollout with the [Bifrost AI gateway](https://www.getmaxim.ai/bif
 3. Point one application's SDK base URL at the gateway and compare cost and latency in [built-in observability](https://docs.getbifrost.ai/features/observability/default).
 4. Move MCP servers behind the gateway and scope tools per key before widening the rollout.
 
-A single open source Bifrost instance handles roughly 3,000 to 5,000 RPS, and the Enterprise tier adds multi-node high availability with real-time state sync. The [enterprise deployment resource](https://www.getmaxim.ai/bifrost/resources/enterprise-deployment) covers sizing for larger fleets, and our comparison of [gateways for LLM cost and observability](https://www.getmaxim.ai/articles/top-5-kong-alternatives-for-llm-cost-and-observability-in-2026/) focuses on the metrics to compare during a pilot.
+A single open source Bifrost instance handles roughly 3,000 to 5,000 RPS, and the Enterprise tier adds multi-node high availability with real-time state sync. The [enterprise deployment resource](https://www.getmaxim.ai/bifrost/resources/enterprise-deployment) covers sizing for larger fleets, and the comparison of [gateways for LLM cost and observability](https://www.getmaxim.ai/articles/top-5-kong-alternatives-for-llm-cost-and-observability-in-2026/) focuses on the metrics to compare during a pilot.
 
 ## How to Choose a Kong Alternative
 
@@ -181,7 +181,7 @@ Choose a Kong alternative by answering two questions in order: must prompts stay
 | Managed routing for AI SDK applications | Vercel AI Gateway |
 | AI governance inside an existing Databricks lakehouse | Databricks Unity Gateway |
 
-The [governance resource](https://www.getmaxim.ai/bifrost/resources/governance) maps virtual keys, teams, and customers to organizational structure, and our [Kong AI Gateway alternatives scorecard](https://www.getmaxim.ai/articles/best-kong-ai-gateway-alternatives-in-2026/) weighs these options feature by feature.
+The [governance resource](https://www.getmaxim.ai/bifrost/resources/governance) maps virtual keys, teams, and customers to organizational structure, and the [Kong AI Gateway alternatives scorecard](https://www.getmaxim.ai/articles/best-kong-ai-gateway-alternatives-in-2026/) weighs these options feature by feature.
 
 ## Frequently Asked Questions
 

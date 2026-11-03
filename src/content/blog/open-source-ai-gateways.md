@@ -19,7 +19,7 @@ An open source AI gateway is a self-hostable service that routes requests to mul
 
 An AI gateway is a service between applications and model providers that presents many providers through one API. It holds provider credentials, applies budgets and rate limits per caller, retries and reroutes failed requests, and records what each call cost. Applications integrate with it once instead of once per provider.
 
-The open source variety adds one property that matters more than any feature: you run it. Prompts, credentials, and logs stay on infrastructure you control, which is what makes these projects viable in regulated environments where a hosted gateway is disqualified before the feature comparison begins. Our guide to [routing, governing, and securing AI traffic with an open source gateway](https://www.getmaxim.ai/articles/open-source-ai-gateway-route-govern-and-secure-ai-traffic/) covers that control model in more depth.
+The open source variety adds one property that matters more than any feature: you run it. Prompts, credentials, and logs stay on infrastructure you control, which is what makes these projects viable in regulated environments where a hosted gateway is disqualified before the feature comparison begins. The guide to [routing, governing, and securing AI traffic with an open source gateway](https://www.getmaxim.ai/articles/open-source-ai-gateway-route-govern-and-secure-ai-traffic/) covers that control model in more depth.
 
 ## What Open Source Actually Means for an AI Gateway
 

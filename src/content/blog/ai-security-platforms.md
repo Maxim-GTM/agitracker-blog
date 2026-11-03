@@ -30,7 +30,7 @@ The controls can sit in four places, and each sees a different slice of traffic,
 - **AI gateway:** sits inline for the apps and agents you run, binding every request to an identity, a credential, and a policy.
 - **Detection API:** returns a verdict per prompt, and only protects traffic whose code calls it.
 
-For a longer treatment of the gateway control point, see our guide to an [AI security platform that covers all AI traffic](https://www.getmaxim.ai/articles/ai-security-platform-for-all-ai-traffic/).
+For a longer treatment of the gateway control point, see the guide to an [AI security platform that covers all AI traffic](https://www.getmaxim.ai/articles/ai-security-platform-for-all-ai-traffic/).
 
 ## OWASP LLM Top 10 Risks in LLM Traffic
 
@@ -51,7 +51,7 @@ The remaining entries are mostly addressed before deployment or inside the retri
 | LLM07 System Prompt Leakage | Responses that echo hidden instructions | Output scanning for system prompt content |
 | LLM10 Unbounded Consumption | Runaway loops or abuse draining budget | Per-key budgets and token or request rate limits |
 
-Access control belongs here too. The [IBM 2025 Cost of a Data Breach report](https://newsroom.ibm.com/2025-07-30-ibm-report-13-of-organizations-reported-breaches-of-ai-models-or-applications,-97-of-which-reported-lacking-proper-ai-access-controls) found that 13% of organizations reported breaches of AI models or applications, and 97% of those lacked proper AI access controls. Our breakdown of [the controls that apply to LLM traffic](https://www.getmaxim.ai/articles/enterprise-ai-security-the-controls-that-apply-to-llm-traffic/) walks through each one in more detail.
+Access control belongs here too. The [IBM 2025 Cost of a Data Breach report](https://newsroom.ibm.com/2025-07-30-ibm-report-13-of-organizations-reported-breaches-of-ai-models-or-applications,-97-of-which-reported-lacking-proper-ai-access-controls) found that 13% of organizations reported breaches of AI models or applications, and 97% of those lacked proper AI access controls. The breakdown of [the controls that apply to LLM traffic](https://www.getmaxim.ai/articles/enterprise-ai-security-the-controls-that-apply-to-llm-traffic/) walks through each one in more detail.
 
 ## Key Criteria for Evaluating Enterprise AI Security
 
@@ -185,12 +185,12 @@ Choose LLM security tools by starting from the traffic you control. If your team
 
 Figure 4 is a starting order; in practice the answers stack:
 
-- **Apps and agents you run:** route them through an AI gateway such as Bifrost so every request carries a virtual key, passes guardrails, and lands in a log. Our comparison of [enterprise AI gateway security options](https://www.getmaxim.ai/articles/enterprise-ai-gateway-security-top-options-compared/) goes deeper on this layer.
+- **Apps and agents you run:** route them through an AI gateway such as Bifrost so every request carries a virtual key, passes guardrails, and lands in a log. The comparison of [enterprise AI gateway security options](https://www.getmaxim.ai/articles/enterprise-ai-gateway-security-top-options-compared/) goes deeper on this layer.
 - **Employee AI use:** network or SSE inspection, or AI Gateway + Bifrost Edge on each machine, brings chat apps and coding agents under the same policies. The [shadow AI detection tools](/blog/shadow-ai-detection-tools/) guide covers the discovery side.
 - **Public endpoints:** an edge WAF for AI filters anonymous abuse before it reaches your servers.
 - **Unknown estate:** discovery and posture tools show what AI exists before you enforce policy.
 
-Gateway guardrails and an edge WAF are complementary: the edge filter blocks anonymous attacks, while the gateway applies per-team policy and holds provider keys. Our article on [LLM guardrails enforced at the gateway layer](https://www.getmaxim.ai/articles/llm-guardrails-at-the-gateway-layer-for-enterprise-ai-security/) explains that division of labor.
+Gateway guardrails and an edge WAF are complementary: the edge filter blocks anonymous attacks, while the gateway applies per-team policy and holds provider keys. The article on [LLM guardrails enforced at the gateway layer](https://www.getmaxim.ai/articles/llm-guardrails-at-the-gateway-layer-for-enterprise-ai-security/) explains that division of labor.
 
 ## Common Gaps in LLM Traffic Security
 
@@ -199,16 +199,16 @@ The most common gap in LLM traffic security is coverage: a detection engine only
 Three gaps show up repeatedly in enterprise reviews:
 
 - **Raw provider keys in code:** any service holding a provider key can bypass every control. Moving keys behind [centralized governance](https://www.getmaxim.ai/bifrost/resources/governance) closes that path.
-- **Unscanned tool calls:** agents that call MCP servers directly skip prompt-level guardrails, so tool arguments and results need their own checks. Our guide to [securing LLM gateway traffic against prompt injection and PII leakage](https://www.getmaxim.ai/articles/llm-gateway-security-prompt-injection-pii-audit-compliance/) covers both paths.
+- **Unscanned tool calls:** agents that call MCP servers directly skip prompt-level guardrails, so tool arguments and results need their own checks. The guide to [securing LLM gateway traffic against prompt injection and PII leakage](https://www.getmaxim.ai/articles/llm-gateway-security-prompt-injection-pii-audit-compliance/) covers both paths.
 - **No per-identity budget:** without limits per key or team, a looping agent turns into an OWASP LLM10 incident and a cost incident at the same time.
 
-Posture management finds these gaps at scale, as our piece on [AI security posture management for LLM applications](https://www.getmaxim.ai/articles/ai-security-posture-management-for-llm-applications/) explains.
+Posture management finds these gaps at scale, as the piece on [AI security posture management for LLM applications](https://www.getmaxim.ai/articles/ai-security-posture-management-for-llm-applications/) explains.
 
 ## Frequently Asked Questions
 
 ### What are the best AI security platforms?
 
-The best AI security platforms for LLM traffic in 2026 are Bifrost, Prisma AIRS, Cisco AI Defense, F5 AI Gateway, Cloudflare Firewall for AI, Akamai Firewall for AI, HiddenLayer, Prompt Security, and Lasso Security. Bifrost leads for teams running their own apps and agents, and our [hub on securing all AI traffic through one platform](https://www.getmaxim.ai/articles/ai-security-platform-for-all-ai-traffic/) explains why.
+The best AI security platforms for LLM traffic in 2026 are Bifrost, Prisma AIRS, Cisco AI Defense, F5 AI Gateway, Cloudflare Firewall for AI, Akamai Firewall for AI, HiddenLayer, Prompt Security, and Lasso Security. Bifrost leads for teams running their own apps and agents, and the [hub on securing all AI traffic through one platform](https://www.getmaxim.ai/articles/ai-security-platform-for-all-ai-traffic/) explains why.
 
 ### What is the most secure AI platform?
 

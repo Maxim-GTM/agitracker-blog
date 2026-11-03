@@ -26,7 +26,7 @@ An agent gateway is a policy enforcement layer that identifies each AI agent and
 
 As Figure 1 shows, an autonomous agent generates three kinds of outbound traffic. Model calls go to LLM providers. Tool calls go to servers that speak the [Model Context Protocol](https://modelcontextprotocol.io/specification/latest), which is where agents read files, query databases, and take actions with side effects. Agent-to-agent calls follow the [A2A protocol specification](https://a2a-protocol.org/latest/specification/), in which one agent discovers another through an agent card and delegates a task to it. How the two protocols divide the work is covered in the explainer on [A2A vs MCP](/blog/a2a-vs-mcp/).
 
-Most products here started from one surface and grew toward the others, which explains the gaps in the table below. For a deeper treatment of the tool surface specifically, see our guide on [how an MCP gateway centralizes agent tool access](https://www.getmaxim.ai/articles/what-is-an-mcp-gateway-centralizing-agent-tool-access/).
+Most products here started from one surface and grew toward the others, which explains the gaps in the table below. For a deeper treatment of the tool surface specifically, see the guide on [how an MCP gateway centralizes agent tool access](https://www.getmaxim.ai/articles/what-is-an-mcp-gateway-centralizing-agent-tool-access/).
 
 ## Key Criteria for AI Agent Governance
 
@@ -46,7 +46,7 @@ Identity resolves first in Figure 2 because budgets, tool lists, and guardrail r
 | A2A traffic | Agent card handling, task tracing, and policy on agent-to-agent calls | Delegation chains hide which agent originated an action |
 | Audit | Request logs per agent plus signed records of policy changes | Compliance reviews ask both what happened and who allowed it |
 
-Workload identity standards such as [SPIFFE](https://spiffe.io/docs/latest/spiffe-about/overview/) are one way to give agents cryptographic identities; virtual keys scoped per agent are another. Our write-up on [turning AI governance policy into gateway controls](https://www.getmaxim.ai/articles/enterprise-ai-governance-turning-policy-into-gateway-controls/) walks through mapping written policy onto these mechanisms.
+Workload identity standards such as [SPIFFE](https://spiffe.io/docs/latest/spiffe-about/overview/) are one way to give agents cryptographic identities; virtual keys scoped per agent are another. The write-up on [turning AI governance policy into gateway controls](https://www.getmaxim.ai/articles/enterprise-ai-governance-turning-policy-into-gateway-controls/) walks through mapping written policy onto these mechanisms.
 
 ## Agent Gateways Compared at a Glance
 
@@ -93,7 +93,7 @@ IBM ContextForge is an Apache 2.0 gateway, registry, and proxy from IBM, written
 - **A2A:** integrates external AI agents, including OpenAI-compatible, Anthropic, and custom agents, through its agent gateway.
 - **Audit:** OpenTelemetry tracing to OTLP backends such as Phoenix and Jaeger, plus a log viewer with search and export.
 
-**Best for:** platform teams on Kubernetes that need A2A mediation today and are comfortable assembling identity and policy from gateway configuration. Our comparison of [MCP gateway control plane patterns for AI agents](https://www.getmaxim.ai/articles/what-is-an-mcp-gateway-control-plane-patterns-for-ai-agents/) covers how proxy-first designs differ from gateway-first ones.
+**Best for:** platform teams on Kubernetes that need A2A mediation today and are comfortable assembling identity and policy from gateway configuration. The comparison of [MCP gateway control plane patterns for AI agents](https://www.getmaxim.ai/articles/what-is-an-mcp-gateway-control-plane-patterns-for-ai-agents/) covers how proxy-first designs differ from gateway-first ones.
 
 ## 3. Amazon Bedrock AgentCore Gateway
 
@@ -117,7 +117,7 @@ Google Cloud Agent Gateway is the enforcement component of the Gemini Enterprise
 - **A2A:** supported in both client-to-agent (ingress) and agent-to-anywhere (egress) modes.
 - **Audit:** exports network-layer telemetry to Agent Observability.
 
-**Best for:** organizations standardized on Google Cloud that want agent identity issued by the platform. Scope is the constraint: it governs agents on Google's Agent Runtime and Gemini Enterprise, and each gateway instance governs up to 5,000 resources in Agent Registry. For agents that also use coding tools on developer machines, see our guide to [securing agent access with an AI gateway](https://www.getmaxim.ai/articles/claude-code-governance-securing-agent-access-with-an-ai-gateway/).
+**Best for:** organizations standardized on Google Cloud that want agent identity issued by the platform. Scope is the constraint: it governs agents on Google's Agent Runtime and Gemini Enterprise, and each gateway instance governs up to 5,000 resources in Agent Registry. For agents that also use coding tools on developer machines, see the guide to [securing agent access with an AI gateway](https://www.getmaxim.ai/articles/claude-code-governance-securing-agent-access-with-an-ai-gateway/).
 
 ## 5. Kong AI Gateway
 
@@ -129,7 +129,7 @@ Kong AI Gateway extends Kong's API gateway with plugins for LLM, MCP, and A2A tr
 - **A2A:** transparent proxy with observability; the plugin does not modify routing or manage task state.
 - **Audit:** AI audit logs and metrics covering session IDs, JSON-RPC methods, latencies, and errors.
 
-**Best for:** organizations already running Kong for API traffic that want agent observability inside the same plugin model. Governance is assembled from plugins, so policy consistency depends on how each route is configured, which is the core trade-off covered in our explainer on [what an MCP gateway is and why agents need one](https://www.getmaxim.ai/articles/what-is-an-mcp-gateway-centralizing-agent-tool-access/).
+**Best for:** organizations already running Kong for API traffic that want agent observability inside the same plugin model. Governance is assembled from plugins, so policy consistency depends on how each route is configured, which is the core trade-off covered in the explainer on [what an MCP gateway is and why agents need one](https://www.getmaxim.ai/articles/what-is-an-mcp-gateway-centralizing-agent-tool-access/).
 
 ## 6. Azure API Management
 
@@ -162,7 +162,7 @@ Two failure modes deserve the first controls: an agent that retries a failing ca
 | Agents on Google Cloud's agent platform | Google Cloud Agent Gateway | Platform-issued SPIFFE identity |
 | Existing Kong or Azure API estate | Kong or Azure API Management | Agent traffic in the existing API gateway |
 
-Tool sprawl is the second consideration. Agents connected to many MCP servers load large tool definitions into every prompt. Bifrost [Code Mode](https://docs.getbifrost.ai/mcp/code-mode) addresses this by letting the model write code that orchestrates tools, and our post on [MCP gateway access control and 92% lower token costs](https://www.getmaxim.ai/bifrost/blog/bifrost-mcp-gateway-access-control-cost-governance-and-92-lower-token-costs-at-scale) covers the numbers. Endpoint coverage is the third: MCP servers configured on laptops never reach a gateway unless something routes them there, which our guide on [MCP server governance across the gateway and endpoint](https://www.getmaxim.ai/articles/mcp-server-governance-across-the-gateway-and-endpoint/) addresses.
+Tool sprawl is the second consideration. Agents connected to many MCP servers load large tool definitions into every prompt. Bifrost [Code Mode](https://docs.getbifrost.ai/mcp/code-mode) addresses this by letting the model write code that orchestrates tools, and the post on [MCP gateway access control and 92% lower token costs](https://www.getmaxim.ai/bifrost/blog/bifrost-mcp-gateway-access-control-cost-governance-and-92-lower-token-costs-at-scale) covers the numbers. Endpoint coverage is the third: MCP servers configured on laptops never reach a gateway unless something routes them there, which the guide on [MCP server governance across the gateway and endpoint](https://www.getmaxim.ai/articles/mcp-server-governance-across-the-gateway-and-endpoint/) addresses.
 
 ## Frequently Asked Questions
 

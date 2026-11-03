@@ -20,7 +20,7 @@ Production AI systems fail in ways traditional application monitoring does not s
 
 AI observability is the practice of collecting metrics, traces, and logs from AI systems in production so teams can explain their cost, latency, errors, and output behavior. For production AI, that means per-request token counts, spend in dollars, time to first token, provider error rates, and the routing decisions behind each response.
 
-The definition overlaps with LLM observability, but the emphasis differs. Tracing tools for debugging focus on the steps inside one agent run; production monitoring focuses on aggregates across all traffic, such as which provider's error rate rose in the last hour or which team is ahead of its budget. Our [guide to AI observability for monitoring LLM costs](https://www.getmaxim.ai/articles/ai-observability-platform-for-monitoring-llm-costs/) covers the cost side of that definition in detail.
+The definition overlaps with LLM observability, but the emphasis differs. Tracing tools for debugging focus on the steps inside one agent run; production monitoring focuses on aggregates across all traffic, such as which provider's error rate rose in the last hour or which team is ahead of its budget. The [guide to AI observability for monitoring LLM costs](https://www.getmaxim.ai/articles/ai-observability-platform-for-monitoring-llm-costs/) covers the cost side of that definition in detail.
 
 ![Applications and agents send model calls through an AI gateway, which emits metrics, traces, and request logs to observability backends while forwarding calls to model providers](https://articles-images-cdn.t3.tigrisfiles.io/diagrams/ai-observability-platforms/ai-observability-platforms-telemetry-sources.png)
 
@@ -184,7 +184,7 @@ As Figure 4 shows, the three common paths are not mutually exclusive:
 - **Teams that must self-host** can combine Bifrost's Prometheus endpoint with Grafana and OpenLIT, keeping prompts and telemetry inside their own network. The [Bifrost Enterprise deployment options](https://www.getmaxim.ai/bifrost/enterprise) cover VPC and air-gapped installs.
 - **Teams that need quality evaluation** add Arize or Fiddler for drift, hallucination, and safety signals on top of operational metrics.
 
-In every path, attribution depends on identity at the gateway. [Virtual keys](https://docs.getbifrost.ai/features/governance/virtual-keys) give each team or application its own credential, which is what turns a single cost counter into a per-team breakdown. The [Bifrost governance overview](https://www.getmaxim.ai/bifrost/resources/governance) explains how those keys connect to budgets, and our [cost-focused AI observability platform guide](https://www.getmaxim.ai/articles/ai-observability-platform-for-monitoring-llm-costs/) shows how the same labels drive spend dashboards and alerts.
+In every path, attribution depends on identity at the gateway. [Virtual keys](https://docs.getbifrost.ai/features/governance/virtual-keys) give each team or application its own credential, which is what turns a single cost counter into a per-team breakdown. The [Bifrost governance overview](https://www.getmaxim.ai/bifrost/resources/governance) explains how those keys connect to budgets, and the [cost-focused AI observability platform guide](https://www.getmaxim.ai/articles/ai-observability-platform-for-monitoring-llm-costs/) shows how the same labels drive spend dashboards and alerts.
 
 ## Frequently Asked Questions
 

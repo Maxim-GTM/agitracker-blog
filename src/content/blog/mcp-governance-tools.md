@@ -22,7 +22,7 @@ MCP governance is the policy layer between AI agents and MCP servers that author
 
 The [MCP tools specification](https://modelcontextprotocol.io/specification/2025-11-25/server/tools) states that there should always be a human in the loop with the ability to deny tool invocations, but the protocol leaves enforcement to the host application. An agent connected to a database MCP server otherwise receives every tool it exposes, including ones that drop tables. The [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/) names excessive functionality, excessive permissions, and excessive autonomy as the root causes of "excessive agency," and ungoverned MCP connections produce all three.
 
-A broader primer on [what MCP governance covers and how it works](https://www.getmaxim.ai/articles/mcp-governance-explained-what-it-is-and-how-it-works/) sits in our hub article. This post narrows the scope to the controls that decide tool access:
+For a broader primer, see this guide to [what MCP governance covers and how it works](https://www.getmaxim.ai/articles/mcp-governance-explained-what-it-is-and-how-it-works/). This post narrows the scope to the controls that decide tool access:
 
 | Control | Question it answers | What good looks like |
 |---|---|---|

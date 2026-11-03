@@ -26,7 +26,7 @@ The problem is structural rather than behavioral. A gateway governs the traffic 
 
 *Figure 1: A gateway governs only the traffic someone remembered to point at it.*
 
-The exposure is concrete: prompts containing source code, customer records, or credentials leave through a path security cannot see, with no record of what was sent. Governance frameworks such as the [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) assume an organization can inventory its AI systems, which is precisely what shadow AI prevents. Our breakdown of [shadow AI as the ungoverned risk inside every company](https://www.getmaxim.ai/articles/what-is-shadow-ai-the-ungoverned-ai-risk-inside-every-company/) covers the exposure categories in more depth.
+The exposure is concrete: prompts containing source code, customer records, or credentials leave through a path security cannot see, with no record of what was sent. Governance frameworks such as the [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) assume an organization can inventory its AI systems, which is precisely what shadow AI prevents. The breakdown of [shadow AI as the ungoverned risk inside every company](https://www.getmaxim.ai/articles/what-is-shadow-ai-the-ungoverned-ai-risk-inside-every-company/) covers the exposure categories in more depth.
 
 ## Why Shadow AI Is Hard to Detect
 
@@ -42,7 +42,7 @@ As Figure 2 shows, three vantage points dominate, and each has a characteristic 
 - **Inline network proxies** see egress traffic and can inspect prompts, but they miss activity on unmanaged networks and cannot see which MCP servers an app has configured locally.
 - **Identity and SaaS APIs** see account signups and OAuth grants without touching the network, but they infer usage rather than observing requests, so they cannot inspect prompt content.
 
-A fourth surface has appeared recently. AI apps connect to servers built on the [Model Context Protocol](https://modelcontextprotocol.io/) that read files, call APIs, and take actions, and most organizations have no inventory of which servers are configured where. Our analysis of [shadow MCP as an ungoverned data risk](https://www.getmaxim.ai/articles/shadow-mcp-the-ungoverned-ai-tools-risking-your-data/) covers that surface specifically, and the [seven exposure categories of shadow AI](https://www.getmaxim.ai/articles/shadow-ai-risks-7-exposure-categories-and-the-control-for-each-2026/) maps a control to each one.
+A fourth surface has appeared recently. AI apps connect to servers built on the [Model Context Protocol](https://modelcontextprotocol.io/) that read files, call APIs, and take actions, and most organizations have no inventory of which servers are configured where. The analysis of [shadow MCP as an ungoverned data risk](https://www.getmaxim.ai/articles/shadow-mcp-the-ungoverned-ai-tools-risking-your-data/) covers that surface specifically, and the [seven exposure categories of shadow AI](https://www.getmaxim.ai/articles/shadow-ai-risks-7-exposure-categories-and-the-control-for-each-2026/) maps a control to each one.
 
 ## How We Compared the Shadow AI Detection Tools
 
@@ -147,7 +147,7 @@ Three questions separate a program that reduces exposure from one that produces 
 - **Does governance follow the user or the network?** Policy tied to a corporate network lapses the moment someone works from a coffee shop.
 - **Is approved usage actually governed?** Blocking unapproved tools is only half the job if sanctioned usage still has no budget, guardrail, or audit trail.
 
-That last question is where the gateway earns its place. Because approved traffic routes through Bifrost, it inherits budgets, guardrails, and audit logs rather than merely being permitted. Our guide to [how CISOs get end-to-end AI governance](https://www.getmaxim.ai/articles/shadow-ai-how-cisos-get-end-to-end-ai-governance/) covers that progression, and the [endpoint AI governance buyer's guide](https://www.getmaxim.ai/articles/best-endpoint-ai-governance-tools-a-2026-buyers-guide/) compares the control layer specifically. Regulated teams should also read the [endpoint problem in regulated industries](https://www.getmaxim.ai/articles/ai-governance-for-regulated-industries-the-endpoint-problem/).
+That last question is where the gateway earns its place. Because approved traffic routes through Bifrost, it inherits budgets, guardrails, and audit logs rather than merely being permitted. The guide to [how CISOs get end-to-end AI governance](https://www.getmaxim.ai/articles/shadow-ai-how-cisos-get-end-to-end-ai-governance/) covers that progression, and the [endpoint AI governance buyer's guide](https://www.getmaxim.ai/articles/best-endpoint-ai-governance-tools-a-2026-buyers-guide/) compares the control layer specifically. Regulated teams should also read the [endpoint problem in regulated industries](https://www.getmaxim.ai/articles/ai-governance-for-regulated-industries-the-endpoint-problem/).
 
 ## Frequently Asked Questions
 
