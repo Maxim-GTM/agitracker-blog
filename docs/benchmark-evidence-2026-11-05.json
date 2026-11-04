@@ -1,0 +1,49 @@
+{
+  "reference_blog": "https://www.getmaxim.ai/bifrost/blog/debunking-litellm-rust-benchmarking-part-1",
+  "checked_on": "2026-11-05",
+  "data_commit": "35ba690a53e9c7bea86d13dc077921b0faf02d97",
+  "articles": [
+    "src/content/blog/how-to-read-an-ai-gateway-benchmark/index.md",
+    "src/content/blog/llm-gateway-test-plan/index.md",
+    "src/content/blog/rust-vs-go-performance-gateways/index.md",
+    "src/content/blog/vendor-benchmarks-need-receipts/index.md"
+  ],
+  "memory_file_sets": [
+    {
+      "name": "messages_release",
+      "bifrost_mb": 199.073792,
+      "rust_mb": 21.848064
+    },
+    {
+      "name": "memory_capture",
+      "bifrost_mb": 144.150528,
+      "rust_mb": 26.116096
+    },
+    {
+      "name": "cpu_series",
+      "bifrost_range_mb": [
+        282.39872,
+        298.459136
+      ],
+      "rust_range_mb": [
+        35.364864,
+        36.405248
+      ]
+    },
+    {
+      "name": "throughput_ceiling",
+      "bifrost_mb": 242.614272,
+      "rust_mb": 297.10336
+    }
+  ],
+  "ceiling_rust": {
+    "rps": 2814.3531702101873,
+    "average_cpu_percent": 21.075
+  },
+  "logging_qualification": "The reference blog infers defaults from v2.4.0 code and says they were not yet confirmed on v1.6.4. Logging share is unmeasured.",
+  "source_conflicts": [
+    "The reference blog omits the ceiling file when claiming Rust has less memory in every file.",
+    "The reference blog rejects ~21% CPU, but throughput_ceiling.csv records 21.075%."
+  ],
+  "cost_qualification": "RPS / estimated hourly cost is not a measured production bill. Published chart code includes pricing assumptions; different cost summaries need their own scenarios."
+}

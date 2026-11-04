@@ -3,7 +3,7 @@ title: "Choosing an LLM Gateway After the Benchmark Wars: A Test Plan You Can Ru
 seoTitle: "API Performance Testing for LLM Gateways: A Test Plan"
 description: "API performance testing for LLM gateways: a plan with logging off and on, a c=1 to 256 sweep, repeated trials, heap profiles and full run disclosure."
 pubDate: 2026-11-03
-updatedDate: 2026-11-04
+updatedDate: 2026-11-05
 tags: [LLM Gateways, Performance, AI Infrastructure]
 author: team
 faq:
@@ -14,11 +14,14 @@ faq:
   - q: Why does logging matter in an LLM gateway benchmark?
     a: "Logging adds buffering and database writes, so a gateway with logging on does more work per request than one with it off. In LiteLLM's Rust benchmark, Bifrost's published config left its default logging on while LiteLLM reported logging off; that reading is inferred from Bifrost v2.4.0 code and not confirmed on v1.6.4."
   - q: How many trials does a gateway benchmark need?
-    a: "Enough to show the spread. One run per cell cannot separate a real gap from noise: in LiteLLM's own files, total p99 at concurrency 64 differs between two result files for the same gateways. Five interleaved trials per cell, reported with a range or confidence interval, is a practical floor."
+    a: "Enough to show the spread. One run per cell cannot separate a real gap from noise: in LiteLLM's own files, total p99 at concurrency 64 differs between two result files for the same gateways. This proposed test plan starts with repeated, interleaved trials and reports their spread; the source post does not prescribe a universal minimum run count."
   - q: What is the difference between throughput and latency in a gateway test?
     a: "Throughput is how many requests per second the gateway completes; latency is how long each request takes, usually reported at p50 and p99. They move differently: in LiteLLM's sweep at concurrency 64, LiteLLM Rust and Bifrost reach 2,722 and 2,719 RPS, while Rust adds 40.28 ms of p99 and Bifrost 28.68 ms. A test plan needs both."
   - q: Is LiteLLM's Rust gateway faster than Bifrost?
-    a: "LiteLLM's own published data shows mixed results, as of November 1, 2026. Bifrost adds less p99 latency at concurrency 1 and 64, Rust adds less at 16 and leads in a single exploratory run at 256, and throughput is within 1% at every level. Rust uses less memory and CPU in every file. None of it was measured like-for-like."
+    a: "LiteLLM's own published data shows mixed results, as of November 1, 2026. Bifrost adds less p99 latency at concurrency 1 and 64, Rust adds less at 16 and leads in a single exploratory run at 256, and throughput is within 1% at every level. Rust records lower CPU in the sampled CPU files and lower peak RSS in three of four file sets. None of it was measured like-for-like."
+sources:
+  - title: "Throughput ceiling results: memory, CPU and sustained RPS"
+    url: https://github.com/BerriAI/ai-gateway-bench/blob/main/results/throughput_ceiling.csv
 ---
 
 **TL;DR**
@@ -30,7 +33,20 @@ faq:
 
 *About the evidence: The worked example uses LiteLLM's published results and [a response from Maxim AI](https://www.getmaxim.ai/bifrost/blog/debunking-litellm-rust-benchmarking-part-1), the developer of Bifrost. It is a review of published material, not a new benchmark run by AGI Tracker.*
 
+*Correction, 5 November 2026: An earlier version omitted the throughput-ceiling file, overstated the consistency of Rust's memory advantage, and, where discussed, incorrectly treated the approximately 21% CPU figure as unsupported. The ceiling file shows lower peak RSS for Bifrost and supports Rust's rounded CPU figure.*
+
 API performance testing is the only reliable way to choose an LLM gateway on speed, because published vendor benchmarks rarely run the gateways under the same conditions. The November 2026 dispute over LiteLLM's Rust gateway benchmark showed how far a homepage number can drift from the files behind it. This guide turns that dispute into a test plan a platform team can run on its own hardware, with every setting written down before the first request is sent.
+
+
+*The evaluation steps below are this article's proposed test guidance, not additional benchmark procedures or measured results reported by the Bifrost post.*
+
+## Cross-check of the published resource files
+
+LiteLLM Rust recorded lower peak RSS in three of four published file sets; Bifrost was lower in the ceiling run at 242.6 MB versus 297.1 MB for Rust. The [ceiling results](https://github.com/BerriAI/ai-gateway-bench/blob/main/results/throughput_ceiling.csv) report 0.242614272 GB for Bifrost and 0.29710336 GB for Rust, converted here to decimal MB. The other three sets favor Rust: 21.8 MB versus 199.1 MB in the messages/release capture; 26.1 MB versus about 144 MB in the earlier memory capture; and roughly 35–36 MB versus 282–298 MB in the CPU time series. These are different measurements, not repeated trials of one identical setup.
+
+The ceiling file also records Rust at 21.075% average CPU and 2,814.35 RPS. The separate CPU time series records a much lower average over its own sampling window. The figures must retain their file and workload context.
+
+The Bifrost post identifies v1.6.4 as the tested build and infers default-on logging from v2.4.0 code; it explicitly says that behavior was not yet confirmed on v1.6.4. Neither the blog nor the benchmark files quantify logging's share of the memory or CPU difference.
 
 ## What the LiteLLM Benchmark Left Out
 
@@ -183,7 +199,7 @@ A memory figure needs a label and an explanation. Sample RSS before the first re
 ![Gateway memory is sampled before traffic, under load and at peak, then a heap profile splits it into in-use heap and memory outside the heap](./llm-gateway-test-plan-memory-attribution.png)
 *Figure 3: Label every memory figure with the moment it was taken, and attribute it with a profile before blaming any component.*
 
-The LiteLLM case shows each failure mode. The homepage's "memory at rest" figure (about 22 MB versus about 199 MB) is mislabeled: the column in the data is `peak_rss_mb`, and the blog correctly says "peak memory." The homepage uses the widest of three Bifrost/Rust pairs in the files: 199.1 vs 21.8 MB, against 144 vs 26.1 MB and 282 to 298 vs 35 to 36 MB in the CPU files. The pairs may come from different scenarios or builds, so the label, not the headline ratio, is the clear error.
+The LiteLLM case shows each failure mode. The homepage's "memory at rest" figure (about 22 MB versus about 199 MB) is mislabeled: the column in the data is `peak_rss_mb`, and the blog correctly says "peak memory." The homepage uses the widest of three non-ceiling Bifrost/Rust pairs in the files: 199.1 vs 21.8 MB, against 144 vs 26.1 MB and 282 to 298 vs 35 to 36 MB in the CPU files. The pairs may come from different scenarios or builds, so the label, not the headline ratio, is the clear error.
 
 In [cpu_bifrost.csv](https://github.com/BerriAI/ai-gateway-bench/blob/main/results/cpu_bifrost.csv), Bifrost's RSS is about 282 MB before the first request and load adds about 16 MB, which points primarily to a baseline footprint rather than log-buffer growth. Bifrost v1.6.4 opens a disk-backed `logs.db` at startup with a SQLite cache limit of 10,000 pages per connection, about 39.1 MiB at a 4 KiB page size, which grows on demand rather than being preallocated. The files do not quantify SQLite's contribution or isolate logging's share of the gap. That is the job of a heap profile.
 
@@ -199,15 +215,15 @@ For RSS itself, the Linux [`/proc/<pid>/status` file](https://man7.org/linux/man
 
 A profile in each logging arm answers the question LiteLLM's benchmark could not: how much of the memory difference is the log buffer and store, and how much is everything else. There is a separate lever to test as well. Setting smaller log writer batches and queue capacity lowers the buffered-entry bound from about 11,000 to about 1,100 entries, but that is not necessarily 10x lower RSS, and it can increase write overhead and log drops under bursts. Measure it rather than assume it.
 
-The plan should be ready for an unflattering answer. In LiteLLM's files, Rust is smaller on memory in every file: its highest figure, about 36 MB, is below Bifrost's lowest, about 144 MB. A heap profile may narrow that gap or confirm it; either result is useful.
+The plan should be able to return either ranking. The published memory results are mixed: Rust is lower in three non-ceiling captures, including 21.8 MB versus 199.1 MB; Bifrost is lower in the ceiling run at 242.6 MB versus 297.1 MB. These files do not isolate the contribution of logging. A heap profile may explain part of a difference, but a matched rerun is needed to compare configurations.
 
 ## CPU and Cost: Measure First, Model Second
 
 CPU should be sampled in the same window and at the same load as the latency it is paired with, and any cost figure built from CPU and memory should be labeled as a model. A requests-per-dollar number is arithmetic on measured inputs plus an assumed instance price, not an observation.
 
-LiteLLM's CPU files record Bifrost at a mean of 2.59% (peak 79.5%) and Rust at 0.66% (peak 15.9%), whole-process figures under the configurations described above. That is a genuine Rust lead, although the files do not separate request handling from background work. The homepage's "2,800+ req/s (at ~21% CPU)" figure appears in none of the Rust CPU, throughput, cost or overhead files, and it is likely, though not confirmed, that the CPU samples come from a short burst, probably the concurrency-16 cost runs, rather than the 2,800 RPS load.
+The separate throughput-ceiling file records LiteLLM Rust at 2,814.35 requests per second and 21.075% average CPU, so it supports the rounded 2,800+ RPS at approximately 21% CPU figure. The 0.66% mean and 15.9% peak in cpu_rust.csv belong to a different sampling series and should not be substituted for that ceiling-run measurement. [Published ceiling results](https://github.com/BerriAI/ai-gateway-bench/blob/main/results/throughput_ceiling.csv).
 
-The cost claim follows the same pattern. The homepage's "~4.5x more requests per dollar" is 283,833 versus 63,246 requests per dollar-hour, and the arithmetic holds. The inputs were modeled on an assumed 4 vCPU / 16 GB instance, not the benchmark machine, and Bifrost's logging cost sits inside them.
+The cost claim follows the same pattern. The homepage's "~4.5x more requests per dollar" is 283,833 versus 63,246 RPS per dollar of estimated hourly cost, and the arithmetic holds. The inputs were modeled on an assumed 4 vCPU / 16 GB instance, not the benchmark machine, and Bifrost's logging cost sits inside them.
 
 For a test plan, that means:
 

@@ -3,34 +3,47 @@ title: "Where LiteLLM's Rust Gateway Genuinely Leads, and What It Says About Rus
 seoTitle: "Rust vs Go Performance: Where LiteLLM's Rust Gateway Leads"
 description: "Rust vs Go performance in LiteLLM's gateway benchmark: Rust leads on CPU, memory and c=256 latency, but those wins do not support the 7x and 9x headlines."
 pubDate: 2026-11-03
-updatedDate: 2026-11-04
+updatedDate: 2026-11-05
 tags: [LLM Gateways, Performance, AI Infrastructure]
 author: team
 faq:
   - q: What are the advantages of LiteLLM's Rust gateway?
-    a: "In LiteLLM's own benchmark files, as of November 1, 2026, the Rust gateway beta uses less CPU than Bifrost v1.6.4 (0.66% vs 2.59% mean, 15.9% vs 79.5% peak), is smaller on memory in every file (its highest figure, about 36 MB, is below Bifrost's lowest, about 144 MB), records lower latency in an exploratory concurrency 256 run, and models out cheaper per hour. It is also far faster than the LiteLLM Python proxy."
+    a: "Rust records lower CPU in the sampled CPU files, lower peak RSS in three of four file sets, lower latency in an exploratory concurrency-256 run, and a lower modeled hourly cost. Bifrost records lower peak RSS in the ceiling run. Those observations describe different measured scenarios; they do not establish an equivalent-feature advantage."
   - q: Is Rust faster than Go for an AI gateway?
     a: "Not in a simple way. In LiteLLM's benchmark, the Rust beta and the Go-based Bifrost were within 1% on throughput at every concurrency level from 1 to 64, and Bifrost added less p99 latency at concurrency 1 and 64. Rust used less CPU and memory and led in an exploratory run at concurrency 256. The two configurations also did different work, so the files do not isolate the language."
   - q: Is LiteLLM's Rust gateway 7x faster than Bifrost?
     a: "The 7x figure is not reproducible from LiteLLM's published data. It rests on a 4.54 ms Bifrost overhead figure that no row of LiteLLM's own concurrency sweep reproduces. In that sweep, Bifrost adds +0.75, +0.63, +0.89 and +28.68 ms of p99 latency at concurrency 1, 4, 16 and 64, against +0.89, +0.61, +0.33 and +40.28 ms for Rust."
   - q: Does LiteLLM's Rust gateway use less memory than Bifrost?
-    a: "Yes, in every file LiteLLM published. The three Bifrost and Rust pairs are 199.1 vs 21.8 MB, 144 vs 26.1 MB, and 282 to 298 vs 35 to 36 MB. The homepage's roughly 9x figure uses the widest of those pairs, and its 'memory at rest' label is mislabelled peak RSS. Bifrost v1.6.4 appears to have run with logging on in that setup (inferred from v2.4.0 code, not confirmed on v1.6.4), and Bifrost 2.x has since reduced memory use."
+    a: "Not in every published file set. Rust records lower peak RSS in three of four sets, including 21.8 MB versus 199.1 MB, but Bifrost is lower in the ceiling run at 242.6 MB versus 297.1 MB. The roughly 9x figure describes one pair, not every workload. The Bifrost post infers default-on logging from v2.4.0 code and says it was not yet confirmed on the tested v1.6.4 build; the files do not measure logging's share."
   - q: How much faster is LiteLLM Rust than LiteLLM Python?
     a: "Much faster in the benchmark. At concurrency 64, LiteLLM Python adds about 546 ms of p99 latency, roughly 13.6x the Rust port's +40.28 ms, and reaches 179.8 requests per second against Rust's 2,722.2. As of November 1, 2026, though, LiteLLM's docs say Chat Completions and Messages on main:latest still run on Python."
+sources:
+  - title: "Throughput ceiling results: memory, CPU and sustained RPS"
+    url: https://github.com/BerriAI/ai-gateway-bench/blob/main/results/throughput_ceiling.csv
 ---
 
 **TL;DR**
 - LiteLLM's Rust gateway beta leads Bifrost v1.6.4 on CPU in LiteLLM's own files: 0.66% vs 2.59% mean, and 15.9% vs 79.5% peak (as of November 1, 2026).
-- Rust is smaller on memory in every file: its highest figure (about 36 MB) is below Bifrost's lowest (about 144 MB).
+- Rust records lower peak RSS in three of four published file sets: the ceiling file instead records Rust at 297.1 MB and Bifrost at 242.6 MB.
 - In an exploratory concurrency 256 run, Rust records p50 of 55.5 ms vs 89.3 ms and p99 of 2,667.8 ms vs 5,421.3 ms, from one run with no RPS field, excluded from the main sweep.
 - The modelled cost is $0.0099 vs $0.0434 per hour, and Rust is far ahead of LiteLLM's own Python proxy.
-- For these tested configurations, those observations are recorded in the files, but they do not support the homepage's specific multipliers: the 7x overhead figure is not reproduced by the sweep, and the 9x memory figure uses the widest of three pairs.
+- For these tested configurations, those observations are recorded in the files, but they do not support the homepage's specific multipliers: the 7x overhead figure is not reproduced by the sweep, and the 9x memory figure uses the widest of three non-ceiling pairs.
 
 *About the evidence: The worked example uses LiteLLM's published results and [a response from Maxim AI](https://www.getmaxim.ai/bifrost/blog/debunking-litellm-rust-benchmarking-part-1), the developer of Bifrost. It is a review of published material, not a new benchmark run by AGI Tracker.*
+
+*Correction, 5 November 2026: An earlier version omitted the throughput-ceiling file, overstated the consistency of Rust's memory advantage, and, where discussed, incorrectly treated the approximately 21% CPU figure as unsupported. The ceiling file shows lower peak RSS for Bifrost and supports Rust's rounded CPU figure.*
 
 Rust vs Go performance is one of the most argued questions in backend engineering, and in November 2026 it acquired a concrete test case: LiteLLM's new Rust gateway, benchmarked against Bifrost, a gateway written in Go. LiteLLM published its raw CSV and JSON files, and those files do not support several of its headline numbers. They also show, in plain terms, the places where the Rust gateway is ahead.
 
 Those results deserve their own account, because the useful engineering information sits in the details: which resource Rust used less of, under what load, in which file, and with what caveats. The sections below set out each of Rust's leads with its source figure, explain what the metric means for anyone running an AI gateway, and then explain why those leads still do not add up to the specific 7x and 9x multipliers on LiteLLM's homepage. Every figure is as of November 1, 2026.
+
+## Cross-check of the published resource files
+
+LiteLLM Rust recorded lower peak RSS in three of four published file sets; Bifrost was lower in the ceiling run at 242.6 MB versus 297.1 MB for Rust. The [ceiling results](https://github.com/BerriAI/ai-gateway-bench/blob/main/results/throughput_ceiling.csv) report 0.242614272 GB for Bifrost and 0.29710336 GB for Rust, converted here to decimal MB. The other three sets favor Rust: 21.8 MB versus 199.1 MB in the messages/release capture; 26.1 MB versus about 144 MB in the earlier memory capture; and roughly 35–36 MB versus 282–298 MB in the CPU time series. These are different measurements, not repeated trials of one identical setup.
+
+The ceiling file also records Rust at 21.075% average CPU and 2,814.35 RPS. The separate CPU time series records a much lower average over its own sampling window. The figures must retain their file and workload context.
+
+The Bifrost post identifies v1.6.4 as the tested build and infers default-on logging from v2.4.0 code; it explicitly says that behavior was not yet confirmed on v1.6.4. Neither the blog nor the benchmark files quantify logging's share of the memory or CPU difference.
 
 ## The Benchmark Behind the Comparison
 
@@ -72,25 +85,26 @@ A gateway sits on the path of every model request, so its CPU cost is paid on ev
 
 That is a real engineering advantage. The caveat is about attribution, not direction: these are whole-process measurements of two configurations that, as covered below, were not doing the same work.
 
-## Rust Is Smaller on Memory in Every File
+## Memory Results Differ Across Four Published File Sets
 
-Across all three memory pairs in LiteLLM's files, Rust is smaller. Its highest recorded figure, about 36 MB, is below the Go gateway's lowest, about 144 MB. This lead does not depend on which file a reader picks.
+Across all three non-ceiling memory pairs in LiteLLM's files, Rust is smaller. The ceiling file instead records Rust at 297.1 MB and Bifrost at 242.6 MB. The ceiling file reverses the memory ordering, so the result depends on the scenario.
 
-The three pairs:
+The three non-ceiling captures and the separate ceiling run:
 
 | Files | Bifrost v1.6.4 | LiteLLM Rust beta | Ratio |
 |---|---:|---:|---:|
 | mem_bifrost_messages.csv / mem_litellm_rust_release.csv | 199.1 MB | 21.8 MB | 9.1x |
 | mem_bifrost.csv / mem_litellm_rust.csv | 144 MB | 26.1 MB | 5.4x |
 | cpu_bifrost.csv / cpu_rust.csv | 282 to 298 MB | 35 to 36 MB | 8.3x |
+| [throughput_ceiling.csv](https://github.com/BerriAI/ai-gateway-bench/blob/main/results/throughput_ceiling.csv) | 242.6 MB | 297.1 MB | Bifrost lower by about 18% |
 
 These are peak resident set size (RSS) figures: the most physical memory the process held at any sampled moment. LiteLLM's blog correctly calls the 21.8 MB vs 199.1 MB pair "peak memory".
 
-For a gateway, memory per instance sets how many replicas fit on a node, whether the gateway can run as a sidecar next to each application, and how much a fleet costs to keep warm. A process that stays in the tens of megabytes is easy to place anywhere. That is a genuine strength of the Rust beta in these runs.
+For a gateway, memory per instance sets how many replicas fit on a node, whether the gateway can run as a sidecar next to each application, and how much a fleet costs to keep warm. The small Rust footprint in the non-ceiling captures is relevant to those runs, but its 297.1 MB peak in the ceiling run rules out a universal tens-of-megabytes assumption.
 
 ### Where the Go Gateway's Memory Sits
 
-One observation changes how the gap should be read, without reversing it. In cpu_bifrost.csv, the Go gateway's RSS is already about 282 MB before the first request, and load adds only about 16 MB.
+One observation changes how the gap should be read, within that particular sampling series. In cpu_bifrost.csv, the Go gateway's RSS is already about 282 MB before the first request, and load adds only about 16 MB.
 
 ![Process start leads to a baseline resident memory of about 282 MB before the first request; load then adds about 16 MB to reach peak RSS](./rust-vs-go-performance-baseline-memory.png)
 
@@ -100,7 +114,7 @@ As Figure 2 shows, that pattern points primarily to a baseline footprint rather 
 
 Bifrost's developers describe lower memory use in the 2.x release line by changing what data it retains and how it stores it, and the v1.6.4 benchmark does not reflect those improvements. No figure for the reduction is published yet; Maxim has proposed a like-for-like retest to quantify it.
 
-None of that removes Rust's lead in any file.
+These version considerations do not erase any measured result, including Bifrost's lower peak RSS in the ceiling run.
 
 ## Rust Leads at Concurrency 256
 
@@ -127,7 +141,7 @@ The main sweep has one more Rust lead. At concurrency 16, Rust's added p99 laten
 
 ## The Modelled Cost Ratio
 
-LiteLLM's cost model puts the Rust gateway at $0.0099 per hour against $0.0434 for the Go gateway, a 4.4x ratio, and 283,833 against 63,246 requests per dollar-hour, which is the homepage's "~4.5x more requests per dollar". The arithmetic holds.
+LiteLLM's cost model puts the Rust gateway at $0.0099 per hour against $0.0434 for the Go gateway, a 4.4x ratio, and 283,833 against 63,246 RPS per dollar of estimated hourly cost, which is the homepage's "~4.5x more requests per dollar". The arithmetic holds.
 
 Both figures are in [rps_per_dollar.csv](https://github.com/BerriAI/ai-gateway-bench/blob/main/results/rps_per_dollar.csv). The cost lead is a direct consequence of the CPU and memory leads: a model that prices resources will favour the process that uses fewer of them.
 
@@ -180,7 +194,7 @@ Rust is lower at 16; the Go gateway is lower at 1 and 64; at 4 the significance 
 
 ## Why the Wins Do Not Support 7x and 9x
 
-Rust's genuine leads are in CPU, memory, the exploratory concurrency 256 run and the cost model. LiteLLM's homepage headlines are more specific: about 7x lower overhead and about 9x less memory than Bifrost. The 7x is not reproduced by the sweep, and the 9x uses the widest of three memory pairs.
+Rust's recorded advantages include CPU in the sampled series, memory in three of four sets, the exploratory concurrency 256 run and the cost model. LiteLLM's homepage headlines are more specific: about 7x lower overhead and about 9x less memory than Bifrost. The 7x is not reproduced by the sweep, and the 9x uses the widest of three non-ceiling memory pairs.
 
 ### The 7x Overhead Figure
 
@@ -192,17 +206,17 @@ So the CPU, memory and concurrency 256 leads cannot be read back into an overhea
 
 The homepage uses the widest pair in plain terms: 199.1 vs 21.8 MB, a 9.1x ratio, where the other two pairs give 5.4x and 8.3x.
 
-![Three Go and Rust peak memory pairs from the repo files feed one homepage tile, which uses the widest pair, while Rust stays smaller in all three](./rust-vs-go-performance-memory-pairs.png)
+![Table of four published peak-RSS sets: three captures are lower for Rust, while the ceiling run is lower for Bifrost at 242.6 MB versus 297.1 MB](./rust-vs-go-performance-memory-pairs.png)
 
-*Figure 3: Rust is smaller in every pair; the homepage multiplier comes from the widest one.*
+*Figure 3: Three captures favor Rust; the ceiling run favors Bifrost. The homepage multiplier describes the 199.1 MB versus 21.8 MB pair.*
 
-As Figure 3 shows, the direction holds in every file, which is exactly why the choice of pair and its label are the only things in question. The homepage's "memory at rest" label is mislabelled: the figure is peak RSS. The same chart uses "memory at rest", "peak RSS" and "idle", and the column in the file is peak_rss_mb. The scope matters here. The pairs may come from different scenarios or builds, so the issue is the label, not that Rust is smaller.
+As Figure 3 shows, the ceiling run favors Bifrost while three other captures favor Rust. The choice of file, its workload and its label all matter. The homepage's "memory at rest" label is mislabelled: the figure is peak RSS. The same chart uses "memory at rest", "peak RSS" and "idle", and the column in the file is peak_rss_mb. The scope matters here. The pairs may come from different scenarios or builds, so neither the memory label nor a universal ranking should be inferred from a single capture.
 
 | Homepage claim | What the files show | Status |
 |---|---|---|
 | About 7x lower overhead than Bifrost | 4.544 vs 0.66 ms in overhead_comparison.csv; sweep shows Bifrost +0.75 to +28.68 ms | Not reproducible from LiteLLM's published sweep |
-| About 9x less "memory at rest" | 199.1 vs 21.8 MB peak RSS, widest of three pairs (9.1x vs 5.4x and 8.3x) | Direction holds; mislabelled (peak RSS, not memory at rest); headline uses the widest pair |
-| About 4.5x more requests per dollar | 283,833 vs 63,246 requests per dollar-hour | Arithmetic holds; modelled on an assumed instance |
+| About 9x less "memory at rest" | 199.1 vs 21.8 MB peak RSS, widest of three non-ceiling pairs (9.1x vs 5.4x and 8.3x) | Scenario-dependent; mislabelled (peak RSS, not memory at rest); headline uses the widest pair |
+| About 4.5x more requests per dollar | 283,833 vs 63,246 RPS per dollar of estimated hourly cost | Arithmetic holds; modelled on an assumed instance |
 | Lower CPU | 0.66% vs 2.59% mean; 15.9% vs 79.5% peak | Supported by the files |
 
 CPU and memory direction are supported outright; the cost ratio is correct arithmetic on modelled inputs; the overhead multiplier is not supported as stated.
@@ -229,7 +243,7 @@ For a broader comparison of the two projects beyond this benchmark, agitracker.i
 
 ## How Engineers Should Read Rust's Lead
 
-The fair reading is that LiteLLM's Rust beta is a well-engineered, resource-efficient gateway that uses less CPU and memory than the Go gateway in every published file, and that the benchmark does not isolate how much of that comes from Rust, configuration or version.
+The results describe the tested configurations: Rust records lower CPU in the sampled files and lower peak RSS in three of four sets, while Bifrost records lower peak RSS in the ceiling run. The benchmark does not isolate programming language, configuration or version as the cause.
 
 For a team evaluating gateways, the practical steps follow from what the files leave open:
 
@@ -247,8 +261,8 @@ For general guidance on vetting published numbers, agitracker.io's piece on [how
 
 ## The Fair Verdict
 
-LiteLLM's Rust gateway genuinely leads in this benchmark on CPU, on memory in every file, at concurrency 256 in an exploratory run, on modelled cost, and by a wide margin over LiteLLM's own Python proxy. Those are the merits of a careful Rust implementation, and they hold in LiteLLM's own data.
+LiteLLM's Rust gateway genuinely leads in this benchmark on CPU, on peak RSS in three of four published file sets, at concurrency 256 in an exploratory run, on modelled cost, and by a wide margin over LiteLLM's own Python proxy. These results describe the measured configurations; they do not isolate programming language as the cause.
 
-They do not carry the specific homepage multipliers: the 7x rests on a number the sweep does not reproduce, and the 9x is the widest of three pairs. On request-path latency and throughput at concurrency 1 to 64, the Rust beta and the Go gateway are close enough that single runs cannot separate them. The Rust vs Go performance question, for gateways at least, is not settled by this benchmark; it is sharpened by it, and like-for-like runs are where the remaining gap will either hold or narrow.
+They do not carry the specific homepage multipliers: the 7x rests on a number the sweep does not reproduce, and the 9x is the widest of three non-ceiling pairs. On request-path latency and throughput at concurrency 1 to 64, the Rust beta and the Go gateway are close enough that single runs cannot separate them. The Rust vs Go performance question, for gateways at least, is not settled by this benchmark; it is sharpened by it, and like-for-like runs are where the remaining gap will either hold or narrow.
 
 Source: [Debunking LiteLLM Rust Benchmarking: Part 1](https://www.getmaxim.ai/bifrost/blog/debunking-litellm-rust-benchmarking-part-1), by Akshay Deo of Maxim AI, which builds the Bifrost gateway.

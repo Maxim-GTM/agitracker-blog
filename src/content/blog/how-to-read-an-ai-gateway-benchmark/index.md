@@ -3,7 +3,7 @@ title: "How to Read an AI Gateway Benchmark: 10 Questions to Ask Before You Trus
 seoTitle: "How to Read an AI Gateway Benchmark: A 10-Question Checklist"
 description: "A 10-question checklist for reading any AI gateway benchmark, from config parity and error bars to peak RSS and modelled cost, with a worked example."
 pubDate: 2026-11-03
-updatedDate: 2026-11-04
+updatedDate: 2026-11-05
 tags: [LLM Gateways, Benchmarks, Performance]
 author: team
 faq:
@@ -19,18 +19,34 @@ faq:
     a: "A single run per configuration cannot show how much a result moves between runs. Without repeated trials and error bars, small gaps between gateways may be noise. In LiteLLM's published files, each cell appears to be a single run, and the ranking of two gateways at concurrency 64 flips between two of its own result files."
   - q: Is a cost per request figure in a benchmark a measurement?
     a: "Often it is not. Many cost figures are modelled: measured CPU, memory and throughput are multiplied against an assumed instance price. LiteLLM's requests-per-dollar figures, for example, are estimates on an assumed 4 vCPU / 16 GB instance, which is not the benchmark machine. A modelled ratio can have correct arithmetic and still not describe a production bill."
+sources:
+  - title: "Throughput ceiling results: memory, CPU and sustained RPS"
+    url: https://github.com/BerriAI/ai-gateway-bench/blob/main/results/throughput_ceiling.csv
 ---
 
 **TL;DR**
 - An AI gateway benchmark is only as useful as its disclosure: configuration, versions, trials, hardware, and the raw files behind every headline number.
 - Ten questions catch most problems, and each one can be checked against a vendor's own published data rather than taken on trust.
 - LiteLLM's Rust gateway benchmark is a useful worked example: as of November 1, 2026, its headline 7x overhead figure does not appear in its own concurrency sweep, and its "memory at rest" tile is mislabelled peak RSS.
-- The same files show real advantages for LiteLLM's Rust build: lower memory in every file, lower CPU, and a lead in an exploratory concurrency-256 run.
+- The same files show real advantages for LiteLLM's Rust build: lower peak RSS in three of four published file sets, lower CPU, and a lead in an exploratory concurrency-256 run.
 - The checklist applies to every vendor's numbers, including those of the gateway on the other side of this comparison.
 
 *About the evidence: The worked example uses LiteLLM's published results and [a response from Maxim AI](https://www.getmaxim.ai/bifrost/blog/debunking-litellm-rust-benchmarking-part-1), the developer of Bifrost. It is a review of published material, not a new benchmark run by AGI Tracker.*
 
+*Correction, 5 November 2026: An earlier version omitted the throughput-ceiling file, overstated the consistency of Rust's memory advantage, and, where discussed, incorrectly treated the approximately 21% CPU figure as unsupported. The ceiling file shows lower peak RSS for Bifrost and supports Rust's rounded CPU figure.*
+
 An AI gateway benchmark measures how much latency, memory, CPU and cost a gateway adds to model traffic, usually by sending the same load through each gateway to a simulated upstream and subtracting a direct-call baseline. The method is sound. The weak point is the step between the raw result files and the number on a homepage tile, where configuration, run count and caveats tend to disappear. This checklist sets out ten questions to ask of any published gateway benchmark, and answers each one using the files LiteLLM published for its Rust gateway in 2026.
+
+
+*The evaluation steps below are this article's proposed test guidance, not additional benchmark procedures or measured results reported by the Bifrost post.*
+
+## Cross-check of the published resource files
+
+LiteLLM Rust recorded lower peak RSS in three of four published file sets; Bifrost was lower in the ceiling run at 242.6 MB versus 297.1 MB for Rust. The [ceiling results](https://github.com/BerriAI/ai-gateway-bench/blob/main/results/throughput_ceiling.csv) report 0.242614272 GB for Bifrost and 0.29710336 GB for Rust, converted here to decimal MB. The other three sets favor Rust: 21.8 MB versus 199.1 MB in the messages/release capture; 26.1 MB versus about 144 MB in the earlier memory capture; and roughly 35–36 MB versus 282–298 MB in the CPU time series. These are different measurements, not repeated trials of one identical setup.
+
+The ceiling file also records Rust at 21.075% average CPU and 2,814.35 RPS. The separate CPU time series records a much lower average over its own sampling window. The figures must retain their file and workload context.
+
+The Bifrost post identifies v1.6.4 as the tested build and infers default-on logging from v2.4.0 code; it explicitly says that behavior was not yet confirmed on v1.6.4. Neither the blog nor the benchmark files quantify logging's share of the memory or CPU difference.
 
 ## The AI Gateway Benchmark Checklist at a Glance
 
@@ -43,7 +59,7 @@ The ten questions cover what was run, how often, on what, and how the results we
 | 3 | How many trials per cell, with what spread? | Repeated runs, confidence intervals or error bars | Each cell appears to be a single run; no error bars |
 | 4 | What hardware and worker counts? | Machine type, core count, worker count, upstream latency | None stated for the benchmark runs; 4 vCPU / 16 GB appears only in the cost model |
 | 5 | Is memory peak or resting? | Label on the tile matches the column in the file | Mislabelled: tile says "memory at rest"; the column is `peak_rss_mb` |
-| 6 | Does the headline appear in the full sweep? | Every concurrency level published; headline traceable to a cell | 4.54 ms figure appears in no sweep row; homepage uses the widest of three memory pairs |
+| 6 | Does the headline appear in the full sweep? | Every concurrency level published; headline traceable to a cell | 4.54 ms figure appears in no sweep row; homepage uses the widest of three non-ceiling memory pairs |
 | 7 | Is cost measured or modelled? | Inputs shown; instance price and machine stated | Requests per dollar is a model on an assumed instance |
 | 8 | Are the raw files linked? | Links to data and method from the claim itself | Repo is public, but "See the benchmark" links to an in-page anchor |
 | 9 | Do the caveats reach the marketing tiles? | Blog caveats repeated next to headline numbers | Blog says "order-of-magnitude" and single-host; tiles do not repeat it |
@@ -103,7 +119,7 @@ The litellm.ai benchmark tile reports "memory at rest" of about 22 MB for Rust a
 
 The distinction also matters for explaining a gap. In `cpu_bifrost.csv`, Bifrost's RSS is already about 282 MB before the first request, and load adds only about 16 MB. That points primarily to a baseline footprint rather than growth in the log buffer, although RSS alone cannot identify which components account for it. Bifrost v1.6.4 opens a disk-backed log database at startup with a SQLite [cache setting of 10,000 pages](https://github.com/maximhq/bifrost/blob/transports/v1.6.4/framework/logstore/sqlite.go) per connection, about 39.1 MiB at a 4 KiB page size; that cache grows on demand and is not preallocated. The files do not quantify SQLite's contribution or isolate logging's share of the gap. A heap profile, not an RSS reading, is what answers that.
 
-None of this reverses the direction of the result. LiteLLM's Rust build is smaller on memory in every file: its highest figure, about 36 MB, is below Bifrost's lowest, about 144 MB.
+The memory ranking is scenario-dependent. LiteLLM's Rust build is lower in three captures, but the ceiling file instead records Rust at 297.1 MB and Bifrost at 242.6 MB.
 
 ## Full Sweeps Versus Selected Cells
 
@@ -124,13 +140,14 @@ The homepage tile reports 0.66 ms for Rust against 4.54 ms for Bifrost, and the 
 
 *Figure 3: If a headline figure cannot be found in any row of the sweep, ask which run produced it before relying on it.*
 
-Selection also applies across files. The repo holds three Bifrost/Rust memory pairs, and the homepage uses the widest pair:
+Selection also applies across files. The repo holds three non-ceiling Bifrost/Rust memory pairs, and the homepage uses the widest pair:
 
 | Files | Bifrost | LiteLLM Rust | Ratio |
 |---|---|---|---|
 | `mem_bifrost_messages.csv`, `mem_litellm_rust_release.csv` | 199.1 MB | 21.8 MB | 9.1x (used on the homepage) |
 | `mem_bifrost.csv`, `mem_litellm_rust.csv` | 144 MB | 26.1 MB | 5.4x |
 | `cpu_*.csv` | 282 to 298 MB | 35 to 36 MB | 8.3x |
+| [throughput_ceiling.csv](https://github.com/BerriAI/ai-gateway-bench/blob/main/results/throughput_ceiling.csv) | 242.6 MB | 297.1 MB | Bifrost lower by about 18% |
 
 The pairs may come from different scenarios or builds, which is itself a disclosure question. Two more examples follow the same pattern. The homepage's "3.5x lower overhead than the next AI gateway" compares Rust's 0.66 ms with a different gateway at 2.29 ms, not Bifrost. And the throughput tile leaves Bifrost's cell blank, while [rps_per_dollar.csv](https://github.com/BerriAI/ai-gateway-bench/blob/main/results/rps_per_dollar.csv) shows 2,744 req/s for Bifrost against 2,814 for Rust, a gap of 2.5% or less.
 
@@ -138,7 +155,7 @@ The pairs may come from different scenarios or builds, which is itself a disclos
 
 A measured cost comes from a real bill or a run on priced infrastructure. A modelled cost multiplies measured resource use by an assumed instance price. Modelled figures are useful for rough sizing, but the assumptions decide the answer, so ask what instance was assumed, whether it matches the benchmark machine, and which inputs were used.
 
-The litellm.ai tile claims "~4.5x more requests per dollar." The arithmetic holds: `rps_per_dollar.csv` lists 283,833 requests per dollar-hour for Rust against 63,246 for Bifrost, and $0.0099 against $0.0434 per hour, a 4.4x hourly ratio. LiteLLM's blog uses a third framing, Rust at "about $0.000175, roughly 6x below Bifrost ($0.001008)," per one million requests. That ratio is about 5.8x, and it is a different metric from the page's 4.5x.
+The litellm.ai tile claims "~4.5x more requests per dollar." The arithmetic holds: `rps_per_dollar.csv` lists 283,833 RPS per dollar of estimated hourly cost for Rust against 63,246 for Bifrost, and $0.0099 against $0.0434 per hour, a 4.4x hourly ratio. LiteLLM's blog uses a third framing, Rust at "about $0.000175, roughly 6x below Bifrost ($0.001008)," per one million requests. That ratio is about 5.8x, and it is a different metric from the page's 4.5x.
 
 | Cost framing | Rust | Bifrost | Ratio stated | Where it appears |
 |---|---|---|---|---|
@@ -146,7 +163,7 @@ The litellm.ai tile claims "~4.5x more requests per dollar." The arithmetic hold
 | Cost per hour | $0.0099 | $0.0434 | 4.4x | `rps_per_dollar.csv` |
 | Cost per 1M requests | $0.000175 | $0.001008 | "roughly 6x" (about 5.8x) | LiteLLM blog cost chart |
 
-All three rest on the same model. The blog describes it as "estimated USD per one million requests from measured CPU, peak RSS, and sustained throughput on a 4 vCPU / 16 GB instance" and notes it "excludes token cost." The 4 vCPU / 16 GB instance is a modelling assumption, not the benchmark machine, and Bifrost's logging cost sits inside the inputs. The model's arithmetic is correct; what it cannot show is the same savings on a production deployment. For a wider view of how gateway and model spend add up, see the breakdown of [AI inference cost](/blog/ai-inference-cost/).
+These summaries must keep their own metric and scenario attached. The blog describes it as "estimated USD per one million requests from measured CPU, peak RSS, and sustained throughput on a 4 vCPU / 16 GB instance" and notes it "excludes token cost." The 4 vCPU / 16 GB instance is a modelling assumption, not the benchmark machine, and Bifrost's logging cost sits inside the inputs. The model's arithmetic is correct; what it cannot show is the same savings on a production deployment. For a wider view of how gateway and model spend add up, see the breakdown of [AI inference cost](/blog/ai-inference-cost/).
 
 ## Reproducibility Links and Raw Data
 
@@ -162,7 +179,7 @@ A caveat belongs wherever the number it qualifies appears. Benchmark blog posts 
 
 LiteLLM's blog carries several qualifiers: single-host runs, no repeated-trial error bars, "a vendor-run benchmark," "treat them as order-of-magnitude differences," and "it is not a full-feature comparison." The homepage tiles do not repeat any of them.
 
-The homepage footnote adds claims of its own. It describes the setup as a "single client," which is misleading: the sweep runs concurrency 1 to 64 and the throughput point uses `ceiling_concurrency = 64`. The tile's "2,800+ req/s (at ~21% CPU)" also could not be traced. `cpu_rust.csv` peaks at 15.9%, and none of the Rust CPU, throughput, cost or overhead files contains a ~21% figure; whether some other file in the results directory does is not established. An inference, not confirmed: the CPU samples appear to come from a short burst, probably the concurrency-16 cost runs, so CPU may be paired with a different load than the 2,800 req/s figure.
+The separate throughput-ceiling file records LiteLLM Rust at 2,814.35 requests per second and 21.075% average CPU, so it supports the rounded 2,800+ RPS at approximately 21% CPU figure. The 0.66% mean and 15.9% peak in cpu_rust.csv belong to a different sampling series and should not be substituted for that ceiling-run measurement. [Published ceiling results](https://github.com/BerriAI/ai-gateway-bench/blob/main/results/throughput_ceiling.csv). The single-client wording is a separate question: the published ceiling run uses concurrency 64.
 
 A quick test for any tile: if the caveat from the blog were printed beside the number, would the number still make the same impression? If not, read the blog first.
 
@@ -181,11 +198,11 @@ In this excluded run, Rust leads: about 1.6x at p50 and 2.0x at p99. The caveats
 
 ## Where the Worked Example Shows Real Advantages
 
-A checklist that only finds faults is not doing its job. Applied to LiteLLM's files, the same ten questions also surface results that hold up across files, and those deserve equal weight. LiteLLM's Rust build uses less memory and less CPU than Bifrost v1.6.4 in every published measurement.
+A checklist that only finds faults is not doing its job. Applied to LiteLLM's files, the same ten questions also surface results that hold up across files, and those deserve equal weight. LiteLLM Rust recorded lower peak RSS in three of four published file sets. Bifrost was lower in the ceiling run at 242.6 MB versus 297.1 MB for Rust. Rust also records lower CPU in the sampled CPU files.
 
 The findings that survive the checklist, as of November 1, 2026:
 
-- **Memory:** Rust is smaller in every file. Its highest figure (about 36 MB) is below Bifrost's lowest (about 144 MB).
+- **Memory:** Rust records lower peak RSS in three of four published file sets. The ceiling file instead records Rust at 297.1 MB and Bifrost at 242.6 MB.
 - **CPU:** Bifrost averages 2.59% (peak 79.5%) against Rust's 0.66% (peak 15.9%), measured as whole-process figures under the configurations described above.
 - **Concurrency 256:** Rust records lower p50 and p99 than Bifrost in the exploratory single run.
 - **Against LiteLLM Python:** the Rust beta's added p99 at concurrency 64 is a fraction of the Python proxy's +546.04 ms, and Python reaches 179.8 RPS against 2,722.2 for Rust.

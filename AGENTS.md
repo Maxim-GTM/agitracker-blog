@@ -19,3 +19,7 @@ Before delivery, review every "our/we/us" reference and every vendor link for ow
 - Identify the data source and whether AGI Tracker ran new tests. Attribute vendor responses and proposed follow-up tests to the company responsible.
 - Separate measured results, vendor claims and code-based inferences, including version limitations. Apply the same evidentiary standard to every vendor.
 - Keep migration and buyer-guide referrals only when they directly support the subject; prefer exact primary evidence to generic promotional links.
+
+## Benchmark evidence checks
+
+For the LiteLLM Rust benchmark, use `docs/benchmark-evidence-2026-11-05.json` and run `node scripts/check-benchmark-facts.mjs` before publishing. Include the throughput-ceiling file: peak RSS favors Rust in three captures and Bifrost in the ceiling run, which also records Rust at 21.075% average CPU. Do not combine different runs, equate a modeled price with a measured bill, or remove the v2.4.0/v1.6.4 logging qualification. If the reference blog conflicts with its linked data, explicitly qualify the statement rather than repeat the overstatement.
