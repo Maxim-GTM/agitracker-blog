@@ -29,7 +29,7 @@ sources:
 - LiteLLM's Rust gateway benchmark is the cautionary example: it ran single trials, published no hardware or worker counts, compared a Rust beta with an old Bifrost build, and likely ran the two gateways with different logging settings.
 - A credible plan runs each gateway with logging off and with logging on, on current builds, across a concurrency sweep from c=1 to c=256, reporting p50, p99, requests per second and RSS for every cell.
 - Repeated trials with error bars, and heap profiles that split memory by allocation site, are what turn a memory or latency gap into an explanation.
-- Concede what the data shows either way: in LiteLLM's files, Rust uses less memory and CPU, and the latency and throughput results are mixed.
+- Concede what the data shows either way: in LiteLLM's files, Rust records lower CPU readings and lower peak RSS in three of four published sets, and the latency and throughput results are mixed.
 
 *About the evidence: The worked example uses LiteLLM's published results and [a response from Maxim AI](https://www.getmaxim.ai/bifrost/blog/debunking-litellm-rust-benchmarking-part-1), the developer of Bifrost. It is a review of published material, not a new benchmark run by AGI Tracker.*
 
@@ -254,6 +254,6 @@ A reading order that keeps the analysis honest:
 4. **Memory by component.** A gap explained by a log store or pool size is a configuration decision; a gap in the core request path is not.
 5. **Feature parity last.** A gateway that wins with routes, streaming or governance missing has not been tested on the workload you will run. LiteLLM's migration tracker reports 24% of Major APIs built as of v1.107.0-rc.2, with router migration, database access, budgets and rate limits at 0%, which is the kind of scope note a results table needs.
 
-The benchmark wars produced a useful by-product: a precise list of what a gateway benchmark has to disclose before anyone should trust it. API performance testing built on that list, with logging off and on, current builds, a full concurrency sweep, repeated trials, a disclosure sheet and heap profiles, gives a buyer numbers that survive scrutiny. It may also confirm what the published files already show, such as [Rust's lower memory and CPU](/blog/rust-vs-go-performance-gateways/), and a plan that can return an unexpected answer is the only kind worth running.
+The benchmark wars produced a useful by-product: a precise list of what a gateway benchmark has to disclose before anyone should trust it. API performance testing built on that list, with logging off and on, current builds, a full concurrency sweep, repeated trials, a disclosure sheet and heap profiles, gives a buyer numbers that survive scrutiny. It may also confirm what the published files already show, such as [the scenario-specific resource results](/blog/rust-vs-go-performance-gateways/), and a plan that can return an unexpected answer is the only kind worth running.
 
 Source: [Debunking LiteLLM Rust Benchmarking: Part 1](https://www.getmaxim.ai/bifrost/blog/debunking-litellm-rust-benchmarking-part-1), by Akshay Deo of Maxim AI, which builds the Bifrost gateway.
