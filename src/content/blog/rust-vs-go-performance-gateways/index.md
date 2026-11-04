@@ -98,7 +98,7 @@ One observation changes how the gap should be read, without reversing it. In cpu
 
 As Figure 2 shows, that pattern points primarily to a baseline footprint rather than growth in a log buffer, although RSS alone cannot identify which components account for it. One candidate is SQLite. Bifrost v1.6.4 opens a disk-backed logs.db at startup and configures `_cache_size=10000`, a suggested limit of 10,000 pages per connection, approximately 39.1 MiB at a 4 KiB page size. That cache grows on demand and is not preallocated in full, but SQLite's caches and connection state can contribute to baseline RSS before traffic. The files do not quantify that contribution or isolate logging's share of the gap. The relevant code is in the v1.6.4 [SQLite log store setup](https://github.com/maximhq/bifrost/blob/transports/v1.6.4/framework/logstore/sqlite.go), and the [SQLite cache_size documentation](https://www.sqlite.org/pragma.html#pragma_cache_size) explains the setting.
 
-Maxim reports that Bifrost 2.x has reduced memory use by changing what data it retains and how it stores it, and the v1.6.4 benchmark does not reflect those improvements. No figure for the reduction is published yet; Maxim has proposed a like-for-like retest to quantify it.
+Bifrost's developers describe lower memory use in the 2.x release line by changing what data it retains and how it stores it, and the v1.6.4 benchmark does not reflect those improvements. No figure for the reduction is published yet; Maxim has proposed a like-for-like retest to quantify it.
 
 None of that removes Rust's lead in any file.
 
