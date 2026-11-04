@@ -3,6 +3,7 @@ title: "How to Read an AI Gateway Benchmark: 10 Questions to Ask Before You Trus
 seoTitle: "How to Read an AI Gateway Benchmark: A 10-Question Checklist"
 description: "A 10-question checklist for reading any AI gateway benchmark, from config parity and error bars to peak RSS and modelled cost, with a worked example."
 pubDate: 2026-11-03
+updatedDate: 2026-11-04
 tags: [LLM Gateways, Benchmarks, Performance]
 author: team
 faq:
@@ -26,6 +27,8 @@ faq:
 - LiteLLM's Rust gateway benchmark is a useful worked example: as of November 1, 2026, its headline 7x overhead figure does not appear in its own concurrency sweep, and its "memory at rest" tile is mislabelled peak RSS.
 - The same files show real advantages for LiteLLM's Rust build: lower memory in every file, lower CPU, and a lead in an exploratory concurrency-256 run.
 - The checklist applies to every vendor's numbers, including those of the gateway on the other side of this comparison.
+
+*About the evidence: The worked example uses LiteLLM's published results and [a response from Maxim AI](https://www.getmaxim.ai/bifrost/blog/debunking-litellm-rust-benchmarking-part-1), the developer of Bifrost. It is a review of published material, not a new benchmark run by AGI Tracker.*
 
 An AI gateway benchmark measures how much latency, memory, CPU and cost a gateway adds to model traffic, usually by sending the same load through each gateway to a simulated upstream and subtracting a direct-call baseline. The method is sound. The weak point is the step between the raw result files and the number on a homepage tile, where configuration, run count and caveats tend to disappear. This checklist sets out ten questions to ask of any published gateway benchmark, and answers each one using the files LiteLLM published for its Rust gateway in 2026.
 
@@ -66,7 +69,7 @@ As Figure 1 shows, two gateways can share the same load driver and upstream and 
 
 A benchmark result describes one build of each gateway, so the versions belong next to the claim. Gateways ship quickly; a comparison between a new beta and a year-old release says little about what either project ships today. Ask which versions ran, whether they are the versions a team would deploy, and whether the page making the claim names them.
 
-LiteLLM's blog lists "LiteLLM Rust beta, LiteLLM Python v1, Bifrost v1.6.4," and a fourth gateway, and describes the Rust build as "an early beta, streaming and the full feature surface are still landing." The blog names no specific LiteLLM Python version. Bifrost's changelogs list v1.6.5 to v1.6.11 and then v2.0.0 to v2.4.0 after the tested build, and Bifrost 2.x has since reduced memory use, although no figure for that has been published yet. The [litellm.ai homepage](https://www.litellm.ai/#benchmark) shows no version for any gateway; the version appears only in the blog and the gateway README.
+LiteLLM's blog lists "LiteLLM Rust beta, LiteLLM Python v1, Bifrost v1.6.4," and a fourth gateway, and describes the Rust build as "an early beta, streaming and the full feature surface are still landing." The blog names no specific LiteLLM Python version. Bifrost's changelogs list v1.6.5 to v1.6.11 and then v2.0.0 to v2.4.0 after the tested build, and Maxim reports that Bifrost 2.x has reduced memory use, although no figure for that has been published yet. The [litellm.ai homepage](https://www.litellm.ai/#benchmark) shows no version for any gateway; the version appears only in the blog and the gateway README.
 
 A second version question is scope: how much of the product was in the build that ran? As of November 1, 2026, GitHub's language breakdown for the [BerriAI/litellm repository](https://github.com/BerriAI/litellm) shows 84.88% Python and 3.11% Rust by source bytes. LiteLLM's [Rust gateway documentation](https://docs.litellm.ai/docs/proxy/rust_gateway) warns that the Python proxy on `main:latest` uses Rust for `/ocr` and for Bedrock `/audio/transcriptions`, while Chat Completions and Messages run on Python and the per-model `rust: true` flag currently has no effect. A benchmark of a narrow Rust beta does not describe the product most LiteLLM users run. Teams weighing that difference in practice can compare options in the survey of [LiteLLM alternatives](/blog/litellm-alternatives/).
 
@@ -76,7 +79,7 @@ Repeated trials show how much a result moves between runs, and error bars or con
 
 LiteLLM's blog is candid about this. It describes "single-host, per-scenario runs (for example n=5000 on the overhead panel) without repeated-trial error bars," calls itself "a vendor-run benchmark," and asks readers to "treat them as order-of-magnitude differences." Each cell appears to be a single run, with no repeats or error bars published.
 
-The consequence shows up inside LiteLLM's own files. Total p99 latency at concurrency 64 is 52.7 ms for Bifrost and 64.3 ms for Rust in the sweep file, but 32.2 ms and 26.9 ms respectively in `rps_per_dollar.csv`. The two gateways swap places depending on which file a reader opens. Throughput gaps between the two are all under 1% in the sweep, and with one run per cell and no confidence intervals, gaps that small are noise.
+The consequence shows up inside LiteLLM's own files. Total p99 latency at concurrency 64 is 52.7 ms for Bifrost and 64.3 ms for Rust in the sweep file, but 32.2 ms and 26.9 ms respectively in `rps_per_dollar.csv`. The two gateways swap places depending on which file a reader opens. Throughput gaps between the two are all under 1% in the sweep, and with one run per cell and no confidence intervals, the significance of those gaps is unknown.
 
 The practical rule: a single-run benchmark can support an order-of-magnitude claim, such as LiteLLM's Python proxy adding hundreds of milliseconds at concurrency 64 while the other two add tens. It cannot support a precise multiplier between two gateways that sit within a few milliseconds of each other.
 
@@ -115,7 +118,7 @@ Below is the sweep from LiteLLM's [latency_vs_concurrency.csv](https://github.co
 | 16 | 22.67 | +0.33 | +0.89 | +251.34 |
 | 64 | 24.02 | +40.28 | +28.68 | +546.04 |
 
-The homepage tile reports 0.66 ms for Rust against 4.54 ms for Bifrost, and the blog calls it "roughly 7x lower overhead." That pair comes from [overhead_comparison.csv](https://github.com/BerriAI/ai-gateway-bench/blob/main/results/overhead_comparison.csv), which states no concurrency level. No sweep row is near 4.54 ms: Bifrost adds less p99 than Rust at concurrency 1 and 64, Rust adds less at 16 (+0.33 vs +0.89 ms), and the gap at 4 is 0.02 ms. The fair reading of the sweep is that LiteLLM Rust caught up to where Bifrost already was.
+The homepage tile reports 0.66 ms for Rust against 4.54 ms for Bifrost, and the blog calls it "roughly 7x lower overhead." That pair comes from [overhead_comparison.csv](https://github.com/BerriAI/ai-gateway-bench/blob/main/results/overhead_comparison.csv), which states no concurrency level. No sweep row is near 4.54 ms: Bifrost adds less p99 than Rust at concurrency 1 and 64, Rust adds less at 16 (+0.33 vs +0.89 ms), and the gap at 4 is 0.02 ms. The reported throughput is similar for the Rust beta and Bifrost; these single runs do not establish a consistent performance winner.
 
 ![A concurrency sweep produces one result per gateway per load level; a reader checks whether the headline figure appears in the sweep before comparing the same cell for each gateway](./how-to-read-an-ai-gateway-benchmark-trace-headline-to-sweep.png)
 
@@ -201,10 +204,6 @@ A like-for-like rerun of this comparison would need four things, and the list do
 4. Take heap profiles to measure how much of the memory gap is the log buffer.
 
 agitracker's [LLM gateway test plan](/blog/llm-gateway-test-plan/) turns those four steps into a run teams can do themselves. Readers should apply the same ten questions to any such rerun, including one published by a vendor whose gateway it favours. Buyers comparing gateways on more than speed can pair this checklist with a criteria-led survey such as agitracker's [best LLM gateways](/blog/best-llm-gateways/) or the wider list of [top AI gateways](/blog/top-ai-gateways/).
-
-For performance specifically, vendor material from the same company, including an [LLM gateway buyer's guide](https://www.getmaxim.ai/resources/buyers-guide), an overview of [what an LLM gateway does on each request](https://www.getmaxim.ai/articles/what-an-llm-gateway-actually-does-a-guide-for-ai-infrastructure-teams/), and a guide to [gateway features and benchmarks for builders](https://www.getmaxim.ai/articles/best-llm-gateways-in-2026-features-benchmarks-and-builders-guide/) cover the vendor side; read them with the same checklist in hand.
-
-Teams with high-throughput workloads can compare the vendor's [throughput-focused gateway survey](https://www.getmaxim.ai/articles/best-llm-gateways-for-high-throughput-ai-workloads-in-2026/) and its [high-throughput comparison with LiteLLM](https://www.getmaxim.ai/articles/bifrost-vs-litellm-for-high-throughput-ai-workloads/) against agitracker's own [Bifrost vs LiteLLM comparison](/blog/bifrost-vs-litellm/).
 
 Two practical settings follow from question 1 for anyone rerunning this test. Setting `client_config.enable_logging: false` removes the built-in logging plugin's queue and hooks at startup, and `client_config.disable_content_logging: true` reduces logged payloads; other plugins stay enabled independently. In v1.6.4 the log writer [flushes at 1,000 entries, 5 seconds or 300 MiB](https://github.com/maximhq/bifrost/blob/transports/v1.6.4/framework/logstore/config.go#L24-L30) of estimated payload, with a 10,000-entry queue. These are entry-count bounds, not a memory cap.
 

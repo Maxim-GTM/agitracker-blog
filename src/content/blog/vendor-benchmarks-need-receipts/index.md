@@ -2,6 +2,7 @@
 title: "Vendor Benchmarks Need Receipts: A Disclosure Standard to Replace Benchmarketing"
 description: "Benchmarketing thrives when vendor benchmarks drop their caveats. The LiteLLM case shows why AI gateways need a public disclosure standard."
 pubDate: 2026-11-03
+updatedDate: 2026-11-04
 tags: [AI Infrastructure, Benchmarks, LLM Gateways]
 author: team
 faq:
@@ -23,6 +24,8 @@ faq:
 - In LiteLLM's own files, the ranking at concurrency 64 flips between two CSVs, and neither the homepage nor the blog gives a machine type, core count or worker count.
 - A workable disclosure standard for vendor benchmarks has seven parts: configs, versions, hardware and workers, load profile, error bars from repeated trials, raw files, and labelled estimates.
 - The standard only works if every gateway vendor meets it, including the ones that come out ahead in a given comparison.
+
+*About the evidence: The worked example uses LiteLLM's published results and [a response from Maxim AI](https://www.getmaxim.ai/bifrost/blog/debunking-litellm-rust-benchmarking-part-1), the developer of Bifrost. It is a review of published material, not a new benchmark run by AGI Tracker.*
 
 A benchmark number on a vendor homepage is a claim, and a claim is only as good as the evidence a reader can reach from it. **Benchmarketing** is the habit of publishing performance numbers as marketing, with the headline kept and the conditions that would let anyone check it left behind. AI infrastructure is going through its own round of it now, as gateways compete on milliseconds and megabytes.
 
@@ -79,7 +82,7 @@ None of this needs a judgment about intent. Marketing pages compress. A disclosu
 
 ## A Ranking That Flips Between Files
 
-When the same benchmark produces two files that rank the same gateways in opposite order at the same concurrency, the gap between them is inside the noise. LiteLLM's files do exactly that at concurrency 64: one file puts Bifrost ahead on total p99 latency, and another puts Rust ahead.
+When two result files rank the same gateways in opposite order at the same concurrency, a reader needs the configurations and repeated trials before treating either ranking as reliable. LiteLLM's files do exactly that at concurrency 64: one file puts Bifrost ahead on total p99 latency, and another puts Rust ahead.
 
 The two files are the [concurrency sweep](https://github.com/BerriAI/ai-gateway-bench/blob/main/results/latency_vs_concurrency.csv) and the [requests-per-dollar file](https://github.com/BerriAI/ai-gateway-bench/blob/main/results/rps_per_dollar.csv). Both report total p99 at concurrency 64.
 
@@ -99,7 +102,7 @@ The sweep shows how mixed the overhead picture is once every concurrency level i
 | 16 | +0.33 ms | +0.89 ms | +251.34 ms |
 | 64 | +40.28 ms | +28.68 ms | +546.04 ms |
 
-Bifrost adds less at 1 and 64, Rust adds less at 16, and the 0.02 ms gap at 4 is noise. Throughput at 64 is 2,722.2 RPS against 2,719.1. The honest reading is that LiteLLM Rust caught up to where Bifrost already was, not that Rust beats it. The homepage's 4.54 ms figure comes from a separate [overhead file](https://github.com/BerriAI/ai-gateway-bench/blob/main/results/overhead_comparison.csv) that states no concurrency, and nothing in the sweep is near it.
+Bifrost adds less at 1 and 64, Rust adds less at 16, and the significance of the 0.02 ms gap at 4 is unknown. Throughput at 64 is 2,722.2 RPS against 2,719.1. The two gateways recorded similar throughput in these runs. The homepage's 4.54 ms figure comes from a separate [overhead file](https://github.com/BerriAI/ai-gateway-bench/blob/main/results/overhead_comparison.csv) that states no concurrency, and nothing in the sweep is near it.
 
 Repeated trials with error bars would settle which of these gaps are real. Without them, the honest summary of the sweep is "close at most levels, no single winner," which is far less marketable than a single multiplier and far more useful to a buyer.
 
@@ -162,7 +165,7 @@ AI gateways have no SPEC-style body. A voluntary standard is weaker than an enfo
 
 ## A Disclosure Standard for Vendor Benchmarks
 
-A disclosure standard for AI gateway benchmarks needs seven items, and each one closes a gap visible in the LiteLLM case. The list below draws on what the announced like-for-like rerun of this benchmark ("Part 2") commits to publish: logging on and off, a current build, repeated trials with error bars, and hardware, worker counts, mock latency and concurrency for every run.
+A disclosure standard for AI gateway benchmarks needs seven items, and each one closes a gap visible in the LiteLLM case. The list below draws on what the announced like-for-like rerun of this benchmark ("Maxim's Part 2") commits to publish: logging on and off, a current build, repeated trials with error bars, and hardware, worker counts, mock latency and concurrency for every run.
 
 ![A headline benchmark claim links to seven receipts: configs, versions, hardware and workers, load profile, error bars from repeated trials, raw per-run files and labelled estimates](./vendor-benchmarks-need-receipts-disclosure-standard.png)
 
@@ -180,7 +183,7 @@ A disclosure standard for AI gateway benchmarks needs seven items, and each one 
 
 Two practices follow. The headline should carry the methodology's caveats: if the blog says to read gaps as order-of-magnitude, the tile should say so or show a range. And the full sweep should be shown before any single cell is promoted, because one cell from a sweep that points both ways is a cherry-picked result, whatever the intent.
 
-For heavier claims, such as memory, the Part 2 plan adds one more receipt worth adopting generally: a heap profile that attributes the footprint to components, so "the gap is the log buffer" or "the gap is baseline" becomes something a reader can see rather than infer. This site's guide on [how to read an AI benchmark](/blog/how-to-read-an-ai-benchmark/) explains why sample size and error bars decide whether a gap is meaningful; the same arithmetic applies to latency cells.
+For heavier claims, such as memory, Maxim's Part 2 plan adds one more receipt worth adopting generally: a heap profile that attributes the footprint to components, so "the gap is the log buffer" or "the gap is baseline" becomes something a reader can see rather than infer. This site's guide on [how to read an AI benchmark](/blog/how-to-read-an-ai-benchmark/) explains why sample size and error bars decide whether a gap is meaningful; the same arithmetic applies to latency cells.
 
 ## The Standard Applies to Bifrost Too
 
@@ -194,18 +197,16 @@ A disclosure standard proposed in response to one vendor's benchmark only earns 
 
 This piece does not assess those pages or quote their figures, because an article about benchmark rigor should not repeat a vendor number it has not examined. The test for them is the same seven receipts.
 
-Part 2 is where that commitment becomes checkable. The announced rerun commits to:
+Maxim's Part 2 is where that commitment becomes checkable. The announced rerun commits to:
 
 - Run both gateways with logging off, and again with logging on.
 - Use a current Bifrost build, with repeated trials and error bars.
 - Publish hardware, worker counts, mock latency and concurrency for every run.
 - Take a heap profile to measure how much of the memory gap is the log buffer.
 
-Readers should hold Part 2 to those promises, and to the remaining receipts on the list. If Part 2 shows that the Rust gateway still leads on memory with logging off, that result should be reported as plainly as the findings above. The memory, CPU and c=256 results above already favor the Rust gateway, and the rerun should be read the same way, whichever way it falls.
+Readers should hold Maxim's Part 2 to those promises, and to the remaining receipts on the list. If Maxim's Part 2 shows that the Rust gateway still leads on memory with logging off, that result should be reported as plainly as the findings above. The memory, CPU and c=256 results above already favor the Rust gateway, and the rerun should be read the same way, whichever way it falls.
 
 The invitation extends to LiteLLM and every other gateway vendor. For LiteLLM, the fastest route is to publish its Rust config next to the Bifrost one (it has not yet been checked against the blog's stated setup), add hardware and worker counts, rerun with repeated trials and carry the blog's caveats onto the homepage.
-
-Teams comparing gateways on features rather than speed can read a [feature-by-feature comparison with LiteLLM](https://www.getmaxim.ai/articles/litellm-vs-bifrost-feature-by-feature-comparison/) and a [builder's guide to LLM gateways](https://www.getmaxim.ai/articles/best-llm-gateways-in-2026-features-benchmarks-and-builders-guide/) from the same vendor, with the same critical eye as any vendor's material.
 
 ## What Buyers Can Do Before the Standard Exists
 
@@ -215,13 +216,13 @@ A practical sequence for a gateway evaluation:
 
 1. **Ask for the raw files and configs behind every number in the sales deck.** If the answer is a link to the same marketing page, note it.
 2. **Check the version against what is current.** A comparison against an old build of a competitor, or a beta of the vendor's own product, describes neither product as deployed.
-3. **Match the configuration to production.** If production will run logging, budgets and routing, benchmark with them on. One vendor's [governance and observability overview](https://www.getmaxim.ai/bifrost/blog/ai-governance-and-observability-in-bifrost/) lists the kinds of features that sit on a gateway's request path; other gateways have their own equivalents.
+3. **Match the configuration to production.** If production will run logging, budgets and routing, benchmark with those features on and publish the effective configuration for each gateway.
 4. **Run more than once.** Only repeated trials per cell show whether a sub-millisecond gap survives.
 5. **Read the full sweep, not one cell.** A gateway that leads at one concurrency and trails at another has not "won."
 
 For the performance side, agitracker's [checklist for reading an AI gateway benchmark](/blog/how-to-read-an-ai-gateway-benchmark/) expands these steps into ten questions. This site's overview of [LiteLLM alternatives](/blog/litellm-alternatives/) and its [self-hosted vs managed gateway](/blog/self-hosted-vs-managed-llm-gateway/) guide cover the non-performance criteria that usually decide a gateway choice.
 
-For teams already moving off LiteLLM, the same vendor publishes a [LiteLLM migration resource](https://www.getmaxim.ai/resources/migrating-from-litellm) and a [buyer's guide](https://www.getmaxim.ai/resources/buyers-guide). As with any vendor's guide, their claims deserve the same receipts. AI model benchmarks tend to [saturate and lose meaning](/blog/why-benchmarks-saturate/) once they become targets; gateway benchmarks risk losing meaning sooner, because their numbers travel without their conditions.
+AI model benchmarks tend to [saturate and lose meaning](/blog/why-benchmarks-saturate/) once they become targets; gateway benchmarks risk losing meaning sooner, because their numbers travel without their conditions.
 
 ## Receipts as the Price of a Headline
 

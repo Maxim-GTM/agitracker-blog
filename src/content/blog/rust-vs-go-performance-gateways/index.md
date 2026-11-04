@@ -3,6 +3,7 @@ title: "Where LiteLLM's Rust Gateway Genuinely Leads, and What It Says About Rus
 seoTitle: "Rust vs Go Performance: Where LiteLLM's Rust Gateway Leads"
 description: "Rust vs Go performance in LiteLLM's gateway benchmark: Rust leads on CPU, memory and c=256 latency, but those wins do not support the 7x and 9x headlines."
 pubDate: 2026-11-03
+updatedDate: 2026-11-04
 tags: [LLM Gateways, Performance, AI Infrastructure]
 author: team
 faq:
@@ -23,11 +24,13 @@ faq:
 - Rust is smaller on memory in every file: its highest figure (about 36 MB) is below Bifrost's lowest (about 144 MB).
 - In an exploratory concurrency 256 run, Rust records p50 of 55.5 ms vs 89.3 ms and p99 of 2,667.8 ms vs 5,421.3 ms, from one run with no RPS field, excluded from the main sweep.
 - The modelled cost is $0.0099 vs $0.0434 per hour, and Rust is far ahead of LiteLLM's own Python proxy.
-- For Rust vs Go performance, those wins are real, but they do not support the homepage's specific multipliers: the 7x overhead figure is not reproduced by the sweep, and the 9x memory figure uses the widest of three pairs.
+- For these tested configurations, those observations are recorded in the files, but they do not support the homepage's specific multipliers: the 7x overhead figure is not reproduced by the sweep, and the 9x memory figure uses the widest of three pairs.
+
+*About the evidence: The worked example uses LiteLLM's published results and [a response from Maxim AI](https://www.getmaxim.ai/bifrost/blog/debunking-litellm-rust-benchmarking-part-1), the developer of Bifrost. It is a review of published material, not a new benchmark run by AGI Tracker.*
 
 Rust vs Go performance is one of the most argued questions in backend engineering, and in November 2026 it acquired a concrete test case: LiteLLM's new Rust gateway, benchmarked against Bifrost, a gateway written in Go. LiteLLM published its raw CSV and JSON files, and those files do not support several of its headline numbers. They also show, in plain terms, the places where the Rust gateway is ahead.
 
-Those concessions deserve their own account, because the useful engineering information sits in the details: which resource Rust used less of, under what load, in which file, and with what caveats. The sections below set out each of Rust's leads with its source figure, explains what the metric means for anyone running an AI gateway, and then explains why those leads still do not add up to the specific 7x and 9x multipliers on LiteLLM's homepage. Every figure is as of November 1, 2026.
+Those results deserve their own account, because the useful engineering information sits in the details: which resource Rust used less of, under what load, in which file, and with what caveats. The sections below set out each of Rust's leads with its source figure, explain what the metric means for anyone running an AI gateway, and then explain why those leads still do not add up to the specific 7x and 9x multipliers on LiteLLM's homepage. Every figure is as of November 1, 2026.
 
 ## The Benchmark Behind the Comparison
 
@@ -95,7 +98,7 @@ One observation changes how the gap should be read, without reversing it. In cpu
 
 As Figure 2 shows, that pattern points primarily to a baseline footprint rather than growth in a log buffer, although RSS alone cannot identify which components account for it. One candidate is SQLite. Bifrost v1.6.4 opens a disk-backed logs.db at startup and configures `_cache_size=10000`, a suggested limit of 10,000 pages per connection, approximately 39.1 MiB at a 4 KiB page size. That cache grows on demand and is not preallocated in full, but SQLite's caches and connection state can contribute to baseline RSS before traffic. The files do not quantify that contribution or isolate logging's share of the gap. The relevant code is in the v1.6.4 [SQLite log store setup](https://github.com/maximhq/bifrost/blob/transports/v1.6.4/framework/logstore/sqlite.go), and the [SQLite cache_size documentation](https://www.sqlite.org/pragma.html#pragma_cache_size) explains the setting.
 
-Bifrost 2.x has since substantially reduced memory use by changing what data it retains and how it stores it, and the v1.6.4 benchmark does not reflect those improvements. No figure for the reduction is published yet; a like-for-like retest is planned to quantify it.
+Maxim reports that Bifrost 2.x has reduced memory use by changing what data it retains and how it stores it, and the v1.6.4 benchmark does not reflect those improvements. No figure for the reduction is published yet; Maxim has proposed a like-for-like retest to quantify it.
 
 None of that removes Rust's lead in any file.
 
@@ -152,7 +155,7 @@ The figures come from [latency_vs_concurrency.csv](https://github.com/BerriAI/ai
 
 This is the result LiteLLM's engineers have most reason to be proud of. The Python proxy reaches about 6% of direct throughput at concurrency 64, while the Rust port keeps 95.3%. At concurrency 256 the gap persists: Python's p50 is 1,513 ms against Rust's 55.5 ms. For a team running the Python proxy, the Rust path is a large step.
 
-Across gateways, the fairest summary is that LiteLLM Rust caught up to where the Go gateway already was, which itself concedes the scale of the improvement over Python.
+Across gateways, the fairest summary is that the Rust beta and the Go gateway recorded similar throughput, while both exceeded the Python proxy in this test.
 
 There is a deployment caveat. LiteLLM's [Rust gateway documentation](https://docs.litellm.ai/docs/proxy/rust_gateway), as checked on November 1, 2026, warns that the Python proxy on main:latest uses Rust only for /ocr across providers and /audio/transcriptions for Bedrock. Chat Completions and Messages still run on Python, and the per-model `rust: true` flag currently has no effect. LiteLLM's migration tracker reports 24% of major APIs built as of v1.107.0-rc.2. The benchmarked Rust numbers describe the beta, not what most current LiteLLM proxy users run today. agitracker.io's survey of [LiteLLM alternatives](/blog/litellm-alternatives/) covers what that means for teams planning a migration.
 
@@ -173,7 +176,7 @@ The latency data adds the other half of the picture. On request-path speed at co
 | 16 | +0.33 ms | +0.89 ms | 721.8 | 722.7 |
 | 64 | +40.28 ms | +28.68 ms | 2,722.2 | 2,719.1 |
 
-Rust is lower at 16; the Go gateway is lower at 1 and 64; at 4 the 0.02 ms gap is noise. Every throughput gap is under 1%. With one run per cell and no confidence intervals, these throughput gaps are noise. For teams weighing a rust ai gateway against a Go one, that is the practical lesson: from concurrency 1 to 16, both compiled designs add under a millisecond of p99 over a direct call, and resource efficiency, not raw latency, is where the Rust beta separates itself in these files.
+Rust is lower at 16; the Go gateway is lower at 1 and 64; at 4 the significance of the 0.02 ms gap is unknown. Every throughput gap is under 1%. With one run per cell and no confidence intervals, the significance of these throughput gaps is unknown. For teams comparing a Rust AI gateway with a Go gateway, that is the practical lesson: from concurrency 1 to 16, both compiled designs add under a millisecond of p99 over a direct call, and resource efficiency, not raw latency, is where the Rust beta separates itself in these files.
 
 ## Why the Wins Do Not Support 7x and 9x
 
@@ -236,14 +239,9 @@ For a team evaluating gateways, the practical steps follow from what the files l
 - **Publish the hardware.** State machine type, cores, workers, upstream latency and concurrency for every run.
 - **Profile the memory.** A heap profile shows which components hold the baseline footprint, which RSS cannot.
 
-A like-for-like retest has been announced with the same conditions: both gateways with logging off and on, a current build of the Go gateway, repeated trials with error bars, full hardware and worker disclosure, and heap profiles of the memory gap. If Rust still leads on memory under those conditions, that is a result worth reporting as plainly as this one.
+Maxim has announced a proposed retest with the same conditions: both gateways with logging off and on, a current build of the Go gateway, repeated trials with error bars, full hardware and worker disclosure, and heap profiles of the memory gap. If Rust still leads on memory under those conditions, that is a result worth reporting as plainly as this one.
 
-Teams that want to run their own numbers can start from LiteLLM's repo, which publishes its load driver and raw files, or from the Go gateway's [guide to running your own benchmarks](https://docs.getbifrost.ai/benchmarking/run-your-own-benchmarks). agitracker's [test plan for choosing an LLM gateway](/blog/llm-gateway-test-plan/) lays out the steps above as a runnable plan. Further reading on the vendor side:
-
-- A [buyer's guide for LLM gateways](https://www.getmaxim.ai/resources/buyers-guide) with an evaluation checklist.
-- A [LiteLLM migration guide](https://www.getmaxim.ai/resources/migrating-from-litellm) and a [LiteLLM alternative overview](https://www.getmaxim.ai/resources/litellm-alternative).
-- An article on [choosing a LiteLLM alternative for performance and governance](https://www.getmaxim.ai/articles/best-litellm-alternative-for-performance-and-governance/) and an explainer on [what an LLM gateway does](https://www.getmaxim.ai/articles/what-is-an-llm-gateway/).
-- The [Bifrost repository](https://github.com/maximhq/bifrost) and [product page](https://www.getmaxim.ai/bifrost), which document the current gateway.
+Teams that want to run their own numbers can start from LiteLLM's repo, which publishes its load driver and raw files, or from the Go gateway's [guide to running your own benchmarks](https://docs.getbifrost.ai/benchmarking/run-your-own-benchmarks). agitracker's [test plan for choosing an LLM gateway](/blog/llm-gateway-test-plan/) lays out the steps above as a runnable plan. Pin the exact release and preserve the configuration beside every result.
 
 For general guidance on vetting published numbers, agitracker.io's piece on [how to read an AI benchmark](/blog/how-to-read-an-ai-benchmark/) applies the same discipline to model leaderboards, and its [10-question checklist for reading an AI gateway benchmark](/blog/how-to-read-an-ai-gateway-benchmark/) applies it to gateways.
 

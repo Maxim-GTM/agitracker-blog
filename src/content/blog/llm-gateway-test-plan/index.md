@@ -3,6 +3,7 @@ title: "Choosing an LLM Gateway After the Benchmark Wars: A Test Plan You Can Ru
 seoTitle: "API Performance Testing for LLM Gateways: A Test Plan"
 description: "API performance testing for LLM gateways: a plan with logging off and on, a c=1 to 256 sweep, repeated trials, heap profiles and full run disclosure."
 pubDate: 2026-11-03
+updatedDate: 2026-11-04
 tags: [LLM Gateways, Performance, AI Infrastructure]
 author: team
 faq:
@@ -26,6 +27,8 @@ faq:
 - A credible plan runs each gateway with logging off and with logging on, on current builds, across a concurrency sweep from c=1 to c=256, reporting p50, p99, requests per second and RSS for every cell.
 - Repeated trials with error bars, and heap profiles that split memory by allocation site, are what turn a memory or latency gap into an explanation.
 - Concede what the data shows either way: in LiteLLM's files, Rust uses less memory and CPU, and the latency and throughput results are mixed.
+
+*About the evidence: The worked example uses LiteLLM's published results and [a response from Maxim AI](https://www.getmaxim.ai/bifrost/blog/debunking-litellm-rust-benchmarking-part-1), the developer of Bifrost. It is a review of published material, not a new benchmark run by AGI Tracker.*
 
 API performance testing is the only reliable way to choose an LLM gateway on speed, because published vendor benchmarks rarely run the gateways under the same conditions. The November 2026 dispute over LiteLLM's Rust gateway benchmark showed how far a homepage number can drift from the files behind it. This guide turns that dispute into a test plan a platform team can run on its own hardware, with every setting written down before the first request is sent.
 
@@ -100,7 +103,7 @@ The same rule applies to any other gateway on the shortlist, including the alter
 
 A benchmark describes the build it ran, not the product. Pin a current release tag for every gateway, record it next to every result, and rerun when a major version ships. Comparing a new beta with an old release measures the release calendar as much as the code.
 
-LiteLLM's benchmark compared Bifrost v1.6.4 with a LiteLLM Rust beta. Bifrost's changelogs list v1.6.5 to v1.6.11, then v2.0.0 to v2.4.0, after the tested build, and the Bifrost version is not shown on the homepage, only in the blog and the [gateway README in the benchmark repo](https://github.com/BerriAI/ai-gateway-bench/tree/main/gateways/bifrost). Bifrost 2.x has since substantially reduced memory use, which the v1.6.4 benchmark does not reflect; no figure for that reduction has been published yet, so none appears here. The [Bifrost v2.0 release post](https://www.getmaxim.ai/bifrost/blog/bifrost-v2-0-is-here/) is the starting point for what changed in that line.
+LiteLLM's benchmark compared Bifrost v1.6.4 with a LiteLLM Rust beta. Bifrost's changelogs list v1.6.5 to v1.6.11, then v2.0.0 to v2.4.0, after the tested build, and the Bifrost version is not shown on the homepage, only in the blog and the [gateway README in the benchmark repo](https://github.com/BerriAI/ai-gateway-bench/tree/main/gateways/bifrost). Maxim reports that Bifrost 2.x has reduced memory use, which the v1.6.4 benchmark does not reflect; no figure for that reduction has been published yet, so none appears here. The [Bifrost v2.0 release post](https://www.getmaxim.ai/bifrost/blog/bifrost-v2-0-is-here/) is the starting point for what changed in that line.
 
 Version scope matters on the LiteLLM side too. LiteLLM's [Rust gateway documentation](https://docs.litellm.ai/docs/proxy/rust_gateway) warns that the Python proxy on `main:latest` uses Rust for `/ocr` across providers and `/audio/transcriptions` for Bedrock, while other routes, including Chat Completions and Messages, run on Python. A test plan for LiteLLM therefore has to state which build and which route path it measured.
 
@@ -146,7 +149,7 @@ LiteLLM's own sweep is a useful model of what a sweep reveals, and of what it le
 | 16 | 22.67 | +0.33 | +0.89 | +251.34 | 721.8 / 722.7 |
 | 64 | 24.02 | +40.28 | +28.68 | +546.04 | 2,722.2 / 2,719.1 |
 
-The blog's "roughly 7x lower overhead" against Bifrost rests on a 4.54 ms figure that no row of this sweep reproduces. The ranking also changes with load: Bifrost adds less p99 at c=1 and c=64, Rust adds less at c=16, and the c=4 gap of 0.02 ms is noise. Throughput gaps between the two are under 1% at every level.
+The blog's "roughly 7x lower overhead" against Bifrost rests on a 4.54 ms figure that no row of this sweep reproduces. The ranking also changes with load: Bifrost adds less p99 at c=1 and c=64, Rust adds less at c=16, and the c=4 gap of 0.02 ms has unknown statistical significance. Throughput gaps between the two are under 1% at every level.
 
 What the sweep lacks is what the plan adds:
 
@@ -219,11 +222,9 @@ Both gateways can be tested with public material. LiteLLM publishes its benchmar
 
 **Bifrost.** [Bifrost](https://www.getmaxim.ai/bifrost) is an [open-source AI gateway written in Go](https://github.com/maximhq/bifrost). For this plan, the relevant documented controls are `enable_logging`, `disable_content_logging` and the log store switch for the two arms, `initial_pool_size` and the Go runtime settings for the disclosure sheet, and the `BIFROST_PPROF_PORT` profiling server for heap captures.
 
-The project's own [benchmarks page](https://www.getmaxim.ai/resources/benchmarks) publishes vendor results, and the same [disclosure standard for vendor benchmarks](/blog/vendor-benchmarks-need-receipts/) applies to those numbers as to anyone else's. Teams moving traffic from LiteLLM can use the [guide to migrating from LiteLLM](https://www.getmaxim.ai/resources/migrating-from-litellm) or the broader [LiteLLM alternative overview](https://www.getmaxim.ai/resources/litellm-alternative).
+Bifrost's own [benchmarks page](https://www.getmaxim.ai/resources/benchmarks) publishes vendor results, and the same [disclosure standard for vendor benchmarks](/blog/vendor-benchmarks-need-receipts/) applies to those numbers as to anyone else's.
 
 **Everything else on the shortlist.** Any gateway that can point at a simulated upstream and publish its config can be dropped into the matrix. This site's roundup of the [best LLM gateways](/blog/best-llm-gateways/) and the guide to [self-hosted versus managed LLM gateways](/blog/self-hosted-vs-managed-llm-gateway/) cover how to build that shortlist.
-
-For a capability checklist to score alongside the performance results, see the [LLM gateway buyer's guide](https://www.getmaxim.ai/resources/buyers-guide), this [buyer's guide to AI gateways for LLM workloads](https://www.getmaxim.ai/articles/best-ai-gateways-for-llm-workloads-a-buyers-guide/) and the explainer on [what an LLM gateway is](https://www.getmaxim.ai/articles/what-is-an-llm-gateway/).
 
 ## Reading the Results Before Choosing a Gateway
 
@@ -232,11 +233,11 @@ Read the results against the decision, not the leaderboard. Start from the thres
 A reading order that keeps the analysis honest:
 
 1. **Logging-on arm first.** It is the configuration you will run. The logging-off arm tells you how much of the difference is the logging stack.
-2. **Gaps against spread.** If the confidence intervals overlap, call the cell a tie. In LiteLLM's single-run data, sub-1% throughput gaps are noise for exactly this reason.
+2. **Gaps against spread.** Estimate the difference across repeated trials and report its uncertainty. Overlapping intervals alone do not prove equivalence, and LiteLLM's single-run data does not establish whether the sub-1% throughput gaps are reproducible.
 3. **Where the curve bends.** The concurrency at which p99 departs from the direct baseline matters more than any single cell. Size against your peak concurrency, not the average.
 4. **Memory by component.** A gap explained by a log store or pool size is a configuration decision; a gap in the core request path is not.
 5. **Feature parity last.** A gateway that wins with routes, streaming or governance missing has not been tested on the workload you will run. LiteLLM's migration tracker reports 24% of Major APIs built as of v1.107.0-rc.2, with router migration, database access, budgets and rate limits at 0%, which is the kind of scope note a results table needs.
 
-The benchmark wars produced a useful by-product: a precise list of what a gateway benchmark has to disclose before anyone should trust it. API performance testing built on that list, with logging off and on, current builds, a full concurrency sweep, repeated trials, a disclosure sheet and heap profiles, gives a buyer numbers that survive scrutiny. It may also confirm what the published files already concede, such as [Rust's lower memory and CPU](/blog/rust-vs-go-performance-gateways/), and a plan that can return an unexpected answer is the only kind worth running.
+The benchmark wars produced a useful by-product: a precise list of what a gateway benchmark has to disclose before anyone should trust it. API performance testing built on that list, with logging off and on, current builds, a full concurrency sweep, repeated trials, a disclosure sheet and heap profiles, gives a buyer numbers that survive scrutiny. It may also confirm what the published files already show, such as [Rust's lower memory and CPU](/blog/rust-vs-go-performance-gateways/), and a plan that can return an unexpected answer is the only kind worth running.
 
 Source: [Debunking LiteLLM Rust Benchmarking: Part 1](https://www.getmaxim.ai/bifrost/blog/debunking-litellm-rust-benchmarking-part-1), by Akshay Deo of Maxim AI, which builds the Bifrost gateway.

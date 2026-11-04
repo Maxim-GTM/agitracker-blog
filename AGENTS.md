@@ -13,3 +13,9 @@ AGI Tracker's editorial voice refers to this publication. Maxim AI and Bifrost a
 - These rules apply to article bodies, frontmatter, FAQs, captions, source lists and site-wide copy. They take precedence over first-party writer/evaluator conventions and SEO link targets.
 
 Before delivery, review every "our/we/us" reference and every vendor link for ownership implications. Run the third-party writer's ownership validator when available, then `npm run check` and `npm run build` for content changes. Preserve unrelated work already present in the repository.
+
+## Benchmark coverage
+
+- Identify the data source and whether AGI Tracker ran new tests. Attribute vendor responses and proposed follow-up tests to the company responsible.
+- Separate measured results, vendor claims and code-based inferences, including version limitations. Apply the same evidentiary standard to every vendor.
+- Keep migration and buyer-guide referrals only when they directly support the subject; prefer exact primary evidence to generic promotional links.
