@@ -4,6 +4,7 @@ description: "An AI scientist needs a chain from proposed experiment to reliable
 pubDate: 2026-11-05
 coverageGroup: general-ai
 draft: false
+featured: true
 tags: ["AI for science", "Research", "Evaluation"]
 faq:
   - q: "Did AGI Tracker run these laboratory experiments?"
