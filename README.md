@@ -72,3 +72,11 @@ Keep `wrangler.jsonc` in the repo. Without it, Wrangler auto-configures the proj
 - Authors: `src/data/authors.ts`. Add a key there and use it in a post with `author: <key>`.
 - Colours, type and the chamfered-corner system: `src/styles/global.css`
 - Article typography: `src/styles/prose.css`
+
+## Editorial listing order
+
+Home-page selections and the main topical listings use `src/lib/editorial-order.ts` to interleave broader AI coverage with Bifrost-heavy coverage. This is a display order, separate from the publication chronology used by feeds, metadata, article navigation and date archives. It preserves the original order within each group and spaces the available groups throughout a listing; it cannot create a 2:1 inventory where there is insufficient broader coverage. Mix the complete filtered listing before pagination or slicing, so articles are never repeated or omitted across pages.
+
+The optional article field `coverageGroup: general-ai` or `coverageGroup: bifrost` explicitly sets the editorial group. Without it, the archive fallback flags titles naming Bifrost/Maxim or articles with at least eight body mentions; this is an editorial triage heuristic, not an affiliation or sponsorship judgement. Use the override when a general article contains substantial references without being centred on that subject. New broader-AI assignments should explicitly use `coverageGroup: general-ai`.
+
+Cards show the real update date when present, otherwise the original publication date, with the corresponding label. No article timestamps are changed to control placement. Run `node scripts/check-editorial-order.mjs`, `npm run check` and `npm run build` after changing the ordering. The broader coverage assignments and proposed calendar are in `docs/editorial-plan-2026-11-05.md` and `docs/editorial-calendar-2026-11.csv`. Calendar rows are plans, not scheduled or published content.

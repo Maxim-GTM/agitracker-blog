@@ -47,7 +47,7 @@ const tags = collectTags(posts);
   }
 
   {
-    [...years].map(([year, items]) => (
+    [...years].sort(([a], [b]) => b - a).map(([year, items]) => (
       <section class="ledger-year" data-ledger-group aria-labelledby={`y-${year}`}>
         <H class="ledger-yearlabel" id={`y-${year}`}>
           {year}
@@ -61,7 +61,10 @@ const tags = collectTags(posts);
               data-text={`${post.data.title} ${post.data.description} ${post.data.tags.join(' ')}`.toLowerCase()}
             >
               <a href={postUrl(post)}>
-                <time datetime={post.data.pubDate.toISOString()}>{formatDay(post.data.pubDate)}</time>
+                <span class="ledger-date">
+                  <span class="ledger-date-label">{post.data.updatedDate ? 'Updated' : 'Published'}</span>
+                  <time datetime={(post.data.updatedDate ?? post.data.pubDate).toISOString()} title={(post.data.updatedDate ?? post.data.pubDate).toISOString().slice(0, 10)}>{formatDay(post.data.updatedDate ?? post.data.pubDate)}</time>
+                </span>
                 <span class="ledger-main">
                   <span class="ledger-title">{post.data.title}</span>
                   <span class="ledger-desc">{post.data.description}</span>
@@ -235,6 +238,16 @@ const tags = collectTags(posts);
     text-decoration: underline;
     text-decoration-thickness: 3px;
     text-underline-offset: 4px;
+  }
+  .ledger-date {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    align-self: start;
+  }
+  .ledger-date-label {
+    font-size: 0.65rem;
+    color: var(--muted);
   }
   .ledger-row time,
   .ledger-time {

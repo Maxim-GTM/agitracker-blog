@@ -6,11 +6,13 @@ import Ledger from '../components/Ledger.astro';
 import icon from '../assets/brand/icon.png';
 import { SITE } from '../site.config';
 import { collectTags, formatDate, getPosts, postUrl } from '../lib/posts';
+import { mixEditorialCoverage } from '../lib/editorial-order';
 import { itemList } from '../lib/schema';
 
 const posts = await getPosts();
-const featured = posts.find((p) => p.data.featured) ?? posts[0];
-const rest = posts.filter((p) => p !== featured).slice(0, 2);
+const mixed = mixEditorialCoverage(posts);
+const featured = mixed.find((p) => p.data.featured) ?? mixed[0];
+const rest = mixed.filter((p) => p !== featured).slice(0, 2);
 const topics = collectTags(posts);
 const lastUpdated = posts.reduce<Date | undefined>((max, p) => {
   const d = p.data.updatedDate ?? p.data.pubDate;
@@ -21,7 +23,7 @@ const lastUpdated = posts.reduce<Date | undefined>((max, p) => {
 <BaseLayout
   title={SITE.title}
   description={SITE.description}
-  schema={[itemList('Latest articles', posts.slice(0, 20).map(postUrl))]}
+  schema={[itemList('Selected articles', [featured, ...rest].filter((p) => !!p).map(postUrl))]}
 >
   <section class="hero wrap" aria-labelledby="hero-title">
     <div class="hero-copy">
@@ -34,7 +36,7 @@ const lastUpdated = posts.reduce<Date | undefined>((max, p) => {
         {
           featured && (
             <a class="btn cut press fill-signal" href={postUrl(featured)}>
-              Read the latest article
+              Read the featured article
             </a>
           )
         }
@@ -80,7 +82,7 @@ const lastUpdated = posts.reduce<Date | undefined>((max, p) => {
     featured && (
       <section class="section wrap" aria-labelledby="latest-title">
         <div class="section-head">
-          <h2 class="section-title" id="latest-title">Latest</h2>
+          <h2 class="section-title" id="latest-title">Selected stories</h2>
         </div>
         <div class="latest-grid">
           <div class="latest-lead">
@@ -97,11 +99,11 @@ const lastUpdated = posts.reduce<Date | undefined>((max, p) => {
   <section class="section wrap" id="index" aria-labelledby="index-title">
     <div class="section-head">
       <h2 class="section-title" id="index-title">Every article</h2>
-      <p class="section-note">Newest first. Filter by topic or search.</p>
+      <p class="section-note">An editorial mix across topics. Filter by topic or search.</p>
     </div>
     {
       posts.length ? (
-        <Ledger posts={posts} filterable />
+        <Ledger posts={mixed} filterable />
       ) : (
         <p class="cut fill-sun empty-state">
           No articles yet. Add a Markdown file to <code>src/content/blog/</code> and it will show up here.

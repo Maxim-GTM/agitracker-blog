@@ -3,11 +3,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Ledger from '../../components/Ledger.astro';
 import { getPosts, postUrl } from '../../lib/posts';
+import { mixEditorialCoverage } from '../../lib/editorial-order';
 import { breadcrumbs, collectionPage } from '../../lib/schema';
 
-const posts = await getPosts();
+const posts = mixEditorialCoverage(await getPosts());
 const title = 'All articles';
-const description = `Every agitracker.io article in one place: ${posts.length} pieces on AI benchmarks, model releases, compute and AGI timelines, newest first.`;
+const description = `Every agitracker.io article in one place: ${posts.length} pieces on AI benchmarks, model releases, compute and AGI timelines, selected across topics.`;
 const crumbs = [
   { name: 'Home', url: '/' },
   { name: 'Articles', url: '/blog/' },
@@ -22,7 +23,7 @@ const crumbs = [
   <header class="page-hero wrap">
     <Breadcrumbs items={crumbs} />
     <h1>All articles</h1>
-    <p>{posts.length} articles so far. Search them, or narrow the list to one topic.</p>
+    <p>{posts.length} articles so far. An editorial mix across topics. Search them, or narrow the list to one topic.</p>
   </header>
   <section class="section wrap" aria-label="Article index">
     <Ledger posts={posts} filterable headingLevel="h2" />

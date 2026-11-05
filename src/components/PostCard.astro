@@ -9,7 +9,7 @@ interface Props {
   headingLevel?: 'h2' | 'h3';
 }
 const { post, size = 'default', headingLevel: H = 'h3' } = Astro.props;
-const { title, description, pubDate, tags, cover, coverAlt } = post.data;
+const { title, description, pubDate, updatedDate, tags, cover, coverAlt } = post.data;
 const swatch = tags[0] ? tagSwatch(tags[0]) : 'signal';
 const { minutes } = readingTime(post.body);
 ---
@@ -36,7 +36,7 @@ const { minutes } = readingTime(post.body);
       <H class="card-title">{title}</H>
       <p class="card-desc">{description}</p>
       <p class="card-meta">
-        <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+        <time datetime={(updatedDate ?? pubDate).toISOString()}>{updatedDate ? 'Updated ' : 'Published '}{formatDate(updatedDate ?? pubDate)}</time>
         <span>{minutes} min read</span>
       </p>
     </div>

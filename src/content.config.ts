@@ -17,6 +17,8 @@ const blog = defineCollection({
         .string()
         .min(40, 'Write at least 40 characters: this is the search-result snippet.')
         .max(320),
+      /** Optional editorial grouping; has no effect on dates, feeds or article URLs. */
+      coverageGroup: z.enum(['general-ai', 'bifrost']).optional(),
       pubDate: z.coerce.date(),
       updatedDate: z.coerce.date().optional(),
       author: z
