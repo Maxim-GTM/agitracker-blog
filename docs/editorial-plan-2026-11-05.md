@@ -1,5 +1,7 @@
 # Broader AI coverage: editorial plan
 
+> Publication update, 6 November 2026: all 14 assignments for this site are published. See [the publication record](editorial-publication-2026-11-06.md). Proposed dates below remain historical planning dates.
+
 Prepared 5 November 2026. Dates and proposed releases use Asia/Kolkata. This is an assignment plan, not a claim that the 42 articles have been written, scheduled or published.
 
 The aim is a publication readers follow for useful AI reporting: consequential research, explainable mechanisms, careful security reporting, model releases and the work of building AI. Bifrost coverage belongs alongside that reporting when it earns its place. A change in listing order improves discovery; writing substantial original coverage changes the underlying balance.
