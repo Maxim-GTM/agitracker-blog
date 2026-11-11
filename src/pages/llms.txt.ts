@@ -23,7 +23,7 @@ export const GET: APIRoute = async () => {
     '',
     '## AI news',
     '',
-    `- [Live AI news feed](${abs('/news/')}): headlines from AI labs, publications and newswires, refreshed about every 30 minutes. RSS: ${abs('/news/rss.xml')}`,
+    `- [AI news feed](${abs('/news/')}): headlines from AI labs, publications and newswires, refreshed daily. RSS: ${abs('/news/rss.xml')}`,
     `- [Weekly briefs](${abs('/news/weekly/')}): the top stories of each week. RSS: ${abs('/news/weekly/rss.xml')}`,
     ...getBriefs().slice(0, 8).map((b) => `- [${briefTitle(b)}](${abs(weekUrl(b.key))})`),
     `- [Sources and method](${abs('/news/sources/')})`,

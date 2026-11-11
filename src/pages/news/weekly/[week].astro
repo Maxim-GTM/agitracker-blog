@@ -96,7 +96,7 @@ const sectionCount = (id: string) => brief.stats.byTopic[id as keyof typeof brie
   <header class="page-hero wrap hero">
     <div>
       <Breadcrumbs items={crumbs} />
-      <p class="kicker">{brief.live ? 'Week in progress · updates every 30 minutes' : 'Weekly brief'}</p>
+      <p class="kicker">{brief.live ? 'Week in progress · updated daily' : 'Weekly brief'}</p>
       <h1>{title}</h1>
       <p class="lede">
         The {brief.stats.stories} AI stories from {brief.stats.sources} sources this week, ranked by who reported them and how many
@@ -129,7 +129,7 @@ const sectionCount = (id: string) => brief.stats.byTopic[id as keyof typeof brie
     <p class="jump-title">Subscribe</p>
     <ul role="list">
       <li><a href="/news/weekly/rss.xml">Weekly brief RSS</a></li>
-      <li><a href="/news/rss.xml">Live headlines RSS</a></li>
+      <li><a href="/news/rss.xml">Daily headlines RSS</a></li>
       <li><a href={`/news/weekly/${brief.key}.json`}>This week as JSON</a></li>
     </ul>
    </aside>

@@ -4,8 +4,8 @@ import { sources } from '../../lib/news';
 
 export const GET: APIRoute = async () => {
   const png = await renderOg({
-    kicker: 'Live',
-    title: 'Latest AI news, updated every 30 minutes',
+    kicker: 'Daily',
+    title: 'Latest AI news, updated daily',
     tags: [
       { name: 'Models', swatch: 'lilac' },
       { name: 'Products', swatch: 'signal' },

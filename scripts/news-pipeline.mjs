@@ -1,6 +1,5 @@
 // The news pipeline as a pure function: feeds in, changed data files out. No file or network
-// assumptions beyond `fetch`, so it runs both in Node (scripts/fetch-news.mjs) and in the
-// Cloudflare cron Worker (workers/news-cron). Only headline, link, source, date and a short
+// assumptions beyond `fetch` (scripts/fetch-news.mjs does the file I/O). Only headline, link, source, date and a short
 // feed-supplied excerpt (<= 220 chars) are kept: never full text.
 import { XMLParser } from 'fast-xml-parser';
 import { buildBrief, classify, isAiRelevant, isoWeek, itemId, normalizeUrl, stringifyItems } from './news-core.mjs';

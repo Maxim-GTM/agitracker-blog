@@ -87,7 +87,7 @@ const lastUpdated = posts.reduce<Date | undefined>((max, p) => {
     newsTop.length > 0 && (
       <section class="section wrap" aria-labelledby="news-title">
         <div class="section-head">
-          <h2 class="section-title" id="news-title">AI news, live</h2>
+          <h2 class="section-title" id="news-title">AI news, updated daily</h2>
           <p class="section-note">
             <a href="/news/">All headlines</a>
             {latestBrief && <> · <a href={weekUrl(latestBrief.key)}>Weekly brief, {weekRange(latestBrief)}</a></>}

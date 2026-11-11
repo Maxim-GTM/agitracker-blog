@@ -7,7 +7,7 @@ import { items, sourceName, topicMeta, updatedAt } from '../../lib/news';
 export const GET: APIRoute = (context) =>
   rss({
     title: `${SITE.name} AI News`,
-    description: 'Live AI headlines from labs, publications and newswires, collected every 30 minutes. Links go to the original sources.',
+    description: 'AI headlines from labs, publications and newswires, collected daily. Links go to the original sources.',
     site: context.site ?? SITE.url,
     xmlns: { atom: 'http://www.w3.org/2005/Atom', dc: 'http://purl.org/dc/elements/1.1/' },
     customData: [

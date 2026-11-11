@@ -1,5 +1,5 @@
-// Local/manual run of the news pipeline against src/data/news (production refreshes run in the
-// Cloudflare cron Worker, workers/news-cron, which commits the same files through the GitHub API).
+// Runs the news pipeline against src/data/news. Used by the daily GitHub Actions job
+// (.github/workflows/news.yml) and for local previews.
 //
 //   node scripts/fetch-news.mjs            fetch and write
 //   node scripts/fetch-news.mjs --dry      fetch and report only

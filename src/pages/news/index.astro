@@ -12,8 +12,8 @@ const feed = items.slice(0, FEED_SIZE);
 const days = groupByDay(feed);
 const last24h = items.filter((i) => Date.now() - new Date(i.published).getTime() < 86_400_000).length;
 
-const title = `Latest AI News Today: Live Feed From ${sources.length} Sources`;
-const description = `Today's AI news in one place: headlines from OpenAI, Google, NVIDIA, Microsoft, TechCrunch, The Verge and ${sources.length - 6} more sources, refreshed every 30 minutes.`;
+const title = `Latest AI News: Daily Feed From ${sources.length} Sources`;
+const description = `Today's AI news in one place: headlines from OpenAI, Google, NVIDIA, Microsoft, TechCrunch, The Verge and ${sources.length - 6} more sources, updated daily.`;
 const crumbs = [
   { name: 'Home', url: '/' },
   { name: 'AI News', url: '/news/' },
@@ -21,7 +21,7 @@ const crumbs = [
 const faq = [
   {
     q: 'How often is the AI news feed updated?',
-    a: 'The feed checks every source roughly every 30 minutes and publishes new headlines as soon as they appear in a source’s RSS feed.',
+    a: 'The feed checks every source once a day and adds the headlines each source has published since the last check. Stories that appear and are replaced within a day may be missed.',
   },
   {
     q: 'Where does the news come from?',
@@ -49,7 +49,7 @@ const faq = [
   ]}
 >
   <Fragment slot="head">
-    <link rel="alternate" type="application/rss+xml" title="agitracker.io AI news (live)" href="/news/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="agitracker.io AI news" href="/news/rss.xml" />
     <link rel="alternate" type="application/rss+xml" title="agitracker.io AI Weekly Brief" href="/news/weekly/rss.xml" />
   </Fragment>
 
@@ -58,8 +58,8 @@ const faq = [
       <Breadcrumbs items={crumbs} />
       <h1>AI News</h1>
       <p>
-        <span class="live cut cut--sm fill-signal"><span class="dot" aria-hidden="true"></span>Live</span>
-        Headlines from {sources.length} AI labs, publications and newswires, collected from their public RSS feeds all day.
+        <span class="live cut cut--sm fill-signal"><span class="dot" aria-hidden="true"></span>Daily</span>
+        Headlines from {sources.length} AI labs, publications and newswires, collected from their public RSS feeds once a day.
       </p>
     </div>
     <dl class="stats cut fill-signal">

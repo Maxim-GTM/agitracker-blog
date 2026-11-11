@@ -32,7 +32,7 @@ const total = items.length;
     <section aria-labelledby="method-h">
       <h2 id="method-h" class="section-title">How it works</h2>
       <ol class="steps">
-        <li><strong>Collect.</strong> About every 30 minutes, each source’s public RSS or Atom feed is requested once, with a descriptive user agent.</li>
+        <li><strong>Collect.</strong> Once a day, each source’s public RSS or Atom feed is requested once, with a descriptive user agent.</li>
         <li><strong>Filter.</strong> Feeds that cover more than AI (general tech news, company blogs, press-release wires) are filtered by AI terms; wires must mention AI in the headline.</li>
         <li><strong>Store only the minimum.</strong> Headline, link, time, source and an excerpt of at most 220 characters taken from the feed. No article bodies and no images are copied. Every headline links to the original.</li>
         <li><strong>De-duplicate and group.</strong> Tracking parameters are removed from links, and near-identical headlines from different outlets are grouped into one story.</li>
