@@ -80,3 +80,26 @@ Home-page selections and the main topical listings use `src/lib/editorial-order.
 The optional article field `coverageGroup: general-ai` or `coverageGroup: bifrost` explicitly sets the editorial group. Without it, the archive fallback flags titles naming Bifrost/Maxim or articles with at least eight body mentions; this is an editorial triage heuristic, not an affiliation or sponsorship judgement. Use the override when a general article contains substantial references without being centred on that subject. New broader-AI assignments should explicitly use `coverageGroup: general-ai`.
 
 Cards show the real update date when present, otherwise the original publication date, with the corresponding label. No article timestamps are changed to control placement. Run `node scripts/check-editorial-order.mjs`, `npm run check` and `npm run build` after changing the ordering. The broader coverage assignments and proposed calendar are in `docs/editorial-plan-2026-11-05.md` and `docs/editorial-calendar-2026-11.csv`. The calendar retains proposed dates and records actual publication dates and live URLs in separate columns.
+
+## AI news feed and weekly brief
+
+`/news/` is a near-real-time AI headline feed built from the public RSS/Atom feeds of AI labs, companies, publications, research groups, newsletters and press-release wires. `/news/weekly/` turns each week into a ranked brief with its own page, social card, RSS entry and JSON export. The site stays fully static: a scheduled job refreshes the data and the normal deploy rebuilds the pages.
+
+| What | Where |
+| --- | --- |
+| Source list (feed URL, kind, AI-only or filtered) | `src/data/news/sources.json` |
+| Fetcher: parse, filter, de-duplicate, classify, freeze finished weeks | `scripts/fetch-news.mjs` (`npm run news:fetch`) |
+| Ranking, clustering, topic rules, ISO weeks (shared by fetcher and pages) | `scripts/news-core.mjs` |
+| Rolling window of headlines (35 days), source health, frozen weekly briefs | `src/data/news/items.json`, `status.json`, `weeks/` |
+| Validation (`npm run news:check`; `--strict` also fails on stale data) | `scripts/check-news.mjs` |
+| Pages: feed, topics, weekly index and briefs, sources and method | `src/pages/news/` |
+| Feeds: `/news/rss.xml` (live), `/news/weekly/rss.xml` (one entry per brief), `/news/weekly/<week>.json` | `src/pages/news/` |
+| Refresh every 30 minutes, commit to `main` only when data changed | `.github/workflows/news.yml` |
+
+**Add or remove a source:** edit `sources.json` (never delete a source that appears in a frozen week; leave it in place). Use `"aiOnly": true` for feeds that are already about AI, `false` for general feeds (filtered by AI terms) and add `"strict": true` for wires (AI term required in the headline). Run `npm run news:fetch -- --dry` to see what each feed would contribute.
+
+**Editor's note:** add `src/data/news/notes/2026-w46.md` (the week key) to show original commentary at the top of that week's brief. Briefs are generated automatically; notes are what make them an editorial product, so they are worth doing for the biggest weeks.
+
+**Content rules:** store and show only headline, link, date, source and a feed-supplied excerpt of at most 220 characters; never article bodies or images. Every item links to the original. Newswire links carry `nofollow`. Follow [AGENTS.md](AGENTS.md) for publisher identity: do not add Maxim or Bifrost vendor feeds as if they were first-party, and keep vendor attribution accurate.
+
+**Coverage:** feeds only expose recent entries, so tracking began on the date in `status.json` (`coverageStart`); the first brief is flagged as partial. Sources with no public feed (e.g. Anthropic, Meta AI) or that block automated clients (GlobeNewswire, Business Wire) are not included.

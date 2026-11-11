@@ -15,6 +15,7 @@ export const SITE = {
 } as const;
 
 export const NAV = [
+  { href: '/news/', label: 'AI News' },
   { href: '/blog/', label: 'Articles' },
   { href: '/data/', label: 'Data' },
   { href: '/tags/', label: 'Topics' },

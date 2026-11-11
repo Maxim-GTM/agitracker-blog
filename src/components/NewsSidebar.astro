@@ -1,0 +1,66 @@
+---
+import { TOPIC_PAGES, getBriefs, items, sources, topicSwatch, topicUrl, weekRange, weekUrl } from '../lib/news';
+
+interface Props {
+  activeTopic?: string;
+}
+const { activeTopic } = Astro.props;
+const counts = new Map(TOPIC_PAGES.map((t) => [t.id, items.filter((i) => i.topic === t.id).length]));
+const brief = getBriefs()[0];
+---
+
+<aside class="side" aria-label="News navigation">
+  {
+    brief && (
+      <section class="box cut fill-signal">
+        <h2>{brief.live ? 'This week’s brief' : 'Latest brief'}</h2>
+        <p class="range">{weekRange(brief)}</p>
+        <ol role="list">
+          {brief.top.slice(0, 3).map((s) => <li>{s.lead.title}</li>)}
+        </ol>
+        <a class="btn btn--sm cut cut--sm press fill-paper" href={weekUrl(brief.key)}>Read the brief</a>
+      </section>
+    )
+  }
+  <section class="box cut fill-paper">
+    <h2>Topics</h2>
+    <ul role="list" class="topics">
+      <li><a href="/news/" aria-current={activeTopic ? undefined : 'page'}>All news</a></li>
+      {
+        TOPIC_PAGES.filter((t) => counts.get(t.id)).map((t) => (
+          <li>
+            <a href={topicUrl(t.id)} aria-current={activeTopic === t.id ? 'page' : undefined}>
+              <span class:list={['dot', `fill-${topicSwatch(t.id)}`]} aria-hidden="true"></span>{t.label}
+              <span class="n">{counts.get(t.id)}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+  <section class="box cut fill-paper">
+    <h2>Follow</h2>
+    <ul role="list" class="plain">
+      <li><a href="/news/rss.xml">Live headlines (RSS)</a></li>
+      <li><a href="/news/weekly/rss.xml">Weekly brief (RSS)</a></li>
+      <li><a href="/news/weekly/">All weekly briefs</a></li>
+      <li><a href="/news/sources/">{sources.length} sources and method</a></li>
+    </ul>
+  </section>
+</aside>
+
+<style>
+  .side { display: grid; gap: 1.5rem; align-content: start; }
+  .box { --c: 14px; padding: 1.1rem 1.25rem 1.25rem; }
+  h2 { font-family: var(--font-display); font-weight: 800; font-size: var(--step-1); }
+  .range { font-weight: 700; margin-top: 0.15rem; }
+  ol { margin: 0.75rem 0 1rem; display: grid; gap: 0.55rem; list-style: decimal; padding-left: 1.2rem; font-weight: 700; line-height: 1.25; font-size: var(--step--1); }
+  ul { margin-top: 0.6rem; display: grid; gap: 0.1rem; }
+  .topics a { display: flex; align-items: center; gap: 0.55rem; padding: 0.3rem 0.4rem; text-decoration: none; font-weight: 700; border: 2px solid transparent; }
+  .topics a:hover { border-color: var(--ink); background: var(--signal); }
+  .topics a[aria-current='page'] { background: var(--ink); color: var(--paper); }
+  .dot { width: 0.8rem; height: 0.8rem; border: 2px solid var(--ink); flex: none; background: var(--fill); }
+  .n { margin-left: auto; font-family: var(--font-code); font-size: 0.8rem; opacity: 0.7; font-weight: 400; }
+  .plain a { display: block; padding: 0.25rem 0; font-weight: 700; }
+  @media (min-width: 62rem) { .side { position: sticky; top: 1.5rem; } }
+</style>

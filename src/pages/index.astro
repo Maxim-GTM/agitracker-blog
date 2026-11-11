@@ -8,12 +8,17 @@ import { SITE } from '../site.config';
 import { collectTags, formatDate, getPosts, postUrl } from '../lib/posts';
 import { mixEditorialCoverage } from '../lib/editorial-order';
 import { itemList } from '../lib/schema';
+import NewsRow from '../components/NewsRow.astro';
+import NewsClock from '../components/NewsClock.astro';
+import { getBriefs, items as newsItems, weekRange, weekUrl } from '../lib/news';
 
 const posts = await getPosts();
 const mixed = mixEditorialCoverage(posts);
 const featured = mixed.find((p) => p.data.featured) ?? mixed[0];
 const rest = mixed.filter((p) => p !== featured).slice(0, 2);
 const topics = collectTags(posts);
+const newsTop = newsItems.filter((i) => i.summary).slice(0, 5);
+const latestBrief = getBriefs()[0];
 const lastUpdated = posts.reduce<Date | undefined>((max, p) => {
   const d = p.data.updatedDate ?? p.data.pubDate;
   return !max || d > max ? d : max;
@@ -79,6 +84,22 @@ const lastUpdated = posts.reduce<Date | undefined>((max, p) => {
   </div>
 
   {
+    newsTop.length > 0 && (
+      <section class="section wrap" aria-labelledby="news-title">
+        <div class="section-head">
+          <h2 class="section-title" id="news-title">AI news, live</h2>
+          <p class="section-note">
+            <a href="/news/">All headlines</a>
+            {latestBrief && <> · <a href={weekUrl(latestBrief.key)}>Weekly brief, {weekRange(latestBrief)}</a></>}
+          </p>
+        </div>
+        <div class="news-home">{newsTop.map((item) => <NewsRow item={item} />)}</div>
+        <NewsClock />
+      </section>
+    )
+  }
+
+  {
     featured && (
       <section class="section wrap" aria-labelledby="latest-title">
         <div class="section-head">
@@ -114,6 +135,8 @@ const lastUpdated = posts.reduce<Date | undefined>((max, p) => {
 </BaseLayout>
 
 <style>
+  .news-home { max-width: 62rem; }
+  .section-note a { font-weight: 700; }
   .hero {
     display: grid;
     grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);

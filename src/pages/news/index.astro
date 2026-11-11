@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import NewsRow from '../../components/NewsRow.astro';
+import NewsClock from '../../components/NewsClock.astro';
+import NewsSidebar from '../../components/NewsSidebar.astro';
+import { breadcrumbs, collectionPage, faqPage } from '../../lib/schema';
+import { formatDay, groupByDay, items, sources, updatedAt } from '../../lib/news';
+
+const FEED_SIZE = 100;
+const feed = items.slice(0, FEED_SIZE);
+const days = groupByDay(feed);
+const last24h = items.filter((i) => Date.now() - new Date(i.published).getTime() < 86_400_000).length;
+
+const title = `Latest AI News Today: Live Feed From ${sources.length} Sources`;
+const description = `Today's AI news in one place: headlines from OpenAI, Google, NVIDIA, Microsoft, TechCrunch, The Verge and ${sources.length - 6} more sources, refreshed every 30 minutes.`;
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'AI News', url: '/news/' },
+];
+const faq = [
+  {
+    q: 'How often is the AI news feed updated?',
+    a: 'The feed checks every source roughly every 30 minutes and publishes new headlines as soon as they appear in a source’s RSS feed.',
+  },
+  {
+    q: 'Where does the news come from?',
+    a: `Headlines come from the public RSS feeds of ${sources.length} sources: AI labs and companies such as OpenAI, Google DeepMind and NVIDIA, news publications, research groups, newsletters and press-release wires. Every headline links to the original article.`,
+  },
+  {
+    q: 'Does agitracker.io write or copy these articles?',
+    a: 'No. The feed shows only each headline, its source, its time and a short excerpt supplied by the publisher’s feed, then sends readers to the original. The weekly brief ranks and groups those stories.',
+  },
+  {
+    q: 'How are stories ranked in the weekly brief?',
+    a: 'Stories are weighted by source type (primary announcements from labs and companies count most) and by how many independent outlets reported the same story.',
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image="/og/news.png"
+  schema={[
+    collectionPage({ url: '/news/', name: title, description, items: feed.slice(0, 50).map((i) => i.url) }),
+    breadcrumbs(crumbs),
+    faqPage(faq),
+  ]}
+>
+  <Fragment slot="head">
+    <link rel="alternate" type="application/rss+xml" title="agitracker.io AI news (live)" href="/news/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="agitracker.io AI Weekly Brief" href="/news/weekly/rss.xml" />
+  </Fragment>
+
+  <header class="page-hero wrap hero">
+    <div>
+      <Breadcrumbs items={crumbs} />
+      <h1>AI News</h1>
+      <p>
+        <span class="live cut cut--sm fill-signal"><span class="dot" aria-hidden="true"></span>Live</span>
+        Headlines from {sources.length} AI labs, publications and newswires, collected from their public RSS feeds all day.
+      </p>
+    </div>
+    <dl class="stats cut fill-signal">
+      <div><dt>Headlines, last 24 hours</dt><dd>{last24h}</dd></div>
+      <div><dt>Sources tracked</dt><dd>{sources.length}</dd></div>
+      <div><dt>Last update</dt><dd><time datetime={updatedAt.toISOString()} data-rel>{formatDay(updatedAt)}</time></dd></div>
+    </dl>
+  </header>
+
+
+  <div class="section wrap layout">
+    <section class="feed" aria-label="Latest AI headlines">
+      {
+        days.map((g) => (
+          <div class="day">
+            <h2 class="day-title">{formatDay(g.day)}</h2>
+            {g.items.map((item) => <NewsRow item={item} />)}
+          </div>
+        ))
+      }
+      <p class="more">
+        Older stories are grouped in the <a href="/news/weekly/">weekly briefs</a>.
+      </p>
+    </section>
+    <NewsSidebar />
+  </div>
+
+  <section class="section wrap about" aria-labelledby="faq-title">
+    <h2 id="faq-title" class="section-title">About this feed</h2>
+    <dl class="faq">
+      {faq.map((f) => (
+        <>
+          <dt>{f.q}</dt>
+          <dd>{f.a}</dd>
+        </>
+      ))}
+    </dl>
+    <p class="note">
+      Topics are assigned automatically from keywords in the headline and excerpt, so they are approximate. Excerpts belong to
+      their publishers. Press-release links are marked <code>nofollow</code>. See the <a href="/news/sources/">source list and method</a>.
+    </p>
+  </section>
+  <NewsClock />
+</BaseLayout>
+
+<style>
+  .live { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.05rem 0.7rem; font-family: var(--font-display); font-weight: 800; font-size: var(--step--1); vertical-align: middle; margin-right: 0.4rem; }
+  .dot { width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--ink); animation: pulse 1.6s ease-in-out infinite; }
+  @keyframes pulse { 50% { opacity: 0.25; } }
+  @media (prefers-reduced-motion: reduce) { .dot { animation: none; } }
+  .hero { display: grid; gap: 2rem; align-items: end; }
+  @media (min-width: 62rem) { .hero { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 3rem; } }
+  .stats { --c: 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(6.5rem, 1fr)); gap: 1rem 1.5rem; padding: 1.4rem 1.6rem; align-self: end; }
+  .stats dt { font-size: var(--step--1); font-weight: 700; line-height: 1.2; }
+  .stats dd { margin: 0.25rem 0 0; font-family: var(--font-display); font-weight: 800; font-size: var(--step-3); line-height: 1.05; }
+  .stats time { font-size: var(--step-1); }
+  .layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+  @media (min-width: 62rem) { .layout { grid-template-columns: minmax(0, 1fr) 19rem; gap: 3.5rem; } }
+  .day + .day { margin-top: 2.5rem; }
+  .day-title { font-size: var(--step-2); font-weight: 800; margin-bottom: 0.25rem; }
+  .more { margin-top: 2rem; font-weight: 700; }
+  .about > * { max-width: 62rem; }
+  .day:first-child .day-title { margin-top: 0; }
+  .faq dt { font-family: var(--font-display); font-weight: 800; font-size: var(--step-1); margin-top: 1.25rem; }
+  .faq dd { max-width: var(--measure); margin-top: 0.3rem; }
+  .note { margin-top: 1.75rem; color: var(--muted); font-size: var(--step--1); max-width: var(--measure); }
+</style>

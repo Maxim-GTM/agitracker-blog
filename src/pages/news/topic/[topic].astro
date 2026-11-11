@@ -1,0 +1,59 @@
+---
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import NewsRow from '../../../components/NewsRow.astro';
+import NewsClock from '../../../components/NewsClock.astro';
+import NewsSidebar from '../../../components/NewsSidebar.astro';
+import { breadcrumbs, collectionPage } from '../../../lib/schema';
+import { TOPIC_PAGES, formatDay, groupByDay, items, topicUrl } from '../../../lib/news';
+
+export const getStaticPaths = (() =>
+  TOPIC_PAGES.filter((t) => items.some((i) => i.topic === t.id)).map((t) => ({
+    params: { topic: t.id },
+    props: { topic: t, list: items.filter((i) => i.topic === t.id).slice(0, 80) },
+  }))) satisfies GetStaticPaths;
+
+const { topic, list } = Astro.props;
+const days = groupByDay(list);
+const title = `Latest AI News: ${topic.label}`;
+const description = `${topic.blurb} The most recent ${topic.label.toLowerCase()} headlines from OpenAI, Google, NVIDIA, leading publications and newswires, updated through the day.`;
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'AI News', url: '/news/' },
+  { name: topic.label, url: topicUrl(topic.id) },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  schema={[collectionPage({ url: topicUrl(topic.id), name: title, description, items: list.slice(0, 50).map((i) => i.url) }), breadcrumbs(crumbs)]}
+>
+  <header class="page-hero wrap">
+    <Breadcrumbs items={crumbs} />
+    <h1>{topic.label}</h1>
+    <p>{topic.blurb}</p>
+  </header>
+  <div class="section wrap layout">
+  <section class="feed" aria-label={`${topic.label} headlines`}>
+    {
+      days.map((g) => (
+        <div class="day">
+          <h2 class="day-title">{formatDay(g.day)}</h2>
+          {g.items.map((item) => <NewsRow item={item} showTopic={false} />)}
+        </div>
+      ))
+    }
+  </section>
+    <NewsSidebar activeTopic={topic.id} />
+  </div>
+  <NewsClock />
+</BaseLayout>
+
+<style>
+  .layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+  @media (min-width: 62rem) { .layout { grid-template-columns: minmax(0, 1fr) 19rem; gap: 3.5rem; } }
+  .day + .day { margin-top: 2.5rem; }
+  .day-title { font-size: var(--step-2); font-weight: 800; margin-bottom: 0.25rem; }
+</style>

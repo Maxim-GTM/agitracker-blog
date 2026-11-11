@@ -1,0 +1,253 @@
+---
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import NewsRow from '../../../components/NewsRow.astro';
+import NewsClock from '../../../components/NewsClock.astro';
+import ShareLinks from '../../../components/ShareLinks.astro';
+import PostCard from '../../../components/PostCard.astro';
+import { SITE } from '../../../site.config';
+import { ORG_ID, WEBSITE_ID, breadcrumbs } from '../../../lib/schema';
+import { getPosts } from '../../../lib/posts';
+import {
+  briefDescription,
+  briefTitle,
+  coverageStart,
+  editorNote,
+  formatLong,
+  getBriefs,
+  topicMeta,
+  updatedAt,
+  weekRange,
+  weekUrl,
+} from '../../../lib/news';
+
+export const getStaticPaths = (() => {
+  const briefs = getBriefs();
+  return briefs.map((brief, i) => ({
+    params: { week: brief.key },
+    props: { brief, newer: briefs[i - 1], older: briefs[i + 1] },
+  }));
+}) satisfies GetStaticPaths;
+
+const { brief, newer, older } = Astro.props;
+const title = briefTitle(brief);
+const description = briefDescription(brief);
+const url = weekUrl(brief.key);
+const abs = new URL(url, SITE.url).href;
+const note = editorNote(brief.key);
+const range = weekRange(brief);
+
+// Related analysis: posts whose topic tags appear in this week's headlines.
+const headlineText = [...brief.top, ...brief.sections.flatMap((s) => s.stories)]
+  .map((s) => s.lead.title.toLowerCase())
+  .join(' | ');
+const related = (await getPosts())
+  .filter((p) => !p.data.noindex)
+  .map((p) => ({ p, hits: p.data.tags.filter((t) => t.length > 3 && headlineText.includes(t.toLowerCase())).length }))
+  .filter((x) => x.hits > 0)
+  .sort((a, b) => b.hits - a.hits || b.p.data.pubDate.valueOf() - a.p.data.pubDate.valueOf())
+  .slice(0, 3)
+  .map((x) => x.p);
+
+const published = brief.live ? new Date(brief.start) : new Date(brief.frozenAt ?? brief.end);
+const modified = brief.live ? updatedAt : new Date(brief.frozenAt ?? brief.end);
+const storyUrls = brief.top.map((s) => s.lead.url);
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'AI News', url: '/news/' },
+  { name: 'Weekly briefs', url: '/news/weekly/' },
+  { name: range, url },
+];
+const article = {
+  '@type': 'Article',
+  '@id': `${abs}#article`,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': abs },
+  url: abs,
+  headline: title,
+  description,
+  image: { '@type': 'ImageObject', url: new URL(`/og/news/weekly/${brief.key}.png`, SITE.url).href, width: 1200, height: 630 },
+  datePublished: published.toISOString(),
+  dateModified: modified.toISOString(),
+  author: { '@id': ORG_ID },
+  publisher: { '@id': ORG_ID },
+  isPartOf: { '@id': WEBSITE_ID },
+  inLanguage: SITE.lang,
+  about: brief.sections.map((s) => topicMeta(s.topic).label),
+  citation: storyUrls,
+};
+const sectionCount = (id: string) => brief.stats.byTopic[id as keyof typeof brief.stats.byTopic] ?? 0;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image={`/og/news/weekly/${brief.key}.png`}
+  imageAlt={`${title}: the week's top AI stories`}
+  type="article"
+  article={{ published, modified, author: SITE.name, tags: ['AI news', 'Weekly brief'] }}
+  noindex={brief.stats.stories < 8}
+  schema={[article, breadcrumbs(crumbs)]}
+>
+  <Fragment slot="head">
+    <link rel="alternate" type="application/rss+xml" title="agitracker.io AI Weekly Brief" href="/news/weekly/rss.xml" />
+  </Fragment>
+
+  <header class="page-hero wrap hero">
+    <div>
+      <Breadcrumbs items={crumbs} />
+      <p class="kicker">{brief.live ? 'Week in progress · updates every 30 minutes' : 'Weekly brief'}</p>
+      <h1>{title}</h1>
+      <p class="lede">
+        The {brief.stats.stories} AI stories from {brief.stats.sources} sources this week, ranked by who reported them and how many
+        outlets followed.
+      </p>
+      {
+        brief.partial && (
+          <p class="partial cut cut--sm fill-sun">
+            Tracking began on {formatLong(coverageStart)}, so the days before that are thinner than a full week.
+          </p>
+        )
+      }
+    </div>
+    <dl class="stats cut fill-signal">
+      <div><dt>Stories</dt><dd>{brief.stats.stories}</dd></div>
+      <div><dt>Headlines scanned</dt><dd>{brief.stats.items}</dd></div>
+      <div><dt>Sources</dt><dd>{brief.stats.sources}</dd></div>
+    </dl>
+  </header>
+
+  <div class="wrap layout">
+   <aside class="jump" aria-label="In this brief">
+    <p class="jump-title">In this brief</p>
+    <ul role="list">
+      <li><a href="#top">Top stories</a></li>
+      {brief.sections.map((s) => <li><a href={`#${s.topic}`}>{topicMeta(s.topic).label}</a></li>)}
+      {brief.labs.length > 0 && <li><a href="#labs">From the labs</a></li>}
+      {brief.newswire.length > 0 && <li><a href="#wire">Press releases</a></li>}
+    </ul>
+    <p class="jump-title">Subscribe</p>
+    <ul role="list">
+      <li><a href="/news/weekly/rss.xml">Weekly brief RSS</a></li>
+      <li><a href="/news/rss.xml">Live headlines RSS</a></li>
+      <li><a href={`/news/weekly/${brief.key}.json`}>This week as JSON</a></li>
+    </ul>
+   </aside>
+   <div class="body">
+    {note && <section class="note cut fill-sun" aria-label="Editor's note"><h2>Editor’s note</h2><div set:html={note} /></section>}
+
+    <section id="top" aria-labelledby="top-h">
+      <h2 id="top-h" class="section-title">Top stories of the week</h2>
+      <ol class="top" role="list">
+        {
+          brief.top.map((s, i) => (
+            <li>
+              <span class="rank" aria-hidden="true">{i + 1}</span>
+              <div>
+                <NewsRow item={s.lead} also={s.also} dateOnly />
+                {s.sources > 1 && <p class="reach">Reported by {s.sources} outlets</p>}
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    {
+      brief.sections.map((s) => {
+        const t = topicMeta(s.topic);
+        return (
+          <section id={s.topic} aria-labelledby={`${s.topic}-h`}>
+            <h2 id={`${s.topic}-h`} class="section-title">{t.label}</h2>
+            <p class="blurb">{t.blurb} {sectionCount(s.topic)} stories this week.</p>
+            {s.stories.map((st) => <NewsRow item={st.lead} also={st.also} showTopic={false} dateOnly />)}
+          </section>
+        );
+      })
+    }
+
+    {
+      brief.labs.length > 0 && (
+        <section id="labs" aria-labelledby="labs-h">
+          <h2 id="labs-h" class="section-title">Straight from the labs and companies</h2>
+          <p class="blurb">Primary announcements and engineering posts published by the companies themselves.</p>
+          {brief.labs.map((it) => <NewsRow item={it} dateOnly />)}
+        </section>
+      )
+    }
+
+    {
+      brief.newswire.length > 0 && (
+        <section id="wire" aria-labelledby="wire-h">
+          <h2 id="wire-h" class="section-title">On the press-release wires</h2>
+          <p class="blurb">Press releases are written and paid for by the issuing company. They are listed for completeness, not endorsed.</p>
+          {brief.newswire.map((it) => <NewsRow item={it} dateOnly />)}
+        </section>
+      )
+    }
+
+    {
+      related.length > 0 && (
+        <section aria-labelledby="related-h">
+          <h2 id="related-h" class="section-title">Go deeper on agitracker.io</h2>
+          <div class="related">{related.map((p) => <PostCard post={p} headingLevel="h3" />)}</div>
+        </section>
+      )
+    }
+
+    <section class="cite" aria-labelledby="cite-h">
+      <h2 id="cite-h" class="section-title">Use this brief</h2>
+      <p>
+        Link to this page when you reference it: <code>{abs}</code>. The week's data (headlines, sources, links and dates) is
+        available as <a href={`/news/weekly/${brief.key}.json`}>JSON</a>.
+      </p>
+      <p class="how">
+        How it is made: feeds from <a href="/news/sources/">{brief.stats.sources} sources</a> are collected automatically, near-duplicate
+        headlines are grouped, and stories are ranked by source type and number of outlets. Topic labels come from keywords.
+        {' '}<a href="/news/sources/">Read the full method.</a>
+      </p>
+      <ShareLinks url={abs} title={title} />
+    </section>
+
+    <nav class="pager" aria-label="Other weekly briefs">
+      {older && <a class="btn cut press fill-paper" href={weekUrl(older.key)} rel="prev">← {weekRange(older)}</a>}
+      <a class="btn cut press fill-paper" href="/news/weekly/">All briefs</a>
+      {newer && <a class="btn cut press fill-paper" href={weekUrl(newer.key)} rel="next">{weekRange(newer)} →</a>}
+    </nav>
+   </div>
+  </div>
+  <NewsClock />
+</BaseLayout>
+
+<style>
+  .kicker { font-family: var(--font-display); font-weight: 800; font-size: var(--step--1) !important; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 1.25rem !important; }
+  .page-hero h1 { margin-top: 0.4rem; text-wrap: balance; }
+  .lede { font-size: var(--step-1); }
+  .hero { display: grid; gap: 2rem; align-items: end; }
+  @media (min-width: 62rem) { .hero { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 3rem; } }
+  .stats { --c: 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(6.5rem, 1fr)); gap: 1rem 1.5rem; padding: 1.4rem 1.6rem; }
+  .stats dt { font-size: var(--step--1); font-weight: 700; line-height: 1.2; }
+  .stats dd { margin: 0.25rem 0 0; font-family: var(--font-display); font-weight: 800; font-size: var(--step-4); line-height: 1.05; }
+  .partial { --c: 8px; display: inline-block; margin-top: 1.25rem; padding: 0.4rem 0.9rem; font-size: var(--step--1) !important; max-width: none !important; color: var(--ink) !important; }
+  .layout { margin-top: 2.5rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem 3.5rem; align-items: start; }
+  @media (min-width: 62rem) { .layout { grid-template-columns: 15rem minmax(0, 1fr); } .jump { position: sticky; top: 1.5rem; } }
+  .body { display: grid; gap: clamp(2.5rem, 5vw, 4rem); }
+  .jump { border: var(--bw) solid var(--ink); background: var(--paper); padding: 1rem 1.1rem; }
+  .jump-title { font-family: var(--font-display); font-weight: 800; font-size: var(--step-0); }
+  .jump ul { margin: 0.5rem 0 1.25rem; display: grid; gap: 0.2rem; font-weight: 700; font-size: var(--step--1); }
+  .jump ul:last-child { margin-bottom: 0; }
+  .jump a { display: block; padding: 0.25rem 0.35rem; text-decoration: none; border: 2px solid transparent; }
+  .jump a:hover { border-color: var(--ink); background: var(--signal); }
+  .section-title { font-size: var(--step-3); font-weight: 800; }
+  .blurb { color: var(--muted); margin: 0.25rem 0 0.75rem; }
+  .note { padding: 1.25rem 1.5rem; }
+  .note h2 { font-size: var(--step-1); font-weight: 800; margin-bottom: 0.5rem; }
+  .top { display: grid; margin-top: 0.75rem; }
+  .top li { display: grid; grid-template-columns: 3rem 1fr; gap: 0.75rem; align-items: start; }
+  .rank { font-family: var(--font-display); font-weight: 800; font-size: var(--step-3); line-height: 1; padding-top: 1rem; }
+  .reach { font-size: var(--step--1); font-weight: 700; margin: -0.5rem 0 0.5rem; }
+  .related { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); gap: 1.75rem; margin-top: 1.25rem; }
+  .cite p { margin-top: 0.75rem; max-width: var(--measure); overflow-wrap: anywhere; }
+  .how { color: var(--muted); font-size: var(--step--1); }
+  .pager { display: flex; justify-content: flex-start; align-items: center; gap: 1rem; flex-wrap: wrap; }
+</style>

@@ -1,0 +1,71 @@
+---
+import { formatShort, formatTime, kindLabel, linkRel, sourceName, swatchFor, sourceMap, topicMeta, topicSwatch, topicUrl, type NewsItem } from '../lib/news';
+
+interface Props {
+  item: NewsItem;
+  /** Other outlets that ran the same story. */
+  also?: { title: string; url: string; source: string }[];
+  showTopic?: boolean;
+  showTime?: boolean;
+  /** Show the calendar date ("Nov 11") instead of the clock time. */
+  dateOnly?: boolean;
+  /** Use h3 for the headline (default) or h4 when nested one level deeper. */
+  level?: 3 | 4;
+}
+const { item, also = [], showTopic = true, showTime = true, dateOnly = false, level = 3 } = Astro.props;
+const H = `h${level}` as 'h3' | 'h4';
+const kind = sourceMap.get(item.source)?.kind ?? 'publication';
+const topic = topicMeta(item.topic);
+---
+
+<article class="news-row">
+  <div class="news-meta">
+    <span class:list={['news-source', 'cut', 'cut--sm', `fill-${swatchFor(kind)}`]} title={kindLabel(item.source)}>{sourceName(item.source)}</span>
+    {
+      showTime && (
+        <time datetime={item.published} {...(dateOnly ? {} : { 'data-rel': '' })}>
+          {dateOnly ? formatShort(item.published) : formatTime(item.published)}
+        </time>
+      )
+    }
+    {
+      showTopic && topic.id !== 'general' && (
+        <a class:list={['news-topic', 'cut', 'cut--sm', `fill-${topicSwatch(topic.id)}`]} href={topicUrl(topic.id)}>
+          {topic.label}
+        </a>
+      )
+    }
+  </div>
+  <H class="news-title">
+    <a href={item.url} rel={linkRel(item.source)} target="_blank">{item.title}</a>
+  </H>
+  {item.summary && <p class="news-summary">{item.summary}</p>}
+  {
+    also.length > 0 && (
+      <p class="news-also">
+        Also reported by{' '}
+        {also.slice(0, 4).map((a, i) => (
+          <>
+            {i > 0 && ', '}
+            <a href={a.url} rel={linkRel(a.source)} target="_blank">{sourceName(a.source)}</a>
+          </>
+        ))}
+        {also.length > 4 && ` and ${also.length - 4} more`}
+      </p>
+    )
+  }
+</article>
+
+<style>
+  .news-row { padding-block: 1rem; border-top: 2px solid var(--ink); }
+  .news-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; font-size: var(--step--1); font-family: var(--font-display); font-weight: 600; }
+  .news-source, .news-topic { --c: 8px; padding: 0.1rem 0.6rem; text-decoration: none; font-weight: 700; }
+  .news-topic:hover { text-decoration: underline; }
+  time { color: var(--muted); font-family: var(--font-code); font-size: 0.8rem; font-weight: 400; }
+  .news-title { font-family: var(--font-display); font-weight: 800; font-size: var(--step-1); line-height: 1.12; margin-top: 0.45rem; text-wrap: balance; }
+  .news-title a { text-decoration: none; }
+  .news-title a:hover { background: var(--signal); }
+  .news-summary { margin-top: 0.4rem; max-width: var(--measure); color: #26231f; }
+  .news-also { margin-top: 0.35rem; font-size: var(--step--1); color: var(--muted); }
+  .news-also a { text-decoration-thickness: 1px; text-underline-offset: 3px; }
+</style>

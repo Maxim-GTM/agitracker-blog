@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { breadcrumbs, collectionPage } from '../../../lib/schema';
+import { getBriefs, sourceName, topicMeta, weekRange, weekUrl } from '../../../lib/news';
+
+const briefs = getBriefs();
+const title = 'AI Weekly Brief: Every Week’s Top AI News';
+const description =
+  'One page per week: the top AI stories from labs, publications and newswires, grouped by topic and ranked by how many outlets covered them. Free, with RSS and JSON.';
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'AI News', url: '/news/' },
+  { name: 'Weekly briefs', url: '/news/weekly/' },
+];
+const swatches = ['signal', 'sun', 'lilac', 'sky', 'rose'];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  schema={[collectionPage({ url: '/news/weekly/', name: title, description, items: briefs.map((b) => weekUrl(b.key)) }), breadcrumbs(crumbs)]}
+>
+  <Fragment slot="head">
+    <link rel="alternate" type="application/rss+xml" title="agitracker.io AI Weekly Brief" href="/news/weekly/rss.xml" />
+  </Fragment>
+  <header class="page-hero wrap">
+    <Breadcrumbs items={crumbs} />
+    <h1>AI Weekly Brief</h1>
+    <p>
+      The week in AI on one page: the top stories, what each lab announced, and what the press covered, with every link going to
+      the original source.
+    </p>
+    <div class="actions">
+      <a class="btn cut press fill-signal" href="/news/weekly/rss.xml">Subscribe by RSS</a>
+      <a class="btn cut press fill-paper" href="/news/">Live news feed</a>
+    </div>
+  </header>
+  <section class="section wrap" aria-label="All weekly briefs">
+    {
+      briefs.length === 0 ? (
+        <p>The first brief appears as soon as a week has enough stories.</p>
+      ) : (
+        <ul class="grid" role="list">
+          {briefs.map((b, i) => (
+            <li>
+              <a class:list={['card', 'cut', 'press', `fill-${swatches[i % swatches.length]}`]} href={weekUrl(b.key)}>
+                <span class="range">{b.live ? 'This week · ' : ''}{weekRange(b)}</span>
+                <span class="head">{b.top[0]?.lead.title}</span>
+                <span class="meta">
+                  {b.stats.stories} stories · {b.stats.sources} sources · led by {sourceName(b.top[0]?.lead.source ?? '')}
+                </span>
+                <span class="meta">{b.sections.slice(0, 3).map((s) => topicMeta(s.topic).label).join(' · ')}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </section>
+</BaseLayout>
+
+<style>
+  .actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.75rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr)); gap: 1.75rem; }
+  .card { --c: 16px; display: flex; flex-direction: column; gap: 0.6rem; min-height: 12rem; padding: 1.5rem; text-decoration: none; color: inherit; }
+  .range { font-family: var(--font-display); font-weight: 800; font-size: var(--step-1); }
+  .head { font-weight: 700; line-height: 1.25; }
+  .meta { margin-top: auto; font-size: var(--step--1); font-weight: 700; }
+  .head + .meta { margin-top: auto; }
+</style>

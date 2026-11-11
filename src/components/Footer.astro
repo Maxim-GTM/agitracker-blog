@@ -19,7 +19,9 @@ const year = new Date().getFullYear();
       <ul role="list">
         <li><a href="/">Home</a></li>
         {NAV.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+        <li><a href="/news/weekly/">Weekly brief</a></li>
         <li><a href="/rss.xml">RSS feed</a></li>
+        <li><a href="/news/rss.xml">AI news feed (RSS)</a></li>
         <li><a href="/sitemap-index.xml">Sitemap</a></li>
       </ul>
     </nav>

@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { breadcrumbs } from '../../lib/schema';
+import { KINDS, formatShort, items, sources } from '../../lib/news';
+import status from '../../data/news/status.json';
+
+const title = 'AI News Sources and Method';
+const description = `The ${sources.length} feeds behind the agitracker.io AI news feed and weekly brief, how headlines are collected, filtered, grouped and ranked, and what we do not copy.`;
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'AI News', url: '/news/' },
+  { name: 'Sources', url: '/news/sources/' },
+];
+const groups = Object.entries(KINDS).map(([kind, meta]) => ({
+  kind,
+  label: meta.label,
+  list: sources.filter((s) => s.kind === kind),
+}));
+const statusOf = status.sources as Record<string, { newest: string | null; items: number }>;
+const total = items.length;
+---
+
+<BaseLayout title={title} description={description} schema={[breadcrumbs(crumbs)]}>
+  <header class="page-hero wrap">
+    <Breadcrumbs items={crumbs} />
+    <h1>Sources and method</h1>
+    <p>Where the AI news feed comes from, and exactly what it does with it.</p>
+  </header>
+
+  <div class="wrap body">
+    <section aria-labelledby="method-h">
+      <h2 id="method-h" class="section-title">How it works</h2>
+      <ol class="steps">
+        <li><strong>Collect.</strong> About every 30 minutes, each source’s public RSS or Atom feed is requested once, with a descriptive user agent.</li>
+        <li><strong>Filter.</strong> Feeds that cover more than AI (general tech news, company blogs, press-release wires) are filtered by AI terms; wires must mention AI in the headline.</li>
+        <li><strong>Store only the minimum.</strong> Headline, link, time, source and an excerpt of at most 220 characters taken from the feed. No article bodies and no images are copied. Every headline links to the original.</li>
+        <li><strong>De-duplicate and group.</strong> Tracking parameters are removed from links, and near-identical headlines from different outlets are grouped into one story.</li>
+        <li><strong>Rank.</strong> In the weekly brief, a story scores higher when it comes from a lab or company directly, and when more independent outlets reported it. Press releases are listed separately.</li>
+        <li><strong>Label.</strong> Topics are assigned by keyword rules. They are a convenience and will sometimes be wrong.</li>
+      </ol>
+      <p class="note">
+        Links to press-release wires are marked <code>nofollow</code> because those releases are written and paid for by the issuing
+        company. Inclusion of a source or story is not an endorsement. {total} headlines are currently held in the rolling window; completed weeks are archived as briefs.
+      </p>
+    </section>
+
+    {
+      groups.filter((g) => g.list.length).map((g) => (
+        <section aria-labelledby={`${g.kind}-h`}>
+          <h2 id={`${g.kind}-h`} class="section-title">{g.label}s <span class="count">{g.list.length}</span></h2>
+          <ul class="list" role="list">
+            {g.list.map((s) => (
+              <li>
+                <a href={s.site} rel="noopener noreferrer" target="_blank">{s.name}</a>
+                <span class="seen">
+                  {statusOf[s.id]?.newest ? `latest ${formatShort(statusOf[s.id].newest as string)}` : 'no recent items'}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+
+    <section aria-labelledby="gaps-h">
+      <h2 id="gaps-h" class="section-title">Not covered yet</h2>
+      <p>
+        Some organisations publish no public RSS feed (several frontier labs among them), and some newswires block automated clients.
+        They are skipped rather than scraped, so their announcements appear here only when another source in the list reports them.
+      </p>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .body > * { max-width: 62rem; }
+  .body { margin-top: 2rem; display: grid; gap: clamp(2rem, 4vw, 3rem); }
+  .section-title { font-size: var(--step-2); font-weight: 800; }
+  .count { font-family: var(--font-code); font-size: var(--step--1); color: var(--muted); font-weight: 400; }
+  .steps { margin-top: 1rem; padding-left: 1.4rem; display: grid; gap: 0.6rem; max-width: var(--measure); list-style: decimal; }
+  .note, section > p { margin-top: 1rem; max-width: var(--measure); }
+  .note { color: var(--muted); font-size: var(--step--1); }
+  .list { margin-top: 0.75rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); gap: 0.4rem 2rem; }
+  .list li { display: flex; justify-content: space-between; gap: 1rem; border-bottom: 1px solid var(--ink); padding-block: 0.35rem; }
+  .list a { font-weight: 700; }
+  .seen { font-family: var(--font-code); font-size: 0.8rem; color: var(--muted); white-space: nowrap; }
+</style>

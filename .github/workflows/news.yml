@@ -1,0 +1,45 @@
+# Refreshes the AI news data every 30 minutes. A commit to main triggers the normal
+# Cloudflare build and deploy, so the static site is rebuilt with the new headlines.
+name: Refresh AI news
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: news-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Fetch feeds
+        run: npm run news:fetch
+      - name: Validate data
+        run: npm run news:check
+      - name: Commit changes
+        run: |
+          git config user.name "agitracker-news[bot]"
+          git config user.email "news-bot@users.noreply.github.com"
+          git add src/data/news/items.json src/data/news/status.json src/data/news/weeks
+          if git diff --cached --quiet; then
+            echo "No news changes."
+          else
+            git commit -m "Refresh AI news"
+            git pull --rebase origin main
+            git push origin main
+          fi

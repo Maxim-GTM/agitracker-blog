@@ -18,6 +18,9 @@ const dataLastmod = new Map(
     .map((d) => [d.slug, new Date(d.updated).toISOString()]),
 );
 
+// News pages take <lastmod> from the last time the news data actually changed.
+const newsUpdated = new Date(JSON.parse(readFileSync('src/data/news/status.json', 'utf8')).updatedAt ?? Date.now()).toISOString();
+
 export default defineConfig({
   site: SITE,
   trailingSlash: 'always',
@@ -35,6 +38,7 @@ export default defineConfig({
         if (slug && posts.lastmod.has(slug)) item.lastmod = posts.lastmod.get(slug);
         const dataSlug = item.url.match(/\/data\/([^/]+)\/$/)?.[1];
         if (dataSlug && dataLastmod.has(dataSlug)) item.lastmod = dataLastmod.get(dataSlug);
+        if (/\/news\/(?:$|topic\/|weekly\/(?:$|\d{4}-w\d{2}\/))/.test(item.url)) item.lastmod = newsUpdated;
         return item;
       },
     }),

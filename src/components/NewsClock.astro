@@ -1,0 +1,20 @@
+---
+// Turns <time data-rel> stamps into "12 min ago" in the reader's browser. Static HTML stays crawlable;
+// without JavaScript the UTC time is shown instead.
+---
+
+<script>
+  const fmt = new Intl.RelativeTimeFormat('en', { numeric: 'auto', style: 'short' });
+  function tick() {
+    const now = Date.now();
+    document.querySelectorAll<HTMLTimeElement>('time[data-rel]').forEach((el) => {
+      const diff = (new Date(el.dateTime).getTime() - now) / 1000;
+      const abs = Math.abs(diff);
+      if (abs > 86400 * 2) return;
+      el.textContent = abs < 3600 ? fmt.format(Math.round(diff / 60), 'minute') : fmt.format(Math.round(diff / 3600), 'hour');
+      el.title = new Date(el.dateTime).toUTCString();
+    });
+  }
+  tick();
+  setInterval(tick, 60_000);
+</script>
