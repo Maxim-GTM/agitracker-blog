@@ -1,6 +1,6 @@
 {
  "coverageStart": "2026-11-11T20:28:40.240Z",
- "updatedAt": "2026-11-11T20:36:11.094Z",
+ "updatedAt": "2026-11-11T21:05:50.806Z",
  "sources": {
   "openai": {
    "failing": false,
@@ -49,8 +49,8 @@
   },
   "aws-ml": {
    "failing": false,
-   "items": 20,
-   "newest": "2026-11-11T19:19:21.000Z"
+   "items": 22,
+   "newest": "2026-11-11T20:52:48.000Z"
   },
   "amazon-innovation": {
    "failing": false,
@@ -134,8 +134,8 @@
   },
   "marktechpost": {
    "failing": false,
-   "items": 10,
-   "newest": "2026-11-11T15:51:14.000Z"
+   "items": 11,
+   "newest": "2026-11-11T20:51:56.000Z"
   },
   "zdnet-ai": {
    "failing": false,
@@ -164,8 +164,8 @@
   },
   "axios": {
    "failing": false,
-   "items": 21,
-   "newest": "2026-11-11T18:03:34.000Z"
+   "items": 22,
+   "newest": "2026-11-11T20:59:02.000Z"
   },
   "sciencedaily-ai": {
    "failing": false,
@@ -199,8 +199,8 @@
   },
   "prnewswire": {
    "failing": false,
-   "items": 0,
-   "newest": null
+   "items": 2,
+   "newest": "2026-11-11T21:05:00.000Z"
   },
   "newswire-com": {
    "failing": false,

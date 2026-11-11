@@ -1,0 +1,16 @@
+// Cron Worker that refreshes the AI news data (see index.mjs). Deployed separately from the site:
+//   npx wrangler deploy -c workers/news-cron/wrangler.jsonc
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "agitracker-news-cron",
+  "main": "index.mjs",
+  "compatibility_date": "2026-09-18",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false,
+  "preview_urls": false,
+  "triggers": { "crons": ["*/30 * * * *"] },
+  "vars": { "GITHUB_REPO": "Maxim-GTM/agitracker-blog", "GITHUB_BRANCH": "main" },
+  // Parsing ~40 feeds takes real CPU time; the Workers default is far lower.
+  "limits": { "cpu_ms": 60000 },
+  "observability": { "enabled": true }
+}

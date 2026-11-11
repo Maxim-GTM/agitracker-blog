@@ -83,18 +83,30 @@ Cards show the real update date when present, otherwise the original publication
 
 ## AI news feed and weekly brief
 
-`/news/` is a near-real-time AI headline feed built from the public RSS/Atom feeds of AI labs, companies, publications, research groups, newsletters and press-release wires. `/news/weekly/` turns each week into a ranked brief with its own page, social card, RSS entry and JSON export. The site stays fully static: a scheduled job refreshes the data and the normal deploy rebuilds the pages.
+`/news/` is a near-real-time AI headline feed built from the public RSS/Atom feeds of AI labs, companies, publications, research groups, newsletters and press-release wires. `/news/weekly/` turns each week into a ranked brief with its own page, social card, RSS entry and JSON export. The site stays fully static: a Cloudflare cron Worker refreshes the data every 30 minutes by committing it to `main`, and the normal Cloudflare build rebuilds the pages.
 
 | What | Where |
 | --- | --- |
 | Source list (feed URL, kind, AI-only or filtered) | `src/data/news/sources.json` |
-| Fetcher: parse, filter, de-duplicate, classify, freeze finished weeks | `scripts/fetch-news.mjs` (`npm run news:fetch`) |
+| Pipeline: fetch, parse, filter, de-duplicate, classify, freeze finished weeks | `scripts/news-pipeline.mjs` |
+| Local run of the pipeline | `scripts/fetch-news.mjs` (`npm run news:fetch`, `-- --dry` to preview) |
 | Ranking, clustering, topic rules, ISO weeks (shared by fetcher and pages) | `scripts/news-core.mjs` |
 | Rolling window of headlines (35 days), source health, frozen weekly briefs | `src/data/news/items.json`, `status.json`, `weeks/` |
 | Validation (`npm run news:check`; `--strict` also fails on stale data) | `scripts/check-news.mjs` |
 | Pages: feed, topics, weekly index and briefs, sources and method | `src/pages/news/` |
 | Feeds: `/news/rss.xml` (live), `/news/weekly/rss.xml` (one entry per brief), `/news/weekly/<week>.json` | `src/pages/news/` |
-| Refresh every 30 minutes, commit to `main` only when data changed | `.github/workflows/news.yml` |
+| Cron Worker: runs the pipeline every 30 minutes, makes one commit to `main` only when data changed | `workers/news-cron/` |
+
+**Cron Worker (Cloudflare).** `workers/news-cron` is its own Worker (`agitracker-news-cron`, no public URL) and is *not* deployed by the site's build. It reads the current data from the repo, runs the pipeline and writes changes back in a single commit through the GitHub API; that push triggers the site's normal build. Needs a Workers plan that allows raised CPU limits.
+
+```sh
+export CLOUDFLARE_ACCOUNT_ID=8b4e3b1740569d6c2009ab78a4fbb75b
+npx wrangler deploy -c workers/news-cron/wrangler.jsonc        # after changing Worker or pipeline code
+npx wrangler secret put GITHUB_TOKEN -c workers/news-cron/wrangler.jsonc   # fine-grained PAT, this repo only, Contents: read and write
+npx wrangler tail agitracker-news-cron                         # watch runs; "Committed <sha>" means it worked
+```
+
+Source list changes (`sources.json`) need no Worker redeploy: the Worker reads it from the repo on every run. Without `GITHUB_TOKEN` the Worker only does a dry run and commits nothing. If `main` moves during a run the push is rejected and the next run retries from the new head. Each commit that changes headlines triggers a site build, so expect up to about 48 builds a day.
 
 **Add or remove a source:** edit `sources.json` (never delete a source that appears in a frozen week; leave it in place). Use `"aiOnly": true` for feeds that are already about AI, `false` for general feeds (filtered by AI terms) and add `"strict": true` for wires (AI term required in the headline). Run `npm run news:fetch -- --dry` to see what each feed would contribute.
 
